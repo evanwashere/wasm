@@ -1,1 +1,1 @@
-all other wasm modules were bad or leaked memory, so I made my own :)
+all other wasm modules were slow or/and leaked memory, so I made my own :)
