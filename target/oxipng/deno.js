@@ -27,9 +27,6 @@ export function optimize(buffer, level) {
     const slice = ptr_to_u8array(i32[0], i32[1]).slice();
     return (wasm.__wbindgen_free(i32[0], i32[1]), slice);
   } catch {
-    const i32 = new Int32Array(wasm.memory.buffer, 8, 2);
-
-    console.log(i32, ptr);
     wasm.__wbindgen_free(ptr, buffer.length);
 
     throw new Error('oxipng: panic');
