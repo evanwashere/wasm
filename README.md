@@ -1,0 +1,1 @@
+all other wasm modules were bad or leaked memory, so I made my own :)
