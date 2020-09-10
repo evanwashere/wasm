@@ -1,9 +1,12 @@
-// import fs from 'fs';
-// import fetch from 'node-fetch';
+import * as lz4 from './target/lz4/deno.js';
 import * as oxipng from './target/oxipng/deno.js';
 import * as search from './target/search/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
+
+// import fs from 'fs';
+// import fetch from 'node-fetch';
+// import * as lz4 from './target/lz4/node.mjs';
 // import * as oxipng from './target/oxipng/node.mjs';
 // import * as search from './target/search/node.mjs';
 // import * as snappy from './target/snappy/node.mjs';
@@ -19,6 +22,13 @@ import * as fasteval from './target/fasteval/deno.js';
   let x;
   console.log(`${'5' === (x = fasteval.evaluate('2 + 3'))}: ${x}`);
 }
+
+{
+  let s = `hi hello ${'a'.repeat(200)}`;
+  const a = lz4.compress(Deno.core.encode(s));
+  console.log(a, s === Deno.core.decode(lz4.decompress(a)));
+}
+
 
 {
   let s = `hi hello ${'a'.repeat(200)}`;
