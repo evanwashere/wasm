@@ -1,4 +1,4 @@
 dev/
-test*.png
+test*.*
 node_modules/
 package-lock.json
