@@ -72,9 +72,9 @@ export function load(id, buffer, scale = 128) {
 }
 
 const nullish = x => x == null;
-export function render(ptr, id, scale, r, g, b, text, max_width) {
+export function render(ptr, id, scale, r, g, b, text, max_width, wrap_style = false) {
   const str = string_to_ptr(text);
-  wasm.render(ptr, id, scale, r, g, b, str[0], str[1], !nullish(max_width), max_width || 0);
+  wasm.render(ptr, id, scale, r, g, b, str[0], str[1], !nullish(max_width), max_width || 0, wrap_style);
 }
 
 export function meta(id) {
