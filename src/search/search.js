@@ -2,9 +2,7 @@ let wasm;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
-  const instance = new WebAssembly.Instance(module, {
-    env: { memory: new WebAssembly.Memory({ initial: 10 }) },
-  });
+  const instance = new WebAssembly.Instance(module);
 
   wasm = instance.exports;
 }
