@@ -46,12 +46,28 @@ function sha2_256(buffer) {
   return (wasm.free(p, 32), slice);
 }
 
+function sha2_512(buffer) {
+  const ptr = u8array_to_ptr(buffer);
+  const p = wasm.sha2_512(ptr, buffer.length);
+  const slice = ptr_to_u8array(p, 64).slice();
+
+  return (wasm.free(p, 64), slice);
+}
+
 function sha3_256(buffer) {
   const ptr = u8array_to_ptr(buffer);
   const p = wasm.sha3_256(ptr, buffer.length);
   const slice = ptr_to_u8array(p, 32).slice();
 
   return (wasm.free(p, 32), slice);
+}
+
+function sha3_512(buffer) {
+  const ptr = u8array_to_ptr(buffer);
+  const p = wasm.sha3_512(ptr, buffer.length);
+  const slice = ptr_to_u8array(p, 64).slice();
+
+  return (wasm.free(p, 64), slice);
 }
 
 function blake3(buffer) {
@@ -80,11 +96,20 @@ function blake2_b256(buffer) {
   return (wasm.free(p, 32), slice);
 }
 
+function blake2_b512(buffer) {
+  const ptr = u8array_to_ptr(buffer);
+  const p = wasm.blake2_b512(ptr, buffer.length);
+
+  const slice = ptr_to_u8array(p, 64).slice();
+
+  return (wasm.free(p, 64), slice);
+}
+
 export const hash = {
   md5,
   sha1,
   blake3,
-  sha2: { sha256: sha2_256 },
-  sha3: { sha256: sha3_256 },
-  blake2: { s256: blake2_s256, b256: blake2_b256 },
+  sha2: { sha256: sha2_256, sha512: sha2_512 },
+  sha3: { sha256: sha3_256, sha512: sha3_512 },
+  blake2: { s256: blake2_s256, b256: blake2_b256, b512: blake2_b512 },
 };

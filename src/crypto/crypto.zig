@@ -25,8 +25,16 @@ export fn sha2_256(ptr: u32, len: usize) u32 {
   return hash_to(hash.sha2.Sha256, 32, ptr, len);
 }
 
+export fn sha2_512(ptr: u32, len: usize) u32 {
+  return hash_to(hash.sha2.Sha512, 64, ptr, len);
+}
+
 export fn sha3_256(ptr: u32, len: usize) u32 {
   return hash_to(hash.sha3.Sha3_256, 32, ptr, len);
+}
+
+export fn sha3_512(ptr: u32, len: usize) u32 {
+  return hash_to(hash.sha3.Sha3_512, 64, ptr, len);
 }
 
 
@@ -40,6 +48,10 @@ export fn blake2_s256(ptr: u32, len: usize) u32 {
 
 export fn blake2_b256(ptr: u32, len: usize) u32 {
   return hash_to(hash.blake2.Blake2b256, 32, ptr, len);
+}
+
+export fn blake2_b512(ptr: u32, len: usize) u32 {
+  return hash_to(hash.blake2.Blake2b512, 64, ptr, len);
 }
 
 

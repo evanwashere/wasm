@@ -105,7 +105,10 @@ crypto: {
   console.log(zcrypto.hash.sha1(bytes));
   console.log(zcrypto.hash.blake3(bytes));
   console.log(zcrypto.hash.sha2.sha256(bytes));
+  console.log(zcrypto.hash.sha2.sha512(bytes));
   console.log(zcrypto.hash.sha3.sha256(bytes));
+  console.log(zcrypto.hash.sha3.sha512(bytes));
   console.log(zcrypto.hash.blake2.s256(bytes));
   console.log(zcrypto.hash.blake2.b256(bytes));
+  console.log(zcrypto.hash.blake2.b512(bytes));
 }
