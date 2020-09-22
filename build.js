@@ -1,4 +1,4 @@
-import { encode } from "https://deno.land/std@0.68.0/encoding/base64.ts";
+import { encode } from "https://deno.land/std@0.70.0/encoding/base64.ts";
 
 const key = 'WASM_BYTES';
 for await (const dir of Deno.readDir('./src')) {
