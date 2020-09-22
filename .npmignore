@@ -1,4 +1,4 @@
-test.js
+test*.*
 build.js
 src/**/*.js
 src/**/*.rs
