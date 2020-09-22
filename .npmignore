@@ -1,0 +1,5 @@
+test.js
+build.js
+src/**/*.js
+src/**/*.rs
+src/**/*.zig

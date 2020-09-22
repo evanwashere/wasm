@@ -1,0 +1,12 @@
+{
+  "license": "MIT",
+  "version": "0.0.1",
+  "name": "@evan/wasm",
+  "description": "set of wasm modules",
+  "author": "evanwashere <evan@tsu.sh>",
+
+  "keywords": ["wasm", "webassembly"],
+  "homepage": "https://github.com/evanwashere/wasm#readme",
+  "bugs": { "url": "https://github.com/evanwashere/wasm/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/evanwashere/wasm.git" }
+}
