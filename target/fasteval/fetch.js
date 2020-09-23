@@ -1,7 +1,7 @@
 let wasm;
 
 {
-  const module = new WebAssembly.Module(await (await fetch('https://unpkg.com/@evan/wasm@0.0.7/src/fasteval/fasteval.wasm')).arrayBuffer());
+  const module = new WebAssembly.Module(await (await fetch('https://unpkg.com/@evan/wasm@0.0.8/src/fasteval/fasteval.wasm')).arrayBuffer());
   const instance = new WebAssembly.Instance(module, {
     env: { _ZN4core9panicking18panic_bounds_check17h4341c815a48ae38cE() { } },
   });
