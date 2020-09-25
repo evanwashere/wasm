@@ -1,7 +1,7 @@
 let wasm;
 
 {
-  const module = new WebAssembly.Module(await (await fetch('https://unpkg.com/@evan/wasm@0.0.9/src/zlib/zlib.wasm')).arrayBuffer());
+  const module = new WebAssembly.Module(await (await fetch('https://unpkg.com/@evan/wasm@0.0.10/src/zlib/zlib.wasm')).arrayBuffer());
   const instance = new WebAssembly.Instance(module);
 
   wasm = instance.exports;
