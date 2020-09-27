@@ -1,7 +1,10 @@
 import { encode } from "https://deno.land/std@0.70.0/encoding/base64.ts";
 const { version } = JSON.parse(Deno.core.decode(await Deno.readFile('./package.json')));
 
+
 const key = 'WASM_BYTES';
+await Deno.mkdir(`./target`).catch(() => { });
+
 for await (const dir of Deno.readDir('./src')) {
   console.log(`building ${dir.name}`);
   const wasm = encode(await Deno.readFile(`./src/${dir.name}/${dir.name}.wasm`));
