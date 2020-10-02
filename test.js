@@ -44,6 +44,7 @@ lz4: {
   let s = `hi hello ${'a'.repeat(200)}`;
   const a = lz4.compress(Deno.core.encode(s));
   console.log(a, s === Deno.core.decode(lz4.decompress(a)));
+  if (lz4.decompress(a).length !== lz4.decompress_with(a, slice => slice.length)) throw new Error('lz4: zero copy failed');
 }
 
 
@@ -55,6 +56,7 @@ snappy: {
 
   console.log(a, b);
   console.log(s === Deno.core.decode(snappy.decompress(a)), s === Deno.core.decode(snappy.decompress_raw(b)));
+  if (snappy.decompress(a).length !== snappy.decompress_with(a, slice => slice.length)) throw new Error('snappy: zero copy failed');
 }
 
 zlib: {
@@ -67,6 +69,7 @@ zlib: {
   console.log(s === Deno.core.decode(zlib.decompress(a)), s === Deno.core.decode(zlib.decompress_raw(b)));
 
   try { zlib.decompress(a, 5) } catch { console.log('zlib decompress limit working') }
+  if (zlib.decompress(a).length !== zlib.decompress_with(a, 0, slice => slice.length)) throw new Error('zlib: zero copy failed');
 }
 
 search: {
