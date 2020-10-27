@@ -1,5 +1,5 @@
 use wasm_bindgen::prelude::*;
-use lz4_compression::prelude::{compress as pack, decompress as unpack};
+use lz4_flex::{compress_prepend_size as pack, decompress_size_prepended as unpack};
 
 #[wasm_bindgen]
 pub fn compress(buffer: &[u8]) -> Vec<u8> {
