@@ -62,6 +62,7 @@ fn hash_to(comptime h: type, comptime out_len: u8, ptr: u32, len: usize) u32 {
   errdefer allocator.free(in);
   const out = allocator.alloc(u8, out_len) catch return 0;
 
-  h.hash(in, out[0..], .{});
+  h.hash(in, out[0..out_len], .{});
+
   return @ptrToInt(out.ptr);
 }
