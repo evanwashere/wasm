@@ -1,4 +1,5 @@
 import * as lz4 from './target/lz4/deno.js';
+import * as nacl from './target/nacl/deno.js';
 import * as zlib from './target/zlib/deno.js';
 import * as oxipng from './target/oxipng/deno.js';
 import * as search from './target/search/deno.js';
@@ -9,6 +10,7 @@ import * as fasteval from './target/fasteval/deno.js';
 // import fs from 'fs';
 // import fetch from 'node-fetch';
 // import * as lz4 from './target/lz4/node.mjs';
+// import * as nacl from './target/nacl/node.mjs';
 // import * as zlib from './target/zlib/node.mjs';
 // import * as oxipng from './target/oxipng/node.mjs;
 // import * as search from './target/search/node.mjs';
@@ -24,6 +26,7 @@ import * as fasteval from './target/fasteval/deno.js';
 
 const skip = {
   lz4: false,
+  nacl: false,
   zlib: false,
   snappy: false,
   search: false,
@@ -37,6 +40,22 @@ fasteval: {
 
   let x;
   console.log(`${'5' === (x = fasteval.evaluate('2 + 3'))}: ${x}`);
+}
+
+nacl: {
+  if (skip.nacl) break nacl;
+  const x = crypto.getRandomValues(new Uint8Array(1024));
+
+  const key = x.subarray(0, nacl.secretbox.key_length);
+  const nonce = x.subarray(0, nacl.secretbox.nonce_length);
+
+  const sealed = nacl.secretbox.seal(x, key, nonce);
+  const unsealed = nacl.secretbox.open(sealed, key, nonce);
+
+  let i = 0;
+  while (i < 1024) {
+    if (x[i] !== unsealed[i++]) throw 'nacl secretbox broken';
+  }
 }
 
 lz4: {
@@ -91,7 +110,7 @@ oxipng: {
 
   let x;
   let i = 1
-  const image = new Uint8Array(await(await fetch('https://tsu.sh/boncg4b59kq.png')).arrayBuffer());
+  const image = new Uint8Array(await (await fetch('https://tsu.sh/boncg4b59kq.png')).arrayBuffer());
 
   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
