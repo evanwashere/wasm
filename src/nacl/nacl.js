@@ -22,6 +22,26 @@ function u8array_to_ptr(buffer) {
   return (u8array().set(buffer, ptr), ptr);
 }
 
+function sign_verify(key, sig, buffer) {
+  const sptr = u8array_to_ptr(sig);
+  const kptr = u8array_to_ptr(key);
+  const ptr = u8array_to_ptr(buffer);
+  return !!wasm.sign_verify(ptr, buffer.length, sptr, kptr);
+}
+
+function sign_sign(key, buffer, noise) {
+  let p;
+  const kptr = u8array_to_ptr(key);
+  const ptr = u8array_to_ptr(buffer);
+  if (!noise) p = wasm.sign_sign(ptr, buffer.length, kptr, 0);
+  else p = wasm.sign_sign(ptr, buffer.length, kptr, u8array_to_ptr(noise));
+
+  if (1 === p) throw new Error('nacl: failed to sign buffer');
+  const slice = ptr_to_u8array(p, sign.signature_length).slice();
+
+  return (wasm.free(p, sign.signature_length), slice);
+}
+
 function sbox_open(key, nonce, buffer) {
   const kptr = u8array_to_ptr(key);
   const nptr = u8array_to_ptr(nonce);
@@ -58,3 +78,19 @@ export class secretbox {
     return sbox_seal(key, nonce, buffer);
   }
 };
+
+export class sign {
+  // static seed_length = 32;
+  // static noise_length = 32;
+  static signature_length = 64;
+  static public_key_length = 32;
+  static secret_key_length = 64;
+
+  static verify(key, sig, buffer) {
+    return sign_verify(key, sig, buffer);
+  }
+
+  static sign(key, buffer, noise) {
+    return sign_sign(key, buffer, noise);
+  }
+}
