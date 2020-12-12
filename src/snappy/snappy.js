@@ -38,14 +38,12 @@ function u8array_to_ptr(buffer) {
   return (u8array().set(buffer, ptr), ptr);
 }
 
+let decompress_resolver = null;
 function decompress_resolve(buffer) {
   decompress_resolver(buffer.slice());
 }
 
-// !
-let decompress_resolver = null;
-function push_to_stream(id, buffer) { streams.get(id).cb(buffer.slice()); }
-// !deno
+function push_to_stream(id, buffer) { streams.get(id).cb(buffer.slice()); } // !deno
 
 
 export function decompress(buffer) {
