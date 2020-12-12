@@ -2,7 +2,7 @@ let wasm;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
-  const instance = new WebAssembly.Instance(module);
+  const instance = new WebAssembly.Instance(module, { __wbindgen_placeholder__: {} });
 
   wasm = instance.exports;
 }
