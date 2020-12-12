@@ -1,4 +1,4 @@
-import { Pool } from 'https://esm.sh/structurae@3.3.0'; // !deno
+import { Pool } from 'https://jspm.dev/structurae@3.3.0'; // !deno
 
 let wasm;
 
@@ -123,7 +123,9 @@ export class Compressor {
   }
 
   free() {
-    this.ptr = wasm.__wbg_compressor_free(this.ptr);
+    pool.free(this.id);
+    streams.delete(this.id);
+    wasm.__wbg_compressor_free(this.ptr);
   }
 
   write(buffer) {
