@@ -1,12 +1,22 @@
+import { Pool } from 'https://esm.sh/structurae@3.3.0'; // !deno
+
 let wasm;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
-  const instance = new WebAssembly.Instance(module);
+  const instance = new WebAssembly.Instance(module, {
+    __wbindgen_placeholder__: {
+      __wbindgen_throw() { throw new Error('snappy: wtf') },
+      __wbg_decompressok_e508b22a200a6458(ptr, len) { decompress_resolve(ptr_to_u8array(ptr, len)) },
+      __wbg_pushtostream_4d6316a40e73e31f(id, ptr, len) { push_to_stream(id >>> 0, ptr_to_u8array(ptr, len)) },
+    },
+  });
 
   wasm = instance.exports;
 }
 
+const streams = new Map; // !deno
+const pool = new Pool(256 * 1024); // !deno
 let u8array_ref = new Uint8Array(wasm.memory.buffer);
 let i32array_ref = new Int32Array(wasm.memory.buffer);
 
@@ -28,76 +38,99 @@ function u8array_to_ptr(buffer) {
   return (u8array().set(buffer, ptr), ptr);
 }
 
+function decompress_resolve(buffer) {
+  decompress_resolver(buffer.slice());
+}
+
+// !
+let decompress_resolver = null;
+function push_to_stream(id, buffer) { streams.get(id).cb(buffer.slice()); }
+// !deno
+
+
+export function decompress(buffer) {
+  return new Promise((ok, err) => {
+    decompress_resolver = ok;
+    const ptr = u8array_to_ptr(buffer);
+    if (0 !== wasm.decompress(ptr, buffer.length)) err(new Error('snappy: failed to decompress'));
+  });
+}
+
+export function decompress_raw(buffer) {
+  return new Promise((ok, err) => {
+    decompress_resolver = ok;
+    const ptr = u8array_to_ptr(buffer);
+    if (0 !== wasm.decompress_raw(ptr, buffer.length)) err(new Error('snappy: failed to decompress (raw)'));
+  });
+}
+
 export function compress(buffer) {
   const ptr = u8array_to_ptr(buffer);
-  wasm.compress(8, ptr, buffer.length);
+  const out = wasm.__wbindgen_export_0.value -= 16;
+
+  wasm.compress(out, ptr, buffer.length);
 
   const i32 = i32array();
-  const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-  return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
+  const offset = i32[out / 4];
+  const offset_length = i32[1 + out / 4];
+  const slice = ptr_to_u8array(offset, offset_length).slice();
+
+  wasm.__wbindgen_free(offset, offset_length);
+  return (wasm.__wbindgen_export_0.value += 16, slice);
 }
 
 export function compress_raw(buffer) {
   const ptr = u8array_to_ptr(buffer);
-  wasm.compress_raw(8, ptr, buffer.length);
+  const out = wasm.__wbindgen_export_0.value -= 16;
+
+  wasm.compress_raw(out, ptr, buffer.length);
 
   const i32 = i32array();
-  const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-  return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
+  const offset = i32[out / 4];
+  const offset_length = i32[1 + out / 4];
+  const slice = ptr_to_u8array(offset, offset_length).slice();
+
+  wasm.__wbindgen_free(offset, offset_length);
+  return (wasm.__wbindgen_export_0.value += 16, slice);
 }
 
-export function decompress(buffer) {
-  const ptr = u8array_to_ptr(buffer);
+// !
+export class CompressionStream {
+  constructor() {
+    const t = new TransformStream();
+    const writer = t.writable.getWriter();
+    const c = new Compressor(x => writer.write(x));
 
-  try {
-    wasm.decompress(8, ptr, buffer.length);
-
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-    return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('snappy: panic')) }
+    return {
+      readable: t.readable,
+      writable: new WritableStream({
+        write(chunk) { c.write(chunk) },
+        abort(r) { c.free(); return writer.abort(r) },
+        close() { c.flush(); c.free(); return writer.close() },
+      }),
+    };
+  }
 }
 
-export function decompress_raw(buffer) {
-  const ptr = u8array_to_ptr(buffer);
+export class Compressor {
+  constructor(callback) {
+    this.cb = callback;
+    this.id = pool.get();
+    streams.set(this.id, this);
+    this.ptr = wasm.compressor_new(this.id);
+  }
 
-  try {
-    wasm.decompress_raw(8, ptr, buffer.length);
+  flush() {
+    wasm.compressor_flush(this.ptr);
+  }
 
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-    return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('snappy: panic')) }
+  free() {
+    this.ptr = wasm.__wbg_compressor_free(this.ptr);
+  }
+
+  write(buffer) {
+    const ptr = u8array_to_ptr(buffer);
+    return (wasm.compressor_write(this.ptr, ptr, buffer.length), wasm.__wbindgen_free(ptr, buffer.length));
+  }
 }
-
-export function decompress_with(buffer, transform) {
-  const ptr = u8array_to_ptr(buffer);
-
-  try {
-    wasm.decompress(8, ptr, buffer.length);
-
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]);
-
-    try {
-      const value = transform(slice);
-      return (wasm.__wbindgen_free(i32[2], i32[3]), value);
-    } catch (err) { throw (wasm.__wbindgen_free(i32[2], i32[3]), err) }
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('snappy: panic')) }
-}
-
-export function decompress_raw_with(buffer, transform) {
-  const ptr = u8array_to_ptr(buffer);
-
-  try {
-    wasm.decompress_raw(8, ptr, buffer.length);
-
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]);
-
-    try {
-      const value = transform(slice);
-      return (wasm.__wbindgen_free(i32[2], i32[3]), value);
-    } catch (err) { throw (wasm.__wbindgen_free(i32[2], i32[3]), err) }
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('snappy: panic')) }
-}
+// !deno

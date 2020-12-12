@@ -6,6 +6,7 @@ import * as search from './target/search/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as zcrypto from './target/crypto/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
+import * as mem from 'https://deno.land/std@0.80.0/bytes/mod.ts';
 
 // import fs from 'fs';
 // import fetch from 'node-fetch';
@@ -74,8 +75,18 @@ snappy: {
   const b = snappy.compress_raw(Deno.core.encode(s));
 
   console.log(a, b);
-  console.log(s === Deno.core.decode(snappy.decompress(a)), s === Deno.core.decode(snappy.decompress_raw(b)));
-  if (snappy.decompress(a).length !== snappy.decompress_with(a, slice => slice.length)) throw new Error('snappy: zero copy failed');
+  console.log(s === Deno.core.decode(await snappy.decompress(a)), s === Deno.core.decode(await snappy.decompress_raw(b)));
+
+  const chunks = [];
+  const google = await fetch('https://www.google.com');
+
+  const buffer = await google.clone().arrayBuffer();
+  const c = google.body.pipeThrough(new snappy.CompressionStream());
+
+  for await (const chunk of c.getIterator()) chunks.push(chunk);
+  const de = await snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer()));
+  if (!mem.equals(new Uint8Array(buffer), de)) throw new Error('CompressionStream produced broken chunks');
+  // if (snappy.decompress(a).length !== snappy.decompress_with(a, slice => slice.length)) throw new Error('snappy: zero copy failed');
 }
 
 zlib: {
