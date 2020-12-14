@@ -38,28 +38,45 @@ function u8array_to_ptr(buffer) {
   return (u8array().set(buffer, ptr), ptr);
 }
 
-let decompress_resolver = null;
-function decompress_resolve(buffer) {
-  decompress_resolver(buffer.slice());
-}
-
+let decompress_value = null;
+let decompress_callback = null;
 function push_to_stream(id, buffer) { streams.get(id).cb(buffer.slice()); } // !deno
-
+function decompress_resolve(buffer) { decompress_value = !decompress_callback ? buffer.slice() : decompress_callback(buffer); }
 
 export function decompress(buffer) {
-  return new Promise((ok, err) => {
-    decompress_resolver = ok;
-    const ptr = u8array_to_ptr(buffer);
-    if (0 !== wasm.decompress(ptr, buffer.length)) err(new Error('snappy: failed to decompress'));
-  });
+  const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress(ptr, buffer.length)) throw new Error('snappy: failed to decompress');
+
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
 }
 
 export function decompress_raw(buffer) {
-  return new Promise((ok, err) => {
-    decompress_resolver = ok;
-    const ptr = u8array_to_ptr(buffer);
-    if (0 !== wasm.decompress_raw(ptr, buffer.length)) err(new Error('snappy: failed to decompress (raw)'));
-  });
+  const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress_raw(ptr, buffer.length)) throw new Error('snappy: failed to decompress (raw)');
+
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
+}
+
+export function decompress_with(buffer, fn) {
+  decompress_callback = fn;
+  const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress(ptr, buffer.length)) throw new Error('snappy: failed to decompress');
+
+  decompress_callback = null;
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
+}
+
+export function decompress_raw_with(buffer, fn) {
+  decompress_callback = fn;
+  const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress_raw(ptr, buffer.length)) throw new Error('snappy: failed to decompress (raw)');
+
+  decompress_callback = null;
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
 }
 
 export function compress(buffer) {

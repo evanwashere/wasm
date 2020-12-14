@@ -75,7 +75,7 @@ snappy: {
   const b = snappy.compress_raw(Deno.core.encode(s));
 
   console.log(a, b);
-  console.log(s === Deno.core.decode(await snappy.decompress(a)), s === Deno.core.decode(await snappy.decompress_raw(b)));
+  console.log(s === Deno.core.decode(snappy.decompress(a)), s === Deno.core.decode(snappy.decompress_raw(b)));
 
   const chunks = [];
   const google = await fetch('https://www.google.com');
@@ -84,9 +84,9 @@ snappy: {
   const c = google.body.pipeThrough(new snappy.CompressionStream());
 
   for await (const chunk of c.getIterator()) chunks.push(chunk);
-  const de = await snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer()));
+  const de = snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer()));
   if (!mem.equals(new Uint8Array(buffer), de)) throw new Error('CompressionStream produced broken chunks');
-  // if (snappy.decompress(a).length !== snappy.decompress_with(a, slice => slice.length)) throw new Error('snappy: zero copy failed');
+  if (snappy.decompress(a).length !== snappy.decompress_with(a, slice => slice.length)) throw new Error('snappy: zero copy failed');
 }
 
 zlib: {
