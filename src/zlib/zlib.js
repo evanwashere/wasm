@@ -2,7 +2,11 @@ let wasm;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
-  const instance = new WebAssembly.Instance(module, { __wbindgen_placeholder__: {} });
+  const instance = new WebAssembly.Instance(module, {
+    __wbindgen_placeholder__: {
+      __wbg_decompressok_029ba44bfd7cc601(ptr, len) { decompress_resolve(ptr_to_u8array(ptr, len)) },
+    },
+  });
 
   wasm = instance.exports;
 }
@@ -28,76 +32,71 @@ function u8array_to_ptr(buffer) {
   return (u8array().set(buffer, ptr), ptr);
 }
 
-export function compress(buffer, level) {
-  const ptr = u8array_to_ptr(buffer);
-  wasm.compress(8, ptr, buffer.length, level);
-
-  const i32 = i32array();
-  const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-  return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
-}
-
-export function compress_raw(buffer, level) {
-  const ptr = u8array_to_ptr(buffer);
-  wasm.compress_raw(8, ptr, buffer.length, level);
-
-  const i32 = i32array();
-  const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-  return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
-}
+let decompress_value = null;
+let decompress_callback = null;
+function decompress_resolve(buffer) { decompress_value = !decompress_callback ? buffer.slice() : decompress_callback(buffer); }
 
 export function decompress(buffer, limit) {
   const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress');
 
-  try {
-    wasm.decompress(8, ptr, buffer.length, limit);
-
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-    return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('zlib: panic')) }
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
 }
 
 export function decompress_raw(buffer, limit) {
   const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress_raw(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress (raw)');
 
-  try {
-    wasm.decompress_raw(8, ptr, buffer.length, limit);
-
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]).slice();
-    return (wasm.__wbindgen_free(i32[2], i32[3]), slice);
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('zlib: panic')) }
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
 }
 
 export function decompress_with(buffer, limit, transform) {
+  decompress_callback = transform;
   const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress');
 
-  try {
-    wasm.decompress(8, ptr, buffer.length, limit);
-
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]);
-
-    try {
-      const value = transform(slice);
-      return (wasm.__wbindgen_free(i32[2], i32[3]), value);
-    } catch (err) { throw (wasm.__wbindgen_free(i32[2], i32[3]), err) }
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('zlib: panic')) }
+  decompress_callback = null;
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
 }
 
 export function decompress_raw_with(buffer, limit, transform) {
+  decompress_callback = transform;
   const ptr = u8array_to_ptr(buffer);
+  if (0 !== wasm.decompress_raw(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress (raw)');
 
-  try {
-    wasm.decompress_raw(8, ptr, buffer.length, limit);
+  decompress_callback = null;
+  const ref = decompress_value;
+  return (decompress_value = null, ref);
+}
 
-    const i32 = i32array();
-    const slice = ptr_to_u8array(i32[2], i32[3]);
+export function compress(buffer, level = 3) {
+  const ptr = u8array_to_ptr(buffer);
+  const out = wasm.__wbindgen_export_0.value -= 16;
 
-    try {
-      const value = transform(slice);
-      return (wasm.__wbindgen_free(i32[2], i32[3]), value);
-    } catch (err) { throw (wasm.__wbindgen_free(i32[2], i32[3]), err) }
-  } catch { throw (wasm.__wbindgen_free(ptr, buffer.length), new Error('zlib: panic')) }
+  wasm.compress(out, ptr, buffer.length, level);
+
+  const i32 = i32array();
+  const offset = i32[out / 4];
+  const offset_length = i32[1 + out / 4];
+  const slice = ptr_to_u8array(offset, offset_length).slice();
+
+  wasm.__wbindgen_free(offset, offset_length);
+  return (wasm.__wbindgen_export_0.value += 16, slice);
+}
+
+export function compress_raw(buffer, level = 3) {
+  const ptr = u8array_to_ptr(buffer);
+  const out = wasm.__wbindgen_export_0.value -= 16;
+  wasm.compress_raw(out, ptr, buffer.length, level);
+
+  const i32 = i32array();
+  const offset = i32[out / 4];
+  const offset_length = i32[1 + out / 4];
+  const slice = ptr_to_u8array(offset, offset_length).slice();
+
+  wasm.__wbindgen_free(offset, offset_length);
+  return (wasm.__wbindgen_export_0.value += 16, slice);
 }
