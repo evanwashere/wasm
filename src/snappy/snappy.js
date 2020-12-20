@@ -59,8 +59,8 @@ export function decompress_raw(buffer) {
   return (decompress_value = null, ref);
 }
 
-export function decompress_with(buffer, fn) {
-  decompress_callback = fn;
+export function decompress_with(buffer, transform) {
+  decompress_callback = transform;
   const ptr = u8array_to_ptr(buffer);
   if (0 !== wasm.decompress(ptr, buffer.length)) throw new Error('snappy: failed to decompress');
 
@@ -69,8 +69,8 @@ export function decompress_with(buffer, fn) {
   return (decompress_value = null, ref);
 }
 
-export function decompress_raw_with(buffer, fn) {
-  decompress_callback = fn;
+export function decompress_raw_with(buffer, transform) {
+  decompress_callback = transform;
   const ptr = u8array_to_ptr(buffer);
   if (0 !== wasm.decompress_raw(ptr, buffer.length)) throw new Error('snappy: failed to decompress (raw)');
 
