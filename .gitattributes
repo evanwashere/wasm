@@ -1,0 +1,2 @@
+*.wat linguist-vendored=false
+*.wasm linguist-vendored=false
