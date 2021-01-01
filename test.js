@@ -70,11 +70,11 @@ lz4: {
   console.log('testing lz4');
   let s = `hi hello ${'a'.repeat(200)}`;
   const a = lz4.compress(Deno.core.encode(s));
-  const a_sized = lz4.compress_with_size(Deno.core.encode(s));
+  const a_sized = lz4.compress_sized(Deno.core.encode(s));
   console.log(a, s === Deno.core.decode(lz4.decompress(s.length, a)));
-  console.log(a_sized, s === Deno.core.decode(lz4.decompress_with_size(a_sized)));
+  console.log(a_sized, s === Deno.core.decode(lz4.decompress_sized(a_sized)));
   if (lz4.decompress(s.length, a).length !== lz4.decompress_with(s.length, a, slice => slice.length)) throw new Error('lz4: zero copy failed');
-  if (lz4.decompress_with_size(a_sized).length !== lz4.decompress_with_with_size(a_sized, slice => slice.length)) throw new Error('lz4: zero copy failed');
+  if (lz4.decompress_sized(a_sized).length !== lz4.decompress_sized_with(a_sized, slice => slice.length)) throw new Error('lz4: zero copy failed');
 }
 
 
