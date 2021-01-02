@@ -108,7 +108,7 @@ export class Compressor {
     this.cb = callback;
     this.id = pool.get();
     streams.set(this.id, this);
-    console.log(this.ptr = wasm.compressor_new(this.id));
+    this.ptr = wasm.compressor_new(this.id);
   }
 
   flush() {
