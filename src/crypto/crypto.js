@@ -5,6 +5,7 @@ let wasm;
   const instance = new WebAssembly.Instance(module);
 
   wasm = instance.exports;
+  console.log('crypto: this module is deprecated, use npmjs.com/hash-wasm instead');
 }
 
 let u8array_ref = new Uint8Array(wasm.memory.buffer);

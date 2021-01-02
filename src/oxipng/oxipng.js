@@ -5,6 +5,7 @@ let wasm;
   const instance = new WebAssembly.Instance(module);
 
   wasm = instance.exports;
+  console.log('oxipng: this module is deprecated, use oxipng binary instead');
 }
 
 let u8array_ref = new Uint8Array(wasm.memory.buffer);

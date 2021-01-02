@@ -1,193 +1,166 @@
 import * as lz4 from './target/lz4/deno.js';
 import * as nacl from './target/nacl/deno.js';
 import * as zlib from './target/zlib/deno.js';
-import * as oxipng from './target/oxipng/deno.js';
-import * as search from './target/search/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
-import * as zcrypto from './target/crypto/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
-import * as mem from 'https://deno.land/std@0.80.0/bytes/mod.ts';
+import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 
-// import fs from 'fs';
-// import fetch from 'node-fetch';
-// import * as lz4 from './target/lz4/node.mjs';
-// import * as nacl from './target/nacl/node.mjs';
-// import * as zlib from './target/zlib/node.mjs';
-// import * as oxipng from './target/oxipng/node.mjs;
-// import * as search from './target/search/node.mjs';
-// import * as snappy from './target/snappy/node.mjs';
-// import * as zcrypto from './target/crypto/node.mjs';
-// import * as fasteval from './target/fasteval/node.mjs';
+const zero1024 = new Uint8Array(1024);
+const random1024 = crypto.getRandomValues(new Uint8Array(1024));
 
-// const Deno = {
-//   writeFile(path, buffer) {
-//     return fs.promises.writeFile(path, buffer);
-//   }
+Deno.test('fasteval', () => {
+  assert.is(fasteval.evaluate('2 + 3'), '5');
+  assert.is(fasteval.evaluate('yep'), 'Undefined("yep")');
+  assert.is(fasteval.evaluate('syntax error'), 'UnparsedTokensRemaining("error")');
+});
+
+Deno.test('nacl', () => {
+  const key = random1024.subarray(0, nacl.secretbox.key_length);
+  const nonce = random1024.subarray(0, nacl.secretbox.nonce_length);
+
+  const sealed = nacl.secretbox.seal(random1024, key, nonce);
+  assert.equal(nacl.secretbox.open(sealed, key, nonce), random1024);
+});
+
+Deno.test('brotli', () => {
+  const zero_compressed = brotli.compress(zero1024);
+  const random_compressed = brotli.compress(random1024);
+  assert.equal(brotli.decompress(zero_compressed), zero1024);
+  assert.equal(brotli.decompress(random_compressed), random1024);
+  assert.throws(() => brotli.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  brotli.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  brotli.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('lz4', () => {
+  const zero_compressed = lz4.compress_sized(zero1024);
+  const random_compressed = lz4.compress_sized(random1024);
+  assert.equal(lz4.decompress_sized(zero_compressed), zero1024);
+  assert.equal(lz4.decompress_sized(random_compressed), random1024);
+  assert.equal(lz4.decompress(zero1024.length, lz4.compress(zero1024)), zero1024);
+  assert.equal(lz4.decompress(random1024.length, lz4.compress(random1024)), random1024);
+  lz4.decompress_sized_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  lz4.decompress_sized_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('zlib', () => {
+  const zero_compressed = zlib.compress(zero1024);
+  const random_compressed = zlib.compress(random1024);
+  assert.equal(zlib.decompress(zero_compressed), zero1024);
+  assert.equal(zlib.decompress(random_compressed), random1024);
+  assert.throws(() => zlib.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  assert.equal(zlib.decompress_raw(zlib.compress_raw(zero1024)), zero1024);
+  assert.equal(zlib.decompress_raw(zlib.compress_raw(random1024)), random1024);
+  zlib.decompress_with(zero_compressed, 0, slice => assert.is(slice.length, zero1024.length));
+  zlib.decompress_with(random_compressed, 0, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('snappy', () => {
+  const zero_compressed = snappy.compress(zero1024);
+  const random_compressed = snappy.compress(random1024);
+  assert.equal(snappy.decompress(zero_compressed), zero1024);
+  assert.equal(snappy.decompress(random_compressed), random1024);
+  assert.throws(() => snappy.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  assert.equal(snappy.decompress_raw(snappy.compress_raw(zero1024)), zero1024);
+  assert.equal(snappy.decompress_raw(snappy.compress_raw(random1024)), random1024);
+  snappy.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  snappy.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('snappy-stream', async () => {
+  const { writable, readable } = new TransformStream();
+
+  const w = writable.getWriter();
+  const r = readable.pipeThrough(new snappy.CompressionStream()).getIterator();
+
+  w.write(zero1024);
+
+  w.close();
+  const chunks = [];
+  for await (const chunk of r) chunks.push(chunk);
+  assert.equal(snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
+});
+
+Deno.test('brotli-stream', async () => {
+  compression: {
+    const { writable, readable } = new TransformStream();
+
+    const w = writable.getWriter();
+    const r = readable.pipeThrough(new brotli.CompressionStream()).getIterator();
+
+    w.write(zero1024);
+
+    w.close();
+    const chunks = [];
+    for await (const chunk of r) chunks.push(chunk);
+    assert.equal(brotli.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
+  }
+
+  decompression: {
+    const { writable, readable } = new TransformStream();
+
+    const w = writable.getWriter();
+    const r = readable.pipeThrough(new brotli.DecompressionStream()).getIterator();
+
+    w.write(brotli.compress(zero1024));
+
+    w.close();
+    const chunks = [];
+    for await (const chunk of r) chunks.push(chunk);
+    assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
+  }
+});
+
+
+// to be rewritten
+// search: {
+//   if (skip.search) break search;
+
+//   console.log('testing search');
+//   const index = new search.Index('en');
+
+//   index.add(1, 'hello');
+//   index.add(2, 'hellop');
+//   index.bulk([{ id: 3, title: 'hell' }]);
+
+//   console.log(...index.search('hell'));
+
+//   index.drop();
+//   try { [...index.search('hello')] } catch { console.log('index is dropped') }
 // }
 
-const skip = {
-  lz4: false,
-  nacl: false,
-  zlib: false,
-  snappy: false,
-  brotli: false,
-  search: false,
-  oxipng: false,
-  crypto: false,
-  fasteval: false,
-}
+// to be removed, no clear use case for slow wasm variant
+// oxipng: {
+//   if (skip.oxipng) break oxipng;
 
-fasteval: {
-  if (skip.fasteval) break fasteval;
+//   let x;
+//   let i = 1
+//   console.log('testing oxipng');
+//   const image = new Uint8Array(await (await fetch('https://tsu.sh/boncg4b59kq.png')).arrayBuffer());
 
-  let x;
-  console.log('testing fasteval');
-  console.log(`${'5' === (x = fasteval.evaluate('2 + 3'))}: ${x}`);
-}
+//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
+//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
+//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
+//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
+//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
+//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
+// }
 
-nacl: {
-  if (skip.nacl) break nacl;
+// to be removed, use npmjs.com/hash-wasm instead
+// crypto: {
+//   if (skip.crypto) break crypto;
 
-  console.log('testing nacl');
-  const x = crypto.getRandomValues(new Uint8Array(1024));
-
-  const key = x.subarray(0, nacl.secretbox.key_length);
-  const nonce = x.subarray(0, nacl.secretbox.nonce_length);
-
-  const sealed = nacl.secretbox.seal(x, key, nonce);
-  const unsealed = nacl.secretbox.open(sealed, key, nonce);
-
-  let i = 0;
-  while (i < 1024) {
-    if (x[i] !== unsealed[i++]) throw 'nacl secretbox broken';
-  }
-}
-
-lz4: {
-  if (skip.lz4) break lz4;
-
-  console.log('testing lz4');
-  let s = `hi hello ${'a'.repeat(200)}`;
-  const a = lz4.compress(Deno.core.encode(s));
-  const a_sized = lz4.compress_sized(Deno.core.encode(s));
-  console.log(a, s === Deno.core.decode(lz4.decompress(s.length, a)));
-  console.log(a_sized, s === Deno.core.decode(lz4.decompress_sized(a_sized)));
-  if (lz4.decompress(s.length, a).length !== lz4.decompress_with(s.length, a, slice => slice.length)) throw new Error('lz4: zero copy failed');
-  if (lz4.decompress_sized(a_sized).length !== lz4.decompress_sized_with(a_sized, slice => slice.length)) throw new Error('lz4: zero copy failed');
-}
-
-
-snappy: {
-  if (skip.snappy) break snappy;
-
-  console.log('testing snappy');
-  let s = `hi hello ${'a'.repeat(200)}`;
-  const a = snappy.compress(Deno.core.encode(s));
-  const b = snappy.compress_raw(Deno.core.encode(s));
-
-  console.log(a, b);
-  console.log(s === Deno.core.decode(snappy.decompress(a)), s === Deno.core.decode(snappy.decompress_raw(b)));
-
-  const chunks = [];
-  const google = await fetch('https://www.google.com');
-
-  const buffer = await google.clone().arrayBuffer();
-  const c = google.body.pipeThrough(new snappy.CompressionStream());
-
-  for await (const chunk of c.getIterator()) chunks.push(chunk);
-  const de = snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer()));
-  if (!mem.equals(new Uint8Array(buffer), de)) throw new Error('CompressionStream produced broken chunks');
-  if (snappy.decompress(a).length !== snappy.decompress_with(a, slice => slice.length)) throw new Error('snappy: zero copy failed');
-}
-
-brotli: {
-  if (skip.brotli) break brotli;
-
-  console.log('testing brotli');
-  let s = `hi hello ${'a'.repeat(200)}`;
-  const a = brotli.compress(Deno.core.encode(s));
-
-  console.log(a);
-  console.log(s === Deno.core.decode(brotli.decompress(a)));
-
-  const chunks = [];
-  const dchunks = [];
-  const google = await fetch('https://www.google.com');
-
-  const buffer = await google.clone().arrayBuffer();
-  const c = google.clone().body.pipeThrough(new brotli.CompressionStream(5));
-  const d = google.body.pipeThrough(new brotli.CompressionStream()).pipeThrough(new brotli.DecompressionStream());
-
-  for await (const chunk of c.getIterator()) chunks.push(chunk);
-  for await (const chunk of d.getIterator()) dchunks.push(chunk);
-  const dee = new Uint8Array(await new Blob(dchunks).arrayBuffer());
-  const de = brotli.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer()));
-  if (!mem.equals(new Uint8Array(buffer), de)) throw new Error('CompressionStream produced broken chunks');
-  if (!mem.equals(new Uint8Array(buffer), dee)) throw new Error('CompressionStream & DecompressionStream produced broken chunks');
-  if (brotli.decompress(a).length !== brotli.decompress_with(a, slice => slice.length)) throw new Error('brotli: zero copy failed');
-}
-
-zlib: {
-  if (skip.zlib) break zlib;
-
-  console.log('testing zlib');
-  let s = `hi hello ${'a'.repeat(200)}`;
-  const a = zlib.compress(Deno.core.encode(s), 0);
-  const b = zlib.compress_raw(Deno.core.encode(s), 1);
-
-  console.log(a, b);
-  console.log(s === Deno.core.decode(zlib.decompress(a)), s === Deno.core.decode(zlib.decompress_raw(b)));
-
-  try { zlib.decompress(a, 5) } catch { console.log('zlib decompress limit working') }
-  if (zlib.decompress(a).length !== zlib.decompress_with(a, 0, slice => slice.length)) throw new Error('zlib: zero copy failed');
-}
-
-search: {
-  if (skip.search) break search;
-
-  console.log('testing search');
-  const index = new search.Index('en');
-
-  index.add(1, 'hello');
-  index.add(2, 'hellop');
-  index.bulk([{ id: 3, title: 'hell' }]);
-
-  console.log(...index.search('hell'));
-
-  index.drop();
-  try { [...index.search('hello')] } catch { console.log('index is dropped') }
-}
-
-oxipng: {
-  if (skip.oxipng) break oxipng;
-
-  let x;
-  let i = 1
-  console.log('testing oxipng');
-  const image = new Uint8Array(await (await fetch('https://tsu.sh/boncg4b59kq.png')).arrayBuffer());
-
-  Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-  Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-  Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-  Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-  Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-  Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-}
-
-crypto: {
-  if (skip.crypto) break crypto;
-
-  console.log('testing crypto');
-  const bytes = new Uint8Array(1024);
-  console.log(zcrypto.hash.md5(bytes));
-  console.log(zcrypto.hash.sha1(bytes));
-  console.log(zcrypto.hash.blake3(bytes));
-  console.log(zcrypto.hash.sha2.sha256(bytes));
-  console.log(zcrypto.hash.sha2.sha512(bytes));
-  console.log(zcrypto.hash.sha3.sha256(bytes));
-  console.log(zcrypto.hash.sha3.sha512(bytes));
-  console.log(zcrypto.hash.blake2.s256(bytes));
-  console.log(zcrypto.hash.blake2.b256(bytes));
-  console.log(zcrypto.hash.blake2.b512(bytes));
-}
+//   console.log('testing crypto');
+//   const bytes = new Uint8Array(1024);
+//   console.log(zcrypto.hash.md5(bytes));
+//   console.log(zcrypto.hash.sha1(bytes));
+//   console.log(zcrypto.hash.blake3(bytes));
+//   console.log(zcrypto.hash.sha2.sha256(bytes));
+//   console.log(zcrypto.hash.sha2.sha512(bytes));
+//   console.log(zcrypto.hash.sha3.sha256(bytes));
+//   console.log(zcrypto.hash.sha3.sha512(bytes));
+//   console.log(zcrypto.hash.blake2.s256(bytes));
+//   console.log(zcrypto.hash.blake2.b256(bytes));
+//   console.log(zcrypto.hash.blake2.b512(bytes));
+// }
