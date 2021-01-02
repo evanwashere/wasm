@@ -2,101 +2,74 @@ let wasm;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
-  const instance = new WebAssembly.Instance(module, {
-    __wbindgen_placeholder__: {
-      __wbg_decompressok_029ba44bfd7cc601(ptr, len) { decompress_resolve(ptr_to_u8array(ptr, len)) },
-    },
-  });
+  const instance = new WebAssembly.Instance(module);
 
   wasm = instance.exports;
 }
 
-let u8array_ref = new Uint8Array(wasm.memory.buffer);
-let i32array_ref = new Int32Array(wasm.memory.buffer);
+class mem {
+  static alloc(size) { return wasm.walloc(size); }
+  static free(ptr, size) { return wasm.wfree(size, ptr); }
+  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
+  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+  static length() { return new Uint32Array(wasm.memory.buffer, wasm.cur_len.value, 1)[0]; }
 
-function u8array() {
-  return u8array_ref.buffer === wasm.memory.buffer ? u8array_ref : (u8array_ref = new Uint8Array(wasm.memory.buffer));
-}
-
-function i32array() {
-  return i32array_ref.buffer === wasm.memory.buffer ? i32array_ref : (i32array_ref = new Int32Array(wasm.memory.buffer));
-}
-
-function ptr_to_u8array(ptr, len) {
-  return u8array().subarray(ptr, ptr + len);
-}
-
-function u8array_to_ptr(buffer) {
-  const ptr = wasm.__wbindgen_malloc(buffer.length);
-
-  return (u8array().set(buffer, ptr), ptr);
-}
-
-let decompress_value = null;
-let decompress_callback = null;
-function decompress_resolve(buffer) { decompress_value = !decompress_callback ? buffer.slice() : decompress_callback(buffer); }
-
-export function decompress(buffer, limit) {
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.decompress(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress');
-
-  const ref = decompress_value;
-  return (decompress_value = null, ref);
-}
-
-export function decompress_raw(buffer, limit) {
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.decompress_raw(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress (raw)');
-
-  const ref = decompress_value;
-  return (decompress_value = null, ref);
-}
-
-export function decompress_with(buffer, limit, transform) {
-  decompress_callback = transform;
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.decompress(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress');
-
-  decompress_callback = null;
-  const ref = decompress_value;
-  return (decompress_value = null, ref);
-}
-
-export function decompress_raw_with(buffer, limit, transform) {
-  decompress_callback = transform;
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.decompress_raw(ptr, buffer.length, limit)) throw new Error('zlib: failed to decompress (raw)');
-
-  decompress_callback = null;
-  const ref = decompress_value;
-  return (decompress_value = null, ref);
+  static copy_and_free(ptr, size) {
+    let slice = mem.u8(ptr, size).slice();
+    return (wasm.wfree(size, ptr), slice);
+  }
 }
 
 export function compress(buffer, level = 3) {
-  const ptr = u8array_to_ptr(buffer);
-  const out = wasm.__wbindgen_export_0.value -= 16;
-
-  wasm.compress(out, ptr, buffer.length, level);
-
-  const i32 = i32array();
-  const offset = i32[out / 4];
-  const offset_length = i32[1 + out / 4];
-  const slice = ptr_to_u8array(offset, offset_length).slice();
-
-  wasm.__wbindgen_free(offset, offset_length);
-  return (wasm.__wbindgen_export_0.value += 16, slice);
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  return mem.copy_and_free(wasm.compress(buffer.length, ptr, level), mem.length());
 }
 
 export function compress_raw(buffer, level = 3) {
-  const ptr = u8array_to_ptr(buffer);
-  const out = wasm.__wbindgen_export_0.value -= 16;
-  wasm.compress_raw(out, ptr, buffer.length, level);
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  return mem.copy_and_free(wasm.compress_raw(buffer.length, ptr, level), mem.length());
+}
 
-  const i32 = i32array();
-  const offset = i32[out / 4];
-  const offset_length = i32[1 + out / 4];
-  const slice = ptr_to_u8array(offset, offset_length).slice();
+export function decompress(buffer, limit = 0) {
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  const x = wasm.decompress(buffer.length, ptr, limit);
+  if (0 === x) throw new Error('zlib: failed to decompress');
 
-  wasm.__wbindgen_free(offset, offset_length);
-  return (wasm.__wbindgen_export_0.value += 16, slice);
+  return mem.copy_and_free(x, mem.length());
+}
+
+export function decompress_raw(buffer, limit = 0) {
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  const x = wasm.decompress_raw(buffer.length, ptr, limit);
+  if (0 === x) throw new Error('zlib: failed to decompress (raw)');
+
+  return mem.copy_and_free(x, mem.length());
+}
+
+export function decompress_with(buffer, limit = 0, transform) {
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  const x = wasm.decompress(buffer.length, ptr, limit);
+  if (0 === x) throw new Error('zlib: failed to decompress');
+
+  const u8 = mem.u8(x, mem.length());
+
+  const value = transform(u8);
+  return (mem.free(x, u8.length), value);
+}
+
+export function decompress_raw_with(buffer, limit = 0, transform) {
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  const x = wasm.decompress_raw(buffer.length, ptr, limit);
+  if (0 === x) throw new Error('zlib: failed to decompress (raw)');
+
+  const u8 = mem.u8(x, mem.length());
+
+  const value = transform(u8);
+  return (mem.free(x, u8.length), value);
 }
