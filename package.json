@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "name": "@evan/wasm",
   "description": "set of wasm modules",
   "author": "evanwashere <evan@tsu.sh>",

@@ -1,67 +1,60 @@
 import { Pool } from 'https://jspm.dev/structurae@3.3.0'; // !deno
 
 let wasm;
+const streams = new Map; // !deno
+const pool = new Pool(256 * 1024); // !deno
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
   const instance = new WebAssembly.Instance(module, {
-    __wbindgen_placeholder__: {
-      __wbindgen_throw() { throw new Error('brotli: wtf') },
-      __wbg_ok_2904e44d60943a9c(ptr, len) { ok(ptr_to_u8array(ptr, len)) },
-      __wbg_pushtostream_21628e5dfca27bea(id, ptr, len) { push_to_stream(id >>> 0, ptr_to_u8array(ptr, len)) },
+    env: {
+      push_to_stream(id, ptr) {
+        streams.get(id).cb(mem.u8(ptr, mem.length()).slice()); // !deno
+      },
     },
   });
 
   wasm = instance.exports;
 }
 
-const streams = new Map; // !deno
-const pool = new Pool(256 * 1024); // !deno
-let u8array_ref = new Uint8Array(wasm.memory.buffer);
+class mem {
+  static alloc(size) { return wasm.walloc(size); }
+  static free(ptr, size) { return wasm.wfree(size, ptr); }
+  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
+  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+  static length() { return new Uint32Array(wasm.memory.buffer, wasm.cur_len.value, 1)[0]; }
 
-function u8array() {
-  return u8array_ref.buffer === wasm.memory.buffer ? u8array_ref : (u8array_ref = new Uint8Array(wasm.memory.buffer));
-}
-
-function ptr_to_u8array(ptr, len) {
-  return u8array().subarray(ptr, ptr + len);
-}
-
-function u8array_to_ptr(buffer) {
-  const ptr = wasm.__wbindgen_malloc(buffer.length);
-
-  return (u8array().set(buffer, ptr), ptr);
-}
-
-let js_callback = null;
-let callback_value = null;
-function push_to_stream(id, buffer) { streams.get(id).cb(buffer.slice()); } // !deno
-function ok(buffer) { callback_value = !js_callback ? buffer.slice() : js_callback(buffer); }
-
-export function decompress(buffer) {
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.decompress(ptr, buffer.length)) throw new Error('brotli: failed to decompress');
-
-  const ref = callback_value;
-  return (callback_value = null, ref);
+  static copy_and_free(ptr, size) {
+    let slice = mem.u8(ptr, size).slice();
+    return (wasm.wfree(size, ptr), slice);
+  }
 }
 
 export function compress(buffer, level = 3) {
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.compress(level, ptr, buffer.length)) throw new Error('brotli: failed to compress');
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  return mem.copy_and_free(wasm.compress(buffer.length, ptr, level), mem.length());
+}
 
-  const ref = callback_value;
-  return (callback_value = null, ref);
+export function decompress(buffer) {
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  const x = wasm.decompress(buffer.length, ptr);
+  if (0 === x) throw new Error('brotli: failed to decompress');
+
+  return mem.copy_and_free(x, mem.length());
 }
 
 export function decompress_with(buffer, transform) {
-  js_callback = transform;
-  const ptr = u8array_to_ptr(buffer);
-  if (0 !== wasm.decompress(ptr, buffer.length)) throw (js_callback = null, new Error('brotli: failed to decompress'));
+  const ptr = mem.alloc(buffer.length);
+  mem.u8(ptr, buffer.length).set(buffer);
+  const x = wasm.decompress(buffer.length, ptr);
+  if (0 === x) throw new Error('brotli: failed to decompress');
 
-  js_callback = null;
-  const ref = callback_value;
-  return (callback_value = null, ref);
+  const u8 = mem.u8(x, mem.length());
+
+  const value = transform(u8);
+  return (mem.free(x, u8.length), value);
 }
 
 
@@ -94,7 +87,7 @@ export class CompressionStream {
       writable: new WritableStream({
         write(chunk) { c.write(chunk) },
         abort(r) { c.free(); return writer.abort(r) },
-        close() {c.flush(); c.free(); return writer.close() },
+        close() { c.flush(); c.free(); return writer.close() },
       }),
     };
   }
@@ -113,15 +106,16 @@ export class Decompressor {
   }
 
   free() {
-    wasm.__wbg_decompressor_free(this.ptr);
+    wasm.decompressor_free(this.ptr);
 
     pool.free(this.id);
     streams.delete(this.id);
   }
 
   write(buffer) {
-    const ptr = u8array_to_ptr(buffer);
-    return (wasm.decompressor_write(this.ptr, ptr, buffer.length), wasm.__wbindgen_free(ptr, buffer.length));
+    const ptr = mem.alloc(buffer.length);
+    mem.u8(ptr, buffer.length).set(buffer);
+    wasm.decompressor_write(this.ptr, buffer.length, ptr);
   }
 }
 
@@ -138,15 +132,16 @@ export class Compressor {
   }
 
   free() {
-    wasm.__wbg_compressor_free(this.ptr);
+    wasm.compressor_free(this.ptr);
 
     pool.free(this.id);
     streams.delete(this.id);
   }
 
   write(buffer) {
-    const ptr = u8array_to_ptr(buffer);
-    return (wasm.compressor_write(this.ptr, ptr, buffer.length), wasm.__wbindgen_free(ptr, buffer.length));
+    const ptr = mem.alloc(buffer.length);
+    mem.u8(ptr, buffer.length).set(buffer);
+    wasm.compressor_write(this.ptr, buffer.length, ptr);
   }
 }
 // !deno
