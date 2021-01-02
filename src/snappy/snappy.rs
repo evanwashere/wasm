@@ -54,7 +54,6 @@ pub unsafe extern "C" fn compress_raw(size: usize, ptr: *mut u8) -> *const u8 {
 #[no_mangle]
 pub unsafe extern "C" fn compress(size: usize, ptr: *mut u8) -> *const u8 {
   let mut w = snap::write::FrameEncoder::new(vec![]);
-
   w.write_all(&mem::load(size, ptr)).unsafe_unwrap();
   return mem::store(&mut w.into_inner().unsafe_unwrap());
 }

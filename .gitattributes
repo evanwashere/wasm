@@ -1,1 +1,1 @@
-src/**/*.wat linguist-vendored=false
+*.wat linguist-generated=true
