@@ -54,7 +54,7 @@ export function decompress_with(size, buffer, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
   const x = wasm.decompress(size, buffer.length, ptr);
-  if (0 === x) throw new Error('failed to decompress');
+  if (0 === x) throw new Error('lz4: failed to decompress');
 
   const u8 = mem.u8(x, mem.length());
 
@@ -66,7 +66,7 @@ export function decompress_sized_with(buffer, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
   const x = wasm.decompress_with_size(buffer.length, ptr);
-  if (0 === x) throw new Error('failed to decompress (sized)');
+  if (0 === x) throw new Error('lz4: failed to decompress (sized)');
 
   const u8 = mem.u8(x, mem.length());
 
