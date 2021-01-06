@@ -3,6 +3,7 @@ import * as nacl from './target/nacl/deno.js';
 import * as zlib from './target/zlib/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
+import * as ed25519 from './target/ed25519/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 
@@ -21,6 +22,14 @@ Deno.test('nacl', () => {
 
   const sealed = nacl.secretbox.seal(random1024, key, nonce);
   assert.equal(nacl.secretbox.open(sealed, key, nonce), random1024);
+});
+
+Deno.test('ed25519', () => {
+  const key = new Uint8Array([56, 155, 90, 103, 192, 55, 211, 122, 72, 107, 211, 103, 197, 154, 43, 143, 38, 230, 6, 116, 222, 198, 122, 70, 26, 86, 132, 162, 136, 24, 16, 137]);
+  const sig = new Uint8Array([103, 91, 116, 115, 148, 34, 215, 74, 150, 53, 172, 79, 81, 142, 35, 160, 241, 162, 70, 193, 225, 166, 99, 109, 148, 251, 67, 223, 93, 29, 82, 180, 30, 207, 102, 111, 10, 111, 182, 16, 72, 97, 178, 255, 64, 21, 44, 19, 167, 239, 163, 205, 194, 58, 87, 180, 144, 220, 45, 72, 55, 112, 96, 3]);
+
+  assert.ok(ed25519.verify(key, sig, new Uint8Array(10)));
+  assert.not.ok(ed25519.verify(new Uint8Array(32), new Uint8Array(64), new Uint8Array(10)));
 });
 
 Deno.test('brotli', () => {

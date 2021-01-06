@@ -2,28 +2,32 @@ let wasm;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
-  const instance = new WebAssembly.Instance(module, {
-    __wbindgen_placeholder__: {},
-  });
+  const instance = new WebAssembly.Instance(module);
 
   wasm = instance.exports;
 }
 
-let u8array_ref = new Uint8Array(wasm.memory.buffer);
+class mem {
+  static alloc(size) { return wasm.walloc(size); }
+  static free(ptr, size) { return wasm.wfree(ptr, size); }
+  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
+  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+  static length() { return new Uint32Array(wasm.memory.buffer, wasm.cur_len.value, 1)[0]; }
 
-function u8array() {
-  return u8array_ref.buffer === wasm.memory.buffer ? u8array_ref : (u8array_ref = new Uint8Array(wasm.memory.buffer));
-}
-
-function u8array_to_ptr(buffer) {
-  const ptr = wasm.__wbindgen_malloc(buffer.length);
-
-  return (u8array().set(buffer, ptr), ptr);
+  static copy_and_free(ptr, size) {
+    let slice = mem.u8(ptr, size).slice();
+    return (wasm.wfree(size, ptr), slice);
+  }
 }
 
 export function verify(key, sig, buffer) {
-  const sptr = u8array_to_ptr(sig);
-  const kptr = u8array_to_ptr(key);
-  const bptr = u8array_to_ptr(buffer);
-  return 0 !== wasm.verify(kptr, 32, sptr, 64, bptr, buffer.length);
+  const kptr = mem.alloc(32);
+  const sptr = mem.alloc(64);
+  const bptr = mem.alloc(buffer.length);
+
+
+  mem.u8(kptr, 32).set(key);
+  mem.u8(sptr, 64).set(sig);
+  mem.u8(bptr, buffer.length).set(buffer);
+  return !!wasm.verify(bptr, buffer.length, kptr, sptr);
 }
