@@ -6509,8 +6509,8 @@
               local.get $l2
               i32.const 4
               i32.store offset=8
-              local.get $p1
               local.get $p0
+              local.get $p1
               local.get $l2
               call $f1
               local.get $l2
@@ -6519,7 +6519,7 @@
               br_if $B3
               local.get $l2
               i32.load
-              local.get $p0
+              local.get $p1
               i32.store8
               local.get $l2
               i32.load offset=8
@@ -6528,7 +6528,7 @@
               br_if $B2
               local.get $l2
               i32.load
-              local.get $p0
+              local.get $p1
               i32.const 8
               i32.shr_u
               i32.store8 offset=1
@@ -6539,7 +6539,7 @@
               br_if $B1
               local.get $l2
               i32.load
-              local.get $p0
+              local.get $p1
               i32.const 16
               i32.shr_u
               i32.store8 offset=2
@@ -6550,7 +6550,7 @@
               br_if $B0
               local.get $l2
               i32.load
-              local.get $p0
+              local.get $p1
               i32.const 24
               i32.shr_u
               i32.store8 offset=3
@@ -6567,9 +6567,9 @@
                 local.get $l3
                 call $f2
               end
-              local.get $p0
+              local.get $p1
               if $I6
-                local.get $p1
+                local.get $p0
                 call $f2
               end
               local.get $l2
@@ -6608,11 +6608,11 @@
       block $B1
         block $B2
           block $B3
-            local.get $p0
+            local.get $p1
             i32.const 4
             i32.ge_u
             if $I4
-              local.get $p1
+              local.get $p0
               i32.load align=1
               local.tee $l3
               i32.const 24
@@ -6638,10 +6638,10 @@
                 br_if $B0
               end
               local.get $l5
-              local.get $p1
+              local.get $p0
               i32.const 4
               i32.add
-              local.get $p0
+              local.get $p1
               i32.const -4
               i32.add
               local.get $l2
@@ -6686,11 +6686,11 @@
               local.set $l3
               br $B3
             end
-            local.get $p0
+            local.get $p1
             i32.eqz
             br_if $B2
           end
-          local.get $p1
+          local.get $p0
           call $f2
         end
         local.get $l5
@@ -6744,8 +6744,8 @@
           br_if $B0
         end
         local.get $l5
-        local.get $p2
         local.get $p1
+        local.get $p2
         local.get $l3
         call $f5
         block $B4
@@ -6782,9 +6782,9 @@
           local.get $l3
           local.set $p0
         end
-        local.get $p1
+        local.get $p2
         if $I7
-          local.get $p2
+          local.get $p1
           call $f2
         end
         local.get $l5
@@ -6957,8 +6957,8 @@
     local.get $l2
     i64.const 1
     i64.store
-    local.get $p1
     local.get $p0
+    local.get $p1
     local.get $l2
     call $f1
     i32.const 1049592
@@ -6974,9 +6974,9 @@
       local.get $l3
       call $f2
     end
-    local.get $p0
+    local.get $p1
     if $I1
-      local.get $p1
+      local.get $p0
       call $f2
     end
     local.get $l2

@@ -19,7 +19,7 @@ const pool = new Pool(256 * 1024); // !deno
 
 class mem {
   static alloc(size) { return wasm.walloc(size); }
-  static free(ptr, size) { return wasm.wfree(size, ptr); }
+  static free(ptr, size) { return wasm.wfree(ptr, size); }
   static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
   static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
   static length() { return new Uint32Array(wasm.memory.buffer, wasm.cur_len.value, 1)[0]; }
@@ -33,13 +33,13 @@ class mem {
 export function compress(buffer, level = 3) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  return mem.copy_and_free(wasm.compress(buffer.length, ptr, level), mem.length());
+  return mem.copy_and_free(wasm.compress(ptr, buffer.length, level), mem.length());
 }
 
 export function decompress(buffer) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(buffer.length, ptr);
+  const x = wasm.decompress(ptr, buffer.length);
   if (0 === x) throw new Error('brotli: failed to decompress');
 
   return mem.copy_and_free(x, mem.length());
@@ -48,7 +48,7 @@ export function decompress(buffer) {
 export function decompress_with(buffer, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(buffer.length, ptr);
+  const x = wasm.decompress(ptr, buffer.length);
   if (0 === x) throw new Error('brotli: failed to decompress');
 
   const u8 = mem.u8(x, mem.length());
@@ -115,7 +115,7 @@ export class Decompressor {
   write(buffer) {
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
-    wasm.decompressor_write(this.ptr, buffer.length, ptr);
+    wasm.decompressor_write(this.ptr, ptr, buffer.length);
   }
 }
 
@@ -141,7 +141,7 @@ export class Compressor {
   write(buffer) {
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
-    wasm.compressor_write(this.ptr, buffer.length, ptr);
+    wasm.compressor_write(this.ptr, ptr, buffer.length);
   }
 }
 // !deno

@@ -1,6 +1,6 @@
 mod mem;
 use io::BufReader;
-use mem::UnsafeUnwrap;
+use mem::UnwrapUnsafe;
 use std::io::{self, Write};
 
 #[allow(non_camel_case_types)]
@@ -30,8 +30,8 @@ impl Decompressor {
     Self { writer: brotli::DecompressorWriter::new(js_callback { id }, buffer_size) }
   }
 
-  pub fn flush(&mut self) { unsafe { self.writer.flush().unsafe_unwrap(); } }
-  pub fn write(&mut self, buffer: &mut [u8]) { unsafe { self.writer.write_all(buffer).unsafe_unwrap(); } }
+  pub fn flush(&mut self) { unsafe { self.writer.flush().unwrap_unsafe(); } }
+  pub fn write(&mut self, buffer: &mut [u8]) { unsafe { self.writer.write_all(buffer).unwrap_unsafe(); } }
 }
 
 impl Compressor {
@@ -42,8 +42,8 @@ impl Compressor {
     Self { writer: brotli::CompressorWriter::with_params(js_callback { id }, buffer_size, &params) }
   }
 
-  pub fn flush(&mut self) { unsafe { self.writer.flush().unsafe_unwrap(); } }
-  pub fn write(&mut self, buffer: &mut [u8]) { unsafe { self.writer.write_all(buffer).unsafe_unwrap(); } }
+  pub fn flush(&mut self) { unsafe { self.writer.flush().unwrap_unsafe(); } }
+  pub fn write(&mut self, buffer: &mut [u8]) { unsafe { self.writer.write_all(buffer).unwrap_unsafe(); } }
 }
 
 
@@ -64,10 +64,10 @@ pub unsafe extern "C" fn decompressor_flush(ptr: *mut Decompressor) { (*ptr).flu
 pub unsafe extern "C" fn decompressor_free(ptr: *mut Decompressor) { Box::from_raw(ptr); }
 
 #[no_mangle]
-pub unsafe extern "C" fn compressor_write(ptr: *mut Compressor, size: usize, bptr: *mut u8) { (*ptr).write(&mut mem::load(size, bptr)); }
+pub unsafe extern "C" fn compressor_write(ptr: *mut Compressor, bptr: *mut u8, size: usize) { (*ptr).write(&mut mem::load(bptr, size)); }
 
 #[no_mangle]
-pub unsafe extern "C" fn decompressor_write(ptr: *mut Decompressor, size: usize, bptr: *mut u8) { (*ptr).write(&mut mem::load(size, bptr)); }
+pub unsafe extern "C" fn decompressor_write(ptr: *mut Decompressor, bptr: *mut u8, size: usize) { (*ptr).write(&mut mem::load(bptr, size)); }
 
 #[no_mangle]
 pub extern "C" fn decompressor_new(id: usize, buffer_size: usize) -> *mut Decompressor { Box::into_raw(Box::new(Decompressor::new(id, buffer_size))) }
@@ -76,22 +76,22 @@ pub extern "C" fn decompressor_new(id: usize, buffer_size: usize) -> *mut Decomp
 pub extern "C" fn compressor_new(id: usize, level: i32, buffer_size: usize) -> *mut Compressor { Box::into_raw(Box::new(Compressor::new(id, level, buffer_size))) }
 
 #[no_mangle]
-pub unsafe extern "C" fn decompress(size: usize, ptr: *mut u8) -> *const u8 {
+pub unsafe extern "C" fn decompress(ptr: *mut u8, size: usize) -> *const u8 {
   let mut buf = vec![];
 
-  match brotli::BrotliDecompress(&mut BufReader::new(&*mem::load(size, ptr)), &mut buf) {
+  match brotli::BrotliDecompress(&mut BufReader::new(&*mem::load(ptr, size)), &mut buf) {
     Err(_) => 0 as *const u8,
     Ok(_) => mem::store(&mut buf),
   }
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn compress(size: usize, ptr: *mut u8, level: i32) -> *const u8 {
+pub unsafe extern "C" fn compress(ptr: *mut u8, size: usize, level: i32) -> *const u8 {
   let mut buf = vec![];
   let mut params = brotli::enc::BrotliEncoderInitParams();
 
   params.quality = level;
-  brotli::BrotliCompress(&mut BufReader::new(&*mem::load(size, ptr)), &mut buf, &params).unsafe_unwrap();
+  brotli::BrotliCompress(&mut BufReader::new(&*mem::load(ptr, size)), &mut buf, &params).unwrap_unsafe();
 
   return mem::store(&mut buf);
 }

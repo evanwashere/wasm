@@ -33,19 +33,19 @@ class mem {
 export function compress(buffer) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  return mem.copy_and_free(wasm.compress(buffer.length, ptr), mem.length());
+  return mem.copy_and_free(wasm.compress(ptr, buffer.length), mem.length());
 }
 
 export function compress_raw(buffer) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  return mem.copy_and_free(wasm.compress_raw(buffer.length, ptr), mem.length());
+  return mem.copy_and_free(wasm.compress_raw(ptr, buffer.length), mem.length());
 }
 
 export function decompress(buffer) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(buffer.length, ptr);
+  const x = wasm.decompress(ptr, buffer.length);
   if (0 === x) throw new Error('snappy: failed to decompress');
 
   return mem.copy_and_free(x, mem.length());
@@ -54,7 +54,7 @@ export function decompress(buffer) {
 export function decompress_raw(buffer) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress_raw(buffer.length, ptr);
+  const x = wasm.decompress_raw(ptr, buffer.length);
   if (0 === x) throw new Error('snappy: failed to decompress (raw)');
 
   return mem.copy_and_free(x, mem.length());
@@ -63,7 +63,7 @@ export function decompress_raw(buffer) {
 export function decompress_with(buffer, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(buffer.length, ptr);
+  const x = wasm.decompress(ptr, buffer.length);
   if (0 === x) throw new Error('snappy: failed to decompress');
 
   const u8 = mem.u8(x, mem.length());
@@ -75,7 +75,7 @@ export function decompress_with(buffer, transform) {
 export function decompress_raw_with(buffer, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress_raw(buffer.length, ptr);
+  const x = wasm.decompress_raw(ptr, buffer.length);
   if (0 === x) throw new Error('snappy: failed to decompress (raw)');
 
   const u8 = mem.u8(x, mem.length());
@@ -124,7 +124,7 @@ export class Compressor {
   write(buffer) {
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
-    wasm.compressor_write(this.ptr, buffer.length, ptr);
+    wasm.compressor_write(this.ptr, ptr, buffer.length);
   }
 }
 // !deno

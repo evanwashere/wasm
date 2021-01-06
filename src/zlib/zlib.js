@@ -23,19 +23,19 @@ class mem {
 export function compress(buffer, level = 3) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  return mem.copy_and_free(wasm.compress(buffer.length, ptr, level), mem.length());
+  return mem.copy_and_free(wasm.compress(ptr, buffer.length, level), mem.length());
 }
 
 export function compress_raw(buffer, level = 3) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  return mem.copy_and_free(wasm.compress_raw(buffer.length, ptr, level), mem.length());
+  return mem.copy_and_free(wasm.compress_raw(ptr, buffer.length, level), mem.length());
 }
 
 export function decompress(buffer, limit = 0) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(buffer.length, ptr, limit);
+  const x = wasm.decompress(ptr, buffer.length, limit);
   if (0 === x) throw new Error('zlib: failed to decompress');
 
   return mem.copy_and_free(x, mem.length());
@@ -44,7 +44,7 @@ export function decompress(buffer, limit = 0) {
 export function decompress_raw(buffer, limit = 0) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress_raw(buffer.length, ptr, limit);
+  const x = wasm.decompress_raw(ptr, buffer.length, limit);
   if (0 === x) throw new Error('zlib: failed to decompress (raw)');
 
   return mem.copy_and_free(x, mem.length());
@@ -53,7 +53,7 @@ export function decompress_raw(buffer, limit = 0) {
 export function decompress_with(buffer, limit = 0, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(buffer.length, ptr, limit);
+  const x = wasm.decompress(ptr, buffer.length, limit);
   if (0 === x) throw new Error('zlib: failed to decompress');
 
   const u8 = mem.u8(x, mem.length());
@@ -65,7 +65,7 @@ export function decompress_with(buffer, limit = 0, transform) {
 export function decompress_raw_with(buffer, limit = 0, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress_raw(buffer.length, ptr, limit);
+  const x = wasm.decompress_raw(ptr, buffer.length, limit);
   if (0 === x) throw new Error('zlib: failed to decompress (raw)');
 
   const u8 = mem.u8(x, mem.length());

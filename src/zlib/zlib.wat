@@ -18723,30 +18723,30 @@
         local.get $p2
         if $I2
           local.get $l3
-          local.get $p1
           local.get $p0
+          local.get $p1
           i32.const 0
           local.get $p2
           call $f0
-          local.get $p0
+          local.get $p1
           br_if $B1
           br $B0
         end
         local.get $l3
-        local.get $p1
         local.get $p0
+        local.get $p1
         i32.const 0
         i32.const -1
         call $f0
-        local.get $p0
+        local.get $p1
         i32.eqz
         br_if $B0
       end
-      local.get $p1
+      local.get $p0
       call $f7
     end
     i32.const 0
-    local.set $p0
+    local.set $p1
     block $B3
       local.get $l3
       i32.load8_u
@@ -18761,21 +18761,21 @@
       i32.store
       local.get $l3
       i32.load offset=4
-      local.set $p0
+      local.set $p1
       local.get $l3
       i32.const 8
       i32.add
       i32.load
       i32.eqz
       br_if $B3
-      local.get $p0
+      local.get $p1
       call $f7
     end
     local.get $l3
     i32.const 16
     i32.add
     global.set $g0
-    local.get $p0)
+    local.get $p1)
   (func $decompress (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
     (local $l3 i32)
     global.get $g0
@@ -18788,30 +18788,30 @@
         local.get $p2
         if $I2
           local.get $l3
-          local.get $p1
           local.get $p0
+          local.get $p1
           i32.const 1
           local.get $p2
           call $f0
-          local.get $p0
+          local.get $p1
           br_if $B1
           br $B0
         end
         local.get $l3
-        local.get $p1
         local.get $p0
+        local.get $p1
         i32.const 1
         i32.const -1
         call $f0
-        local.get $p0
+        local.get $p1
         i32.eqz
         br_if $B0
       end
-      local.get $p1
+      local.get $p0
       call $f7
     end
     i32.const 0
-    local.set $p0
+    local.set $p1
     block $B3
       local.get $l3
       i32.load8_u
@@ -18826,21 +18826,21 @@
       i32.store
       local.get $l3
       i32.load offset=4
-      local.set $p0
+      local.set $p1
       local.get $l3
       i32.const 8
       i32.add
       i32.load
       i32.eqz
       br_if $B3
-      local.get $p0
+      local.get $p1
       call $f7
     end
     local.get $l3
     i32.const 16
     i32.add
     global.set $g0
-    local.get $p0)
+    local.get $p1)
   (func $f18 (type $t11) (param $p0 i32) (param $p1 i32)
     (local $l2 i32)
     global.get $g0
@@ -18987,8 +18987,8 @@
     local.tee $l3
     global.set $g0
     local.get $l3
-    local.get $p1
     local.get $p0
+    local.get $p1
     local.get $p2
     i32.const 0
     call $f1
@@ -19005,9 +19005,9 @@
       local.get $p2
       call $f7
     end
-    local.get $p0
+    local.get $p1
     if $I1
-      local.get $p1
+      local.get $p0
       call $f7
     end
     local.get $l3
@@ -19023,8 +19023,8 @@
     local.tee $l3
     global.set $g0
     local.get $l3
-    local.get $p1
     local.get $p0
+    local.get $p1
     local.get $p2
     i32.const 1
     call $f1
@@ -19041,9 +19041,9 @@
       local.get $p2
       call $f7
     end
-    local.get $p0
+    local.get $p1
     if $I1
-      local.get $p1
+      local.get $p0
       call $f7
     end
     local.get $l3
