@@ -26,7 +26,7 @@ class mem {
 
   static copy_and_free(ptr, size) {
     let slice = mem.u8(ptr, size).slice();
-    return (wasm.wfree(size, ptr), slice);
+    return (wasm.wfree(ptr, size), slice);
   }
 }
 
