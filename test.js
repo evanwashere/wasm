@@ -4,6 +4,7 @@ import * as zlib from './target/zlib/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
 import * as ed25519 from './target/ed25519/deno.js';
+import { Font, Layout } from './target/font/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 
@@ -119,6 +120,38 @@ Deno.test('brotli-stream', async () => {
     for await (const chunk of r) chunks.push(chunk);
     assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
   }
+});
+
+Deno.test('font', async () => {
+  const font_bytes = new Uint8Array(await (await fetch('https://blob.evan.lol/wasm/68037125150347264/comic_sans.ttf')).arrayBuffer());
+
+  const layout = new Layout();
+  const font = new Font(64, font_bytes);
+  assert.throws(() => new Font(64, random1024));
+
+  assert.ok(font.ptr);
+  assert.is(font.has('a'), 68);
+  assert.type(font.metrics('a'), 'object');
+  assert.type(font.rasterize('a'), 'object');
+
+  assert.ok(layout.ptr);
+  assert.is(layout.lines(), 1);
+  layout.append(font, 'test!');
+  const framebuffer = layout.rasterize(0, 0, 0);
+
+  assert.type(framebuffer, 'object');
+  assert.is(framebuffer.buffer[0], 0);
+  assert.is(framebuffer.buffer[1], 0);
+  assert.is(framebuffer.buffer[2], 0);
+  assert.is(framebuffer.buffer[3], 0);
+  assert.type(framebuffer.width, 'number');
+  assert.type(framebuffer.height, 'number');
+
+  font.free();
+  layout.free();
+
+  assert.not.ok(font.ptr);
+  assert.not.ok(layout.ptr);
 });
 
 
