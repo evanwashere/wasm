@@ -48,7 +48,9 @@ pub unsafe extern "C" fn compressor_write(ptr: *mut Compressor, bptr: *mut u8, s
 
 #[no_mangle]
 pub unsafe extern "C" fn compress_raw(ptr: *mut u8, size: usize) -> *const u8 {
-  return mem::store(&mut snap::raw::Encoder::new().compress_vec(&mem::load(ptr, size)).unwrap_unsafe());
+  let mut buf = snap::raw::Encoder::new().compress_vec(&mem::load(ptr, size)).unwrap_unsafe();
+
+  return mem::store(&mut buf);
 }
 
 #[no_mangle]

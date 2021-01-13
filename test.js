@@ -136,7 +136,19 @@ Deno.test('font', async () => {
 
   assert.ok(layout.ptr);
   assert.is(layout.lines(), 1);
+  assert.is(layout.refs.length, 0);
+
+  layout.reset({
+    max_width: 500,
+    max_height: 500,
+    wrap_style: 'word',
+    vertical_align: 'top',
+    wrap_hard_breaks: true,
+    horizontal_align: 'left',
+  });
+
   layout.append(font, 'test!');
+  assert.is(layout.refs.length, 1);
   const framebuffer = layout.rasterize(0, 0, 0);
 
   assert.type(framebuffer, 'object');
@@ -152,6 +164,7 @@ Deno.test('font', async () => {
 
   assert.not.ok(font.ptr);
   assert.not.ok(layout.ptr);
+  assert.is(layout.refs.length, 0);
 });
 
 
