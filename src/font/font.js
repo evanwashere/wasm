@@ -21,12 +21,12 @@ class mem {
   }
 }
 
-let encode_utf8 = 'Deno' in globalThis ? Deno.core.encode : (() => {
+const encode_utf8 = 'Deno' in globalThis ? Deno.core.encode : (() => {
   const encoder = new TextEncoder();
   return string => encoder.encode(string);
 })();
 
-let decode_utf8 = 'Deno' in globalThis ? Deno.core.decode : (() => {
+const decode_utf8 = 'Deno' in globalThis ? Deno.core.decode : (() => {
   const decoder = new TextDecoder();
   return buffer => decoder.decode(buffer);
 })();

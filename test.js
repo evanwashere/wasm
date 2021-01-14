@@ -184,38 +184,3 @@ Deno.test('font', async () => {
 //   index.drop();
 //   try { [...index.search('hello')] } catch { console.log('index is dropped') }
 // }
-
-// to be removed, no clear use case for slow wasm variant
-// oxipng: {
-//   if (skip.oxipng) break oxipng;
-
-//   let x;
-//   let i = 1
-//   console.log('testing oxipng');
-//   const image = new Uint8Array(await (await fetch('https://tsu.sh/boncg4b59kq.png')).arrayBuffer());
-
-//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-//   Deno.writeFile(`./test${i}.png`, x = oxipng.optimize(image, i)); console.log(`${image.length - x.length} bytes saved with level ${i++}`);
-// }
-
-// to be removed, use npmjs.com/hash-wasm instead
-// crypto: {
-//   if (skip.crypto) break crypto;
-
-//   console.log('testing crypto');
-//   const bytes = new Uint8Array(1024);
-//   console.log(zcrypto.hash.md5(bytes));
-//   console.log(zcrypto.hash.sha1(bytes));
-//   console.log(zcrypto.hash.blake3(bytes));
-//   console.log(zcrypto.hash.sha2.sha256(bytes));
-//   console.log(zcrypto.hash.sha2.sha512(bytes));
-//   console.log(zcrypto.hash.sha3.sha256(bytes));
-//   console.log(zcrypto.hash.sha3.sha512(bytes));
-//   console.log(zcrypto.hash.blake2.s256(bytes));
-//   console.log(zcrypto.hash.blake2.b256(bytes));
-//   console.log(zcrypto.hash.blake2.b512(bytes));
-// }
