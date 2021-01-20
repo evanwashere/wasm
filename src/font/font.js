@@ -108,12 +108,14 @@ export class Layout {
     wasm.layout_reset(this.ptr, ptr, options.length);
   }
 
-  append(font, text, scale) {
+  append(font, text, init) {
     text = encode_utf8(text);
+    const options = init || {};
     if (registry) this.refs.push(font);
     const ptr = mem.alloc(text.length);
     mem.u8(ptr, text.length).set(text);
-    wasm.layout_append(this.ptr, font.ptr, ptr, text.length, scale ?? font.scale);
+    const has_color = ('r' in options) || ('g' in options) || ('b' in options);
+    wasm.layout_append(this.ptr, font.ptr, ptr, text.length, options.scale ?? font.scale, has_color, options.r, options.g, options.b);
   }
 
   rasterize(r, g, b) {
