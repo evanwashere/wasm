@@ -48,7 +48,9 @@ Deno.test('lz4', () => {
   const random_compressed = lz4.compress_sized(random1024);
   assert.equal(lz4.decompress_sized(zero_compressed), zero1024);
   assert.equal(lz4.decompress_sized(random_compressed), random1024);
+  assert.throws(() => lz4.decompress(5, new Uint8Array([1, 2, 3, 4, 5])));
   assert.equal(lz4.decompress(zero1024.length, lz4.compress(zero1024)), zero1024);
+  assert.throws(() => lz4.decompress_sized(new Uint8Array([1, 2, 3, 4, 5, 6, 7])));
   assert.equal(lz4.decompress(random1024.length, lz4.compress(random1024)), random1024);
   lz4.decompress_sized_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
   lz4.decompress_sized_with(random_compressed, slice => assert.is(slice.length, random1024.length));
