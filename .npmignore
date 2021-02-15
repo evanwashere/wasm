@@ -2,5 +2,6 @@ test*.*
 build.js
 src/**/*.js
 src/**/*.rs
-src/**/*.zig
+src/**/*.md
 src/**/*.wat
+src/**/*.zig
