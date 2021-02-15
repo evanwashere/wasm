@@ -1,5 +1,6 @@
 import * as lz4 from './target/lz4/deno.js';
 import * as nacl from './target/nacl/deno.js';
+import * as zstd from './target/zstd/deno.js';
 import * as zlib from './target/zlib/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
@@ -31,6 +32,16 @@ Deno.test('ed25519', () => {
 
   assert.ok(ed25519.verify(key, sig, new Uint8Array(10)));
   assert.not.ok(ed25519.verify(new Uint8Array(32), new Uint8Array(64), new Uint8Array(10)));
+});
+
+Deno.test('zstd', () => {
+  const zero_compressed = zstd.compress(zero1024);
+  const random_compressed = zstd.compress(random1024);
+  assert.equal(zstd.decompress(zero_compressed), zero1024);
+  assert.equal(zstd.decompress(random_compressed), random1024);
+  assert.throws(() => zstd.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  zstd.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  zstd.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
 });
 
 Deno.test('brotli', () => {

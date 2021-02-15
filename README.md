@@ -10,10 +10,10 @@ targets:
 
 ```js
 import * as mod from '@evan/wasm/target/<mod>/<target>';
-import * as mod from 'https://unpkg.com/@evan/wasm@0.0.38/target/<mod>/<target>';
+import * as mod from 'https://unpkg.com/@evan/wasm@0.0.44/target/<mod>/<target>';
 
 // example
-import * as snappy from 'https://unpkg.com/@evan/wasm@0.0.38/target/snappy/deno.js';
+import * as snappy from 'https://unpkg.com/@evan/wasm@0.0.44/target/snappy/deno.js';
 
 snappy.compress(new Uint8Array(100));
 ```
