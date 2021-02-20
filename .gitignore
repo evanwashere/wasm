@@ -2,5 +2,6 @@ dev/
 test*.*
 target/
 .DS_Store
+src/*/asm.js
 node_modules/
 package-lock.json
