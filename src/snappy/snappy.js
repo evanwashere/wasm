@@ -18,11 +18,11 @@ const pool = new Pool(256 * 1024); // !deno
 }
 
 class mem {
+  static length() { return wasm.wlen(); }
   static alloc(size) { return wasm.walloc(size); }
   static free(ptr, size) { return wasm.wfree(ptr, size); }
   static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
   static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
-  static length() { return new Uint32Array(wasm.memory.buffer, wasm.cur_len.value, 1)[0]; }
 
   static copy_and_free(ptr, size) {
     let slice = mem.u8(ptr, size).slice();
@@ -116,9 +116,8 @@ export class Compressor {
   }
 
   free() {
-    pool.free(this.id);
-    streams.delete(this.id);
     wasm.compressor_free(this.ptr);
+    pool.free(this.id); streams.delete(this.id);
   }
 
   write(buffer) {

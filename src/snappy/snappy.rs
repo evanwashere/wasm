@@ -14,7 +14,7 @@ pub struct Compressor {
 impl io::Write for js_callback {
   fn flush(&mut self) -> io::Result<()> { Ok(()) }
   fn write(&mut self, buffer: &[u8]) -> io::Result<usize> {
-    unsafe { push_to_stream(self.id, mem::ptr(&buffer)); }
+    unsafe { push_to_stream(self.id, mem::peek(&buffer)); }
 
     Ok(buffer.len())
   }
@@ -31,49 +31,46 @@ impl Compressor {
 
 
 extern "C" {
-  fn push_to_stream(id: usize, ptr: *const u8);
+  fn push_to_stream(id: usize, ptr: mem::buf);
 }
 
 #[no_mangle]
 pub unsafe extern "C" fn compressor_flush(ptr: *mut Compressor) { (*ptr).flush(); }
 
 #[no_mangle]
-pub unsafe extern "C" fn compressor_free(ptr: *mut Compressor) { Box::from_raw(ptr); }
+pub unsafe extern "C" fn compressor_free(ptr: *mut Compressor) { mem::unpack(ptr); }
 
 #[no_mangle]
-pub extern "C" fn compressor_new(id: usize) -> *mut Compressor { Box::into_raw(Box::new(Compressor::new(id))) }
+pub extern "C" fn compressor_new(id: usize) -> *mut Compressor { mem::pack(Compressor::new(id)) }
 
 #[no_mangle]
-pub unsafe extern "C" fn compressor_write(ptr: *mut Compressor, bptr: *mut u8, size: usize) { (*ptr).write(&mut mem::load(bptr, size)); }
+pub unsafe extern "C" fn compressor_write(ptr: *mut Compressor, bptr: mem::buf, size: usize) { (*ptr).write(&mut mem::load(bptr, size)); }
 
 #[no_mangle]
-pub unsafe extern "C" fn compress_raw(ptr: *mut u8, size: usize) -> *const u8 {
-  let mut buf = snap::raw::Encoder::new().compress_vec(&mem::load(ptr, size)).unwrap_unsafe();
-
-  return mem::store(&mut buf);
-}
+pub unsafe extern "C" fn compress_raw(ptr: mem::buf, size: usize) -> mem::buf { mem::store(snap::raw::Encoder::new().compress_vec(&mem::load(ptr, size)).unwrap_unsafe()) }
 
 #[no_mangle]
-pub unsafe extern "C" fn compress(ptr: *mut u8, size: usize) -> *const u8 {
+pub unsafe extern "C" fn compress(ptr: mem::buf, size: usize) -> mem::buf {
   let mut w = snap::write::FrameEncoder::new(vec![]);
   w.write_all(&mem::load(ptr, size)).unwrap_unsafe();
-  return mem::store(&mut w.into_inner().unwrap_unsafe());
+
+  return mem::store(w.into_inner().unwrap_unsafe());
 }
 
 #[no_mangle]
-pub extern "C" fn decompress_raw(ptr: *mut u8, size: usize) -> *const u8 {
+pub extern "C" fn decompress_raw(ptr: mem::buf, size: usize) -> mem::buf {
   match snap::raw::Decoder::new().decompress_vec(&mem::load(ptr, size)) {
-    Err(_) => 0 as *const u8,
-    Ok(mut buf) => mem::store(&mut buf),
+    Err(_) => mem::err(0),
+    Ok(buf) => mem::store(buf),
   }
 }
 
 #[no_mangle]
-pub extern "C" fn decompress(ptr: *mut u8, size: usize) -> *const u8 {
+pub extern "C" fn decompress(ptr: mem::buf, size: usize) -> mem::buf {
   let mut buf = vec![];
 
   match snap::read::FrameDecoder::new(&*mem::load(ptr, size)).read_to_end(&mut buf) {
-    Err(_) => 0 as *const u8,
-    Ok(_) => mem::store(&mut buf),
+    Err(_) => mem::err(0),
+    Ok(_) => mem::store(buf),
   }
 }
