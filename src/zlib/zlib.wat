@@ -1,16 +1,18 @@
 (module
   (type $t0 (func (param i32 i32)))
-  (type $t1 (func (param i32 i32 i32 i32 i32)))
-  (type $t2 (func (param i32 i32 i32) (result i32)))
-  (type $t3 (func (param i32 i32) (result i32)))
-  (type $t4 (func (param i32) (result i32)))
-  (type $t5 (func (param i32)))
-  (type $t6 (func (param i32 i32 i32)))
+  (type $t1 (func (param i32)))
+  (type $t2 (func (param i32 i32) (result i32)))
+  (type $t3 (func (param i32 i32 i32) (result i32)))
+  (type $t4 (func (param i32 i32 i32 i32 i32) (result i32)))
+  (type $t5 (func (param i32) (result i32)))
+  (type $t6 (func (param i32 i32 i32 i32 i32)))
   (type $t7 (func (param i32 i32 i32 i32)))
-  (type $t8 (func (result i32)))
-  (type $t9 (func (param i32 i32 i32 i32) (result i32)))
-  (type $t10 (func (param i32) (result i64)))
-  (func $f0 (type $t1) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
+  (type $t8 (func (param i32) (result i64)))
+  (type $t9 (func (param i32 i32 i32)))
+  (type $t10 (func (result i32)))
+  (type $t11 (func (param i32 i32 i32 i32 i32 i32)))
+  (type $t12 (func (param i32 i32 i32 i32) (result i32)))
+  (func $f0 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
     (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32) (local $l29 i32) (local $l30 i32) (local $l31 i32) (local $l32 i32) (local $l33 i32) (local $l34 i32) (local $l35 i32) (local $l36 i32) (local $l37 i32) (local $l38 i32) (local $l39 i32)
     global.get $g0
     i32.const -64
@@ -51,7 +53,7 @@
               end
               local.get $l14
               local.tee $l5
-              call $f24
+              call $f43
               local.tee $l17
               i32.eqz
               br_if $B3
@@ -66,7 +68,7 @@
             local.get $l5
             i32.store offset=12
             i32.const 10984
-            call $f3
+            call $f4
             local.tee $l11
             if $I6
               local.get $l11
@@ -421,7 +423,7 @@
                                                                                                     local.get $l7
                                                                                                     i32.const 24
                                                                                                     i32.add
-                                                                                                    call $f8
+                                                                                                    call $f12
                                                                                                     local.tee $l9
                                                                                                     i32.const 65280
                                                                                                     i32.and
@@ -1027,7 +1029,7 @@
                                                                           end
                                                                           local.get $p3
                                                                           local.get $l27
-                                                                          call $f21
+                                                                          call $f34
                                                                           unreachable
                                                                         end
                                                                         local.get $l7
@@ -1061,7 +1063,7 @@
                                                                           i32.gt_u
                                                                           select
                                                                           local.tee $l5
-                                                                          call $f10
+                                                                          call $f15
                                                                           local.get $l7
                                                                           local.get $l6
                                                                           local.get $l5
@@ -1115,7 +1117,7 @@
                                                                         local.get $l12
                                                                         local.get $l8
                                                                         local.get $l5
-                                                                        call $f14
+                                                                        call $f27
                                                                         i32.const 12
                                                                         local.set $l5
                                                                         local.get $l6
@@ -1360,10 +1362,8 @@
                                                                         local.get $l5
                                                                         i32.const 7
                                                                         i32.lt_u
-                                                                        local.set $l6
                                                                         local.get $l10
                                                                         local.set $l5
-                                                                        local.get $l6
                                                                         br_if $L96
                                                                       end
                                                                       br $B93
@@ -1480,13 +1480,13 @@
                                                                   local.tee $l5
                                                                   i32.const 1
                                                                   i32.shl
-                                                                  i32.const 1053388
+                                                                  i32.const 1056416
                                                                   i32.add
                                                                   i32.load16_u
                                                                   i32.store offset=32
                                                                   local.get $l7
                                                                   local.get $l5
-                                                                  i32.const 1053356
+                                                                  i32.const 1056384
                                                                   i32.add
                                                                   i32.load8_u
                                                                   local.tee $l5
@@ -1625,13 +1625,13 @@
                                                               local.tee $l5
                                                               i32.const 1
                                                               i32.shl
-                                                              i32.const 1053292
+                                                              i32.const 1056320
                                                               i32.add
                                                               i32.load16_u
                                                               i32.store offset=36
                                                               local.get $l7
                                                               local.get $l5
-                                                              i32.const 1053260
+                                                              i32.const 1056288
                                                               i32.add
                                                               i32.load8_u
                                                               local.tee $l5
@@ -2064,14 +2064,14 @@
                                                                                         local.tee $l6
                                                                                         i32.const 1
                                                                                         i32.shl
-                                                                                        i32.const 1053292
+                                                                                        i32.const 1056320
                                                                                         i32.add
                                                                                         i32.load16_u
                                                                                         local.set $l19
                                                                                         block $B146 (result i32)
                                                                                           local.get $p3
                                                                                           local.get $l6
-                                                                                          i32.const 1053260
+                                                                                          i32.const 1056288
                                                                                           i32.add
                                                                                           i32.load8_u
                                                                                           local.tee $l23
@@ -2198,7 +2198,7 @@
                                                                                   end
                                                                                   i32.const 2
                                                                                   local.get $l10
-                                                                                  call $f20
+                                                                                  call $f33
                                                                                   unreachable
                                                                                 end
                                                                                 local.get $l16
@@ -2229,13 +2229,13 @@
                                                                                 local.get $p3
                                                                                 i32.const 1
                                                                                 i32.shl
-                                                                                i32.const 1053388
+                                                                                i32.const 1056416
                                                                                 i32.add
                                                                                 i32.load16_u
                                                                                 local.set $l24
                                                                                 block $B152
                                                                                   local.get $p3
-                                                                                  i32.const 1053356
+                                                                                  i32.const 1056384
                                                                                   i32.add
                                                                                   i32.load8_u
                                                                                   local.tee $l23
@@ -2334,7 +2334,7 @@
                                                                           local.get $l12
                                                                           local.get $l24
                                                                           local.get $l19
-                                                                          call $f14
+                                                                          call $f27
                                                                           local.get $l14
                                                                           local.get $l12
                                                                           local.get $l19
@@ -2582,7 +2582,7 @@
                                                                     end
                                                                     i32.const 2
                                                                     local.get $l6
-                                                                    call $f20
+                                                                    call $f33
                                                                     unreachable
                                                                   end
                                                                   local.get $l7
@@ -2770,10 +2770,8 @@
                                                                 local.get $l5
                                                                 i32.const 7
                                                                 i32.lt_u
-                                                                local.set $l6
                                                                 local.get $l10
                                                                 local.set $l5
-                                                                local.get $l6
                                                                 br_if $L173
                                                               end
                                                               br $B170
@@ -3061,12 +3059,12 @@
                                                           end
                                                           local.get $l6
                                                           local.get $l8
-                                                          call $f22
+                                                          call $f35
                                                           unreachable
                                                         end
                                                         local.get $l8
                                                         i32.const 457
-                                                        call $f20
+                                                        call $f33
                                                         unreachable
                                                       end
                                                       loop $L194
@@ -3226,10 +3224,8 @@
                                                                   local.get $l5
                                                                   i32.const 7
                                                                   i32.lt_u
-                                                                  local.set $l6
                                                                   local.get $l18
                                                                   local.set $l5
-                                                                  local.get $l6
                                                                   br_if $L201
                                                                 end
                                                                 br $B196
@@ -3301,7 +3297,7 @@
                                                                     local.get $l7
                                                                     i32.const 24
                                                                     i32.add
-                                                                    call $f8
+                                                                    call $f12
                                                                     local.tee $l6
                                                                     i32.const 65280
                                                                     i32.and
@@ -3312,22 +3308,22 @@
                                                                   end
                                                                   local.get $l5
                                                                   i32.const 288
-                                                                  call $f20
+                                                                  call $f33
                                                                   unreachable
                                                                 end
                                                                 local.get $l6
                                                                 i32.const 288
-                                                                call $f20
+                                                                call $f33
                                                                 unreachable
                                                               end
                                                               local.get $l5
                                                               local.get $l10
-                                                              call $f22
+                                                              call $f35
                                                               unreachable
                                                             end
                                                             local.get $l10
                                                             i32.const 457
-                                                            call $f20
+                                                            call $f33
                                                             unreachable
                                                           end
                                                           block $B212
@@ -3505,7 +3501,7 @@
                                                             local.get $l7
                                                             i32.const 24
                                                             i32.add
-                                                            call $f8
+                                                            call $f12
                                                             local.tee $l9
                                                             i32.const 65280
                                                             i32.and
@@ -3538,7 +3534,7 @@
                                                               i32.ge_u
                                                               br_if $B221
                                                               local.get $l8
-                                                              i32.const 1050840
+                                                              i32.const 1053868
                                                               i32.add
                                                               i32.load8_u
                                                               local.get $l11
@@ -3670,7 +3666,7 @@
                                                           local.get $l8
                                                           i32.const 1
                                                           i32.shl
-                                                          i32.const 1053060
+                                                          i32.const 1056088
                                                           i32.add
                                                           i32.load16_u
                                                           local.get $l7
@@ -3840,17 +3836,17 @@
                                                     end
                                                     local.get $l5
                                                     local.get $l8
-                                                    call $f20
+                                                    call $f33
                                                     unreachable
                                                   end
                                                   local.get $l12
                                                   local.get $l6
-                                                  call $f22
+                                                  call $f35
                                                   unreachable
                                                 end
                                                 local.get $l6
                                                 local.get $l14
-                                                call $f20
+                                                call $f33
                                                 unreachable
                                               end
                                               i32.const 20
@@ -4137,7 +4133,7 @@
                                   local.get $l21
                                   i32.sub
                                   local.tee $l8
-                                  call $f11
+                                  call $f18
                                   local.get $l11
                                   local.get $l7
                                   i32.load offset=48
@@ -4161,12 +4157,12 @@
                                 end
                                 local.get $l21
                                 local.get $l12
-                                call $f22
+                                call $f35
                                 unreachable
                               end
                               local.get $l12
                               local.get $l14
-                              call $f20
+                              call $f33
                               unreachable
                             end
                             local.get $l8
@@ -4211,7 +4207,7 @@
                           i32.load
                           i32.store
                           local.get $l11
-                          call $f6
+                          call $f13
                           br $B1
                         end
                         local.get $p0
@@ -4237,7 +4233,7 @@
                         i32.const 8
                         i32.add
                         local.get $l5
-                        call $f13
+                        call $f25
                         local.get $l27
                         local.get $l13
                         i32.sub
@@ -4270,7 +4266,7 @@
                   i32.store16
                 end
                 local.get $l11
-                call $f6
+                call $f13
                 local.get $l17
                 i32.eqz
                 br_if $B1
@@ -4279,20 +4275,20 @@
                 i32.eqz
                 br_if $B1
                 local.get $l17
-                call $f6
+                call $f13
                 br $B1
               end
               local.get $l28
               local.get $p2
-              call $f21
+              call $f34
               unreachable
             end
             i32.const 10984
             i32.const 4
-            i32.const 1054900
+            i32.const 1059788
             i32.load
             local.tee $p0
-            i32.const 1
+            i32.const 4
             local.get $p0
             select
             call_indirect (type $t0) $T0
@@ -4300,10 +4296,10 @@
           end
           local.get $l14
           i32.const 1
-          i32.const 1054900
+          i32.const 1059788
           i32.load
           local.tee $p0
-          i32.const 1
+          i32.const 4
           local.get $p0
           select
           call_indirect (type $t0) $T0
@@ -4319,16 +4315,16 @@
     end
     i32.const 2
     local.get $p3
-    call $f20
+    call $f33
     unreachable)
-  (func $f1 (type $t1) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
-    (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32) (local $l29 i32) (local $l30 i32) (local $l31 i32) (local $l32 i32) (local $l33 i32) (local $l34 i32) (local $l35 i32) (local $l36 i32) (local $l37 i32) (local $l38 i32) (local $l39 i32) (local $l40 i32) (local $l41 i32) (local $l42 i32) (local $l43 i32) (local $l44 i64)
+  (func $f1 (type $t7) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32)
+    (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32) (local $l29 i32) (local $l30 i32) (local $l31 i32) (local $l32 i32) (local $l33 i32) (local $l34 i32) (local $l35 i32) (local $l36 i32) (local $l37 i32) (local $l38 i32) (local $l39 i32) (local $l40 i32) (local $l41 i32) (local $l42 i32) (local $l43 i32) (local $l44 i64)
     global.get $g0
     i32.const 131264
     i32.sub
-    local.tee $l5
+    local.tee $l4
     global.set $g0
-    local.get $l5
+    local.get $l4
     i32.const 65680
     i32.add
     i32.const 0
@@ -4337,231 +4333,165 @@
     block $B0
       block $B1
         i32.const 85196
-        call $f3
-        local.tee $l6
+        call $f4
+        local.tee $l5
         if $I2
-          local.get $l6
+          local.get $l5
           i32.const 0
           i32.const 85196
           memory.fill
-          local.get $l5
+          local.get $l4
           i32.const 131240
           i32.add
-          local.tee $l7
+          local.tee $l6
           i32.const 16
           i32.add
           i32.const 0
           i32.store
-          local.get $l7
+          local.get $l6
           i32.const 8
           i32.add
           i64.const 0
           i64.store
-          local.get $l5
+          local.get $l4
           i32.const 131216
           i32.add
-          local.tee $l7
+          local.tee $l6
           i32.const 8
           i32.add
           i64.const 0
           i64.store
-          local.get $l7
+          local.get $l6
           i32.const 16
           i32.add
           i32.const 0
           i32.store
-          local.get $l5
+          local.get $l4
           i64.const 0
           i64.store offset=131240
-          local.get $l5
+          local.get $l4
           i64.const 0
           i64.store offset=131216
           i32.const 4320
-          call $f3
-          local.tee $l7
+          call $f4
+          local.tee $l6
           if $I3
-            local.get $l7
+            local.get $l6
             i32.const 0
             i32.const 4320
             memory.fill
             i32.const 164098
-            call $f3
-            local.tee $l8
+            call $f4
+            local.tee $l7
             if $I4
-              local.get $l8
+              local.get $l7
               i32.const 0
               i32.const 164098
               memory.fill
-              local.get $l5
+              local.get $l4
               i64.const 34359738368
               i64.store offset=48
-              local.get $l5
+              local.get $l4
               i64.const 1
               i64.store offset=40
-              local.get $l5
+              local.get $l4
               i32.const 56
               i32.add
-              local.get $l5
+              local.get $l4
               i32.const 65680
               i32.add
               i32.const 65536
               memory.copy
-              local.get $l5
+              local.get $l4
               i32.const 65616
               i32.add
               i32.const 1
               i32.store
-              local.get $l5
+              local.get $l4
               i32.const 65660
               i32.add
-              local.get $l8
+              local.get $l7
               i32.store
-              local.get $l5
-              i32.const 65647
+              local.get $l4
+              i32.const 65644
               i32.add
-              i32.const 0
-              i32.store8
-              local.get $l5
-              i32.const 65645
-              i32.add
-              i32.const 0
-              i32.store16 align=1
-              local.get $l5
+              i32.const 1
+              i32.store
+              local.get $l4
               i32.const 65640
               i32.add
-              local.get $l6
-              i32.store
               local.get $l5
+              i32.store
+              local.get $l4
               i32.const 65596
               i32.add
-              local.get $l5
+              local.get $l4
               i64.load offset=131240
               i64.store align=4
-              local.get $l5
+              local.get $l4
               i32.const 65604
               i32.add
-              local.get $l5
+              local.get $l4
               i32.const 131240
               i32.add
-              local.tee $l6
+              local.tee $l5
               i32.const 8
               i32.add
               i64.load
               i64.store align=4
-              local.get $l5
+              local.get $l4
               i32.const 65612
               i32.add
-              local.get $l6
+              local.get $l5
               i32.const 16
               i32.add
               i32.load
               i32.store
-              local.get $l5
+              local.get $l4
               i32.const 65620
               i32.add
-              local.get $l5
+              local.get $l4
               i64.load offset=131216
               i64.store align=4
-              local.get $l5
+              local.get $l4
               i32.const 65628
               i32.add
-              local.get $l5
+              local.get $l4
               i32.const 131216
               i32.add
-              local.tee $l6
+              local.tee $l5
               i32.const 8
               i32.add
               i64.load
               i64.store align=4
-              local.get $l5
+              local.get $l4
               i32.const 65636
               i32.add
-              local.get $l6
+              local.get $l5
               i32.const 16
               i32.add
               i32.load
               i32.store
-              local.get $l5
+              local.get $l4
+              i32.const 544768
+              i32.const 540672
               local.get $p3
-              i32.const 255
-              i32.and
-              local.tee $p3
-              i32.const 10
-              local.get $p3
-              i32.const 10
-              i32.lt_u
-              select
-              i32.const 2
-              i32.shl
-              i32.const 1049080
-              i32.add
-              i32.load
-              local.get $p3
-              i32.const 4
-              i32.lt_u
-              i32.const 14
-              i32.shl
-              i32.or
-              local.tee $l6
-              i32.const 4096
-              i32.or
-              local.get $l6
-              local.get $p4
               i32.const 0
               i32.gt_s
               select
-              local.tee $p4
-              local.get $p4
-              i32.const 524288
-              i32.or
-              local.get $p3
-              select
-              local.tee $p3
               i32.store offset=65592
-              local.get $l5
-              i32.const 65644
-              i32.add
-              local.get $p3
-              i32.const 14
-              i32.shr_u
-              i32.const 1
-              i32.and
-              i32.store8
-              local.get $l5
-              local.get $l7
-              i32.store offset=65648
-              local.get $l5
-              local.get $p3
-              i32.const 4095
-              i32.and
-              local.tee $p3
-              i32.const 2
-              i32.shr_u
-              i32.const 2
-              i32.add
-              i32.const 3
-              i32.div_u
-              i32.const 1
-              i32.add
-              i64.extend_i32_u
-              i64.const 32
-              i64.shl
-              local.get $p3
-              i32.const 2
-              i32.add
-              i32.const 3
-              i32.div_u
-              i32.const 1
-              i32.add
-              i64.extend_i32_u
-              i64.or
+              local.get $l4
+              i64.const 4294967297
               i64.store offset=65652 align=4
-              local.get $l5
+              local.get $l4
+              local.get $l6
+              i32.store offset=65648
+              local.get $l4
               i32.const 65672
               i32.add
               i64.const 0
               i64.store
-              local.get $l5
+              local.get $l4
               i32.const 65664
               i32.add
               i64.const 0
@@ -4575,29 +4505,29 @@
               i32.const 2
               i32.gt_u
               select
-              local.tee $l16
-              call $f24
+              local.tee $l17
+              call $f43
               local.tee $p3
-              local.set $p4
+              local.set $l5
               local.get $p3
               if $I5
-                local.get $l5
+                local.get $l4
                 i32.const 65652
                 i32.add
                 local.set $l33
                 local.get $p0
-                local.get $l16
+                local.get $l17
                 i32.store offset=4
                 local.get $p0
-                local.get $p4
+                local.get $l5
                 i32.store
                 local.get $p0
                 i32.const 8
                 i32.add
                 local.tee $l34
-                local.get $l16
+                local.get $l17
                 i32.store
-                local.get $l5
+                local.get $l4
                 i32.const 65593
                 i32.add
                 local.set $l35
@@ -4605,7 +4535,7 @@
                   block $B7
                     loop $L8
                       block $B9
-                        local.get $l5
+                        local.get $l4
                         block $B10 (result i32)
                           block $B11
                             block $B12
@@ -4631,64 +4561,64 @@
                                                                     block $B32
                                                                       block $B33
                                                                         block $B34
-                                                                          local.get $l16
-                                                                          local.get $l18
+                                                                          local.get $l17
+                                                                          local.get $l19
                                                                           i32.ge_u
                                                                           if $I35
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i64.const 0
                                                                             i64.store offset=65620 align=4
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.const 4
                                                                             i32.store8 offset=65646
                                                                             local.get $p0
                                                                             i32.load
                                                                             local.set $p3
-                                                                            local.get $l5
-                                                                            local.get $l16
-                                                                            local.get $l18
+                                                                            local.get $l4
+                                                                            local.get $l17
+                                                                            local.get $l19
                                                                             i32.sub
                                                                             local.tee $l23
                                                                             i32.store offset=65704
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             local.get $p3
-                                                                            local.get $l18
+                                                                            local.get $l19
                                                                             i32.add
                                                                             local.tee $l28
                                                                             i32.store offset=65700
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.const 1
                                                                             i32.store offset=65696
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i64.const 0
                                                                             i64.store offset=65688
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             local.get $p2
                                                                             local.get $l24
                                                                             i32.sub
                                                                             local.tee $l15
                                                                             i32.store offset=65684
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             local.get $p1
                                                                             local.get $l24
                                                                             i32.add
                                                                             local.tee $l26
                                                                             i32.store offset=65680
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.load offset=65628
                                                                             if $I36
                                                                               i32.const -2
-                                                                              local.set $l6
+                                                                              local.set $l5
                                                                               br $B1
                                                                             end
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.load offset=65612
-                                                                            local.tee $l6
+                                                                            local.tee $l5
                                                                             br_if $B11
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.load8_u offset=65647
                                                                             br_if $B11
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.load offset=65592
                                                                             i32.const 741375
                                                                             i32.and
@@ -4696,22 +4626,22 @@
                                                                             i32.eq
                                                                             br_if $B34
                                                                             i32.const 0
-                                                                            local.set $l10
-                                                                            local.get $l5
+                                                                            local.set $l8
+                                                                            local.get $l4
                                                                             i32.load offset=65604
                                                                             local.set $l14
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.load offset=65600
-                                                                            local.set $l19
-                                                                            local.get $l5
+                                                                            local.set $l20
+                                                                            local.get $l4
                                                                             i32.load8_u offset=65645
-                                                                            local.set $l17
-                                                                            local.get $l5
+                                                                            local.set $l18
+                                                                            local.get $l4
                                                                             i32.load offset=65672
                                                                             local.set $l13
-                                                                            local.get $l5
+                                                                            local.get $l4
                                                                             i32.load offset=65668
-                                                                            local.set $l11
+                                                                            local.set $l10
                                                                             block $B37
                                                                               block $B38
                                                                                 block $B39
@@ -4720,14 +4650,14 @@
                                                                                       loop $L42
                                                                                         block $B43
                                                                                           block $B44
-                                                                                            local.get $l10
+                                                                                            local.get $l8
                                                                                             local.get $l15
                                                                                             i32.ge_u
                                                                                             if $I45
-                                                                                              local.get $l11
+                                                                                              local.get $l10
                                                                                               i32.eqz
                                                                                               br_if $B44
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load8_u offset=65646
                                                                                               i32.eqz
                                                                                               br_if $B44
@@ -4739,88 +4669,88 @@
                                                                                                     block $B50
                                                                                                       block $B51
                                                                                                         i32.const 258
-                                                                                                        local.get $l11
+                                                                                                        local.get $l10
                                                                                                         i32.sub
                                                                                                         local.tee $p3
                                                                                                         local.get $l15
-                                                                                                        local.get $l10
+                                                                                                        local.get $l8
                                                                                                         i32.sub
-                                                                                                        local.tee $p4
+                                                                                                        local.tee $l5
                                                                                                         local.get $p3
-                                                                                                        local.get $p4
+                                                                                                        local.get $l5
                                                                                                         i32.lt_u
                                                                                                         select
-                                                                                                        local.tee $p4
+                                                                                                        local.tee $l16
                                                                                                         if $I52
-                                                                                                          local.get $l5
+                                                                                                          local.get $l4
                                                                                                           i32.load offset=65676
-                                                                                                          local.get $l11
+                                                                                                          local.get $l10
                                                                                                           i32.add
                                                                                                           i32.const 1
                                                                                                           i32.gt_u
                                                                                                           br_if $B51
                                                                                                         end
-                                                                                                        local.get $p4
-                                                                                                        local.get $l10
+                                                                                                        local.get $l8
+                                                                                                        local.get $l16
                                                                                                         i32.add
                                                                                                         local.tee $p3
-                                                                                                        local.get $p4
+                                                                                                        local.get $l16
                                                                                                         i32.lt_u
                                                                                                         br_if $B50
                                                                                                         local.get $p3
                                                                                                         local.get $l15
                                                                                                         i32.gt_u
                                                                                                         br_if $B49
-                                                                                                        local.get $p4
+                                                                                                        local.get $l16
                                                                                                         if $I53
-                                                                                                          local.get $l10
+                                                                                                          local.get $l8
                                                                                                           local.get $l26
                                                                                                           i32.add
-                                                                                                          local.set $l10
-                                                                                                          local.get $l11
+                                                                                                          local.set $l8
+                                                                                                          local.get $l10
                                                                                                           local.get $l13
                                                                                                           i32.add
-                                                                                                          local.set $l20
+                                                                                                          local.set $l9
                                                                                                           i32.const 0
-                                                                                                          local.set $l6
+                                                                                                          local.set $l5
                                                                                                           loop $L54
-                                                                                                            local.get $l6
-                                                                                                            local.get $l20
+                                                                                                            local.get $l5
+                                                                                                            local.get $l9
                                                                                                             i32.add
-                                                                                                            local.tee $l7
+                                                                                                            local.tee $l6
                                                                                                             i32.const 32767
                                                                                                             i32.and
-                                                                                                            local.tee $l8
-                                                                                                            local.get $l5
+                                                                                                            local.tee $l7
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=65660
                                                                                                             i32.add
                                                                                                             i32.const 131072
                                                                                                             i32.add
-                                                                                                            local.get $l6
-                                                                                                            local.get $l10
+                                                                                                            local.get $l5
+                                                                                                            local.get $l8
                                                                                                             i32.add
                                                                                                             i32.load8_u
-                                                                                                            local.tee $l9
+                                                                                                            local.tee $l11
                                                                                                             i32.store8
-                                                                                                            local.get $l8
+                                                                                                            local.get $l7
                                                                                                             i32.const 256
                                                                                                             i32.le_u
                                                                                                             if $I55
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=65660
-                                                                                                              local.get $l8
+                                                                                                              local.get $l7
                                                                                                               i32.const 32768
                                                                                                               i32.or
                                                                                                               i32.add
                                                                                                               i32.const 131072
                                                                                                               i32.add
-                                                                                                              local.get $l9
+                                                                                                              local.get $l11
                                                                                                               i32.store8
                                                                                                             end
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=65676
-                                                                                                            local.get $l6
-                                                                                                            local.get $l11
+                                                                                                            local.get $l5
+                                                                                                            local.get $l10
                                                                                                             i32.add
                                                                                                             i32.add
                                                                                                             i32.const 1
@@ -4828,14 +4758,14 @@
                                                                                                             i32.const 3
                                                                                                             i32.ge_u
                                                                                                             if $I56
-                                                                                                              local.get $l9
-                                                                                                              local.get $l5
+                                                                                                              local.get $l11
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=65660
-                                                                                                              local.tee $l8
+                                                                                                              local.tee $l7
                                                                                                               i32.const 131072
                                                                                                               i32.add
-                                                                                                              local.tee $l9
-                                                                                                              local.get $l7
+                                                                                                              local.tee $l11
+                                                                                                              local.get $l6
                                                                                                               i32.const 1
                                                                                                               i32.sub
                                                                                                               i32.const 32767
@@ -4845,11 +4775,11 @@
                                                                                                               i32.const 5
                                                                                                               i32.shl
                                                                                                               i32.xor
-                                                                                                              local.get $l9
-                                                                                                              local.get $l7
+                                                                                                              local.get $l11
+                                                                                                              local.get $l6
                                                                                                               i32.const 2
                                                                                                               i32.sub
-                                                                                                              local.tee $l9
+                                                                                                              local.tee $l11
                                                                                                               i32.const 32767
                                                                                                               i32.and
                                                                                                               local.tee $l12
@@ -4862,117 +4792,117 @@
                                                                                                               i32.xor
                                                                                                               i32.const 1
                                                                                                               i32.shl
-                                                                                                              local.set $l7
+                                                                                                              local.set $l6
                                                                                                               local.get $l12
                                                                                                               i32.const 1
                                                                                                               i32.shl
-                                                                                                              local.get $l8
-                                                                                                              i32.add
                                                                                                               local.get $l7
-                                                                                                              local.get $l8
+                                                                                                              i32.add
+                                                                                                              local.get $l6
+                                                                                                              local.get $l7
                                                                                                               i32.add
                                                                                                               i32.const 65536
                                                                                                               i32.add
                                                                                                               i32.load16_u
                                                                                                               i32.store16
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=65660
-                                                                                                              local.get $l7
+                                                                                                              local.get $l6
                                                                                                               i32.add
                                                                                                               i32.const 65536
                                                                                                               i32.add
-                                                                                                              local.get $l9
+                                                                                                              local.get $l11
                                                                                                               i32.store16
                                                                                                             end
-                                                                                                            local.get $p4
-                                                                                                            local.get $l6
+                                                                                                            local.get $l16
+                                                                                                            local.get $l5
                                                                                                             i32.const 1
                                                                                                             i32.add
-                                                                                                            local.tee $l6
+                                                                                                            local.tee $l5
                                                                                                             i32.ne
                                                                                                             br_if $L54
                                                                                                           end
-                                                                                                          local.get $l6
-                                                                                                          local.get $l11
+                                                                                                          local.get $l5
+                                                                                                          local.get $l10
                                                                                                           i32.add
-                                                                                                          local.set $l11
+                                                                                                          local.set $l10
                                                                                                         end
                                                                                                         local.get $p3
-                                                                                                        local.set $l10
+                                                                                                        local.set $l8
                                                                                                         br $B46
                                                                                                       end
-                                                                                                      local.get $p4
-                                                                                                      local.get $l10
+                                                                                                      local.get $l8
+                                                                                                      local.get $l16
                                                                                                       i32.add
-                                                                                                      local.tee $l7
-                                                                                                      local.get $p4
+                                                                                                      local.tee $l6
+                                                                                                      local.get $l16
                                                                                                       i32.lt_u
                                                                                                       br_if $B48
-                                                                                                      local.get $l7
+                                                                                                      local.get $l6
                                                                                                       local.get $l15
                                                                                                       i32.gt_u
                                                                                                       br_if $B47
-                                                                                                      local.get $l5
+                                                                                                      local.get $l4
                                                                                                       i32.load offset=65660
-                                                                                                      local.tee $p3
+                                                                                                      local.tee $l9
                                                                                                       i32.const 131072
                                                                                                       i32.add
-                                                                                                      local.tee $l9
-                                                                                                      local.get $l11
+                                                                                                      local.tee $p3
+                                                                                                      local.get $l10
                                                                                                       local.get $l13
                                                                                                       i32.add
-                                                                                                      local.tee $l8
+                                                                                                      local.tee $l7
                                                                                                       i32.const 2
                                                                                                       i32.sub
-                                                                                                      local.tee $l6
+                                                                                                      local.tee $l5
                                                                                                       i32.const 32767
                                                                                                       i32.and
                                                                                                       i32.add
                                                                                                       i32.load8_u
                                                                                                       i32.const 5
                                                                                                       i32.shl
-                                                                                                      local.get $l8
+                                                                                                      local.get $l7
                                                                                                       i32.const 1
                                                                                                       i32.sub
                                                                                                       i32.const 32767
                                                                                                       i32.and
-                                                                                                      local.get $l9
+                                                                                                      local.get $p3
                                                                                                       i32.add
                                                                                                       i32.load8_u
                                                                                                       i32.xor
-                                                                                                      local.set $l9
-                                                                                                      local.get $p4
-                                                                                                      local.get $l11
-                                                                                                      i32.add
                                                                                                       local.set $l11
-                                                                                                      local.get $p4
+                                                                                                      local.get $l10
+                                                                                                      local.get $l16
+                                                                                                      i32.add
+                                                                                                      local.set $l10
+                                                                                                      local.get $l16
                                                                                                       i32.const 1
                                                                                                       i32.sub
                                                                                                       local.set $l12
-                                                                                                      local.get $l10
+                                                                                                      local.get $l8
                                                                                                       local.get $l26
                                                                                                       i32.add
-                                                                                                      local.set $p4
+                                                                                                      local.set $p3
                                                                                                       loop $L57
-                                                                                                        local.get $p3
-                                                                                                        local.get $l8
+                                                                                                        local.get $l7
                                                                                                         i32.const 32767
                                                                                                         i32.and
-                                                                                                        local.tee $p3
+                                                                                                        local.tee $l7
+                                                                                                        local.get $l9
                                                                                                         i32.add
                                                                                                         i32.const 131072
                                                                                                         i32.add
-                                                                                                        local.get $p4
+                                                                                                        local.get $p3
                                                                                                         i32.load8_u
                                                                                                         local.tee $l8
                                                                                                         i32.store8
-                                                                                                        local.get $p3
+                                                                                                        local.get $l7
                                                                                                         i32.const 256
                                                                                                         i32.le_u
                                                                                                         if $I58
-                                                                                                          local.get $l5
+                                                                                                          local.get $l4
                                                                                                           i32.load offset=65660
-                                                                                                          local.get $p3
+                                                                                                          local.get $l7
                                                                                                           i32.const 32768
                                                                                                           i32.or
                                                                                                           i32.add
@@ -4981,130 +4911,130 @@
                                                                                                           local.get $l8
                                                                                                           i32.store8
                                                                                                         end
-                                                                                                        local.get $l5
+                                                                                                        local.get $l4
                                                                                                         i32.load offset=65660
-                                                                                                        local.tee $l10
-                                                                                                        local.get $l6
+                                                                                                        local.tee $l9
+                                                                                                        local.get $l5
                                                                                                         i32.const 32767
                                                                                                         i32.and
                                                                                                         i32.const 1
                                                                                                         i32.shl
                                                                                                         i32.add
-                                                                                                        local.get $l9
+                                                                                                        local.get $l11
                                                                                                         i32.const 5
                                                                                                         i32.shl
                                                                                                         i32.const 32736
                                                                                                         i32.and
                                                                                                         local.get $l8
                                                                                                         i32.xor
-                                                                                                        local.tee $l9
+                                                                                                        local.tee $l11
                                                                                                         i32.const 1
                                                                                                         i32.shl
                                                                                                         local.tee $l8
-                                                                                                        local.get $l10
+                                                                                                        local.get $l9
                                                                                                         i32.add
                                                                                                         i32.const 65536
                                                                                                         i32.add
                                                                                                         i32.load16_u
                                                                                                         i32.store16
-                                                                                                        local.get $l5
+                                                                                                        local.get $l4
                                                                                                         i32.load offset=65660
                                                                                                         local.get $l8
                                                                                                         i32.add
                                                                                                         i32.const 65536
                                                                                                         i32.add
-                                                                                                        local.get $l6
+                                                                                                        local.get $l5
                                                                                                         i32.store16
                                                                                                         local.get $l12
                                                                                                         if $I59
-                                                                                                          local.get $p4
+                                                                                                          local.get $p3
                                                                                                           i32.const 1
                                                                                                           i32.add
-                                                                                                          local.set $p4
+                                                                                                          local.set $p3
                                                                                                           local.get $l12
                                                                                                           i32.const 1
                                                                                                           i32.sub
                                                                                                           local.set $l12
-                                                                                                          local.get $p3
+                                                                                                          local.get $l7
                                                                                                           i32.const 1
                                                                                                           i32.add
-                                                                                                          local.set $l8
-                                                                                                          local.get $l6
-                                                                                                          i32.const 1
-                                                                                                          i32.add
-                                                                                                          local.set $l6
+                                                                                                          local.set $l7
                                                                                                           local.get $l5
+                                                                                                          i32.const 1
+                                                                                                          i32.add
+                                                                                                          local.set $l5
+                                                                                                          local.get $l4
                                                                                                           i32.load offset=65660
-                                                                                                          local.set $p3
+                                                                                                          local.set $l9
                                                                                                           br $L57
                                                                                                         else
-                                                                                                          local.get $l7
-                                                                                                          local.set $l10
+                                                                                                          local.get $l6
+                                                                                                          local.set $l8
                                                                                                           br $B46
                                                                                                         end
                                                                                                         unreachable
                                                                                                       end
                                                                                                       unreachable
                                                                                                     end
-                                                                                                    local.get $l10
+                                                                                                    local.get $l8
                                                                                                     local.get $p3
-                                                                                                    call $f22
+                                                                                                    call $f35
                                                                                                     unreachable
                                                                                                   end
                                                                                                   local.get $p3
                                                                                                   local.get $l15
-                                                                                                  call $f20
+                                                                                                  call $f33
                                                                                                   unreachable
                                                                                                 end
-                                                                                                local.get $l10
-                                                                                                local.get $l7
-                                                                                                call $f22
+                                                                                                local.get $l8
+                                                                                                local.get $l6
+                                                                                                call $f35
                                                                                                 unreachable
                                                                                               end
-                                                                                              local.get $l7
+                                                                                              local.get $l6
                                                                                               local.get $l15
-                                                                                              call $f20
+                                                                                              call $f33
                                                                                               unreachable
                                                                                             end
-                                                                                            local.get $l5
-                                                                                            local.get $l5
+                                                                                            local.get $l4
+                                                                                            local.get $l4
                                                                                             i32.load offset=65676
                                                                                             local.tee $p3
                                                                                             i32.const 32768
-                                                                                            local.get $l11
+                                                                                            local.get $l10
                                                                                             i32.sub
-                                                                                            local.tee $p4
+                                                                                            local.tee $l5
                                                                                             local.get $p3
-                                                                                            local.get $p4
+                                                                                            local.get $l5
                                                                                             i32.lt_u
                                                                                             select
                                                                                             local.tee $l29
                                                                                             i32.store offset=65676
-                                                                                            local.get $l11
+                                                                                            local.get $l10
                                                                                             i32.const 257
                                                                                             i32.gt_u
                                                                                             br_if $B43
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load8_u offset=65646
                                                                                             br_if $B43
                                                                                           end
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           local.get $l13
                                                                                           i32.store offset=65672
-                                                                                          local.get $l5
-                                                                                          local.get $l11
-                                                                                          i32.store offset=65668
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           local.get $l10
+                                                                                          i32.store offset=65668
+                                                                                          local.get $l4
+                                                                                          local.get $l8
                                                                                           i32.store offset=65620
-                                                                                          local.get $l5
-                                                                                          local.get $l17
+                                                                                          local.get $l4
+                                                                                          local.get $l18
                                                                                           i32.store8 offset=65645
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           local.get $l14
                                                                                           i32.store offset=65604
-                                                                                          local.get $l5
-                                                                                          local.get $l19
+                                                                                          local.get $l4
+                                                                                          local.get $l20
                                                                                           i32.store offset=65600
                                                                                           br $B33
                                                                                         end
@@ -5116,7 +5046,7 @@
                                                                                         i32.const 2
                                                                                         local.get $l14
                                                                                         select
-                                                                                        local.set $l8
+                                                                                        local.set $l7
                                                                                         block $B60
                                                                                           block $B61
                                                                                             block $B62
@@ -5129,7 +5059,7 @@
                                                                                                           block $B69
                                                                                                             block $B70
                                                                                                               block $B71
-                                                                                                                local.get $l5
+                                                                                                                local.get $l4
                                                                                                                 i32.load offset=65592
                                                                                                                 local.tee $l25
                                                                                                                 i32.const 589824
@@ -5137,27 +5067,27 @@
                                                                                                                 i32.eqz
                                                                                                                 if $I72
                                                                                                                   i32.const 0
-                                                                                                                  local.set $l7
-                                                                                                                  local.get $l8
+                                                                                                                  local.set $l6
+                                                                                                                  local.get $l7
                                                                                                                   i32.const 1
-                                                                                                                  local.get $l8
+                                                                                                                  local.get $l7
                                                                                                                   i32.const 1
                                                                                                                   i32.gt_u
                                                                                                                   select
-                                                                                                                  local.tee $l8
-                                                                                                                  local.get $l11
+                                                                                                                  local.tee $l7
+                                                                                                                  local.get $l10
                                                                                                                   i32.const 258
-                                                                                                                  local.get $l11
+                                                                                                                  local.get $l10
                                                                                                                   i32.const 258
                                                                                                                   i32.lt_u
                                                                                                                   select
-                                                                                                                  local.tee $l20
+                                                                                                                  local.tee $l16
                                                                                                                   i32.ge_u
                                                                                                                   br_if $B60
-                                                                                                                  local.get $l8
+                                                                                                                  local.get $l7
                                                                                                                   local.get $l9
                                                                                                                   i32.add
-                                                                                                                  local.tee $p4
+                                                                                                                  local.tee $l5
                                                                                                                   i32.const 1
                                                                                                                   i32.sub
                                                                                                                   local.tee $p3
@@ -5168,7 +5098,7 @@
                                                                                                                   i32.const 33025
                                                                                                                   i32.eq
                                                                                                                   br_if $B70
-                                                                                                                  local.get $l8
+                                                                                                                  local.get $l7
                                                                                                                   i32.const 31
                                                                                                                   i32.gt_u
                                                                                                                   i32.const 2
@@ -5181,7 +5111,7 @@
                                                                                                                   local.tee $l30
                                                                                                                   i32.eqz
                                                                                                                   br_if $B60
-                                                                                                                  local.get $l5
+                                                                                                                  local.get $l4
                                                                                                                   i32.load offset=65660
                                                                                                                   local.tee $l21
                                                                                                                   local.get $l9
@@ -5191,7 +5121,7 @@
                                                                                                                   i32.add
                                                                                                                   i32.load16_u align=1
                                                                                                                   local.set $l36
-                                                                                                                  local.get $p4
+                                                                                                                  local.get $l5
                                                                                                                   local.get $l21
                                                                                                                   i32.const 131072
                                                                                                                   i32.add
@@ -5218,7 +5148,7 @@
                                                                                                                   i32.and
                                                                                                                   local.set $l39
                                                                                                                   local.get $l9
-                                                                                                                  local.set $p4
+                                                                                                                  local.set $p3
                                                                                                                   loop $L73
                                                                                                                     i32.const 4
                                                                                                                     local.set $l12
@@ -5230,42 +5160,42 @@
                                                                                                                         local.tee $l12
                                                                                                                         i32.eqz
                                                                                                                         br_if $B74
-                                                                                                                        local.get $p4
+                                                                                                                        local.get $p3
                                                                                                                         i32.const 1
                                                                                                                         i32.shl
                                                                                                                         local.get $l21
                                                                                                                         i32.add
                                                                                                                         i32.load16_u
-                                                                                                                        local.tee $p4
+                                                                                                                        local.tee $p3
                                                                                                                         i32.eqz
                                                                                                                         br_if $B60
                                                                                                                         local.get $l13
-                                                                                                                        local.get $p4
+                                                                                                                        local.get $p3
                                                                                                                         i32.sub
                                                                                                                         i32.const 65535
                                                                                                                         i32.and
-                                                                                                                        local.tee $p3
+                                                                                                                        local.tee $l11
                                                                                                                         local.get $l29
                                                                                                                         i32.gt_u
                                                                                                                         br_if $B60
-                                                                                                                        local.get $l8
-                                                                                                                        local.get $p4
+                                                                                                                        local.get $l7
+                                                                                                                        local.get $p3
                                                                                                                         i32.const 32767
                                                                                                                         i32.and
-                                                                                                                        local.tee $p4
+                                                                                                                        local.tee $p3
                                                                                                                         i32.add
                                                                                                                         local.tee $l22
                                                                                                                         i32.const 1
                                                                                                                         i32.sub
-                                                                                                                        local.tee $l6
+                                                                                                                        local.tee $l5
                                                                                                                         i32.const 33025
                                                                                                                         i32.gt_u
                                                                                                                         br_if $B69
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         i32.const 33025
                                                                                                                         i32.eq
                                                                                                                         br_if $B68
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         local.get $l27
                                                                                                                         i32.add
                                                                                                                         i32.load8_u
@@ -5280,10 +5210,10 @@
                                                                                                                         i32.ne
                                                                                                                         br_if $L75
                                                                                                                       end
-                                                                                                                      local.get $p3
+                                                                                                                      local.get $l11
                                                                                                                       i32.eqz
                                                                                                                       br_if $B60
-                                                                                                                      local.get $p4
+                                                                                                                      local.get $p3
                                                                                                                       local.get $l21
                                                                                                                       i32.add
                                                                                                                       i32.const 131072
@@ -5292,12 +5222,12 @@
                                                                                                                       local.get $l36
                                                                                                                       i32.ne
                                                                                                                       br_if $B74
-                                                                                                                      local.get $p4
+                                                                                                                      local.get $p3
                                                                                                                       local.get $l37
                                                                                                                       i32.add
                                                                                                                       local.set $l22
                                                                                                                       i32.const 33024
-                                                                                                                      local.get $p4
+                                                                                                                      local.get $p3
                                                                                                                       i32.sub
                                                                                                                       local.tee $l40
                                                                                                                       i32.const 65528
@@ -5306,34 +5236,32 @@
                                                                                                                       i32.add
                                                                                                                       local.set $l41
                                                                                                                       i32.const 0
-                                                                                                                      local.set $l6
+                                                                                                                      local.set $l5
                                                                                                                       loop $L76
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         i32.const 256
                                                                                                                         i32.eq
                                                                                                                         br_if $B61
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         local.get $l39
                                                                                                                         i32.eq
                                                                                                                         br_if $B67
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         i32.const 8
                                                                                                                         i32.add
                                                                                                                         local.tee $l12
                                                                                                                         local.get $l41
                                                                                                                         i32.eq
                                                                                                                         br_if $B66
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         local.get $l22
                                                                                                                         i32.add
-                                                                                                                        local.set $l42
-                                                                                                                        local.get $l6
+                                                                                                                        local.get $l5
                                                                                                                         local.get $l31
                                                                                                                         i32.add
                                                                                                                         local.set $l43
                                                                                                                         local.get $l12
-                                                                                                                        local.set $l6
-                                                                                                                        local.get $l42
+                                                                                                                        local.set $l5
                                                                                                                         i64.load align=1
                                                                                                                         local.get $l43
                                                                                                                         i32.const 131074
@@ -5350,46 +5278,46 @@
                                                                                                                       i32.const 3
                                                                                                                       i32.shr_u
                                                                                                                       local.tee $l22
-                                                                                                                      local.get $l6
+                                                                                                                      local.get $l5
                                                                                                                       i32.add
                                                                                                                       i32.const 6
                                                                                                                       i32.sub
                                                                                                                       local.tee $l12
-                                                                                                                      local.get $l8
+                                                                                                                      local.get $l7
                                                                                                                       i32.le_u
                                                                                                                       br_if $B74
                                                                                                                       local.get $l12
-                                                                                                                      local.get $l20
+                                                                                                                      local.get $l16
                                                                                                                       i32.ge_u
                                                                                                                       br_if $B61
                                                                                                                       local.get $l9
                                                                                                                       local.get $l22
                                                                                                                       i32.add
-                                                                                                                      local.get $l6
+                                                                                                                      local.get $l5
                                                                                                                       i32.add
-                                                                                                                      local.tee $l7
+                                                                                                                      local.tee $l6
                                                                                                                       i32.const 7
                                                                                                                       i32.sub
                                                                                                                       i32.const 33025
                                                                                                                       i32.gt_u
                                                                                                                       br_if $B65
-                                                                                                                      local.get $l7
+                                                                                                                      local.get $l6
                                                                                                                       i32.const 33032
                                                                                                                       i32.eq
                                                                                                                       br_if $B64
                                                                                                                       local.get $l22
                                                                                                                       local.get $l31
                                                                                                                       i32.add
-                                                                                                                      local.get $l6
+                                                                                                                      local.get $l5
                                                                                                                       i32.add
                                                                                                                       i32.const 131065
                                                                                                                       i32.add
                                                                                                                       i32.load16_u align=1
                                                                                                                       local.set $l32
                                                                                                                       local.get $l12
-                                                                                                                      local.set $l8
-                                                                                                                      local.get $p3
                                                                                                                       local.set $l7
+                                                                                                                      local.get $l11
+                                                                                                                      local.set $l6
                                                                                                                     end
                                                                                                                     local.get $l30
                                                                                                                     i32.const 1
@@ -5400,7 +5328,7 @@
                                                                                                                   br $B60
                                                                                                                 end
                                                                                                                 i32.const 0
-                                                                                                                local.set $l7
+                                                                                                                local.set $l6
                                                                                                                 local.get $l29
                                                                                                                 i32.eqz
                                                                                                                 br_if $B60
@@ -5409,10 +5337,10 @@
                                                                                                                 i32.and
                                                                                                                 br_if $B60
                                                                                                                 local.get $l9
-                                                                                                                local.get $l11
+                                                                                                                local.get $l10
                                                                                                                 i32.add
                                                                                                                 local.tee $p3
-                                                                                                                local.get $l11
+                                                                                                                local.get $l10
                                                                                                                 i32.lt_u
                                                                                                                 br_if $B63
                                                                                                                 local.get $p3
@@ -5420,14 +5348,14 @@
                                                                                                                 i32.gt_u
                                                                                                                 br_if $B62
                                                                                                                 block $B77
-                                                                                                                  local.get $l11
+                                                                                                                  local.get $l10
                                                                                                                   i32.eqz
                                                                                                                   if $I78
                                                                                                                     i32.const 0
-                                                                                                                    local.set $l6
+                                                                                                                    local.set $l5
                                                                                                                     br $B77
                                                                                                                   end
-                                                                                                                  local.get $l5
+                                                                                                                  local.get $l4
                                                                                                                   i32.load offset=65660
                                                                                                                   local.tee $p3
                                                                                                                   local.get $l13
@@ -5439,7 +5367,7 @@
                                                                                                                   i32.const 131072
                                                                                                                   i32.add
                                                                                                                   i32.load8_u
-                                                                                                                  local.set $p4
+                                                                                                                  local.set $l6
                                                                                                                   local.get $p3
                                                                                                                   local.get $l9
                                                                                                                   i32.add
@@ -5447,39 +5375,39 @@
                                                                                                                   i32.add
                                                                                                                   local.set $p3
                                                                                                                   i32.const 0
-                                                                                                                  local.set $l6
+                                                                                                                  local.set $l5
                                                                                                                   loop $L79
                                                                                                                     local.get $p3
-                                                                                                                    local.get $l6
+                                                                                                                    local.get $l5
                                                                                                                     i32.add
                                                                                                                     i32.load8_u
-                                                                                                                    local.get $p4
+                                                                                                                    local.get $l6
                                                                                                                     i32.const 255
                                                                                                                     i32.and
                                                                                                                     i32.ne
                                                                                                                     br_if $B77
-                                                                                                                    local.get $l11
-                                                                                                                    local.get $l6
+                                                                                                                    local.get $l10
+                                                                                                                    local.get $l5
                                                                                                                     i32.const 1
                                                                                                                     i32.add
-                                                                                                                    local.tee $l6
+                                                                                                                    local.tee $l5
                                                                                                                     i32.ne
                                                                                                                     br_if $L79
                                                                                                                   end
-                                                                                                                  local.get $l11
-                                                                                                                  local.set $l6
+                                                                                                                  local.get $l10
+                                                                                                                  local.set $l5
                                                                                                                 end
                                                                                                                 i32.const 0
-                                                                                                                local.get $l6
-                                                                                                                local.get $l6
+                                                                                                                local.get $l5
+                                                                                                                local.get $l5
                                                                                                                 i32.const 3
                                                                                                                 i32.lt_u
                                                                                                                 select
-                                                                                                                local.set $l8
-                                                                                                                local.get $l6
+                                                                                                                local.set $l7
+                                                                                                                local.get $l5
                                                                                                                 i32.const 2
                                                                                                                 i32.gt_u
-                                                                                                                local.set $l7
+                                                                                                                local.set $l6
                                                                                                                 br $B60
                                                                                                               end
                                                                                                               unreachable
@@ -5498,18 +5426,18 @@
                                                                                                       i32.const 10
                                                                                                       i32.add
                                                                                                       i32.const 33026
-                                                                                                      call $f20
+                                                                                                      call $f33
                                                                                                       unreachable
                                                                                                     end
                                                                                                     local.get $l40
                                                                                                     i32.const 65528
                                                                                                     i32.and
-                                                                                                    local.get $p4
+                                                                                                    local.get $p3
                                                                                                     i32.add
                                                                                                     i32.const 10
                                                                                                     i32.add
                                                                                                     i32.const 33026
-                                                                                                    call $f20
+                                                                                                    call $f33
                                                                                                     unreachable
                                                                                                   end
                                                                                                   unreachable
@@ -5518,45 +5446,45 @@
                                                                                               end
                                                                                               local.get $l9
                                                                                               local.get $p3
-                                                                                              call $f22
+                                                                                              call $f35
                                                                                               unreachable
                                                                                             end
                                                                                             local.get $p3
                                                                                             i32.const 33026
-                                                                                            call $f20
+                                                                                            call $f33
                                                                                             unreachable
                                                                                           end
-                                                                                          local.get $l20
-                                                                                          local.set $l8
-                                                                                          local.get $p3
+                                                                                          local.get $l16
                                                                                           local.set $l7
+                                                                                          local.get $l11
+                                                                                          local.set $l6
                                                                                         end
                                                                                         i32.const 0
-                                                                                        local.get $l7
+                                                                                        local.get $l6
                                                                                         local.get $l25
                                                                                         i32.const 17
                                                                                         i32.shr_u
-                                                                                        local.get $l8
+                                                                                        local.get $l7
                                                                                         i32.const 6
                                                                                         i32.lt_u
                                                                                         i32.and
-                                                                                        local.get $l8
+                                                                                        local.get $l7
                                                                                         i32.const 3
                                                                                         i32.eq
-                                                                                        local.get $l7
+                                                                                        local.get $l6
                                                                                         i32.const 8191
                                                                                         i32.gt_u
                                                                                         i32.and
                                                                                         i32.or
-                                                                                        local.get $l7
+                                                                                        local.get $l6
                                                                                         local.get $l9
                                                                                         i32.eq
                                                                                         i32.or
                                                                                         local.tee $p3
                                                                                         select
-                                                                                        local.set $p4
+                                                                                        local.set $l6
                                                                                         i32.const 0
-                                                                                        local.get $l8
+                                                                                        local.get $l7
                                                                                         local.get $p3
                                                                                         select
                                                                                         local.set $p3
@@ -5569,7 +5497,7 @@
                                                                                                     local.get $l14
                                                                                                     i32.eqz
                                                                                                     if $I86
-                                                                                                      local.get $p4
+                                                                                                      local.get $l6
                                                                                                       i32.eqz
                                                                                                       br_if $B83
                                                                                                       block $B87
@@ -5581,67 +5509,67 @@
                                                                                                         i32.const 65536
                                                                                                         i32.and
                                                                                                         br_if $B87
-                                                                                                        local.get $l5
+                                                                                                        local.get $l4
                                                                                                         i32.load8_u offset=65644
                                                                                                         i32.eqz
                                                                                                         br_if $B82
                                                                                                       end
                                                                                                       br $B85
                                                                                                     end
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
                                                                                                     i32.load offset=65648
-                                                                                                    local.set $l6
+                                                                                                    local.set $l5
                                                                                                     local.get $p3
                                                                                                     local.get $l14
                                                                                                     i32.le_u
                                                                                                     if $I88
-                                                                                                      local.get $l6
                                                                                                       local.get $l5
+                                                                                                      local.get $l4
                                                                                                       i32.const 40
                                                                                                       i32.add
                                                                                                       local.get $l14
-                                                                                                      local.get $l19
-                                                                                                      call $f12
+                                                                                                      local.get $l20
+                                                                                                      call $f20
                                                                                                       local.get $l14
                                                                                                       i32.const 1
                                                                                                       i32.sub
-                                                                                                      local.set $l6
+                                                                                                      local.set $l5
                                                                                                       i32.const 0
                                                                                                       local.set $p3
                                                                                                       br $B80
                                                                                                     end
-                                                                                                    local.get $l5
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
+                                                                                                    local.get $l4
                                                                                                     i32.load offset=48
                                                                                                     i32.const 1
                                                                                                     i32.add
                                                                                                     i32.store offset=48
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
                                                                                                     i32.load offset=40
                                                                                                     local.tee $l7
                                                                                                     i32.const 65536
                                                                                                     i32.ge_u
                                                                                                     br_if $B41
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
                                                                                                     local.get $l7
                                                                                                     i32.add
                                                                                                     i32.const 56
                                                                                                     i32.add
-                                                                                                    local.get $l17
+                                                                                                    local.get $l18
                                                                                                     i32.store8
-                                                                                                    local.get $l5
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
+                                                                                                    local.get $l4
                                                                                                     i32.load offset=40
                                                                                                     i32.const 1
                                                                                                     i32.add
                                                                                                     i32.store offset=40
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
                                                                                                     i32.load offset=44
                                                                                                     local.tee $l7
                                                                                                     i32.const 65536
                                                                                                     i32.ge_u
                                                                                                     br_if $B40
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
                                                                                                     local.get $l7
                                                                                                     i32.add
                                                                                                     i32.const 56
@@ -5652,8 +5580,8 @@
                                                                                                     i32.const 1
                                                                                                     i32.shr_u
                                                                                                     i32.store8
-                                                                                                    local.get $l5
-                                                                                                    local.get $l5
+                                                                                                    local.get $l4
+                                                                                                    local.get $l4
                                                                                                     i32.load offset=52
                                                                                                     i32.const 1
                                                                                                     i32.sub
@@ -5662,29 +5590,29 @@
                                                                                                     local.get $l7
                                                                                                     i32.eqz
                                                                                                     if $I89
-                                                                                                      local.get $l5
+                                                                                                      local.get $l4
                                                                                                       i32.const 8
                                                                                                       i32.store offset=52
-                                                                                                      local.get $l5
-                                                                                                      local.get $l5
+                                                                                                      local.get $l4
+                                                                                                      local.get $l4
                                                                                                       i32.load offset=40
                                                                                                       local.tee $l7
                                                                                                       i32.store offset=44
-                                                                                                      local.get $l5
+                                                                                                      local.get $l4
                                                                                                       local.get $l7
                                                                                                       i32.const 1
                                                                                                       i32.add
                                                                                                       i32.store offset=40
                                                                                                     end
-                                                                                                    local.get $l17
+                                                                                                    local.get $l18
                                                                                                     i32.const 255
                                                                                                     i32.and
                                                                                                     i32.const 1
                                                                                                     i32.shl
-                                                                                                    local.get $l6
+                                                                                                    local.get $l5
                                                                                                     i32.add
-                                                                                                    local.tee $l6
-                                                                                                    local.get $l6
+                                                                                                    local.tee $l5
+                                                                                                    local.get $l5
                                                                                                     i32.load16_u
                                                                                                     i32.const 1
                                                                                                     i32.add
@@ -5694,21 +5622,21 @@
                                                                                                     i32.lt_u
                                                                                                     br_if $B84
                                                                                                   end
-                                                                                                  local.get $l5
+                                                                                                  local.get $l4
                                                                                                   i32.load offset=65648
-                                                                                                  local.get $l5
+                                                                                                  local.get $l4
                                                                                                   i32.const 40
                                                                                                   i32.add
                                                                                                   local.get $p3
-                                                                                                  local.get $p4
-                                                                                                  call $f12
+                                                                                                  local.get $l6
+                                                                                                  call $f20
                                                                                                   local.get $p3
-                                                                                                  local.set $l6
+                                                                                                  local.set $l5
                                                                                                   i32.const 0
                                                                                                   local.set $p3
                                                                                                   br $B80
                                                                                                 end
-                                                                                                local.get $l5
+                                                                                                local.get $l4
                                                                                                 i32.load offset=65660
                                                                                                 local.get $l9
                                                                                                 i32.add
@@ -5717,7 +5645,7 @@
                                                                                                 i32.load8_u
                                                                                                 br $B81
                                                                                               end
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load offset=65660
                                                                                               local.get $l9
                                                                                               i32.add
@@ -5725,81 +5653,81 @@
                                                                                               i32.add
                                                                                               i32.load8_u
                                                                                               local.set $p3
-                                                                                              local.get $l5
-                                                                                              local.get $l5
+                                                                                              local.get $l4
+                                                                                              local.get $l4
                                                                                               i32.load offset=48
                                                                                               i32.const 1
                                                                                               i32.add
                                                                                               i32.store offset=48
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load offset=40
                                                                                               local.tee $l6
                                                                                               i32.const 65536
                                                                                               i32.ge_u
                                                                                               br_if $B39
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load offset=65648
-                                                                                              local.set $p4
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               local.get $l6
                                                                                               i32.add
                                                                                               i32.const 56
                                                                                               i32.add
                                                                                               local.get $p3
                                                                                               i32.store8
-                                                                                              local.get $l5
-                                                                                              local.get $l5
+                                                                                              local.get $l4
+                                                                                              local.get $l4
                                                                                               i32.load offset=40
                                                                                               i32.const 1
                                                                                               i32.add
                                                                                               i32.store offset=40
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load offset=44
-                                                                                              local.tee $l6
+                                                                                              local.tee $l7
                                                                                               i32.const 65536
                                                                                               i32.ge_u
                                                                                               br_if $B38
-                                                                                              local.get $l5
-                                                                                              local.get $l6
+                                                                                              local.set $l6
+                                                                                              local.get $l4
+                                                                                              local.get $l7
                                                                                               i32.add
                                                                                               i32.const 56
                                                                                               i32.add
-                                                                                              local.tee $l6
-                                                                                              local.get $l6
+                                                                                              local.tee $l5
+                                                                                              local.get $l5
                                                                                               i32.load8_u
                                                                                               i32.const 1
                                                                                               i32.shr_u
                                                                                               i32.store8
-                                                                                              local.get $l5
-                                                                                              local.get $l5
+                                                                                              local.get $l4
+                                                                                              local.get $l4
                                                                                               i32.load offset=52
                                                                                               i32.const 1
                                                                                               i32.sub
-                                                                                              local.tee $l6
+                                                                                              local.tee $l5
                                                                                               i32.store offset=52
-                                                                                              local.get $l6
+                                                                                              local.get $l5
                                                                                               i32.eqz
                                                                                               if $I90
-                                                                                                local.get $l5
+                                                                                                local.get $l4
                                                                                                 i32.const 8
                                                                                                 i32.store offset=52
-                                                                                                local.get $l5
-                                                                                                local.get $l5
+                                                                                                local.get $l4
+                                                                                                local.get $l4
                                                                                                 i32.load offset=40
-                                                                                                local.tee $l6
+                                                                                                local.tee $l5
                                                                                                 i32.store offset=44
+                                                                                                local.get $l4
                                                                                                 local.get $l5
-                                                                                                local.get $l6
                                                                                                 i32.const 1
                                                                                                 i32.add
                                                                                                 i32.store offset=40
                                                                                               end
                                                                                               i32.const 1
-                                                                                              local.set $l6
+                                                                                              local.set $l5
                                                                                               local.get $p3
                                                                                               i32.const 1
                                                                                               i32.shl
-                                                                                              local.get $p4
+                                                                                              local.get $l6
                                                                                               i32.add
                                                                                               local.tee $p3
                                                                                               local.get $p3
@@ -5811,7 +5739,7 @@
                                                                                               local.set $p3
                                                                                               br $B80
                                                                                             end
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=65660
                                                                                             local.get $l9
                                                                                             i32.add
@@ -5819,26 +5747,26 @@
                                                                                             i32.add
                                                                                             i32.load8_u
                                                                                           end
-                                                                                          local.set $l17
+                                                                                          local.set $l18
                                                                                           i32.const 1
-                                                                                          local.set $l6
-                                                                                          local.get $p4
-                                                                                          local.set $l19
+                                                                                          local.set $l5
+                                                                                          local.get $l6
+                                                                                          local.set $l20
                                                                                         end
                                                                                         local.get $p3
                                                                                         local.set $l14
-                                                                                        local.get $l6
-                                                                                        local.get $l11
+                                                                                        local.get $l5
+                                                                                        local.get $l10
                                                                                         i32.gt_u
                                                                                         br_if $B37
-                                                                                        local.get $l6
+                                                                                        local.get $l5
                                                                                         local.get $l13
                                                                                         i32.add
                                                                                         local.set $l13
-                                                                                        local.get $l5
-                                                                                        local.get $l5
+                                                                                        local.get $l4
+                                                                                        local.get $l4
                                                                                         i32.load offset=65676
-                                                                                        local.get $l6
+                                                                                        local.get $l5
                                                                                         i32.add
                                                                                         local.tee $p3
                                                                                         i32.const 32768
@@ -5847,17 +5775,17 @@
                                                                                         i32.lt_u
                                                                                         select
                                                                                         i32.store offset=65676
-                                                                                        local.get $l11
-                                                                                        local.get $l6
-                                                                                        i32.sub
-                                                                                        local.set $l11
+                                                                                        local.get $l10
                                                                                         local.get $l5
+                                                                                        i32.sub
+                                                                                        local.set $l10
+                                                                                        local.get $l4
                                                                                         i32.load offset=40
                                                                                         local.set $p3
                                                                                         block $B91
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.load offset=48
-                                                                                          local.tee $p4
+                                                                                          local.tee $l5
                                                                                           i32.const 31744
                                                                                           i32.gt_u
                                                                                           if $I92
@@ -5870,10 +5798,10 @@
                                                                                             i32.mul
                                                                                             i32.const 7
                                                                                             i32.shr_u
-                                                                                            local.get $p4
+                                                                                            local.get $l5
                                                                                             i32.ge_u
                                                                                             br_if $B91
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=65592
                                                                                             i32.const 524288
                                                                                             i32.and
@@ -5886,52 +5814,52 @@
                                                                                           i32.lt_u
                                                                                           br_if $L42
                                                                                         end
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         local.get $l13
                                                                                         i32.store offset=65672
-                                                                                        local.get $l5
-                                                                                        local.get $l11
-                                                                                        i32.store offset=65668
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         local.get $l10
+                                                                                        i32.store offset=65668
+                                                                                        local.get $l4
+                                                                                        local.get $l8
                                                                                         i32.store offset=65620
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 32
                                                                                         i32.add
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 40
                                                                                         i32.add
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 65680
                                                                                         i32.add
                                                                                         i32.const 0
-                                                                                        call $f4
+                                                                                        call $f7
                                                                                         i32.const -1
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.load offset=36
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.load offset=32
                                                                                         select
                                                                                         local.tee $p3
                                                                                         i32.eqz
                                                                                         br_if $L42
                                                                                       end
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       local.get $l14
                                                                                       i32.store offset=65604
-                                                                                      local.get $l5
-                                                                                      local.get $l19
+                                                                                      local.get $l4
+                                                                                      local.get $l20
                                                                                       i32.store offset=65600
-                                                                                      local.get $l5
-                                                                                      local.get $l17
+                                                                                      local.get $l4
+                                                                                      local.get $l18
                                                                                       i32.store8 offset=65645
                                                                                       local.get $p3
                                                                                       i32.const 0
                                                                                       i32.gt_s
                                                                                       br_if $B33
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       i32.load offset=65620
-                                                                                      local.set $l9
+                                                                                      local.set $l11
                                                                                       br $B12
                                                                                     end
                                                                                     unreachable
@@ -5944,20 +5872,20 @@
                                                                             end
                                                                             unreachable
                                                                           end
-                                                                          local.get $l18
-                                                                          local.get $l16
-                                                                          call $f21
+                                                                          local.get $l19
+                                                                          local.get $l17
+                                                                          call $f34
                                                                           unreachable
                                                                         end
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65672
-                                                                        local.tee $l11
+                                                                        local.tee $l10
                                                                         i32.const 32767
                                                                         i32.and
                                                                         local.set $l12
                                                                         i32.const 0
-                                                                        local.set $l9
-                                                                        local.get $l5
+                                                                        local.set $l11
+                                                                        local.get $l4
                                                                         i32.load offset=65668
                                                                         local.set $l13
                                                                         block $B93
@@ -5967,14 +5895,14 @@
                                                                                 loop $L97
                                                                                   block $B98
                                                                                     block $B99
-                                                                                      local.get $l9
+                                                                                      local.get $l11
                                                                                       local.get $l15
                                                                                       i32.ge_u
                                                                                       if $I100
                                                                                         local.get $l13
                                                                                         i32.eqz
                                                                                         br_if $B99
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.load8_u offset=65646
                                                                                         i32.eqz
                                                                                         br_if $B99
@@ -5984,166 +5912,166 @@
                                                                                       i32.sub
                                                                                       local.tee $p3
                                                                                       local.get $l15
-                                                                                      local.get $l9
+                                                                                      local.get $l11
                                                                                       i32.sub
-                                                                                      local.tee $p4
+                                                                                      local.tee $l5
                                                                                       local.get $p3
-                                                                                      local.get $p4
+                                                                                      local.get $l5
                                                                                       i32.lt_u
                                                                                       select
-                                                                                      local.tee $l6
+                                                                                      local.tee $l5
                                                                                       if $I101
-                                                                                        local.get $l11
+                                                                                        local.get $l10
                                                                                         local.get $l13
                                                                                         i32.add
-                                                                                        local.set $l7
-                                                                                        local.get $l9
+                                                                                        local.set $l6
+                                                                                        local.get $l11
+                                                                                        local.set $l9
+                                                                                        local.get $l5
                                                                                         local.set $p3
-                                                                                        local.get $l6
-                                                                                        local.set $p4
                                                                                         loop $L102
-                                                                                          local.get $p4
+                                                                                          local.get $p3
                                                                                           i32.const 32768
-                                                                                          local.get $l7
+                                                                                          local.get $l6
                                                                                           i32.const 32767
                                                                                           i32.and
-                                                                                          local.tee $l10
+                                                                                          local.tee $l8
                                                                                           i32.sub
-                                                                                          local.tee $l7
-                                                                                          local.get $p4
-                                                                                          local.get $l7
+                                                                                          local.tee $l6
+                                                                                          local.get $p3
+                                                                                          local.get $l6
                                                                                           i32.lt_u
                                                                                           select
-                                                                                          local.set $l8
+                                                                                          local.set $l7
+                                                                                          local.get $l7
                                                                                           local.get $l8
-                                                                                          local.get $l10
                                                                                           i32.add
-                                                                                          local.tee $l7
+                                                                                          local.tee $l6
                                                                                           i32.const 33027
                                                                                           i32.ge_u
                                                                                           br_if $B13
-                                                                                          local.get $l8
-                                                                                          local.get $p3
-                                                                                          local.get $l8
+                                                                                          local.get $l7
+                                                                                          local.get $l7
+                                                                                          local.get $l9
                                                                                           i32.add
-                                                                                          local.tee $l9
+                                                                                          local.tee $l11
                                                                                           i32.gt_u
                                                                                           br_if $B14
-                                                                                          local.get $l9
+                                                                                          local.get $l11
                                                                                           local.get $l15
                                                                                           i32.gt_u
                                                                                           br_if $B15
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.load offset=65660
-                                                                                          local.get $l10
+                                                                                          local.get $l8
                                                                                           i32.add
                                                                                           i32.const 131072
                                                                                           i32.add
-                                                                                          local.get $p3
+                                                                                          local.get $l9
                                                                                           local.get $l26
                                                                                           i32.add
-                                                                                          local.tee $l17
-                                                                                          local.get $l8
+                                                                                          local.tee $l18
+                                                                                          local.get $l7
                                                                                           memory.copy
-                                                                                          local.get $l10
+                                                                                          local.get $l8
                                                                                           i32.const 256
                                                                                           i32.le_u
                                                                                           if $I103
                                                                                             i32.const 257
-                                                                                            local.get $l10
+                                                                                            local.get $l8
                                                                                             i32.sub
                                                                                             local.tee $l14
-                                                                                            local.get $l8
-                                                                                            local.get $l8
+                                                                                            local.get $l7
+                                                                                            local.get $l7
                                                                                             local.get $l14
                                                                                             i32.gt_u
                                                                                             select
                                                                                             local.tee $l14
-                                                                                            local.get $l10
+                                                                                            local.get $l8
                                                                                             i32.const 32768
                                                                                             i32.or
-                                                                                            local.tee $l19
+                                                                                            local.tee $l20
                                                                                             i32.add
-                                                                                            local.tee $l10
+                                                                                            local.tee $l8
                                                                                             i32.const 33027
                                                                                             i32.ge_u
                                                                                             br_if $B16
-                                                                                            local.get $p3
+                                                                                            local.get $l9
                                                                                             local.get $l14
                                                                                             i32.add
-                                                                                            local.tee $l10
+                                                                                            local.tee $l8
                                                                                             local.get $l14
                                                                                             i32.lt_u
                                                                                             br_if $B17
-                                                                                            local.get $l10
+                                                                                            local.get $l8
                                                                                             local.get $l15
                                                                                             i32.gt_u
                                                                                             br_if $B18
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=65660
-                                                                                            local.get $l19
+                                                                                            local.get $l20
                                                                                             i32.add
                                                                                             i32.const 131072
                                                                                             i32.add
-                                                                                            local.get $l17
+                                                                                            local.get $l18
                                                                                             local.get $l14
                                                                                             memory.copy
                                                                                           end
-                                                                                          local.get $l9
-                                                                                          local.set $p3
-                                                                                          local.get $p4
-                                                                                          local.get $l8
+                                                                                          local.get $l11
+                                                                                          local.set $l9
+                                                                                          local.get $p3
+                                                                                          local.get $l7
                                                                                           i32.sub
-                                                                                          local.tee $p4
+                                                                                          local.tee $p3
                                                                                           br_if $L102
                                                                                         end
                                                                                       end
-                                                                                      local.get $l5
-                                                                                      local.get $l5
+                                                                                      local.get $l4
+                                                                                      local.get $l4
                                                                                       i32.load offset=65676
                                                                                       local.tee $p3
                                                                                       i32.const 32768
-                                                                                      local.get $l6
+                                                                                      local.get $l5
                                                                                       local.get $l13
                                                                                       i32.add
-                                                                                      local.tee $l7
+                                                                                      local.tee $l6
                                                                                       i32.sub
-                                                                                      local.tee $p4
+                                                                                      local.tee $l5
                                                                                       local.get $p3
-                                                                                      local.get $p4
+                                                                                      local.get $l5
                                                                                       i32.lt_u
                                                                                       select
                                                                                       i32.store offset=65676
-                                                                                      local.get $l7
+                                                                                      local.get $l6
                                                                                       i32.const 4095
                                                                                       i32.gt_u
                                                                                       br_if $B98
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       i32.load8_u offset=65646
                                                                                       br_if $B98
-                                                                                      local.get $l7
+                                                                                      local.get $l6
                                                                                       local.set $l13
                                                                                     end
-                                                                                    local.get $l5
-                                                                                    local.get $l11
+                                                                                    local.get $l4
+                                                                                    local.get $l10
                                                                                     i32.store offset=65672
-                                                                                    local.get $l5
+                                                                                    local.get $l4
                                                                                     local.get $l13
                                                                                     i32.store offset=65668
-                                                                                    local.get $l5
-                                                                                    local.get $l9
+                                                                                    local.get $l4
+                                                                                    local.get $l11
                                                                                     i32.store offset=65620
                                                                                     br $B33
                                                                                   end
                                                                                   block $B104
-                                                                                    local.get $l7
+                                                                                    local.get $l6
                                                                                     i32.const 4
                                                                                     i32.ge_u
                                                                                     if $I105
                                                                                       loop $L106
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.load offset=65660
-                                                                                        local.tee $l6
+                                                                                        local.tee $l5
                                                                                         local.get $l12
                                                                                         i32.const 32767
                                                                                         i32.and
@@ -6151,11 +6079,11 @@
                                                                                         i32.const 131072
                                                                                         i32.add
                                                                                         i32.load align=1
-                                                                                        local.tee $p4
+                                                                                        local.tee $l7
                                                                                         i32.const 16777215
                                                                                         i32.and
                                                                                         local.set $p3
-                                                                                        local.get $p4
+                                                                                        local.get $l7
                                                                                         i32.const 4095
                                                                                         i32.and
                                                                                         local.get $p3
@@ -6164,25 +6092,25 @@
                                                                                         i32.xor
                                                                                         i32.const 1
                                                                                         i32.shl
-                                                                                        local.get $l6
+                                                                                        local.get $l5
                                                                                         i32.add
                                                                                         i32.const 65536
                                                                                         i32.add
                                                                                         local.tee $l8
                                                                                         i32.load16_u
-                                                                                        local.set $l6
+                                                                                        local.set $l5
                                                                                         local.get $l8
-                                                                                        local.get $l11
+                                                                                        local.get $l10
                                                                                         i32.store16
                                                                                         block $B107
-                                                                                          local.get $l11
-                                                                                          local.get $l6
+                                                                                          local.get $l10
+                                                                                          local.get $l5
                                                                                           i32.sub
                                                                                           local.tee $l13
                                                                                           i32.const 65535
                                                                                           i32.and
-                                                                                          local.tee $l10
-                                                                                          local.get $l5
+                                                                                          local.tee $l9
+                                                                                          local.get $l4
                                                                                           i32.load offset=65676
                                                                                           i32.gt_u
                                                                                           br_if $B107
@@ -6196,10 +6124,10 @@
                                                                                                         block $B115
                                                                                                           block $B116
                                                                                                             local.get $p3
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=65660
                                                                                                             local.tee $p3
-                                                                                                            local.get $l6
+                                                                                                            local.get $l5
                                                                                                             i32.const 32767
                                                                                                             i32.and
                                                                                                             local.tee $l8
@@ -6211,35 +6139,35 @@
                                                                                                             i32.and
                                                                                                             i32.ne
                                                                                                             if $I117
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=40
                                                                                                               local.tee $p3
                                                                                                               i32.const 65536
                                                                                                               i32.ge_u
                                                                                                               br_if $B116
                                                                                                               local.get $p3
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.add
                                                                                                               i32.const 56
                                                                                                               i32.add
-                                                                                                              local.get $p4
+                                                                                                              local.get $l7
                                                                                                               i32.store8
-                                                                                                              local.get $l5
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=40
                                                                                                               i32.const 1
                                                                                                               i32.add
                                                                                                               i32.store offset=40
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=44
                                                                                                               local.tee $p3
                                                                                                               i32.const 65536
                                                                                                               i32.ge_u
                                                                                                               br_if $B115
                                                                                                               i32.const 1
-                                                                                                              local.set $l6
+                                                                                                              local.set $l5
                                                                                                               local.get $p3
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.add
                                                                                                               i32.const 56
                                                                                                               i32.add
@@ -6249,9 +6177,9 @@
                                                                                                               i32.const 1
                                                                                                               i32.shr_u
                                                                                                               i32.store8
-                                                                                                              local.get $l5
+                                                                                                              local.get $l4
                                                                                                               i32.load offset=65648
-                                                                                                              local.get $p4
+                                                                                                              local.get $l7
                                                                                                               i32.const 255
                                                                                                               i32.and
                                                                                                               i32.const 1
@@ -6275,31 +6203,31 @@
                                                                                                             local.get $p3
                                                                                                             local.get $l12
                                                                                                             i32.add
-                                                                                                            local.set $l17
+                                                                                                            local.set $l18
                                                                                                             i32.const 33023
                                                                                                             local.get $l8
                                                                                                             i32.sub
-                                                                                                            local.tee $l19
+                                                                                                            local.tee $l20
                                                                                                             i32.const 65528
                                                                                                             i32.and
                                                                                                             i32.const 8
                                                                                                             i32.add
-                                                                                                            local.set $l20
+                                                                                                            local.set $l16
                                                                                                             i32.const 0
-                                                                                                            local.set $l6
+                                                                                                            local.set $l5
                                                                                                             block $B118
                                                                                                               loop $L119
-                                                                                                                local.get $l6
+                                                                                                                local.get $l5
                                                                                                                 i32.const 256
                                                                                                                 i32.eq
                                                                                                                 if $I120
                                                                                                                   i32.const 258
-                                                                                                                  local.set $l6
-                                                                                                                  local.get $l10
+                                                                                                                  local.set $l5
+                                                                                                                  local.get $l9
                                                                                                                   br_if $B109
                                                                                                                   br $B118
                                                                                                                 end
-                                                                                                                local.get $l6
+                                                                                                                local.get $l5
                                                                                                                 local.get $l12
                                                                                                                 i32.add
                                                                                                                 local.tee $p3
@@ -6314,24 +6242,22 @@
                                                                                                                 i32.const 33026
                                                                                                                 i32.gt_u
                                                                                                                 br_if $B113
-                                                                                                                local.get $l6
+                                                                                                                local.get $l5
                                                                                                                 i32.const 8
                                                                                                                 i32.add
                                                                                                                 local.tee $p3
-                                                                                                                local.get $l20
+                                                                                                                local.get $l16
                                                                                                                 i32.eq
                                                                                                                 br_if $B112
-                                                                                                                local.get $l6
-                                                                                                                local.get $l17
+                                                                                                                local.get $l5
+                                                                                                                local.get $l18
                                                                                                                 i32.add
                                                                                                                 local.set $l21
-                                                                                                                local.get $l6
+                                                                                                                local.get $l5
                                                                                                                 local.get $l14
                                                                                                                 i32.add
-                                                                                                                local.set $l25
                                                                                                                 local.get $p3
-                                                                                                                local.set $l6
-                                                                                                                local.get $l25
+                                                                                                                local.set $l5
                                                                                                                 i64.load align=1
                                                                                                                 local.get $l21
                                                                                                                 i64.load align=1
@@ -6345,16 +6271,16 @@
                                                                                                               i32.wrap_i64
                                                                                                               i32.const 3
                                                                                                               i32.shr_u
-                                                                                                              local.get $l6
+                                                                                                              local.get $l5
                                                                                                               i32.add
                                                                                                               local.tee $p3
                                                                                                               i32.const 5
                                                                                                               i32.sub
-                                                                                                              local.tee $l6
+                                                                                                              local.tee $l5
                                                                                                               i32.const 3
                                                                                                               i32.lt_u
                                                                                                               br_if $B118
-                                                                                                              local.get $l10
+                                                                                                              local.get $l9
                                                                                                               i32.const 8192
                                                                                                               i32.lt_u
                                                                                                               br_if $B109
@@ -6363,35 +6289,35 @@
                                                                                                               i32.sub
                                                                                                               br_if $B109
                                                                                                             end
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=40
                                                                                                             local.tee $p3
                                                                                                             i32.const 65536
                                                                                                             i32.ge_u
                                                                                                             br_if $B111
                                                                                                             local.get $p3
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.add
                                                                                                             i32.const 56
                                                                                                             i32.add
-                                                                                                            local.get $p4
+                                                                                                            local.get $l7
                                                                                                             i32.store8
-                                                                                                            local.get $l5
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=40
                                                                                                             i32.const 1
                                                                                                             i32.add
                                                                                                             i32.store offset=40
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=44
                                                                                                             local.tee $p3
                                                                                                             i32.const 65536
                                                                                                             i32.ge_u
                                                                                                             br_if $B110
                                                                                                             i32.const 1
-                                                                                                            local.set $l6
+                                                                                                            local.set $l5
                                                                                                             local.get $p3
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.add
                                                                                                             i32.const 56
                                                                                                             i32.add
@@ -6401,9 +6327,9 @@
                                                                                                             i32.const 1
                                                                                                             i32.shr_u
                                                                                                             i32.store8
-                                                                                                            local.get $l5
+                                                                                                            local.get $l4
                                                                                                             i32.load offset=65648
-                                                                                                            local.get $p4
+                                                                                                            local.get $l7
                                                                                                             i32.const 255
                                                                                                             i32.and
                                                                                                             i32.const 1
@@ -6427,17 +6353,17 @@
                                                                                                       local.get $p3
                                                                                                       i32.const 11
                                                                                                       i32.add
-                                                                                                      call $f22
+                                                                                                      call $f35
                                                                                                       unreachable
                                                                                                     end
                                                                                                     local.get $p3
                                                                                                     i32.const 11
                                                                                                     i32.add
                                                                                                     i32.const 33026
-                                                                                                    call $f20
+                                                                                                    call $f33
                                                                                                     unreachable
                                                                                                   end
-                                                                                                  local.get $l19
+                                                                                                  local.get $l20
                                                                                                   i32.const 65528
                                                                                                   i32.and
                                                                                                   local.get $l8
@@ -6445,37 +6371,37 @@
                                                                                                   i32.const 11
                                                                                                   i32.add
                                                                                                   i32.const 33026
-                                                                                                  call $f20
+                                                                                                  call $f33
                                                                                                   unreachable
                                                                                                 end
                                                                                                 unreachable
                                                                                               end
                                                                                               unreachable
                                                                                             end
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=40
                                                                                             local.tee $p3
                                                                                             i32.const 65536
                                                                                             i32.ge_u
                                                                                             br_if $B32
                                                                                             local.get $p3
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.add
                                                                                             i32.const 56
                                                                                             i32.add
-                                                                                            local.get $l7
                                                                                             local.get $l6
+                                                                                            local.get $l5
+                                                                                            local.get $l5
                                                                                             local.get $l6
-                                                                                            local.get $l7
                                                                                             i32.gt_u
                                                                                             select
-                                                                                            local.tee $l6
+                                                                                            local.tee $l5
                                                                                             i32.const 3
                                                                                             i32.sub
-                                                                                            local.tee $p4
+                                                                                            local.tee $l7
                                                                                             i32.store8
-                                                                                            local.get $l5
-                                                                                            local.get $l5
+                                                                                            local.get $l4
+                                                                                            local.get $l4
                                                                                             i32.load offset=40
                                                                                             i32.const 1
                                                                                             i32.add
@@ -6486,7 +6412,7 @@
                                                                                             i32.ge_u
                                                                                             br_if $B31
                                                                                             local.get $p3
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.add
                                                                                             i32.const 56
                                                                                             i32.add
@@ -6495,8 +6421,8 @@
                                                                                             i32.sub
                                                                                             local.tee $p3
                                                                                             i32.store8
-                                                                                            local.get $l5
-                                                                                            local.get $l5
+                                                                                            local.get $l4
+                                                                                            local.get $l4
                                                                                             i32.load offset=40
                                                                                             i32.const 1
                                                                                             i32.add
@@ -6506,7 +6432,7 @@
                                                                                             i32.const 65536
                                                                                             i32.ge_u
                                                                                             br_if $B30
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             local.get $l8
                                                                                             i32.add
                                                                                             i32.const 56
@@ -6518,42 +6444,42 @@
                                                                                             i32.shr_u
                                                                                             local.tee $l8
                                                                                             i32.store8
-                                                                                            local.get $l5
-                                                                                            local.get $l5
+                                                                                            local.get $l4
+                                                                                            local.get $l4
                                                                                             i32.load offset=40
                                                                                             i32.const 1
                                                                                             i32.add
                                                                                             i32.store offset=40
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=44
-                                                                                            local.tee $l10
+                                                                                            local.tee $l9
                                                                                             i32.const 65536
                                                                                             i32.ge_u
                                                                                             br_if $B29
-                                                                                            local.get $l5
-                                                                                            local.get $l10
+                                                                                            local.get $l4
+                                                                                            local.get $l9
                                                                                             i32.add
                                                                                             i32.const 56
                                                                                             i32.add
-                                                                                            local.tee $l10
-                                                                                            local.get $l10
+                                                                                            local.tee $l9
+                                                                                            local.get $l9
                                                                                             i32.load8_u
                                                                                             i32.const 1
                                                                                             i32.shr_u
                                                                                             i32.store8
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=44
-                                                                                            local.tee $l10
+                                                                                            local.tee $l9
                                                                                             i32.const 65536
                                                                                             i32.ge_u
                                                                                             br_if $B28
-                                                                                            local.get $l5
-                                                                                            local.get $l10
+                                                                                            local.get $l4
+                                                                                            local.get $l9
                                                                                             i32.add
                                                                                             i32.const 56
                                                                                             i32.add
-                                                                                            local.tee $l10
-                                                                                            local.get $l10
+                                                                                            local.tee $l9
+                                                                                            local.get $l9
                                                                                             i32.load8_u
                                                                                             i32.const 128
                                                                                             i32.or
@@ -6562,7 +6488,7 @@
                                                                                               local.get $p3
                                                                                               i32.const 65535
                                                                                               i32.and
-                                                                                              local.tee $l10
+                                                                                              local.tee $l9
                                                                                               i32.const 512
                                                                                               i32.ge_u
                                                                                               if $I122
@@ -6571,10 +6497,10 @@
                                                                                                 i32.const -1
                                                                                                 i32.le_s
                                                                                                 br_if $B104
-                                                                                                local.get $l5
+                                                                                                local.get $l4
                                                                                                 i32.load offset=65648
                                                                                                 local.get $l8
-                                                                                                i32.const 1049892
+                                                                                                i32.const 1052924
                                                                                                 i32.add
                                                                                                 i32.load8_u
                                                                                                 i32.const 1
@@ -6590,10 +6516,10 @@
                                                                                                 i32.store16
                                                                                                 br $B121
                                                                                               end
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load offset=65648
-                                                                                              local.get $l10
-                                                                                              i32.const 1049380
+                                                                                              local.get $l9
+                                                                                              i32.const 1052412
                                                                                               i32.add
                                                                                               i32.load8_u
                                                                                               i32.const 1
@@ -6608,21 +6534,21 @@
                                                                                               i32.add
                                                                                               i32.store16
                                                                                             end
-                                                                                            local.get $p4
+                                                                                            local.get $l7
                                                                                             i32.const 255
                                                                                             i32.gt_u
                                                                                             br_if $B96
-                                                                                            local.get $p4
+                                                                                            local.get $l7
                                                                                             i32.const 1
                                                                                             i32.shl
-                                                                                            i32.const 1050020
+                                                                                            i32.const 1053052
                                                                                             i32.add
                                                                                             i32.load16_u
                                                                                             local.tee $p3
                                                                                             i32.const 287
                                                                                             i32.gt_u
                                                                                             br_if $B95
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.load offset=65648
                                                                                             local.get $p3
                                                                                             i32.const 1
@@ -6635,8 +6561,8 @@
                                                                                             i32.add
                                                                                             i32.store16
                                                                                           end
-                                                                                          local.get $l5
-                                                                                          local.get $l5
+                                                                                          local.get $l4
+                                                                                          local.get $l4
                                                                                           i32.load offset=52
                                                                                           i32.const 1
                                                                                           i32.sub
@@ -6645,36 +6571,36 @@
                                                                                           block $B123
                                                                                             local.get $p3
                                                                                             if $I124
-                                                                                              local.get $l5
+                                                                                              local.get $l4
                                                                                               i32.load offset=40
-                                                                                              local.set $l8
+                                                                                              local.set $l7
                                                                                               br $B123
                                                                                             end
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             i32.const 8
                                                                                             i32.store offset=52
-                                                                                            local.get $l5
-                                                                                            local.get $l5
+                                                                                            local.get $l4
+                                                                                            local.get $l4
                                                                                             i32.load offset=40
                                                                                             local.tee $p3
                                                                                             i32.store offset=44
-                                                                                            local.get $l5
+                                                                                            local.get $l4
                                                                                             local.get $p3
                                                                                             i32.const 1
                                                                                             i32.add
-                                                                                            local.tee $l8
+                                                                                            local.tee $l7
                                                                                             i32.store offset=40
                                                                                           end
-                                                                                          local.get $l5
-                                                                                          local.get $l5
+                                                                                          local.get $l4
+                                                                                          local.get $l4
                                                                                           i32.load offset=48
-                                                                                          local.get $l6
+                                                                                          local.get $l5
                                                                                           i32.add
                                                                                           i32.store offset=48
-                                                                                          local.get $l5
-                                                                                          local.get $l5
+                                                                                          local.get $l4
+                                                                                          local.get $l4
                                                                                           i32.load offset=65676
-                                                                                          local.get $l6
+                                                                                          local.get $l5
                                                                                           i32.add
                                                                                           local.tee $p3
                                                                                           i32.const 32768
@@ -6683,56 +6609,56 @@
                                                                                           i32.lt_u
                                                                                           select
                                                                                           i32.store offset=65676
-                                                                                          local.get $l7
                                                                                           local.get $l6
+                                                                                          local.get $l5
                                                                                           i32.sub
-                                                                                          local.set $l7
-                                                                                          local.get $l6
-                                                                                          local.get $l11
+                                                                                          local.set $l6
+                                                                                          local.get $l5
+                                                                                          local.get $l10
                                                                                           i32.add
-                                                                                          local.set $l11
-                                                                                          local.get $l6
+                                                                                          local.set $l10
+                                                                                          local.get $l5
                                                                                           local.get $l12
                                                                                           i32.add
                                                                                           i32.const 32767
                                                                                           i32.and
                                                                                           local.set $l12
-                                                                                          local.get $l8
+                                                                                          local.get $l7
                                                                                           i32.const 65529
                                                                                           i32.lt_u
                                                                                           br_if $B107
-                                                                                          local.get $l5
-                                                                                          local.get $l11
+                                                                                          local.get $l4
+                                                                                          local.get $l10
                                                                                           i32.store offset=65672
-                                                                                          local.get $l5
-                                                                                          local.get $l7
+                                                                                          local.get $l4
+                                                                                          local.get $l6
                                                                                           i32.store offset=65668
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.const 24
                                                                                           i32.add
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.const 40
                                                                                           i32.add
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.const 65680
                                                                                           i32.add
                                                                                           i32.const 0
-                                                                                          call $f4
-                                                                                          local.get $l5
+                                                                                          call $f7
+                                                                                          local.get $l4
                                                                                           i32.load offset=24
                                                                                           br_if $B27
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.load offset=28
                                                                                           local.tee $p3
                                                                                           br_if $B94
-                                                                                          local.get $l5
+                                                                                          local.get $l4
                                                                                           i32.load offset=65672
-                                                                                          local.set $l11
-                                                                                          local.get $l5
+                                                                                          local.set $l10
+                                                                                          local.get $l4
                                                                                           i32.load offset=65668
-                                                                                          local.set $l7
+                                                                                          local.set $l6
                                                                                         end
-                                                                                        local.get $l7
+                                                                                        local.get $l6
                                                                                         i32.const 3
                                                                                         i32.gt_u
                                                                                         br_if $L106
@@ -6740,11 +6666,11 @@
                                                                                     end
                                                                                     i32.const 0
                                                                                     local.set $l13
-                                                                                    local.get $l7
+                                                                                    local.get $l6
                                                                                     i32.eqz
                                                                                     br_if $L97
                                                                                     loop $L125
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       i32.load offset=65660
                                                                                       local.get $l12
                                                                                       i32.add
@@ -6752,73 +6678,73 @@
                                                                                       i32.add
                                                                                       i32.load8_u
                                                                                       local.set $p3
-                                                                                      local.get $l5
-                                                                                      local.get $l5
+                                                                                      local.get $l4
+                                                                                      local.get $l4
                                                                                       i32.load offset=48
                                                                                       i32.const 1
                                                                                       i32.add
                                                                                       i32.store offset=48
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       i32.load offset=40
-                                                                                      local.tee $p4
+                                                                                      local.tee $l5
                                                                                       i32.const 65536
                                                                                       i32.ge_u
                                                                                       br_if $B26
-                                                                                      local.get $p4
+                                                                                      local.get $l4
                                                                                       local.get $l5
                                                                                       i32.add
                                                                                       i32.const 56
                                                                                       i32.add
                                                                                       local.get $p3
                                                                                       i32.store8
-                                                                                      local.get $l5
-                                                                                      local.get $l5
+                                                                                      local.get $l4
+                                                                                      local.get $l4
                                                                                       i32.load offset=40
                                                                                       i32.const 1
                                                                                       i32.add
                                                                                       i32.store offset=40
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       i32.load offset=44
-                                                                                      local.tee $p4
+                                                                                      local.tee $l5
                                                                                       i32.const 65536
                                                                                       i32.ge_u
                                                                                       br_if $B25
-                                                                                      local.get $p4
+                                                                                      local.get $l4
                                                                                       local.get $l5
                                                                                       i32.add
                                                                                       i32.const 56
                                                                                       i32.add
-                                                                                      local.tee $p4
-                                                                                      local.get $p4
+                                                                                      local.tee $l5
+                                                                                      local.get $l5
                                                                                       i32.load8_u
                                                                                       i32.const 1
                                                                                       i32.shr_u
                                                                                       i32.store8
-                                                                                      local.get $l5
-                                                                                      local.get $l5
+                                                                                      local.get $l4
+                                                                                      local.get $l4
                                                                                       i32.load offset=52
                                                                                       i32.const 1
                                                                                       i32.sub
-                                                                                      local.tee $p4
+                                                                                      local.tee $l5
                                                                                       i32.store offset=52
-                                                                                      local.get $p4
+                                                                                      local.get $l5
                                                                                       i32.eqz
                                                                                       if $I126
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 8
                                                                                         i32.store offset=52
-                                                                                        local.get $l5
-                                                                                        local.get $l5
+                                                                                        local.get $l4
+                                                                                        local.get $l4
                                                                                         i32.load offset=40
-                                                                                        local.tee $p4
+                                                                                        local.tee $l5
                                                                                         i32.store offset=44
+                                                                                        local.get $l4
                                                                                         local.get $l5
-                                                                                        local.get $p4
                                                                                         i32.const 1
                                                                                         i32.add
                                                                                         i32.store offset=40
                                                                                       end
-                                                                                      local.get $l5
+                                                                                      local.get $l4
                                                                                       i32.load offset=65648
                                                                                       local.get $p3
                                                                                       i32.const 1
@@ -6830,8 +6756,8 @@
                                                                                       i32.const 1
                                                                                       i32.add
                                                                                       i32.store16
-                                                                                      local.get $l5
-                                                                                      local.get $l5
+                                                                                      local.get $l4
+                                                                                      local.get $l4
                                                                                       i32.load offset=65676
                                                                                       i32.const 1
                                                                                       i32.add
@@ -6842,49 +6768,49 @@
                                                                                       i32.lt_u
                                                                                       select
                                                                                       i32.store offset=65676
-                                                                                      local.get $l7
+                                                                                      local.get $l6
                                                                                       i32.const 1
                                                                                       i32.sub
-                                                                                      local.set $l7
-                                                                                      local.get $l11
+                                                                                      local.set $l6
+                                                                                      local.get $l10
                                                                                       i32.const 1
                                                                                       i32.add
-                                                                                      local.set $l11
-                                                                                      local.get $l5
+                                                                                      local.set $l10
+                                                                                      local.get $l4
                                                                                       i32.load offset=40
                                                                                       i32.const 65529
                                                                                       i32.ge_u
                                                                                       if $I127
-                                                                                        local.get $l5
-                                                                                        local.get $l11
+                                                                                        local.get $l4
+                                                                                        local.get $l10
                                                                                         i32.store offset=65672
-                                                                                        local.get $l5
-                                                                                        local.get $l7
+                                                                                        local.get $l4
+                                                                                        local.get $l6
                                                                                         i32.store offset=65668
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 16
                                                                                         i32.add
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 40
                                                                                         i32.add
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.const 65680
                                                                                         i32.add
                                                                                         i32.const 0
-                                                                                        call $f4
-                                                                                        local.get $l5
+                                                                                        call $f7
+                                                                                        local.get $l4
                                                                                         i32.load offset=16
                                                                                         br_if $B24
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.load offset=20
                                                                                         local.tee $p3
                                                                                         br_if $B93
-                                                                                        local.get $l5
+                                                                                        local.get $l4
                                                                                         i32.load offset=65672
-                                                                                        local.set $l11
-                                                                                        local.get $l5
+                                                                                        local.set $l10
+                                                                                        local.get $l4
                                                                                         i32.load offset=65668
-                                                                                        local.set $l7
+                                                                                        local.set $l6
                                                                                       end
                                                                                       local.get $l12
                                                                                       i32.const 1
@@ -6892,7 +6818,7 @@
                                                                                       i32.const 32767
                                                                                       i32.and
                                                                                       local.set $l12
-                                                                                      local.get $l7
+                                                                                      local.get $l6
                                                                                       br_if $L125
                                                                                     end
                                                                                     br $L97
@@ -6904,8 +6830,8 @@
                                                                             end
                                                                             unreachable
                                                                           end
-                                                                          local.get $l5
-                                                                          local.get $l9
+                                                                          local.get $l4
+                                                                          local.get $l11
                                                                           i32.store offset=65620
                                                                           local.get $p3
                                                                           i32.const 0
@@ -6913,8 +6839,8 @@
                                                                           br_if $B33
                                                                           br $B12
                                                                         end
-                                                                        local.get $l5
-                                                                        local.get $l9
+                                                                        local.get $l4
+                                                                        local.get $l11
                                                                         i32.store offset=65620
                                                                         local.get $p3
                                                                         i32.const 0
@@ -6926,86 +6852,86 @@
                                                                       i32.const 48
                                                                       i32.and
                                                                       if $I128
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65620
                                                                         local.tee $p3
                                                                         local.get $l15
                                                                         i32.gt_u
                                                                         br_if $B23
-                                                                        local.get $l5
-                                                                        local.get $l5
+                                                                        local.get $l4
+                                                                        local.get $l4
                                                                         i32.load offset=65616
-                                                                        local.tee $p4
+                                                                        local.tee $l5
                                                                         i32.store16 offset=131240
+                                                                        local.get $l4
                                                                         local.get $l5
-                                                                        local.get $p4
                                                                         i32.const 16
                                                                         i32.shr_u
                                                                         i32.store16 offset=131242
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.const 131240
                                                                         i32.add
                                                                         local.get $l26
                                                                         local.get $p3
-                                                                        call $f11
-                                                                        local.get $l5
-                                                                        local.get $l5
+                                                                        call $f18
+                                                                        local.get $l4
+                                                                        local.get $l4
                                                                         i32.load offset=131240
                                                                         i32.store offset=65616
                                                                       end
                                                                       block $B129
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load8_u offset=65646
                                                                         local.tee $p3
                                                                         i32.eqz
                                                                         br_if $B129
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65612
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65668
                                                                         i32.or
                                                                         br_if $B129
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65620
                                                                         local.get $l15
                                                                         i32.ne
                                                                         br_if $B129
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.const 8
                                                                         i32.add
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.const 40
                                                                         i32.add
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.const 65680
                                                                         i32.add
                                                                         local.get $p3
-                                                                        call $f4
-                                                                        local.get $l5
+                                                                        call $f7
+                                                                        local.get $l4
                                                                         i32.load offset=8
                                                                         if $I130
                                                                           i32.const -1
-                                                                          local.set $l6
+                                                                          local.set $l5
                                                                           br $B1
                                                                         end
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=12
                                                                         i32.const -1
                                                                         i32.le_s
                                                                         if $I131
-                                                                          local.get $l5
+                                                                          local.get $l4
                                                                           i32.load offset=65624
                                                                           local.set $l12
-                                                                          local.get $l5
+                                                                          local.get $l4
                                                                           i32.load offset=65620
-                                                                          local.set $l9
-                                                                          local.get $l5
+                                                                          local.set $l11
+                                                                          local.get $l4
                                                                           i32.load offset=65628
-                                                                          local.set $l6
+                                                                          local.set $l5
                                                                           br $B9
                                                                         end
-                                                                        local.get $l5
-                                                                        local.get $l5
+                                                                        local.get $l4
+                                                                        local.get $l4
                                                                         i32.load8_u offset=65646
                                                                         local.tee $p3
                                                                         i32.const 4
@@ -7015,99 +6941,99 @@
                                                                         i32.const 3
                                                                         i32.ne
                                                                         br_if $B129
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65660
                                                                         i32.const 65536
                                                                         i32.add
                                                                         i32.const 0
                                                                         i32.const 65536
                                                                         memory.fill
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65660
                                                                         i32.const 0
                                                                         i32.const 65536
                                                                         memory.fill
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.const 0
                                                                         i32.store offset=65676
                                                                       end
-                                                                      local.get $l5
+                                                                      local.get $l4
                                                                       i32.load offset=65620
-                                                                      local.set $l9
-                                                                      local.get $l5
+                                                                      local.set $l11
+                                                                      local.get $l4
                                                                       i32.load offset=65612
-                                                                      local.tee $p4
+                                                                      local.tee $p3
                                                                       local.get $l23
-                                                                      local.get $l5
+                                                                      local.get $l4
                                                                       i32.load offset=65624
-                                                                      local.tee $l8
+                                                                      local.tee $l7
                                                                       i32.sub
-                                                                      local.tee $p3
+                                                                      local.tee $l5
                                                                       local.get $p3
-                                                                      local.get $p4
-                                                                      i32.gt_u
+                                                                      local.get $l5
+                                                                      i32.lt_u
                                                                       select
-                                                                      local.tee $p3
+                                                                      local.tee $l5
                                                                       if $I132
-                                                                        local.get $p3
-                                                                        local.get $l8
+                                                                        local.get $l5
+                                                                        local.get $l7
                                                                         i32.add
-                                                                        local.tee $p4
-                                                                        local.get $p3
+                                                                        local.tee $p3
+                                                                        local.get $l5
                                                                         i32.lt_u
                                                                         br_if $B22
-                                                                        local.get $p4
+                                                                        local.get $p3
                                                                         local.get $l23
                                                                         i32.gt_u
                                                                         br_if $B21
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65608
                                                                         local.tee $l6
-                                                                        local.get $p3
+                                                                        local.get $l5
                                                                         i32.add
-                                                                        local.set $p4
-                                                                        local.get $p4
+                                                                        local.set $p3
+                                                                        local.get $p3
                                                                         local.get $l6
                                                                         i32.lt_u
                                                                         br_if $B20
-                                                                        local.get $p4
+                                                                        local.get $p3
                                                                         i32.const 85196
                                                                         i32.gt_u
                                                                         br_if $B19
-                                                                        local.get $l8
+                                                                        local.get $l7
                                                                         local.get $l28
                                                                         i32.add
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65640
                                                                         local.get $l6
                                                                         i32.add
-                                                                        local.get $p3
+                                                                        local.get $l5
                                                                         memory.copy
-                                                                        local.get $l5
+                                                                        local.get $l4
                                                                         i32.load offset=65624
-                                                                        local.set $l8
-                                                                        local.get $l5
+                                                                        local.set $l7
+                                                                        local.get $l4
                                                                         i32.load offset=65612
-                                                                        local.set $p4
+                                                                        local.set $p3
                                                                       end
+                                                                      local.get $l4
                                                                       local.get $l5
-                                                                      local.get $p3
-                                                                      local.get $l8
+                                                                      local.get $l7
                                                                       i32.add
                                                                       local.tee $l12
                                                                       i32.store offset=65624
-                                                                      local.get $l5
-                                                                      local.get $l5
+                                                                      local.get $l4
+                                                                      local.get $l4
                                                                       i32.load offset=65608
-                                                                      local.get $p3
+                                                                      local.get $l5
                                                                       i32.add
                                                                       i32.store offset=65608
-                                                                      local.get $l5
+                                                                      local.get $l4
                                                                       i32.load8_u offset=65647
                                                                       local.set $l6
-                                                                      local.get $l5
-                                                                      local.get $p4
+                                                                      local.get $l4
                                                                       local.get $p3
+                                                                      local.get $l5
                                                                       i32.sub
                                                                       local.tee $p3
                                                                       i32.store offset=65612
@@ -7129,11 +7055,11 @@
                                                             end
                                                             unreachable
                                                           end
-                                                          local.get $l5
+                                                          local.get $l4
                                                           i32.const -1
                                                           i32.store offset=65628
-                                                          local.get $l5
-                                                          local.get $l9
+                                                          local.get $l4
+                                                          local.get $l11
                                                           i32.store offset=65620
                                                           br $B12
                                                         end
@@ -7141,203 +7067,203 @@
                                                       end
                                                       unreachable
                                                     end
-                                                    local.get $l5
-                                                    local.get $l9
+                                                    local.get $l4
+                                                    local.get $l11
                                                     i32.store offset=65620
-                                                    local.get $l5
+                                                    local.get $l4
                                                     i32.const -1
                                                     i32.store offset=65628
                                                     br $B12
                                                   end
                                                   local.get $p3
                                                   local.get $l15
-                                                  call $f20
+                                                  call $f33
                                                   unreachable
                                                 end
-                                                local.get $l8
-                                                local.get $p4
-                                                call $f22
+                                                local.get $l7
+                                                local.get $p3
+                                                call $f35
                                                 unreachable
                                               end
-                                              local.get $p4
+                                              local.get $p3
                                               local.get $l23
-                                              call $f20
+                                              call $f33
                                               unreachable
                                             end
                                             local.get $l6
-                                            local.get $p4
-                                            call $f22
+                                            local.get $p3
+                                            call $f35
                                             unreachable
                                           end
-                                          local.get $p4
+                                          local.get $p3
                                           i32.const 85196
-                                          call $f20
+                                          call $f33
                                           unreachable
                                         end
-                                        local.get $l10
+                                        local.get $l8
                                         local.get $l15
-                                        call $f20
+                                        call $f33
                                         unreachable
                                       end
-                                      local.get $p3
-                                      local.get $l10
-                                      call $f22
+                                      local.get $l9
+                                      local.get $l8
+                                      call $f35
                                       unreachable
                                     end
-                                    local.get $l10
+                                    local.get $l8
                                     i32.const 33026
-                                    call $f20
+                                    call $f33
                                     unreachable
                                   end
-                                  local.get $l9
+                                  local.get $l11
                                   local.get $l15
-                                  call $f20
+                                  call $f33
                                   unreachable
                                 end
-                                local.get $p3
                                 local.get $l9
-                                call $f22
+                                local.get $l11
+                                call $f35
                                 unreachable
                               end
-                              local.get $l7
+                              local.get $l6
                               i32.const 33026
-                              call $f20
+                              call $f33
                               unreachable
                             end
-                            local.get $l5
+                            local.get $l4
                             i32.load offset=65624
                             local.set $l12
-                            local.get $l5
+                            local.get $l4
                             i32.load offset=65628
-                            local.set $l6
+                            local.set $l5
                             br $B9
                           end
                           i32.const 0
-                          local.set $l9
+                          local.set $l11
                           i32.const 0
                           local.set $l12
-                          local.get $l6
+                          local.get $l5
                           local.get $l23
-                          local.get $l6
+                          local.get $l5
                           local.get $l23
                           i32.lt_u
                           select
                           local.tee $p3
                           if $I133
-                            local.get $l5
+                            local.get $l4
                             i32.load offset=65608
                             local.tee $l6
                             local.get $p3
                             i32.add
-                            local.set $p4
-                            local.get $p4
+                            local.set $l5
+                            local.get $l5
                             local.get $l6
                             i32.lt_u
                             br_if $B7
-                            local.get $p4
+                            local.get $l5
                             i32.const 85196
                             i32.gt_u
                             br_if $B6
                             local.get $l28
-                            local.get $l5
+                            local.get $l4
                             i32.load offset=65640
                             local.get $l6
                             i32.add
                             local.get $p3
                             memory.copy
-                            local.get $l5
+                            local.get $l4
                             i32.load offset=65624
                             local.set $l12
-                            local.get $l5
+                            local.get $l4
                             i32.load offset=65612
-                            local.set $l6
+                            local.set $l5
                           end
-                          local.get $l5
+                          local.get $l4
                           local.get $p3
                           local.get $l12
                           i32.add
                           local.tee $l12
                           i32.store offset=65624
-                          local.get $l5
-                          local.get $l5
+                          local.get $l4
+                          local.get $l4
                           i32.load offset=65608
                           local.get $p3
                           i32.add
                           i32.store offset=65608
-                          local.get $l5
+                          local.get $l4
                           i32.load8_u offset=65647
-                          local.set $p4
+                          local.set $l6
+                          local.get $l4
                           local.get $l5
-                          local.get $l6
                           local.get $p3
                           i32.sub
                           local.tee $p3
                           i32.store offset=65612
                           local.get $p3
                           i32.eqz
-                          local.get $p4
+                          local.get $l6
                           i32.const 0
                           i32.ne
                           i32.and
                         end
-                        local.tee $l6
+                        local.tee $l5
                         i32.store offset=65628
                       end
                       local.get $l12
-                      local.get $l18
+                      local.get $l19
                       i32.add
-                      local.set $l18
+                      local.set $l19
                       block $B134
                         block $B135
-                          local.get $l6
+                          local.get $l5
                           br_table $B134 $B135 $B0
                         end
-                        local.get $l16
-                        local.get $l18
+                        local.get $l17
+                        local.get $l19
                         i32.ge_u
                         if $I136
                           local.get $p0
                           i32.const 8
                           i32.add
-                          local.get $l18
+                          local.get $l19
                           i32.store
                         end
-                        local.get $l5
+                        local.get $l4
                         i32.load offset=65640
-                        call $f6
-                        local.get $l5
+                        call $f13
+                        local.get $l4
                         i32.load offset=65648
-                        call $f6
-                        local.get $l5
+                        call $f13
+                        local.get $l4
                         i32.load offset=65660
-                        call $f6
-                        local.get $l5
+                        call $f13
+                        local.get $l4
                         i32.const 131264
                         i32.add
                         global.set $g0
                         return
                       end
-                      local.get $l9
+                      local.get $l11
                       local.get $l24
                       i32.add
                       local.set $l24
                       i32.const 0
-                      local.get $l16
-                      local.get $l18
+                      local.get $l17
+                      local.get $l19
                       i32.sub
                       local.tee $p3
                       local.get $p3
-                      local.get $l16
+                      local.get $l17
                       i32.gt_u
                       select
                       i32.const 29
                       i32.le_u
                       if $I137
                         local.get $p0
-                        local.get $l16
+                        local.get $l17
                         i32.const 1
                         i32.shl
-                        call $f13
+                        call $f25
                       end
                       local.get $p2
                       local.get $l24
@@ -7345,31 +7271,31 @@
                       if $I138
                         local.get $l34
                         i32.load
-                        local.set $l16
+                        local.set $l17
                         br $L8
                       end
                     end
                     local.get $l24
                     local.get $p2
-                    call $f21
+                    call $f34
                     unreachable
                   end
                   local.get $l6
-                  local.get $p4
-                  call $f22
+                  local.get $l5
+                  call $f35
                   unreachable
                 end
-                local.get $p4
+                local.get $l5
                 i32.const 85196
-                call $f20
+                call $f33
                 unreachable
               end
-              local.get $l16
+              local.get $l17
               i32.const 1
-              i32.const 1054900
+              i32.const 1059788
               i32.load
               local.tee $p0
-              i32.const 1
+              i32.const 4
               local.get $p0
               select
               call_indirect (type $t0) $T0
@@ -7377,10 +7303,10 @@
             end
             i32.const 164098
             i32.const 2
-            i32.const 1054900
+            i32.const 1059788
             i32.load
             local.tee $p0
-            i32.const 1
+            i32.const 4
             local.get $p0
             select
             call_indirect (type $t0) $T0
@@ -7388,10 +7314,10 @@
           end
           i32.const 4320
           i32.const 2
-          i32.const 1054900
+          i32.const 1059788
           i32.load
           local.tee $p0
-          i32.const 1
+          i32.const 4
           local.get $p0
           select
           call_indirect (type $t0) $T0
@@ -7399,21 +7325,2776 @@
         end
         i32.const 85196
         i32.const 1
-        i32.const 1054900
+        i32.const 1059788
         i32.load
         local.tee $p0
-        i32.const 1
+        i32.const 4
         local.get $p0
         select
         call_indirect (type $t0) $T0
         unreachable
       end
+      local.get $l4
       local.get $l5
-      local.get $l6
       i32.store offset=65628
     end
     unreachable)
-  (func $f2 (type $t9) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (result i32)
+  (func $f2 (type $t11) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (param $p5 i32)
+    (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32)
+    local.get $p0
+    i32.const 1028
+    i32.add
+    local.tee $l8
+    local.get $l8
+    i32.load
+    i32.const 1
+    i32.add
+    i32.store
+    i32.const 288
+    i32.const 14
+    local.get $p0
+    i32.const 4
+    i32.add
+    local.get $p0
+    i32.const 2564
+    i32.add
+    local.get $p0
+    i32.const 1284
+    i32.add
+    local.tee $l15
+    call $f10
+    i32.const 32
+    i32.const 15
+    local.get $p0
+    i32.const 1156
+    i32.add
+    local.get $p0
+    i32.const 2852
+    i32.add
+    local.get $p0
+    i32.const 2436
+    i32.add
+    call $f10
+    i32.const 2851
+    local.set $l6
+    block $B0 (result i32)
+      loop $L1
+        local.get $p0
+        local.get $l6
+        i32.const 2563
+        i32.sub
+        local.tee $l8
+        i32.store offset=38812
+        i32.const 257
+        local.get $l8
+        i32.const 258
+        i32.lt_u
+        br_if $B0
+        drop
+        local.get $p0
+        local.get $l6
+        i32.add
+        local.get $l6
+        i32.const 1
+        i32.sub
+        local.tee $l10
+        local.set $l6
+        i32.load8_u
+        i32.eqz
+        br_if $L1
+      end
+      local.get $l10
+      i32.const 2562
+      i32.sub
+    end
+    local.set $l9
+    i32.const 2883
+    local.set $l6
+    block $B2 (result i32)
+      loop $L3
+        local.get $p0
+        local.get $l6
+        i32.const 2851
+        i32.sub
+        local.tee $l8
+        i32.store offset=38816
+        i32.const 1
+        local.get $l8
+        i32.const 2
+        i32.lt_u
+        br_if $B2
+        drop
+        local.get $p0
+        local.get $l6
+        i32.add
+        local.get $l6
+        i32.const 1
+        i32.sub
+        local.tee $l10
+        local.set $l6
+        i32.load8_u
+        i32.eqz
+        br_if $L3
+      end
+      local.get $l10
+      i32.const 2850
+      i32.sub
+    end
+    local.set $l6
+    local.get $l9
+    i32.const 288
+    i32.ne
+    if $I4
+      local.get $p0
+      local.get $l9
+      i32.add
+      i32.const 2564
+      i32.add
+      local.get $p0
+      i32.const 2852
+      i32.add
+      local.get $l6
+      call $f37
+      local.get $p0
+      i32.load offset=38812
+      local.set $l9
+      local.get $p0
+      i32.load offset=38816
+      local.set $l6
+    end
+    i32.const 0
+    local.set $l10
+    local.get $p0
+    i32.const 37360
+    i32.add
+    i32.const 76
+    call $f42
+    local.set $l16
+    local.get $p0
+    i32.const 2565
+    i32.add
+    local.set $l17
+    local.get $l6
+    local.get $l9
+    i32.add
+    local.tee $l9
+    i32.const 1
+    i32.sub
+    local.set $l13
+    local.get $p0
+    i32.const 37532
+    i32.add
+    local.tee $l18
+    local.set $l6
+    loop $L5
+      local.get $p0
+      local.get $l10
+      i32.add
+      i32.const 2564
+      i32.add
+      i32.load8_u
+      local.set $l14
+      local.get $l10
+      local.set $l7
+      block $B6 (result i32)
+        loop $L7
+          local.get $l7
+          local.get $l13
+          i32.eq
+          if $I8
+            local.get $l9
+            local.set $l8
+            local.get $l13
+            br $B6
+          end
+          local.get $l7
+          local.get $l17
+          i32.add
+          local.get $l7
+          i32.const 1
+          i32.add
+          local.tee $l8
+          local.set $l7
+          i32.load8_u
+          local.get $l14
+          i32.eq
+          br_if $L7
+        end
+        local.get $l8
+        i32.const 1
+        i32.sub
+      end
+      local.set $l11
+      local.get $l8
+      local.get $l10
+      i32.sub
+      local.set $l7
+      block $B9
+        local.get $l14
+        i32.eqz
+        if $I10
+          local.get $l7
+          i32.const 11
+          i32.ge_u
+          if $I11
+            local.get $p0
+            i32.load offset=37432
+            local.set $l12
+            loop $L12
+              local.get $l6
+              local.get $l7
+              i32.const 11
+              i32.sub
+              local.tee $l7
+              i32.const 127
+              local.get $l7
+              i32.const 127
+              i32.lt_u
+              select
+              local.tee $l7
+              i32.const 5
+              i32.shl
+              i32.const 18
+              i32.or
+              i32.store
+              local.get $l6
+              i32.const 4
+              i32.add
+              local.set $l6
+              local.get $l12
+              i32.const 1
+              i32.add
+              local.set $l12
+              local.get $l8
+              local.get $l7
+              local.get $l10
+              i32.add
+              i32.const 11
+              i32.add
+              local.tee $l10
+              i32.sub
+              local.tee $l7
+              i32.const 10
+              i32.gt_u
+              br_if $L12
+            end
+            local.get $p0
+            local.get $l12
+            i32.store offset=37432
+          end
+          local.get $l7
+          i32.const 3
+          i32.lt_u
+          if $I13
+            local.get $l10
+            local.set $l7
+            br $B9
+          end
+          local.get $p0
+          local.get $p0
+          i32.load offset=37428
+          i32.const 1
+          i32.add
+          i32.store offset=37428
+          local.get $l6
+          local.get $l7
+          i32.const 3
+          i32.sub
+          local.tee $l7
+          i32.const 7
+          local.get $l7
+          i32.const 7
+          i32.lt_u
+          select
+          local.tee $l7
+          i32.const 5
+          i32.shl
+          i32.const 17
+          i32.or
+          i32.store
+          local.get $l7
+          local.get $l10
+          i32.add
+          i32.const 3
+          i32.add
+          local.set $l7
+          local.get $l6
+          i32.const 4
+          i32.add
+          local.set $l6
+          br $B9
+        end
+        local.get $l7
+        i32.const 4
+        i32.lt_u
+        if $I14
+          local.get $l10
+          local.set $l7
+          br $B9
+        end
+        local.get $l14
+        i32.const 2
+        i32.shl
+        local.get $p0
+        i32.add
+        i32.const 37360
+        i32.add
+        local.tee $l7
+        local.get $l7
+        i32.load
+        i32.const 1
+        i32.add
+        i32.store
+        local.get $l6
+        local.get $l14
+        i32.store
+        local.get $l10
+        i32.const 1
+        i32.add
+        local.set $l7
+        local.get $l6
+        i32.const 4
+        i32.add
+        local.set $l6
+        local.get $p0
+        i32.load offset=37424
+        local.set $l12
+        loop $L15
+          local.get $l6
+          local.get $l8
+          local.get $l7
+          i32.sub
+          i32.const 3
+          i32.sub
+          local.tee $l10
+          i32.const 3
+          local.get $l10
+          i32.const 3
+          i32.lt_u
+          select
+          local.tee $l10
+          i32.const 5
+          i32.shl
+          i32.const 16
+          i32.or
+          i32.store
+          local.get $l6
+          i32.const 4
+          i32.add
+          local.set $l6
+          local.get $l12
+          i32.const 1
+          i32.add
+          local.set $l12
+          local.get $l8
+          local.get $l7
+          local.get $l10
+          i32.add
+          i32.const 3
+          i32.add
+          local.tee $l7
+          i32.sub
+          i32.const 2
+          i32.gt_u
+          br_if $L15
+        end
+        local.get $p0
+        local.get $l12
+        i32.store offset=37424
+      end
+      block $B16
+        local.get $l7
+        local.get $l8
+        i32.eq
+        if $I17
+          local.get $l8
+          local.set $l10
+          br $B16
+        end
+        local.get $l11
+        local.get $l7
+        i32.sub
+        i32.const 1
+        i32.add
+        local.set $l8
+        local.get $l14
+        i32.const 2
+        i32.shl
+        local.get $p0
+        i32.add
+        i32.const 37360
+        i32.add
+        local.tee $l10
+        i32.load
+        local.set $l12
+        loop $L18
+          local.get $l6
+          local.get $l14
+          i32.store
+          local.get $l6
+          i32.const 4
+          i32.add
+          local.set $l6
+          local.get $l8
+          i32.const 1
+          i32.sub
+          local.tee $l8
+          br_if $L18
+        end
+        local.get $l10
+        local.get $l11
+        i32.const 1
+        i32.add
+        local.tee $l10
+        local.get $l7
+        i32.sub
+        local.get $l12
+        i32.add
+        i32.store
+      end
+      local.get $l9
+      local.get $l10
+      i32.ne
+      br_if $L5
+    end
+    local.get $p0
+    local.get $l6
+    local.get $l18
+    i32.sub
+    i32.const 2
+    i32.shr_s
+    i32.store offset=38824
+    i32.const 19
+    local.set $l7
+    i32.const 19
+    i32.const 7
+    local.get $l16
+    local.get $p0
+    i32.const 37436
+    i32.add
+    local.get $p0
+    i32.const 37456
+    i32.add
+    call $f10
+    loop $L19
+      block $B20
+        local.get $p0
+        local.get $l7
+        local.tee $l6
+        i32.store offset=38820
+        local.get $l6
+        i32.const 5
+        i32.lt_u
+        br_if $B20
+        local.get $l6
+        i32.const 1
+        i32.sub
+        local.set $l7
+        local.get $l6
+        i32.const 1059007
+        i32.add
+        i32.load8_u
+        local.get $p0
+        i32.add
+        i32.const 37436
+        i32.add
+        i32.load8_u
+        i32.eqz
+        br_if $L19
+      end
+    end
+    local.get $p0
+    i32.load offset=38812
+    local.tee $l8
+    i32.const 288
+    i32.ne
+    if $I21 (result i32)
+      local.get $p0
+      i32.const 2852
+      i32.add
+      local.get $p0
+      local.get $l8
+      i32.add
+      i32.const 2564
+      i32.add
+      local.get $p0
+      i32.load offset=38816
+      call $f37
+      local.get $p0
+      i32.load offset=38820
+    else
+      local.get $l6
+    end
+    i32.const 3
+    i32.mul
+    local.get $p0
+    i32.load offset=37360
+    local.get $p0
+    i32.load8_u offset=37436
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37364
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37437
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37368
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37438
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37372
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37439
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37376
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37440
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37380
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37441
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37384
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37442
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37388
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37443
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37392
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37444
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37396
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37445
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37400
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37446
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37404
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37447
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37408
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37448
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37412
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37449
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37416
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37450
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.const 37420
+    i32.add
+    i32.load
+    local.get $p0
+    i32.const 37451
+    i32.add
+    i32.load8_u
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.load offset=37424
+    local.get $p0
+    i32.const 37452
+    i32.add
+    i32.load8_u
+    i32.const 2
+    i32.add
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.load offset=37428
+    local.get $p0
+    i32.const 37453
+    i32.add
+    i32.load8_u
+    i32.const 3
+    i32.add
+    i32.mul
+    i32.add
+    local.get $p0
+    i32.load offset=37432
+    local.get $p0
+    i32.const 37454
+    i32.add
+    i32.load8_u
+    i32.const 7
+    i32.add
+    i32.mul
+    i32.add
+    i32.const 14
+    i32.add
+    local.set $l9
+    local.get $p0
+    i32.const 2564
+    i32.add
+    local.set $l8
+    local.get $p0
+    i32.const 4
+    i32.add
+    local.set $l6
+    i32.const 0
+    local.set $l7
+    loop $L22
+      local.get $l6
+      i32.load
+      local.get $l7
+      local.get $l8
+      i32.add
+      i32.load8_u
+      i32.mul
+      local.get $l9
+      i32.add
+      local.set $l9
+      local.get $l6
+      i32.const 4
+      i32.add
+      local.set $l6
+      local.get $l7
+      i32.const 1
+      i32.add
+      local.tee $l7
+      i32.const 256
+      i32.ne
+      br_if $L22
+    end
+    i32.const 0
+    local.set $l6
+    i32.const 4
+    local.set $l7
+    loop $L23
+      local.get $p0
+      local.get $l7
+      i32.add
+      i32.load
+      i32.const 3
+      i32.shl
+      local.get $l6
+      i32.add
+      local.set $l6
+      local.get $l7
+      i32.const 4
+      i32.add
+      local.tee $l7
+      i32.const 580
+      i32.ne
+      br_if $L23
+    end
+    local.get $p0
+    i32.const 580
+    i32.add
+    local.set $l8
+    i32.const 0
+    local.set $l7
+    loop $L24
+      local.get $l7
+      local.get $l8
+      i32.add
+      i32.load
+      i32.const 9
+      i32.mul
+      local.get $l6
+      i32.add
+      local.set $l6
+      local.get $l7
+      i32.const 4
+      i32.add
+      local.tee $l7
+      i32.const 448
+      i32.ne
+      br_if $L24
+    end
+    local.get $p0
+    i32.const 1032
+    i32.add
+    local.set $l8
+    local.get $l6
+    i32.const 7
+    i32.add
+    local.set $l6
+    local.get $p0
+    i32.const 2820
+    i32.add
+    i32.load8_u
+    local.get $l9
+    i32.add
+    local.set $l9
+    i32.const 0
+    local.set $l7
+    loop $L25
+      local.get $l8
+      i32.load
+      local.tee $l10
+      local.get $l7
+      i32.const 1058944
+      i32.add
+      i32.load8_u
+      local.tee $l11
+      local.get $p0
+      local.get $l7
+      i32.add
+      local.tee $l13
+      i32.const 4421
+      i32.add
+      i32.load8_u
+      i32.add
+      i32.mul
+      local.get $l6
+      i32.add
+      local.set $l6
+      local.get $l13
+      i32.const 2821
+      i32.add
+      i32.load8_u
+      local.get $l11
+      i32.add
+      local.get $l10
+      i32.mul
+      local.get $l9
+      i32.add
+      local.set $l9
+      local.get $l8
+      i32.const 4
+      i32.add
+      local.set $l8
+      local.get $l7
+      i32.const 1
+      i32.add
+      local.tee $l7
+      i32.const 29
+      i32.ne
+      br_if $L25
+    end
+    local.get $p0
+    i32.const 2852
+    i32.add
+    local.set $l10
+    local.get $p0
+    i32.const 1156
+    i32.add
+    local.set $l8
+    i32.const 0
+    local.set $l7
+    loop $L26
+      local.get $l8
+      i32.load
+      local.tee $l11
+      local.get $l7
+      i32.const 1058976
+      i32.add
+      i32.load8_u
+      local.tee $l13
+      local.get $l7
+      local.get $l10
+      i32.add
+      i32.load8_u
+      i32.add
+      i32.mul
+      local.get $l9
+      i32.add
+      local.set $l9
+      local.get $l8
+      i32.const 4
+      i32.add
+      local.set $l8
+      local.get $l13
+      i32.const 5
+      i32.add
+      local.get $l11
+      i32.mul
+      local.get $l6
+      i32.add
+      local.set $l6
+      local.get $l7
+      i32.const 1
+      i32.add
+      local.tee $l7
+      i32.const 30
+      i32.ne
+      br_if $L26
+    end
+    local.get $p3
+    i32.const 65534
+    i32.add
+    i32.const 65535
+    i32.div_u
+    i32.const 40
+    i32.mul
+    local.get $p3
+    i32.const 3
+    i32.shl
+    i32.add
+    i32.const 5
+    local.get $p1
+    i32.load offset=4
+    local.tee $l7
+    i32.sub
+    i32.const 7
+    i32.and
+    i32.const 32
+    i32.or
+    i32.add
+    i32.const 40
+    i32.sub
+    local.tee $l8
+    local.get $l6
+    local.get $l6
+    local.get $l8
+    i32.gt_u
+    select
+    local.tee $l10
+    local.get $l9
+    i32.gt_u
+    local.set $l11
+    block $B27
+      i32.const 2
+      local.get $l6
+      local.get $l8
+      i32.lt_u
+      local.get $l11
+      select
+      local.tee $l6
+      i32.eqz
+      if $I28
+        loop $L29
+          local.get $p1
+          local.get $l7
+          i32.const 3
+          i32.add
+          local.tee $l8
+          i32.store offset=4
+          local.get $p1
+          local.get $p1
+          i32.load
+          local.get $p3
+          i32.const 65536
+          i32.lt_u
+          local.get $p4
+          i32.and
+          local.get $l7
+          i32.shl
+          i32.or
+          local.tee $l6
+          i32.store
+          local.get $p3
+          i32.const 65535
+          i32.lt_u
+          local.set $p0
+          local.get $l8
+          i32.const 8
+          i32.ge_u
+          if $I30
+            local.get $p1
+            i32.load offset=12
+            local.set $l7
+            loop $L31
+              local.get $l7
+              local.get $l6
+              i32.store8
+              local.get $p1
+              i32.load offset=12
+              local.tee $l7
+              local.get $p1
+              i32.load offset=16
+              i32.ne
+              if $I32
+                local.get $p1
+                local.get $l7
+                i32.const 1
+                i32.add
+                local.tee $l7
+                i32.store offset=12
+              end
+              local.get $p1
+              local.get $p1
+              i32.load offset=4
+              i32.const 8
+              i32.sub
+              local.tee $l8
+              i32.store offset=4
+              local.get $p1
+              local.get $p1
+              i32.load
+              i32.const 8
+              i32.shr_u
+              local.tee $l6
+              i32.store
+              local.get $l8
+              i32.const 7
+              i32.gt_u
+              br_if $L31
+            end
+          end
+          local.get $p3
+          i32.const 65535
+          local.get $p0
+          select
+          local.set $p0
+          local.get $p1
+          i32.const 0
+          local.get $l8
+          i32.sub
+          i32.const 7
+          i32.and
+          local.get $l8
+          i32.add
+          local.tee $p5
+          i32.store offset=4
+          block $B33
+            local.get $p5
+            i32.const 7
+            i32.le_u
+            if $I34
+              local.get $p1
+              i32.load offset=12
+              local.set $l7
+              local.get $p1
+              i32.load offset=16
+              local.set $l9
+              br $B33
+            end
+            local.get $p1
+            i32.load offset=12
+            local.set $l7
+            loop $L35
+              local.get $l7
+              local.get $l6
+              i32.store8
+              local.get $p1
+              i32.load offset=12
+              local.tee $l7
+              local.get $p1
+              i32.load offset=16
+              local.tee $l9
+              i32.ne
+              if $I36
+                local.get $p1
+                local.get $l7
+                i32.const 1
+                i32.add
+                local.tee $l7
+                i32.store offset=12
+              end
+              local.get $p1
+              local.get $p1
+              i32.load offset=4
+              i32.const 8
+              i32.sub
+              local.tee $p5
+              i32.store offset=4
+              local.get $p1
+              local.get $p1
+              i32.load
+              i32.const 8
+              i32.shr_u
+              local.tee $l6
+              i32.store
+              local.get $p5
+              i32.const 7
+              i32.gt_u
+              br_if $L35
+            end
+          end
+          local.get $p1
+          local.get $p0
+          i32.const 4
+          i32.add
+          local.get $l9
+          local.get $l7
+          i32.sub
+          i32.lt_u
+          if $I37 (result i32)
+            local.get $l7
+            local.get $p0
+            i32.store16 align=1
+            local.get $p1
+            local.get $p1
+            i32.load offset=12
+            local.tee $p5
+            i32.const 2
+            i32.add
+            i32.store offset=12
+            local.get $p5
+            local.get $p0
+            i32.const -1
+            i32.xor
+            local.tee $l8
+            i32.const 8
+            i32.shr_u
+            i32.store8 offset=3
+            local.get $p5
+            local.get $l8
+            i32.store8 offset=2
+            local.get $p1
+            local.get $p1
+            i32.load offset=12
+            i32.const 2
+            i32.add
+            local.tee $p5
+            i32.store offset=12
+            local.get $p5
+            local.get $p2
+            local.get $p0
+            call $f38
+            drop
+            local.get $p1
+            i32.load offset=12
+            local.get $p0
+            i32.add
+          else
+            local.get $l9
+          end
+          i32.store offset=12
+          local.get $p3
+          local.get $p0
+          i32.sub
+          local.tee $p3
+          i32.eqz
+          br_if $B27
+          local.get $p0
+          local.get $p2
+          i32.add
+          local.set $p2
+          local.get $p1
+          i32.load offset=4
+          local.set $l7
+          br $L29
+        end
+        unreachable
+      end
+      local.get $p1
+      local.get $l7
+      i32.const 3
+      i32.add
+      local.tee $l8
+      i32.store offset=4
+      local.get $p1
+      local.get $p1
+      i32.load
+      local.get $l6
+      local.get $l7
+      i32.const 1
+      i32.add
+      i32.shl
+      local.get $p4
+      local.get $l7
+      i32.shl
+      i32.or
+      i32.or
+      local.tee $l7
+      i32.store
+      local.get $l8
+      i32.const 8
+      i32.ge_u
+      if $I38
+        local.get $p1
+        i32.load offset=12
+        local.set $l6
+        loop $L39
+          local.get $l6
+          local.get $l7
+          i32.store8
+          local.get $p1
+          i32.load offset=12
+          local.tee $l6
+          local.get $p1
+          i32.load offset=16
+          i32.ne
+          if $I40
+            local.get $p1
+            local.get $l6
+            i32.const 1
+            i32.add
+            local.tee $l6
+            i32.store offset=12
+          end
+          local.get $p1
+          local.get $p1
+          i32.load offset=4
+          i32.const 8
+          i32.sub
+          local.tee $l8
+          i32.store offset=4
+          local.get $p1
+          local.get $p1
+          i32.load
+          i32.const 8
+          i32.shr_u
+          local.tee $l7
+          i32.store
+          local.get $l8
+          i32.const 7
+          i32.gt_u
+          br_if $L39
+        end
+      end
+      local.get $p0
+      i32.const 2884
+      i32.add
+      local.set $l13
+      block $B41
+        local.get $l9
+        local.get $l10
+        i32.ge_u
+        br_if $B41
+        local.get $p1
+        local.get $l8
+        i32.const 14
+        i32.add
+        i32.store offset=4
+        local.get $p1
+        local.get $p0
+        i32.load offset=38812
+        i32.const 257
+        i32.sub
+        local.get $l8
+        i32.shl
+        local.get $l7
+        i32.or
+        local.get $p0
+        i32.load offset=38816
+        i32.const 1
+        i32.sub
+        local.get $l8
+        i32.const 5
+        i32.add
+        i32.shl
+        i32.or
+        local.get $p0
+        i32.load offset=38820
+        i32.const 4
+        i32.sub
+        local.get $l8
+        i32.const 10
+        i32.add
+        i32.shl
+        i32.or
+        local.tee $l7
+        i32.store
+        local.get $p1
+        i32.load offset=12
+        local.set $l6
+        loop $L42
+          local.get $l6
+          local.get $l7
+          i32.store8
+          local.get $p1
+          i32.load offset=12
+          local.tee $l6
+          local.get $p1
+          i32.load offset=16
+          i32.ne
+          if $I43
+            local.get $p1
+            local.get $l6
+            i32.const 1
+            i32.add
+            local.tee $l6
+            i32.store offset=12
+          end
+          local.get $p1
+          local.get $p1
+          i32.load offset=4
+          i32.const 8
+          i32.sub
+          local.tee $l8
+          i32.store offset=4
+          local.get $p1
+          local.get $p1
+          i32.load
+          i32.const 8
+          i32.shr_u
+          local.tee $l7
+          i32.store
+          local.get $l8
+          i32.const 7
+          i32.gt_u
+          br_if $L42
+        end
+        local.get $p0
+        i32.load offset=38820
+        local.tee $l12
+        if $I44
+          i32.const 0
+          local.set $l9
+          loop $L45
+            local.get $p1
+            local.get $l8
+            i32.const 3
+            i32.add
+            local.tee $p4
+            i32.store offset=4
+            local.get $p1
+            local.get $l9
+            i32.const 1059008
+            i32.add
+            i32.load8_u
+            local.get $p0
+            i32.add
+            i32.const 37436
+            i32.add
+            i32.load8_u
+            local.get $l8
+            i32.shl
+            local.get $l7
+            i32.or
+            local.tee $l7
+            i32.store
+            block $B46
+              local.get $p4
+              i32.const 8
+              i32.lt_u
+              if $I47
+                local.get $p4
+                local.set $l8
+                br $B46
+              end
+              local.get $p1
+              i32.load offset=12
+              local.set $l6
+              loop $L48
+                local.get $l6
+                local.get $l7
+                i32.store8
+                local.get $p1
+                i32.load offset=12
+                local.tee $l6
+                local.get $p1
+                i32.load offset=16
+                i32.ne
+                if $I49
+                  local.get $p1
+                  local.get $l6
+                  i32.const 1
+                  i32.add
+                  local.tee $l6
+                  i32.store offset=12
+                end
+                local.get $p1
+                local.get $p1
+                i32.load offset=4
+                i32.const 8
+                i32.sub
+                local.tee $l8
+                i32.store offset=4
+                local.get $p1
+                local.get $p1
+                i32.load
+                i32.const 8
+                i32.shr_u
+                local.tee $l7
+                i32.store
+                local.get $l8
+                i32.const 7
+                i32.gt_u
+                br_if $L48
+              end
+              local.get $p0
+              i32.load offset=38820
+              local.set $l12
+            end
+            local.get $l12
+            local.get $l9
+            i32.const 1
+            i32.add
+            local.tee $l9
+            i32.gt_u
+            br_if $L45
+          end
+        end
+        local.get $p0
+        i32.load offset=38824
+        local.tee $l10
+        i32.eqz
+        br_if $B41
+        i32.const 0
+        local.set $l12
+        loop $L50
+          local.get $p1
+          local.get $l12
+          i32.const 2
+          i32.shl
+          local.get $p0
+          i32.add
+          i32.const 37532
+          i32.add
+          i32.load
+          local.tee $l9
+          i32.const 31
+          i32.and
+          local.tee $p4
+          local.get $p0
+          i32.add
+          i32.const 37436
+          i32.add
+          i32.load8_u
+          local.get $l8
+          i32.add
+          local.tee $l6
+          i32.store offset=4
+          local.get $p1
+          local.get $p4
+          i32.const 2
+          i32.shl
+          local.get $p0
+          i32.add
+          i32.const 37456
+          i32.add
+          i32.load
+          local.get $l8
+          i32.shl
+          local.get $l7
+          i32.or
+          local.tee $l7
+          i32.store
+          local.get $p4
+          i32.const 16
+          i32.ge_u
+          if $I51
+            local.get $p1
+            block $B52 (result i32)
+              local.get $p4
+              i32.const 16
+              i32.eq
+              if $I53
+                local.get $p1
+                local.get $l9
+                i32.const 5
+                i32.shr_u
+                local.get $l6
+                i32.shl
+                local.get $l7
+                i32.or
+                local.tee $l7
+                i32.store
+                local.get $l6
+                i32.const 2
+                i32.add
+                br $B52
+              end
+              local.get $p1
+              local.get $l9
+              i32.const 5
+              i32.shr_u
+              local.get $l6
+              i32.shl
+              local.get $l7
+              i32.or
+              local.tee $l7
+              i32.store
+              local.get $l6
+              i32.const 3
+              i32.add
+              local.get $p4
+              i32.const 17
+              i32.eq
+              br_if $B52
+              drop
+              local.get $l6
+              i32.const 7
+              i32.add
+            end
+            local.tee $l6
+            i32.store offset=4
+          end
+          block $B54
+            local.get $l6
+            i32.const 8
+            i32.lt_u
+            if $I55
+              local.get $l6
+              local.set $l8
+              br $B54
+            end
+            local.get $p1
+            i32.load offset=12
+            local.set $l6
+            loop $L56
+              local.get $l6
+              local.get $l7
+              i32.store8
+              local.get $p1
+              i32.load offset=12
+              local.tee $l6
+              local.get $p1
+              i32.load offset=16
+              i32.ne
+              if $I57
+                local.get $p1
+                local.get $l6
+                i32.const 1
+                i32.add
+                local.tee $l6
+                i32.store offset=12
+              end
+              local.get $p1
+              local.get $p1
+              i32.load offset=4
+              i32.const 8
+              i32.sub
+              local.tee $l8
+              i32.store offset=4
+              local.get $p1
+              local.get $p1
+              i32.load
+              i32.const 8
+              i32.shr_u
+              local.tee $l7
+              i32.store
+              local.get $l8
+              i32.const 7
+              i32.gt_u
+              br_if $L56
+            end
+            local.get $p0
+            i32.load offset=38824
+            local.set $l10
+          end
+          local.get $l12
+          i32.const 1
+          i32.add
+          local.tee $l12
+          local.get $l10
+          i32.lt_u
+          br_if $L50
+        end
+      end
+      local.get $l15
+      local.get $l13
+      local.get $l11
+      select
+      local.set $p4
+      block $B58
+        local.get $p5
+        if $I59
+          local.get $p0
+          i32.const 6565188
+          i32.add
+          local.tee $p2
+          local.get $p3
+          i32.const 3
+          i32.shl
+          i32.add
+          local.set $l11
+          loop $L60
+            local.get $p2
+            i32.load offset=4
+            local.tee $p3
+            i32.const 9
+            i32.shr_u
+            local.set $p5
+            block $B61
+              local.get $p3
+              i32.const 511
+              i32.and
+              local.tee $l10
+              i32.const 1
+              i32.eq
+              if $I62
+                local.get $p1
+                local.get $p4
+                local.get $p5
+                i32.add
+                i32.const 1280
+                i32.add
+                i32.load8_u
+                local.get $l8
+                i32.add
+                local.tee $p3
+                i32.store offset=4
+                local.get $p1
+                local.get $p5
+                i32.const 2
+                i32.shl
+                local.get $p4
+                i32.add
+                i32.load
+                local.get $l8
+                i32.shl
+                local.get $l7
+                i32.or
+                local.tee $l7
+                i32.store
+                local.get $p3
+                i32.const 8
+                i32.lt_u
+                if $I63
+                  local.get $p3
+                  local.set $l8
+                  br $B61
+                end
+                local.get $p1
+                i32.load offset=12
+                local.set $l6
+                loop $L64
+                  local.get $l6
+                  local.get $l7
+                  i32.store8
+                  local.get $p1
+                  i32.load offset=12
+                  local.tee $l6
+                  local.get $p1
+                  i32.load offset=16
+                  i32.ne
+                  if $I65
+                    local.get $p1
+                    local.get $l6
+                    i32.const 1
+                    i32.add
+                    local.tee $l6
+                    i32.store offset=12
+                  end
+                  local.get $p1
+                  local.get $p1
+                  i32.load offset=4
+                  i32.const 8
+                  i32.sub
+                  local.tee $l8
+                  i32.store offset=4
+                  local.get $p1
+                  local.get $p1
+                  i32.load
+                  i32.const 8
+                  i32.shr_u
+                  local.tee $l7
+                  i32.store
+                  local.get $l8
+                  i32.const 7
+                  i32.gt_u
+                  br_if $L64
+                end
+                br $B61
+              end
+              local.get $p1
+              local.get $l10
+              i32.const 1058672
+              i32.add
+              i32.load8_u
+              local.tee $p3
+              i32.const 257
+              i32.add
+              local.tee $l6
+              local.get $p4
+              i32.add
+              i32.const 1280
+              i32.add
+              i32.load8_u
+              local.get $l8
+              i32.add
+              local.tee $l13
+              local.get $p3
+              i32.const 1058944
+              i32.add
+              i32.load8_u
+              i32.add
+              local.tee $l9
+              i32.store offset=4
+              local.get $p1
+              local.get $l6
+              i32.const 2
+              i32.shl
+              local.get $p4
+              i32.add
+              i32.load
+              local.get $l8
+              i32.shl
+              local.get $l7
+              i32.or
+              local.get $l10
+              local.get $p3
+              i32.const 2
+              i32.shl
+              i32.const 1059040
+              i32.add
+              i32.load
+              i32.sub
+              local.get $l13
+              i32.shl
+              i32.or
+              local.tee $l8
+              i32.store
+              local.get $l9
+              i32.const 8
+              i32.ge_u
+              if $I66
+                local.get $p1
+                i32.load offset=12
+                local.set $l6
+                loop $L67
+                  local.get $l6
+                  local.get $l8
+                  i32.store8
+                  local.get $p1
+                  i32.load offset=12
+                  local.tee $l6
+                  local.get $p1
+                  i32.load offset=16
+                  i32.ne
+                  if $I68
+                    local.get $p1
+                    local.get $l6
+                    i32.const 1
+                    i32.add
+                    local.tee $l6
+                    i32.store offset=12
+                  end
+                  local.get $p1
+                  local.get $p1
+                  i32.load offset=4
+                  i32.const 8
+                  i32.sub
+                  local.tee $l9
+                  i32.store offset=4
+                  local.get $p1
+                  local.get $p1
+                  i32.load
+                  i32.const 8
+                  i32.shr_u
+                  local.tee $l8
+                  i32.store
+                  local.get $l9
+                  i32.const 7
+                  i32.gt_u
+                  br_if $L67
+                end
+              end
+              local.get $p1
+              local.get $p0
+              local.get $p5
+              i32.add
+              i32.const 4572
+              i32.add
+              i32.load8_u
+              local.tee $p3
+              local.get $p4
+              i32.add
+              i32.const 1568
+              i32.add
+              i32.load8_u
+              local.get $l9
+              i32.add
+              local.tee $l7
+              i32.store offset=4
+              local.get $p1
+              local.get $p3
+              i32.const 2
+              i32.shl
+              local.tee $l13
+              local.get $p4
+              i32.add
+              i32.const 1152
+              i32.add
+              i32.load
+              local.get $l9
+              i32.shl
+              local.get $l8
+              i32.or
+              local.tee $l9
+              i32.store
+              local.get $l7
+              i32.const 8
+              i32.ge_u
+              if $I69
+                local.get $p1
+                i32.load offset=12
+                local.set $l6
+                loop $L70
+                  local.get $l6
+                  local.get $l9
+                  i32.store8
+                  local.get $p1
+                  i32.load offset=12
+                  local.tee $l6
+                  local.get $p1
+                  i32.load offset=16
+                  i32.ne
+                  if $I71
+                    local.get $p1
+                    local.get $l6
+                    i32.const 1
+                    i32.add
+                    local.tee $l6
+                    i32.store offset=12
+                  end
+                  local.get $p1
+                  local.get $p1
+                  i32.load offset=4
+                  i32.const 8
+                  i32.sub
+                  local.tee $l7
+                  i32.store offset=4
+                  local.get $p1
+                  local.get $p1
+                  i32.load
+                  i32.const 8
+                  i32.shr_u
+                  local.tee $l9
+                  i32.store
+                  local.get $l7
+                  i32.const 7
+                  i32.gt_u
+                  br_if $L70
+                end
+              end
+              local.get $p1
+              local.get $p3
+              i32.const 1058976
+              i32.add
+              i32.load8_u
+              local.get $l7
+              i32.add
+              local.tee $l8
+              i32.store offset=4
+              local.get $p1
+              local.get $p5
+              local.get $l13
+              i32.const 1059168
+              i32.add
+              i32.load
+              i32.sub
+              local.get $l7
+              i32.shl
+              local.get $l9
+              i32.or
+              local.tee $l7
+              i32.store
+              local.get $l8
+              i32.const 8
+              i32.lt_u
+              br_if $B61
+              local.get $p1
+              i32.load offset=12
+              local.set $l6
+              loop $L72
+                local.get $l6
+                local.get $l7
+                i32.store8
+                local.get $p1
+                i32.load offset=12
+                local.tee $l6
+                local.get $p1
+                i32.load offset=16
+                i32.ne
+                if $I73
+                  local.get $p1
+                  local.get $l6
+                  i32.const 1
+                  i32.add
+                  local.tee $l6
+                  i32.store offset=12
+                end
+                local.get $p1
+                local.get $p1
+                i32.load offset=4
+                i32.const 8
+                i32.sub
+                local.tee $l8
+                i32.store offset=4
+                local.get $p1
+                local.get $p1
+                i32.load
+                i32.const 8
+                i32.shr_u
+                local.tee $l7
+                i32.store
+                local.get $l8
+                i32.const 7
+                i32.gt_u
+                br_if $L72
+              end
+            end
+            local.get $l11
+            local.get $l10
+            i32.const 3
+            i32.shl
+            local.get $p2
+            i32.add
+            local.tee $p2
+            i32.ne
+            br_if $L60
+          end
+          br $B58
+        end
+        local.get $p0
+        i32.const 300992
+        i32.add
+        local.set $l11
+        loop $L74
+          local.get $l11
+          i32.load
+          local.tee $p3
+          i32.const 23
+          i32.shr_u
+          local.set $p5
+          block $B75
+            local.get $p3
+            i32.const 8388607
+            i32.and
+            local.tee $p0
+            i32.eqz
+            br_if $B75
+            local.get $p0
+            i32.const 4
+            i32.ge_u
+            if $I76
+              loop $L77
+                local.get $p1
+                local.get $p2
+                i32.load8_u
+                local.tee $l10
+                local.get $p4
+                i32.add
+                i32.const 1280
+                i32.add
+                i32.load8_u
+                local.get $l8
+                i32.add
+                local.tee $l9
+                i32.store offset=4
+                local.get $p1
+                local.get $l10
+                i32.const 2
+                i32.shl
+                local.get $p4
+                i32.add
+                i32.load
+                local.get $l8
+                i32.shl
+                local.get $l7
+                i32.or
+                local.tee $l8
+                i32.store
+                local.get $p2
+                i32.load8_u offset=3
+                local.set $l10
+                local.get $p2
+                i32.load8_u offset=2
+                local.set $l13
+                local.get $p2
+                i32.load8_u offset=1
+                local.set $l12
+                local.get $l9
+                i32.const 8
+                i32.ge_u
+                if $I78
+                  local.get $p1
+                  i32.load offset=12
+                  local.set $l6
+                  loop $L79
+                    local.get $l6
+                    local.get $l8
+                    i32.store8
+                    local.get $p1
+                    i32.load offset=12
+                    local.tee $l6
+                    local.get $p1
+                    i32.load offset=16
+                    i32.ne
+                    if $I80
+                      local.get $p1
+                      local.get $l6
+                      i32.const 1
+                      i32.add
+                      local.tee $l6
+                      i32.store offset=12
+                    end
+                    local.get $p1
+                    local.get $p1
+                    i32.load offset=4
+                    i32.const 8
+                    i32.sub
+                    local.tee $l9
+                    i32.store offset=4
+                    local.get $p1
+                    local.get $p1
+                    i32.load
+                    i32.const 8
+                    i32.shr_u
+                    local.tee $l8
+                    i32.store
+                    local.get $l9
+                    i32.const 7
+                    i32.gt_u
+                    br_if $L79
+                  end
+                end
+                local.get $p1
+                local.get $p4
+                local.get $l12
+                i32.add
+                i32.const 1280
+                i32.add
+                i32.load8_u
+                local.get $l9
+                i32.add
+                local.tee $l7
+                i32.store offset=4
+                local.get $p1
+                local.get $l12
+                i32.const 2
+                i32.shl
+                local.get $p4
+                i32.add
+                i32.load
+                local.get $l9
+                i32.shl
+                local.get $l8
+                i32.or
+                local.tee $l8
+                i32.store
+                local.get $l7
+                i32.const 8
+                i32.ge_u
+                if $I81
+                  local.get $p1
+                  i32.load offset=12
+                  local.set $l6
+                  loop $L82
+                    local.get $l6
+                    local.get $l8
+                    i32.store8
+                    local.get $p1
+                    i32.load offset=12
+                    local.tee $l6
+                    local.get $p1
+                    i32.load offset=16
+                    i32.ne
+                    if $I83
+                      local.get $p1
+                      local.get $l6
+                      i32.const 1
+                      i32.add
+                      local.tee $l6
+                      i32.store offset=12
+                    end
+                    local.get $p1
+                    local.get $p1
+                    i32.load offset=4
+                    i32.const 8
+                    i32.sub
+                    local.tee $l7
+                    i32.store offset=4
+                    local.get $p1
+                    local.get $p1
+                    i32.load
+                    i32.const 8
+                    i32.shr_u
+                    local.tee $l8
+                    i32.store
+                    local.get $l7
+                    i32.const 7
+                    i32.gt_u
+                    br_if $L82
+                  end
+                end
+                local.get $p1
+                local.get $p4
+                local.get $l13
+                i32.add
+                i32.const 1280
+                i32.add
+                i32.load8_u
+                local.get $l7
+                i32.add
+                local.tee $l9
+                i32.store offset=4
+                local.get $p1
+                local.get $l13
+                i32.const 2
+                i32.shl
+                local.get $p4
+                i32.add
+                i32.load
+                local.get $l7
+                i32.shl
+                local.get $l8
+                i32.or
+                local.tee $l7
+                i32.store
+                local.get $l9
+                i32.const 8
+                i32.ge_u
+                if $I84
+                  local.get $p1
+                  i32.load offset=12
+                  local.set $l6
+                  loop $L85
+                    local.get $l6
+                    local.get $l7
+                    i32.store8
+                    local.get $p1
+                    i32.load offset=12
+                    local.tee $l6
+                    local.get $p1
+                    i32.load offset=16
+                    i32.ne
+                    if $I86
+                      local.get $p1
+                      local.get $l6
+                      i32.const 1
+                      i32.add
+                      local.tee $l6
+                      i32.store offset=12
+                    end
+                    local.get $p1
+                    local.get $p1
+                    i32.load offset=4
+                    i32.const 8
+                    i32.sub
+                    local.tee $l9
+                    i32.store offset=4
+                    local.get $p1
+                    local.get $p1
+                    i32.load
+                    i32.const 8
+                    i32.shr_u
+                    local.tee $l7
+                    i32.store
+                    local.get $l9
+                    i32.const 7
+                    i32.gt_u
+                    br_if $L85
+                  end
+                end
+                local.get $p1
+                local.get $p4
+                local.get $l10
+                i32.add
+                i32.const 1280
+                i32.add
+                i32.load8_u
+                local.get $l9
+                i32.add
+                local.tee $l8
+                i32.store offset=4
+                local.get $p1
+                local.get $l10
+                i32.const 2
+                i32.shl
+                local.get $p4
+                i32.add
+                i32.load
+                local.get $l9
+                i32.shl
+                local.get $l7
+                i32.or
+                local.tee $l7
+                i32.store
+                local.get $l8
+                i32.const 8
+                i32.ge_u
+                if $I87
+                  local.get $p1
+                  i32.load offset=12
+                  local.set $l6
+                  loop $L88
+                    local.get $l6
+                    local.get $l7
+                    i32.store8
+                    local.get $p1
+                    i32.load offset=12
+                    local.tee $l6
+                    local.get $p1
+                    i32.load offset=16
+                    i32.ne
+                    if $I89
+                      local.get $p1
+                      local.get $l6
+                      i32.const 1
+                      i32.add
+                      local.tee $l6
+                      i32.store offset=12
+                    end
+                    local.get $p1
+                    local.get $p1
+                    i32.load offset=4
+                    i32.const 8
+                    i32.sub
+                    local.tee $l8
+                    i32.store offset=4
+                    local.get $p1
+                    local.get $p1
+                    i32.load
+                    i32.const 8
+                    i32.shr_u
+                    local.tee $l7
+                    i32.store
+                    local.get $l8
+                    i32.const 7
+                    i32.gt_u
+                    br_if $L88
+                  end
+                end
+                local.get $p2
+                i32.const 4
+                i32.add
+                local.set $p2
+                local.get $p0
+                i32.const 4
+                i32.sub
+                local.tee $p0
+                i32.const 3
+                i32.gt_u
+                br_if $L77
+              end
+              local.get $p3
+              i32.const 3
+              i32.and
+              local.tee $p0
+              i32.eqz
+              br_if $B75
+            end
+            local.get $p1
+            local.get $p2
+            i32.load8_u
+            local.tee $p3
+            local.get $p4
+            i32.add
+            i32.const 1280
+            i32.add
+            i32.load8_u
+            local.get $l8
+            i32.add
+            local.tee $l9
+            i32.store offset=4
+            local.get $p1
+            local.get $p3
+            i32.const 2
+            i32.shl
+            local.get $p4
+            i32.add
+            i32.load
+            local.get $l8
+            i32.shl
+            local.get $l7
+            i32.or
+            local.tee $l7
+            i32.store
+            local.get $l9
+            i32.const 8
+            i32.ge_u
+            if $I90
+              local.get $p1
+              i32.load offset=12
+              local.set $l6
+              loop $L91
+                local.get $l6
+                local.get $l7
+                i32.store8
+                local.get $p1
+                i32.load offset=12
+                local.tee $l6
+                local.get $p1
+                i32.load offset=16
+                i32.ne
+                if $I92
+                  local.get $p1
+                  local.get $l6
+                  i32.const 1
+                  i32.add
+                  local.tee $l6
+                  i32.store offset=12
+                end
+                local.get $p1
+                local.get $p1
+                i32.load offset=4
+                i32.const 8
+                i32.sub
+                local.tee $l9
+                i32.store offset=4
+                local.get $p1
+                local.get $p1
+                i32.load
+                i32.const 8
+                i32.shr_u
+                local.tee $l7
+                i32.store
+                local.get $l9
+                i32.const 7
+                i32.gt_u
+                br_if $L91
+              end
+            end
+            local.get $p2
+            i32.const 1
+            i32.add
+            local.set $p3
+            local.get $p0
+            i32.const 1
+            i32.eq
+            if $I93
+              local.get $l9
+              local.set $l8
+              local.get $p3
+              local.set $p2
+              br $B75
+            end
+            local.get $p1
+            local.get $p3
+            i32.load8_u
+            local.tee $p3
+            local.get $p4
+            i32.add
+            i32.const 1280
+            i32.add
+            i32.load8_u
+            local.get $l9
+            i32.add
+            local.tee $l10
+            i32.store offset=4
+            local.get $p1
+            local.get $p3
+            i32.const 2
+            i32.shl
+            local.get $p4
+            i32.add
+            i32.load
+            local.get $l9
+            i32.shl
+            local.get $l7
+            i32.or
+            local.tee $l7
+            i32.store
+            local.get $l10
+            i32.const 8
+            i32.ge_u
+            if $I94
+              local.get $p1
+              i32.load offset=12
+              local.set $l6
+              loop $L95
+                local.get $l6
+                local.get $l7
+                i32.store8
+                local.get $p1
+                i32.load offset=12
+                local.tee $l6
+                local.get $p1
+                i32.load offset=16
+                i32.ne
+                if $I96
+                  local.get $p1
+                  local.get $l6
+                  i32.const 1
+                  i32.add
+                  local.tee $l6
+                  i32.store offset=12
+                end
+                local.get $p1
+                local.get $p1
+                i32.load offset=4
+                i32.const 8
+                i32.sub
+                local.tee $l10
+                i32.store offset=4
+                local.get $p1
+                local.get $p1
+                i32.load
+                i32.const 8
+                i32.shr_u
+                local.tee $l7
+                i32.store
+                local.get $l10
+                i32.const 7
+                i32.gt_u
+                br_if $L95
+              end
+            end
+            local.get $p2
+            i32.const 2
+            i32.add
+            local.set $p3
+            local.get $p0
+            i32.const 2
+            i32.eq
+            if $I97
+              local.get $l10
+              local.set $l8
+              local.get $p3
+              local.set $p2
+              br $B75
+            end
+            local.get $p1
+            local.get $p3
+            i32.load8_u
+            local.tee $p0
+            local.get $p4
+            i32.add
+            i32.const 1280
+            i32.add
+            i32.load8_u
+            local.get $l10
+            i32.add
+            local.tee $l8
+            i32.store offset=4
+            local.get $p1
+            local.get $p0
+            i32.const 2
+            i32.shl
+            local.get $p4
+            i32.add
+            i32.load
+            local.get $l10
+            i32.shl
+            local.get $l7
+            i32.or
+            local.tee $l7
+            i32.store
+            local.get $l8
+            i32.const 8
+            i32.ge_u
+            if $I98
+              local.get $p1
+              i32.load offset=12
+              local.set $l6
+              loop $L99
+                local.get $l6
+                local.get $l7
+                i32.store8
+                local.get $p1
+                i32.load offset=12
+                local.tee $l6
+                local.get $p1
+                i32.load offset=16
+                i32.ne
+                if $I100
+                  local.get $p1
+                  local.get $l6
+                  i32.const 1
+                  i32.add
+                  local.tee $l6
+                  i32.store offset=12
+                end
+                local.get $p1
+                local.get $p1
+                i32.load offset=4
+                i32.const 8
+                i32.sub
+                local.tee $l8
+                i32.store offset=4
+                local.get $p1
+                local.get $p1
+                i32.load
+                i32.const 8
+                i32.shr_u
+                local.tee $l7
+                i32.store
+                local.get $l8
+                i32.const 7
+                i32.gt_u
+                br_if $L99
+              end
+            end
+            local.get $p2
+            i32.const 3
+            i32.add
+            local.set $p2
+          end
+          local.get $p5
+          i32.eqz
+          br_if $B58
+          local.get $p1
+          local.get $l11
+          i32.load8_u offset=7
+          local.tee $p0
+          i32.const 257
+          i32.add
+          local.tee $p3
+          local.get $p4
+          i32.add
+          i32.const 1280
+          i32.add
+          i32.load8_u
+          local.get $l8
+          i32.add
+          local.tee $l10
+          local.get $p0
+          i32.const 1058944
+          i32.add
+          i32.load8_u
+          i32.add
+          local.tee $l9
+          i32.store offset=4
+          local.get $p1
+          local.get $p3
+          i32.const 2
+          i32.shl
+          local.get $p4
+          i32.add
+          i32.load
+          local.get $l8
+          i32.shl
+          local.get $l7
+          i32.or
+          local.get $p5
+          local.get $p0
+          i32.const 2
+          i32.shl
+          i32.const 1059040
+          i32.add
+          i32.load
+          i32.sub
+          local.get $l10
+          i32.shl
+          i32.or
+          local.tee $l8
+          i32.store
+          local.get $l9
+          i32.const 8
+          i32.ge_u
+          if $I101
+            local.get $p1
+            i32.load offset=12
+            local.set $l6
+            loop $L102
+              local.get $l6
+              local.get $l8
+              i32.store8
+              local.get $p1
+              i32.load offset=12
+              local.tee $l6
+              local.get $p1
+              i32.load offset=16
+              i32.ne
+              if $I103
+                local.get $p1
+                local.get $l6
+                i32.const 1
+                i32.add
+                local.tee $l6
+                i32.store offset=12
+              end
+              local.get $p1
+              local.get $p1
+              i32.load offset=4
+              i32.const 8
+              i32.sub
+              local.tee $l9
+              i32.store offset=4
+              local.get $p1
+              local.get $p1
+              i32.load
+              i32.const 8
+              i32.shr_u
+              local.tee $l8
+              i32.store
+              local.get $l9
+              i32.const 7
+              i32.gt_u
+              br_if $L102
+            end
+          end
+          local.get $p1
+          local.get $l11
+          i32.load8_u offset=6
+          local.tee $p0
+          local.get $p4
+          i32.add
+          i32.const 1568
+          i32.add
+          i32.load8_u
+          local.get $l9
+          i32.add
+          local.tee $l7
+          i32.store offset=4
+          local.get $p1
+          local.get $p0
+          i32.const 2
+          i32.shl
+          local.tee $p3
+          local.get $p4
+          i32.add
+          i32.const 1152
+          i32.add
+          i32.load
+          local.get $l9
+          i32.shl
+          local.get $l8
+          i32.or
+          local.tee $l9
+          i32.store
+          local.get $l7
+          i32.const 8
+          i32.ge_u
+          if $I104
+            local.get $p1
+            i32.load offset=12
+            local.set $l6
+            loop $L105
+              local.get $l6
+              local.get $l9
+              i32.store8
+              local.get $p1
+              i32.load offset=12
+              local.tee $l6
+              local.get $p1
+              i32.load offset=16
+              i32.ne
+              if $I106
+                local.get $p1
+                local.get $l6
+                i32.const 1
+                i32.add
+                local.tee $l6
+                i32.store offset=12
+              end
+              local.get $p1
+              local.get $p1
+              i32.load offset=4
+              i32.const 8
+              i32.sub
+              local.tee $l7
+              i32.store offset=4
+              local.get $p1
+              local.get $p1
+              i32.load
+              i32.const 8
+              i32.shr_u
+              local.tee $l9
+              i32.store
+              local.get $l7
+              i32.const 7
+              i32.gt_u
+              br_if $L105
+            end
+          end
+          local.get $p1
+          local.get $p0
+          i32.const 1058976
+          i32.add
+          i32.load8_u
+          local.get $l7
+          i32.add
+          local.tee $l8
+          i32.store offset=4
+          local.get $p1
+          local.get $l11
+          i32.load16_u offset=4
+          local.get $p3
+          i32.const 1059168
+          i32.add
+          i32.load
+          i32.sub
+          local.get $l7
+          i32.shl
+          local.get $l9
+          i32.or
+          local.tee $l7
+          i32.store
+          local.get $l8
+          i32.const 8
+          i32.ge_u
+          if $I107
+            local.get $p1
+            i32.load offset=12
+            local.set $l6
+            loop $L108
+              local.get $l6
+              local.get $l7
+              i32.store8
+              local.get $p1
+              i32.load offset=12
+              local.tee $l6
+              local.get $p1
+              i32.load offset=16
+              i32.ne
+              if $I109
+                local.get $p1
+                local.get $l6
+                i32.const 1
+                i32.add
+                local.tee $l6
+                i32.store offset=12
+              end
+              local.get $p1
+              local.get $p1
+              i32.load offset=4
+              i32.const 8
+              i32.sub
+              local.tee $l8
+              i32.store offset=4
+              local.get $p1
+              local.get $p1
+              i32.load
+              i32.const 8
+              i32.shr_u
+              local.tee $l7
+              i32.store
+              local.get $l8
+              i32.const 7
+              i32.gt_u
+              br_if $L108
+            end
+          end
+          local.get $p2
+          local.get $p5
+          i32.add
+          local.set $p2
+          local.get $l11
+          i32.const 8
+          i32.add
+          local.set $l11
+          br $L74
+        end
+        unreachable
+      end
+      local.get $p1
+      local.get $p4
+      i32.const 1536
+      i32.add
+      i32.load8_u
+      local.get $l8
+      i32.add
+      local.tee $p0
+      i32.store offset=4
+      local.get $p1
+      local.get $p4
+      i32.const 1024
+      i32.add
+      i32.load
+      local.get $l8
+      i32.shl
+      local.get $l7
+      i32.or
+      local.tee $l7
+      i32.store
+      local.get $p0
+      i32.const 8
+      i32.lt_u
+      br_if $B27
+      local.get $p1
+      i32.load offset=12
+      local.set $l6
+      loop $L110
+        local.get $l6
+        local.get $l7
+        i32.store8
+        local.get $p1
+        i32.load offset=12
+        local.tee $l6
+        local.get $p1
+        i32.load offset=16
+        i32.ne
+        if $I111
+          local.get $p1
+          local.get $l6
+          i32.const 1
+          i32.add
+          local.tee $l6
+          i32.store offset=12
+        end
+        local.get $p1
+        local.get $p1
+        i32.load offset=4
+        i32.const 8
+        i32.sub
+        local.tee $p0
+        i32.store offset=4
+        local.get $p1
+        local.get $p1
+        i32.load
+        i32.const 8
+        i32.shr_u
+        local.tee $l7
+        i32.store
+        local.get $p0
+        i32.const 7
+        i32.gt_u
+        br_if $L110
+      end
+    end)
+  (func $f3 (type $t12) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (result i32)
     (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i64) (local $l18 i64)
     global.get $g0
     i32.const 656
@@ -7441,13 +10122,13 @@
                           i32.const 288
                           i32.const 15
                           i32.const 0
-                          call $f5
+                          call $f8
                           local.get $p0
                           i32.const 1
                           i32.const 32
                           i32.const 15
                           i32.const 0
-                          call $f5
+                          call $f8
                           local.get $p0
                           i32.const 3741
                           i32.add
@@ -7709,13 +10390,13 @@
                         i32.const 288
                         i32.const 15
                         i32.const 1
-                        call $f5
+                        call $f8
                         local.get $p0
                         i32.const 1
                         i32.const 32
                         i32.const 15
                         i32.const 1
-                        call $f5
+                        call $f8
                         local.get $p1
                         local.get $p1
                         i32.load offset=16
@@ -8672,7 +11353,7 @@
                                 i32.const 19
                                 i32.const 7
                                 i32.const 0
-                                call $f5
+                                call $f8
                                 local.get $p1
                                 local.get $p1
                                 i32.load offset=16
@@ -9046,10 +11727,10 @@
                             local.get $l6
                             i32.eqz
                             br_if $B48
-                            i32.const 1050840
+                            i32.const 1053868
                             local.set $l11
                             local.get $l6
-                            i32.const 1050840
+                            i32.const 1053868
                             i32.add
                             local.set $l13
                             loop $L53
@@ -9510,12 +12191,10 @@
                                         local.get $l5
                                         i32.const 2
                                         i32.and
-                                        local.set $l13
                                         local.get $l7
                                         local.set $p3
                                         local.get $l11
                                         local.set $l5
-                                        local.get $l13
                                         i32.eqz
                                         br_if $L78
                                       end
@@ -9562,7 +12241,7 @@
                                                 local.tee $l9
                                                 i32.const 1
                                                 i32.shl
-                                                i32.const 1050020
+                                                i32.const 1053052
                                                 i32.add
                                                 i32.load16_u
                                                 local.tee $l4
@@ -9570,7 +12249,7 @@
                                                 i32.gt_u
                                                 br_if $B87
                                                 local.get $l9
-                                                i32.const 1051048
+                                                i32.const 1054076
                                                 i32.add
                                                 i32.load8_u
                                                 local.tee $l10
@@ -9615,11 +12294,11 @@
                                                 i32.le_s
                                                 br_if $B85
                                                 local.get $l4
-                                                i32.const 1051884
+                                                i32.const 1054912
                                                 i32.add
                                                 local.set $l11
                                                 local.get $l4
-                                                i32.const 1049892
+                                                i32.const 1052924
                                                 i32.add
                                                 br $B81
                                               end
@@ -9636,11 +12315,11 @@
                                     unreachable
                                   end
                                   local.get $l15
-                                  i32.const 1051372
+                                  i32.const 1054400
                                   i32.add
                                   local.set $l11
                                   local.get $l15
-                                  i32.const 1049380
+                                  i32.const 1052412
                                   i32.add
                                 end
                                 local.set $l4
@@ -9686,7 +12365,7 @@
                                 local.get $l10
                                 i32.const 2
                                 i32.shl
-                                i32.const 1051304
+                                i32.const 1054332
                                 i32.add
                                 i64.load32_u
                                 local.get $l9
@@ -9715,7 +12394,7 @@
                                 local.get $l13
                                 i32.const 2
                                 i32.shl
-                                i32.const 1051304
+                                i32.const 1054332
                                 i32.add
                                 i64.load32_u
                                 local.get $l15
@@ -9799,17 +12478,17 @@
                         end
                         local.get $l8
                         local.get $l5
-                        call $f22
+                        call $f35
                         unreachable
                       end
                       local.get $l5
                       local.get $p3
-                      call $f20
+                      call $f33
                       unreachable
                     end
                     local.get $l14
                     i32.const 65536
-                    call $f20
+                    call $f33
                     unreachable
                   end
                   unreachable
@@ -9850,7 +12529,7 @@
                   local.tee $l11
                   i32.const 2
                   i32.shl
-                  i32.const 1051304
+                  i32.const 1054332
                   i32.add
                   i32.load
                   local.get $l17
@@ -10027,8 +12706,8 @@
       return
     end
     unreachable)
-  (func $f3 (type $t4) (param $p0 i32) (result i32)
-    (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i64)
+  (func $f4 (type $t5) (param $p0 i32) (result i32)
+    (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i64)
     block $B0
       block $B1
         block $B2
@@ -10048,35 +12727,28 @@
               i32.const -8
               i32.and
               local.set $l6
-              i32.const 1054436
+              i32.const 1059312
               i32.load
-              local.tee $l8
+              local.tee $l7
               i32.eqz
               br_if $B3
+              i32.const 31
+              local.set $l8
               i32.const 0
               local.get $l6
               i32.sub
-              local.set $l1
+              local.set $l5
               block $B5
                 block $B6
-                  block $B7 (result i32)
-                    i32.const 0
-                    local.get $p0
-                    i32.const 8
-                    i32.shr_u
-                    local.tee $p0
-                    i32.eqz
-                    br_if $B7
-                    drop
-                    i32.const 31
-                    local.get $l6
-                    i32.const 16777215
-                    i32.gt_u
-                    br_if $B7
-                    drop
+                  local.get $l6
+                  i32.const 16777215
+                  i32.le_u
+                  if $I7
                     local.get $l6
                     i32.const 6
                     local.get $p0
+                    i32.const 8
+                    i32.shr_u
                     i32.clz
                     local.tee $p0
                     i32.sub
@@ -10089,11 +12761,12 @@
                     i32.sub
                     i32.const 62
                     i32.add
+                    local.set $l8
                   end
-                  local.tee $l7
+                  local.get $l8
                   i32.const 2
                   i32.shl
-                  i32.const 1054704
+                  i32.const 1059580
                   i32.add
                   i32.load
                   local.tee $p0
@@ -10101,52 +12774,54 @@
                     local.get $l6
                     i32.const 0
                     i32.const 25
-                    local.get $l7
+                    local.get $l8
                     i32.const 1
                     i32.shr_u
                     i32.sub
                     i32.const 31
                     i32.and
-                    local.get $l7
+                    local.get $l8
                     i32.const 31
                     i32.eq
                     select
                     i32.shl
-                    local.set $l4
+                    local.set $l3
                     loop $L9
                       block $B10
                         local.get $p0
-                        i32.load offset=4
+                        i32.const 4
+                        i32.add
+                        i32.load
                         i32.const -8
                         i32.and
-                        local.tee $l5
+                        local.tee $l4
                         local.get $l6
                         i32.lt_u
                         br_if $B10
-                        local.get $l5
+                        local.get $l4
                         local.get $l6
                         i32.sub
-                        local.tee $l5
-                        local.get $l1
+                        local.tee $l4
+                        local.get $l5
                         i32.ge_u
                         br_if $B10
                         local.get $p0
                         local.set $l2
-                        local.get $l5
-                        local.tee $l1
+                        local.get $l4
+                        local.tee $l5
                         br_if $B10
                         i32.const 0
-                        local.set $l1
+                        local.set $l5
                         br $B6
                       end
                       local.get $p0
                       i32.const 20
                       i32.add
                       i32.load
-                      local.tee $l5
-                      local.get $l3
-                      local.get $l5
+                      local.tee $l4
+                      local.get $l1
                       local.get $l4
+                      local.get $l3
                       i32.const 29
                       i32.shr_u
                       i32.const 4
@@ -10159,20 +12834,20 @@
                       local.tee $p0
                       i32.ne
                       select
-                      local.get $l3
-                      local.get $l5
-                      select
-                      local.set $l3
+                      local.get $l1
                       local.get $l4
+                      select
+                      local.set $l1
+                      local.get $l3
                       i32.const 1
                       i32.shl
-                      local.set $l4
+                      local.set $l3
                       local.get $p0
                       br_if $L9
                     end
-                    local.get $l3
+                    local.get $l1
                     if $I11
-                      local.get $l3
+                      local.get $l1
                       local.set $p0
                       br $B6
                     end
@@ -10182,14 +12857,14 @@
                   i32.const 0
                   local.set $l2
                   i32.const 2
-                  local.get $l7
+                  local.get $l8
                   i32.shl
                   local.tee $p0
                   i32.const 0
                   local.get $p0
                   i32.sub
                   i32.or
-                  local.get $l8
+                  local.get $l7
                   i32.and
                   local.tee $p0
                   i32.eqz
@@ -10202,7 +12877,7 @@
                   i32.ctz
                   i32.const 2
                   i32.shl
-                  i32.const 1054704
+                  i32.const 1059580
                   i32.add
                   i32.load
                   local.tee $p0
@@ -10211,35 +12886,37 @@
                 end
                 loop $L12
                   local.get $p0
-                  i32.load offset=4
+                  i32.const 4
+                  i32.add
+                  i32.load
                   i32.const -8
                   i32.and
-                  local.tee $l3
+                  local.tee $l1
                   local.get $l6
                   i32.sub
                   local.set $l4
                   local.get $p0
                   local.get $l2
-                  local.get $l1
                   local.get $l4
-                  i32.gt_u
-                  local.get $l3
+                  local.get $l5
+                  i32.lt_u
+                  local.get $l1
                   local.get $l6
                   i32.ge_u
                   i32.and
-                  local.tee $l5
+                  local.tee $l3
                   select
                   local.set $l2
                   local.get $l4
-                  local.get $l1
                   local.get $l5
+                  local.get $l3
                   select
-                  local.set $l1
+                  local.set $l5
                   local.get $p0
                   i32.load offset=16
-                  local.tee $l3
+                  local.tee $l1
                   if $I13 (result i32)
-                    local.get $l3
+                    local.get $l1
                   else
                     local.get $p0
                     i32.const 20
@@ -10254,7 +12931,7 @@
                 br_if $B3
               end
               local.get $l6
-              i32.const 1054832
+              i32.const 1059708
               i32.load
               local.tee $p0
               i32.le_u
@@ -10262,7 +12939,7 @@
               local.get $p0
               local.get $l6
               i32.sub
-              local.get $l1
+              local.get $l5
               i32.le_u
               select
               br_if $B3
@@ -10273,7 +12950,7 @@
                 block $B15
                   local.get $l2
                   i32.load offset=12
-                  local.tee $l3
+                  local.tee $l1
                   local.get $l2
                   i32.eq
                   if $I16
@@ -10282,9 +12959,9 @@
                     local.get $l2
                     i32.const 20
                     i32.add
-                    local.tee $l4
-                    i32.load
                     local.tee $l3
+                    i32.load
+                    local.tee $l1
                     select
                     local.get $l2
                     i32.add
@@ -10292,50 +12969,50 @@
                     local.tee $p0
                     br_if $B15
                     i32.const 0
-                    local.set $l3
+                    local.set $l1
                     br $B14
                   end
                   local.get $l2
                   i32.load offset=8
                   local.tee $p0
-                  local.get $l3
+                  local.get $l1
                   i32.store offset=12
-                  local.get $l3
+                  local.get $l1
                   local.get $p0
                   i32.store offset=8
                   br $B14
                 end
-                local.get $l4
+                local.get $l3
                 local.get $l2
                 i32.const 16
                 i32.add
-                local.get $l3
+                local.get $l1
                 select
-                local.set $l4
+                local.set $l3
                 loop $L17
-                  local.get $l4
-                  local.set $l5
+                  local.get $l3
+                  local.set $l4
                   local.get $p0
-                  local.tee $l3
+                  local.tee $l1
                   i32.const 20
                   i32.add
-                  local.tee $l4
+                  local.tee $l3
                   i32.load
                   local.tee $p0
                   i32.eqz
                   if $I18
-                    local.get $l3
+                    local.get $l1
                     i32.const 16
                     i32.add
-                    local.set $l4
-                    local.get $l3
+                    local.set $l3
+                    local.get $l1
                     i32.load offset=16
                     local.set $p0
                   end
                   local.get $p0
                   br_if $L17
                 end
-                local.get $l5
+                local.get $l4
                 i32.const 0
                 i32.store
               end
@@ -10349,7 +13026,7 @@
                   i32.load offset=28
                   i32.const 2
                   i32.shl
-                  i32.const 1054704
+                  i32.const 1059580
                   i32.add
                   local.tee $p0
                   i32.load
@@ -10364,20 +13041,20 @@
                     select
                     local.get $l7
                     i32.add
-                    local.get $l3
+                    local.get $l1
                     i32.store
-                    local.get $l3
+                    local.get $l1
                     i32.eqz
                     br_if $B19
                     br $B20
                   end
                   local.get $p0
-                  local.get $l3
+                  local.get $l1
                   i32.store
-                  local.get $l3
+                  local.get $l1
                   br_if $B20
-                  i32.const 1054436
-                  i32.const 1054436
+                  i32.const 1059312
+                  i32.const 1059312
                   i32.load
                   i32.const -2
                   local.get $l2
@@ -10387,18 +13064,18 @@
                   i32.store
                   br $B19
                 end
-                local.get $l3
+                local.get $l1
                 local.get $l7
                 i32.store offset=24
                 local.get $l2
                 i32.load offset=16
                 local.tee $p0
                 if $I22
-                  local.get $l3
+                  local.get $l1
                   local.get $p0
                   i32.store offset=16
                   local.get $p0
-                  local.get $l3
+                  local.get $l1
                   i32.store offset=24
                 end
                 local.get $l2
@@ -10408,17 +13085,17 @@
                 local.tee $p0
                 i32.eqz
                 br_if $B19
-                local.get $l3
+                local.get $l1
                 i32.const 20
                 i32.add
                 local.get $p0
                 i32.store
                 local.get $p0
-                local.get $l3
+                local.get $l1
                 i32.store offset=24
               end
               block $B23
-                local.get $l1
+                local.get $l5
                 i32.const 16
                 i32.ge_u
                 if $I24
@@ -10430,32 +13107,32 @@
                   local.get $l2
                   local.get $l6
                   i32.add
-                  local.tee $l5
-                  local.get $l1
+                  local.tee $l7
+                  local.get $l5
                   i32.const 1
                   i32.or
                   i32.store offset=4
-                  local.get $l1
                   local.get $l5
+                  local.get $l7
                   i32.add
-                  local.get $l1
+                  local.get $l5
                   i32.store
-                  local.get $l1
+                  local.get $l5
                   i32.const 256
                   i32.ge_u
                   if $I25
                     i32.const 31
                     local.set $p0
-                    local.get $l5
+                    local.get $l7
                     i64.const 0
                     i64.store offset=16 align=4
-                    local.get $l1
+                    local.get $l5
                     i32.const 16777215
                     i32.le_u
                     if $I26
-                      local.get $l1
+                      local.get $l5
                       i32.const 6
-                      local.get $l1
+                      local.get $l5
                       i32.const 8
                       i32.shr_u
                       i32.clz
@@ -10472,52 +13149,57 @@
                       i32.add
                       local.set $p0
                     end
-                    local.get $l5
+                    local.get $l7
                     local.get $p0
                     i32.store offset=28
                     local.get $p0
                     i32.const 2
                     i32.shl
-                    i32.const 1054704
+                    i32.const 1059580
                     i32.add
                     local.set $l4
                     block $B27
                       block $B28
                         block $B29
                           block $B30
-                            i32.const 1054436
+                            i32.const 1059312
                             i32.load
                             local.tee $l3
                             i32.const 1
                             local.get $p0
                             i32.shl
-                            local.tee $l6
+                            local.tee $l1
                             i32.and
                             if $I31
                               local.get $l4
                               i32.load
-                              local.tee $l4
-                              i32.load offset=4
+                              local.tee $l3
+                              i32.const 4
+                              i32.add
+                              i32.load
                               i32.const -8
                               i32.and
-                              local.get $l1
+                              local.get $l5
                               i32.ne
                               br_if $B30
-                              local.get $l4
+                              local.get $l3
                               local.set $p0
                               br $B29
                             end
-                            i32.const 1054436
+                            i32.const 1059312
+                            local.get $l1
                             local.get $l3
-                            local.get $l6
                             i32.or
                             i32.store
                             local.get $l4
-                            local.get $l5
+                            local.get $l7
                             i32.store
+                            local.get $l7
+                            local.get $l4
+                            i32.store offset=24
                             br $B27
                           end
-                          local.get $l1
+                          local.get $l5
                           i32.const 0
                           i32.const 25
                           local.get $p0
@@ -10531,33 +13213,35 @@
                           i32.eq
                           select
                           i32.shl
-                          local.set $l3
+                          local.set $l1
                           loop $L32
-                            local.get $l3
+                            local.get $l1
                             i32.const 29
                             i32.shr_u
                             i32.const 4
                             i32.and
-                            local.get $l4
+                            local.get $l3
                             i32.add
                             i32.const 16
                             i32.add
-                            local.tee $l6
+                            local.tee $l4
                             i32.load
                             local.tee $p0
                             i32.eqz
                             br_if $B28
-                            local.get $l3
+                            local.get $l1
                             i32.const 1
                             i32.shl
+                            local.set $l1
+                            local.get $p0
                             local.set $l3
                             local.get $p0
-                            local.set $l4
-                            local.get $p0
-                            i32.load offset=4
+                            i32.const 4
+                            i32.add
+                            i32.load
                             i32.const -8
                             i32.and
-                            local.get $l1
+                            local.get $l5
                             i32.ne
                             br_if $L32
                           end
@@ -10565,50 +13249,50 @@
                         local.get $p0
                         i32.load offset=8
                         local.tee $l1
-                        local.get $l5
+                        local.get $l7
                         i32.store offset=12
                         local.get $p0
-                        local.get $l5
+                        local.get $l7
                         i32.store offset=8
-                        local.get $l5
+                        local.get $l7
                         i32.const 0
                         i32.store offset=24
-                        local.get $l5
+                        local.get $l7
                         local.get $p0
                         i32.store offset=12
-                        local.get $l5
+                        local.get $l7
                         local.get $l1
                         i32.store offset=8
                         br $B23
                       end
-                      local.get $l6
-                      local.get $l5
+                      local.get $l4
+                      local.get $l7
                       i32.store
+                      local.get $l7
+                      local.get $l3
+                      i32.store offset=24
                     end
-                    local.get $l5
-                    local.get $l4
-                    i32.store offset=24
-                    local.get $l5
-                    local.get $l5
+                    local.get $l7
+                    local.get $l7
                     i32.store offset=12
-                    local.get $l5
-                    local.get $l5
+                    local.get $l7
+                    local.get $l7
                     i32.store offset=8
                     br $B23
                   end
-                  local.get $l1
+                  local.get $l5
                   i32.const 3
                   i32.shr_u
                   local.tee $l1
                   i32.const 3
                   i32.shl
-                  i32.const 1054440
+                  i32.const 1059316
                   i32.add
                   local.set $p0
                   block $B33 (result i32)
-                    i32.const 1054432
+                    i32.const 1059308
                     i32.load
-                    local.tee $l4
+                    local.tee $l3
                     i32.const 1
                     local.get $l1
                     i32.shl
@@ -10619,30 +13303,30 @@
                       i32.load offset=8
                       br $B33
                     end
-                    i32.const 1054432
+                    i32.const 1059308
                     local.get $l1
-                    local.get $l4
+                    local.get $l3
                     i32.or
                     i32.store
                     local.get $p0
                   end
-                  local.set $l1
+                  local.set $l5
                   local.get $p0
-                  local.get $l5
+                  local.get $l7
                   i32.store offset=8
-                  local.get $l1
                   local.get $l5
+                  local.get $l7
                   i32.store offset=12
-                  local.get $l5
+                  local.get $l7
                   local.get $p0
                   i32.store offset=12
+                  local.get $l7
                   local.get $l5
-                  local.get $l1
                   i32.store offset=8
                   br $B23
                 end
                 local.get $l2
-                local.get $l1
+                local.get $l5
                 local.get $l6
                 i32.add
                 local.tee $p0
@@ -10666,344 +13350,336 @@
             end
             block $B35
               block $B36
-                block $B37
-                  block $B38
-                    i32.const 1054432
-                    i32.load
-                    local.tee $l1
-                    i32.const 16
-                    local.get $p0
-                    i32.const 11
-                    i32.add
-                    i32.const -8
-                    i32.and
-                    local.get $p0
-                    i32.const 11
-                    i32.lt_u
-                    select
-                    local.tee $l6
-                    i32.const 3
-                    i32.shr_u
-                    local.tee $l4
-                    i32.const 31
-                    i32.and
-                    local.tee $l2
-                    i32.shr_u
+                i32.const 1059308
+                i32.load
+                local.tee $l7
+                i32.const 16
+                local.get $p0
+                i32.const 11
+                i32.add
+                i32.const -8
+                i32.and
+                local.get $p0
+                i32.const 11
+                i32.lt_u
+                select
+                local.tee $l6
+                i32.const 3
+                i32.shr_u
+                local.tee $l2
+                i32.shr_u
+                local.tee $p0
+                i32.const 3
+                i32.and
+                i32.eqz
+                if $I37
+                  i32.const 1059708
+                  i32.load
+                  local.get $l6
+                  i32.ge_u
+                  br_if $B3
+                  local.get $p0
+                  br_if $B36
+                  i32.const 1059312
+                  i32.load
+                  local.tee $p0
+                  i32.eqz
+                  br_if $B3
+                  i32.const 0
+                  local.get $p0
+                  i32.sub
+                  local.get $p0
+                  i32.and
+                  i32.ctz
+                  i32.const 2
+                  i32.shl
+                  i32.const 1059580
+                  i32.add
+                  i32.load
+                  local.tee $l1
+                  i32.const 4
+                  i32.add
+                  i32.load
+                  i32.const -8
+                  i32.and
+                  local.get $l6
+                  i32.sub
+                  local.set $l5
+                  local.get $l1
+                  local.set $l3
+                  loop $L38
+                    local.get $l1
+                    i32.load offset=16
                     local.tee $p0
-                    i32.const 3
-                    i32.and
                     i32.eqz
                     if $I39
-                      i32.const 1054832
-                      i32.load
-                      local.get $l6
-                      i32.ge_u
-                      br_if $B3
-                      local.get $p0
-                      br_if $B38
-                      i32.const 1054436
+                      local.get $l1
+                      i32.const 20
+                      i32.add
                       i32.load
                       local.tee $p0
                       i32.eqz
-                      br_if $B3
-                      i32.const 0
-                      local.get $p0
-                      i32.sub
-                      local.get $p0
-                      i32.and
-                      i32.ctz
-                      i32.const 2
-                      i32.shl
-                      i32.const 1054704
-                      i32.add
-                      i32.load
-                      local.tee $l2
-                      i32.load offset=4
-                      i32.const -8
-                      i32.and
-                      local.get $l6
-                      i32.sub
-                      local.set $l3
-                      block $B40 (result i32)
-                        local.get $l2
-                        i32.load offset=16
-                        local.tee $p0
-                        i32.eqz
-                        if $I41
-                          local.get $l2
-                          i32.const 20
-                          i32.add
-                          i32.load
-                          local.set $p0
-                        end
-                        local.get $p0
-                      end
-                      if $I42
-                        loop $L43
-                          local.get $p0
-                          i32.load offset=4
-                          i32.const -8
-                          i32.and
-                          local.get $l6
-                          i32.sub
-                          local.tee $l5
-                          local.get $l3
-                          i32.lt_u
-                          local.set $l4
-                          local.get $l5
-                          local.get $l3
-                          local.get $l4
-                          select
-                          local.set $l3
-                          local.get $p0
-                          local.get $l2
-                          local.get $l4
-                          select
-                          local.set $l2
-                          local.get $p0
-                          i32.load offset=16
-                          local.tee $l1
-                          if $I44 (result i32)
-                            local.get $l1
-                          else
-                            local.get $p0
-                            i32.const 20
-                            i32.add
-                            i32.load
-                          end
-                          local.tee $p0
-                          br_if $L43
-                        end
-                      end
-                      local.get $l2
-                      i32.load offset=24
-                      local.set $l7
-                      local.get $l2
-                      local.get $l2
-                      i32.load offset=12
-                      local.tee $l1
-                      i32.ne
-                      br_if $B37
-                      i32.const 20
-                      i32.const 16
-                      local.get $l2
-                      i32.const 20
-                      i32.add
-                      local.tee $l1
-                      i32.load
-                      local.tee $l4
-                      select
-                      local.get $l2
-                      i32.add
-                      i32.load
-                      local.tee $p0
-                      br_if $B36
-                      i32.const 0
-                      local.set $l1
-                      br $B35
+                      br_if $B35
                     end
-                    block $B45
-                      local.get $p0
-                      i32.const -1
-                      i32.xor
-                      i32.const 1
-                      i32.and
-                      local.get $l4
-                      i32.add
-                      local.tee $p0
-                      i32.const 3
-                      i32.shl
-                      local.tee $l3
-                      i32.const 1054448
-                      i32.add
-                      i32.load
-                      local.tee $l2
-                      i32.const 8
-                      i32.add
-                      local.tee $l5
-                      i32.load
-                      local.tee $l4
-                      local.get $l3
-                      i32.const 1054440
-                      i32.add
-                      local.tee $l3
-                      i32.ne
-                      if $I46
-                        local.get $l4
-                        local.get $l3
-                        i32.store offset=12
-                        local.get $l3
-                        local.get $l4
-                        i32.store offset=8
-                        br $B45
-                      end
-                      i32.const 1054432
-                      i32.const -2
-                      local.get $p0
-                      i32.rotl
-                      local.get $l1
-                      i32.and
-                      i32.store
-                    end
-                    local.get $l2
                     local.get $p0
-                    i32.const 3
-                    i32.shl
-                    local.tee $p0
-                    i32.const 3
-                    i32.or
-                    i32.store offset=4
-                    local.get $p0
-                    local.get $l2
+                    i32.const 4
                     i32.add
-                    local.tee $p0
-                    local.get $p0
-                    i32.load offset=4
-                    i32.const 1
-                    i32.or
-                    i32.store offset=4
-                    local.get $l5
-                    return
-                  end
-                  block $B47
-                    i32.const 2
-                    local.get $l2
-                    i32.shl
-                    local.tee $l4
-                    i32.const 0
-                    local.get $l4
-                    i32.sub
-                    i32.or
-                    local.get $p0
-                    local.get $l2
-                    i32.shl
+                    i32.load
+                    i32.const -8
                     i32.and
-                    local.tee $p0
-                    i32.const 0
-                    local.get $p0
+                    local.get $l6
                     i32.sub
-                    i32.and
-                    i32.ctz
                     local.tee $l2
-                    i32.const 3
-                    i32.shl
-                    local.tee $l3
-                    i32.const 1054448
-                    i32.add
-                    i32.load
-                    local.tee $p0
-                    i32.const 8
-                    i32.add
-                    local.tee $l5
-                    i32.load
-                    local.tee $l4
-                    local.get $l3
-                    i32.const 1054440
-                    i32.add
-                    local.tee $l3
-                    i32.ne
-                    if $I48
-                      local.get $l4
-                      local.get $l3
-                      i32.store offset=12
-                      local.get $l3
-                      local.get $l4
-                      i32.store offset=8
-                      br $B47
-                    end
-                    i32.const 1054432
-                    i32.const -2
+                    local.get $l5
+                    i32.lt_u
+                    local.set $l1
                     local.get $l2
-                    i32.rotl
+                    local.get $l5
                     local.get $l1
-                    i32.and
-                    i32.store
+                    select
+                    local.set $l5
+                    local.get $p0
+                    local.get $l3
+                    local.get $l1
+                    select
+                    local.set $l3
+                    local.get $p0
+                    local.set $l1
+                    br $L38
                   end
+                  unreachable
+                end
+                block $B40
                   local.get $p0
-                  local.get $l6
-                  i32.const 3
-                  i32.or
-                  i32.store offset=4
-                  local.get $p0
-                  local.get $l6
-                  i32.add
-                  local.tee $l3
+                  i32.const -1
+                  i32.xor
+                  i32.const 1
+                  i32.and
                   local.get $l2
+                  i32.add
+                  local.tee $l5
                   i32.const 3
                   i32.shl
-                  local.tee $l1
-                  local.get $l6
-                  i32.sub
-                  local.tee $l2
-                  i32.const 1
-                  i32.or
-                  i32.store offset=4
-                  local.get $p0
-                  local.get $l1
+                  local.tee $p0
+                  i32.const 1059324
                   i32.add
-                  local.get $l2
+                  i32.load
+                  local.tee $l3
+                  i32.const 8
+                  i32.add
+                  local.tee $l2
+                  i32.load
+                  local.tee $l1
+                  local.get $p0
+                  i32.const 1059316
+                  i32.add
+                  local.tee $p0
+                  i32.ne
+                  if $I41
+                    local.get $l1
+                    local.get $p0
+                    i32.store offset=12
+                    local.get $p0
+                    local.get $l1
+                    i32.store offset=8
+                    br $B40
+                  end
+                  i32.const 1059308
+                  i32.const -2
+                  local.get $l5
+                  i32.rotl
+                  local.get $l7
+                  i32.and
                   i32.store
-                  i32.const 1054832
+                end
+                local.get $l3
+                local.get $l5
+                i32.const 3
+                i32.shl
+                local.tee $p0
+                i32.const 3
+                i32.or
+                i32.store offset=4
+                local.get $p0
+                local.get $l3
+                i32.add
+                local.tee $p0
+                local.get $p0
+                i32.load offset=4
+                i32.const 1
+                i32.or
+                i32.store offset=4
+                local.get $l2
+                return
+              end
+              block $B42
+                local.get $p0
+                local.get $l2
+                i32.shl
+                i32.const 2
+                local.get $l2
+                i32.shl
+                local.tee $p0
+                i32.const 0
+                local.get $p0
+                i32.sub
+                i32.or
+                i32.and
+                local.tee $p0
+                i32.const 0
+                local.get $p0
+                i32.sub
+                i32.and
+                i32.ctz
+                local.tee $l1
+                i32.const 3
+                i32.shl
+                local.tee $p0
+                i32.const 1059324
+                i32.add
+                i32.load
+                local.tee $l3
+                i32.const 8
+                i32.add
+                local.tee $l4
+                i32.load
+                local.tee $l2
+                local.get $p0
+                i32.const 1059316
+                i32.add
+                local.tee $p0
+                i32.ne
+                if $I43
+                  local.get $l2
+                  local.get $p0
+                  i32.store offset=12
+                  local.get $p0
+                  local.get $l2
+                  i32.store offset=8
+                  br $B42
+                end
+                i32.const 1059308
+                i32.const -2
+                local.get $l1
+                i32.rotl
+                local.get $l7
+                i32.and
+                i32.store
+              end
+              local.get $l3
+              local.get $l6
+              i32.const 3
+              i32.or
+              i32.store offset=4
+              local.get $l3
+              local.get $l6
+              i32.add
+              local.tee $l5
+              local.get $l1
+              i32.const 3
+              i32.shl
+              local.tee $p0
+              local.get $l6
+              i32.sub
+              local.tee $l7
+              i32.const 1
+              i32.or
+              i32.store offset=4
+              local.get $p0
+              local.get $l3
+              i32.add
+              local.get $l7
+              i32.store
+              i32.const 1059708
+              i32.load
+              local.tee $p0
+              if $I44
+                local.get $p0
+                i32.const 3
+                i32.shr_u
+                local.tee $l2
+                i32.const 3
+                i32.shl
+                i32.const 1059316
+                i32.add
+                local.set $p0
+                i32.const 1059716
+                i32.load
+                local.set $l8
+                block $B45 (result i32)
+                  i32.const 1059308
+                  i32.load
+                  local.tee $l1
+                  i32.const 1
+                  local.get $l2
+                  i32.shl
+                  local.tee $l2
+                  i32.and
+                  if $I46
+                    local.get $p0
+                    i32.load offset=8
+                    br $B45
+                  end
+                  i32.const 1059308
+                  local.get $l1
+                  local.get $l2
+                  i32.or
+                  i32.store
+                  local.get $p0
+                end
+                local.set $l3
+                local.get $p0
+                local.get $l8
+                i32.store offset=8
+                local.get $l3
+                local.get $l8
+                i32.store offset=12
+                local.get $l8
+                local.get $p0
+                i32.store offset=12
+                local.get $l8
+                local.get $l3
+                i32.store offset=8
+              end
+              i32.const 1059716
+              local.get $l5
+              i32.store
+              i32.const 1059708
+              local.get $l7
+              i32.store
+              local.get $l4
+              return
+            end
+            local.get $l3
+            i32.load offset=24
+            local.set $l7
+            block $B47
+              block $B48
+                local.get $l3
+                i32.load offset=12
+                local.tee $l1
+                local.get $l3
+                i32.eq
+                if $I49
+                  i32.const 20
+                  i32.const 16
+                  local.get $l3
+                  i32.const 20
+                  i32.add
+                  local.tee $l1
+                  i32.load
+                  local.tee $l2
+                  select
+                  local.get $l3
+                  i32.add
                   i32.load
                   local.tee $p0
-                  if $I49
-                    local.get $p0
-                    i32.const 3
-                    i32.shr_u
-                    local.tee $l4
-                    i32.const 3
-                    i32.shl
-                    i32.const 1054440
-                    i32.add
-                    local.set $p0
-                    i32.const 1054840
-                    i32.load
-                    local.set $l1
-                    block $B50 (result i32)
-                      i32.const 1054432
-                      i32.load
-                      local.tee $l6
-                      i32.const 1
-                      local.get $l4
-                      i32.shl
-                      local.tee $l4
-                      i32.and
-                      if $I51
-                        local.get $p0
-                        i32.load offset=8
-                        br $B50
-                      end
-                      i32.const 1054432
-                      local.get $l4
-                      local.get $l6
-                      i32.or
-                      i32.store
-                      local.get $p0
-                    end
-                    local.set $l4
-                    local.get $p0
-                    local.get $l1
-                    i32.store offset=8
-                    local.get $l4
-                    local.get $l1
-                    i32.store offset=12
-                    local.get $l1
-                    local.get $p0
-                    i32.store offset=12
-                    local.get $l1
-                    local.get $l4
-                    i32.store offset=8
-                  end
-                  i32.const 1054840
-                  local.get $l3
-                  i32.store
-                  i32.const 1054832
-                  local.get $l2
-                  i32.store
-                  local.get $l5
-                  return
+                  br_if $B48
+                  i32.const 0
+                  local.set $l1
+                  br $B47
                 end
-                local.get $l2
+                local.get $l3
                 i32.load offset=8
                 local.tee $p0
                 local.get $l1
@@ -11011,61 +13687,61 @@
                 local.get $l1
                 local.get $p0
                 i32.store offset=8
-                br $B35
+                br $B47
               end
               local.get $l1
-              local.get $l2
+              local.get $l3
               i32.const 16
               i32.add
-              local.get $l4
+              local.get $l2
               select
-              local.set $l4
-              loop $L52
-                local.get $l4
-                local.set $l5
+              local.set $l2
+              loop $L50
+                local.get $l2
+                local.set $l4
                 local.get $p0
                 local.tee $l1
                 i32.const 20
                 i32.add
-                local.tee $l4
+                local.tee $l2
                 i32.load
                 local.tee $p0
                 i32.eqz
-                if $I53
+                if $I51
                   local.get $l1
                   i32.const 16
                   i32.add
-                  local.set $l4
+                  local.set $l2
                   local.get $l1
                   i32.load offset=16
                   local.set $p0
                 end
                 local.get $p0
-                br_if $L52
+                br_if $L50
               end
-              local.get $l5
+              local.get $l4
               i32.const 0
               i32.store
             end
             local.get $l7
             i32.eqz
             br_if $B0
-            local.get $l2
-            local.get $l2
+            local.get $l3
+            local.get $l3
             i32.load offset=28
             i32.const 2
             i32.shl
-            i32.const 1054704
+            i32.const 1059580
             i32.add
             local.tee $p0
             i32.load
             i32.ne
-            if $I54
+            if $I52
               i32.const 16
               i32.const 20
               local.get $l7
               i32.load offset=16
-              local.get $l2
+              local.get $l3
               i32.eq
               select
               local.get $l7
@@ -11082,436 +13758,435 @@
             i32.store
             local.get $l1
             br_if $B1
-            i32.const 1054436
-            i32.const 1054436
+            i32.const 1059312
+            i32.const 1059312
             i32.load
             i32.const -2
-            local.get $l2
+            local.get $l3
             i32.load offset=28
             i32.rotl
             i32.and
             i32.store
             br $B0
           end
-          block $B55
-            block $B56
-              block $B57
-                block $B58
-                  block $B59
+          block $B53
+            block $B54
+              block $B55
+                block $B56
+                  block $B57
                     local.get $l6
-                    i32.const 1054832
+                    i32.const 1059708
                     i32.load
                     local.tee $l1
                     i32.gt_u
-                    if $I60
-                      i32.const 1054836
+                    if $I58
+                      i32.const 1059712
                       i32.load
                       local.tee $p0
                       local.get $l6
                       i32.gt_u
-                      br_if $B57
+                      br_if $B55
                       i32.const 0
-                      local.set $l1
+                      local.set $l5
                       local.get $l6
                       i32.const 65583
                       i32.add
-                      local.tee $p0
+                      local.tee $l2
                       i32.const 16
                       i32.shr_u
                       memory.grow
-                      local.tee $l2
+                      local.tee $p0
                       i32.const -1
                       i32.eq
-                      local.tee $l4
                       br_if $B2
-                      local.get $l2
+                      local.get $p0
                       i32.const 16
                       i32.shl
-                      local.tee $l7
+                      local.tee $l3
                       i32.eqz
                       br_if $B2
-                      i32.const 1054848
-                      i32.const 0
-                      local.get $p0
+                      i32.const 1059724
+                      local.get $l2
                       i32.const -65536
                       i32.and
-                      local.get $l4
-                      select
-                      local.tee $l4
-                      i32.const 1054848
+                      local.tee $l5
+                      i32.const 1059724
                       i32.load
                       i32.add
-                      local.tee $p0
+                      local.tee $l2
                       i32.store
-                      i32.const 1054852
-                      i32.const 1054852
+                      i32.const 1059728
+                      i32.const 1059728
                       i32.load
-                      local.tee $l1
+                      local.tee $p0
+                      local.get $l2
                       local.get $p0
-                      local.get $p0
-                      local.get $l1
-                      i32.lt_u
+                      local.get $l2
+                      i32.gt_u
                       select
                       i32.store
-                      i32.const 1054844
+                      i32.const 1059720
                       i32.load
-                      local.tee $l1
+                      local.tee $l4
                       i32.eqz
-                      br_if $B59
-                      i32.const 1054856
+                      br_if $B57
+                      i32.const 1059732
                       local.set $p0
-                      loop $L61
+                      loop $L59
                         local.get $p0
                         i32.load
-                        local.tee $l2
+                        local.tee $l1
                         local.get $p0
                         i32.load offset=4
-                        local.tee $l3
+                        local.tee $l2
                         i32.add
-                        local.get $l7
+                        local.get $l3
                         i32.eq
-                        br_if $B58
+                        br_if $B56
                         local.get $p0
                         i32.load offset=8
                         local.tee $p0
-                        br_if $L61
+                        br_if $L59
                       end
-                      br $B56
+                      br $B54
                     end
-                    i32.const 1054840
+                    i32.const 1059716
                     i32.load
-                    local.set $p0
-                    block $B62
+                    local.set $l3
+                    block $B60 (result i32)
                       local.get $l1
                       local.get $l6
                       i32.sub
                       local.tee $l2
                       i32.const 15
                       i32.le_u
-                      if $I63
-                        i32.const 1054840
+                      if $I61
+                        i32.const 1059716
                         i32.const 0
                         i32.store
-                        i32.const 1054832
+                        i32.const 1059708
                         i32.const 0
                         i32.store
-                        local.get $p0
+                        local.get $l3
                         local.get $l1
                         i32.const 3
                         i32.or
                         i32.store offset=4
-                        local.get $p0
                         local.get $l1
+                        local.get $l3
                         i32.add
-                        local.tee $l1
-                        local.get $l1
+                        local.tee $l2
+                        i32.const 4
+                        i32.add
+                        local.set $p0
+                        local.get $l2
                         i32.load offset=4
                         i32.const 1
                         i32.or
-                        i32.store offset=4
-                        br $B62
+                        br $B60
                       end
-                      i32.const 1054832
+                      i32.const 1059708
                       local.get $l2
                       i32.store
-                      i32.const 1054840
-                      local.get $p0
+                      i32.const 1059716
+                      local.get $l3
                       local.get $l6
                       i32.add
-                      local.tee $l4
+                      local.tee $p0
                       i32.store
-                      local.get $l4
+                      local.get $p0
                       local.get $l2
                       i32.const 1
                       i32.or
                       i32.store offset=4
-                      local.get $p0
                       local.get $l1
+                      local.get $l3
                       i32.add
                       local.get $l2
                       i32.store
-                      local.get $p0
+                      local.get $l3
+                      i32.const 4
+                      i32.add
+                      local.set $p0
                       local.get $l6
                       i32.const 3
                       i32.or
-                      i32.store offset=4
                     end
+                    local.set $l6
                     local.get $p0
+                    local.get $l6
+                    i32.store
+                    local.get $l3
                     i32.const 8
                     i32.add
                     return
                   end
-                  i32.const 1054876
+                  i32.const 1059752
                   i32.load
                   local.tee $p0
                   i32.eqz
                   i32.eqz
                   i32.const 0
                   local.get $p0
-                  local.get $l7
+                  local.get $l3
                   i32.le_u
                   select
                   i32.eqz
-                  if $I64
-                    i32.const 1054876
-                    local.get $l7
+                  if $I62
+                    i32.const 1059752
+                    local.get $l3
                     i32.store
                   end
-                  i32.const 1054880
+                  i32.const 1059756
                   i32.const 4095
                   i32.store
-                  i32.const 1054860
-                  local.get $l4
+                  i32.const 1059736
+                  local.get $l5
                   i32.store
-                  i32.const 1054856
-                  local.get $l7
+                  i32.const 1059732
+                  local.get $l3
                   i32.store
-                  i32.const 1054452
-                  i32.const 1054440
+                  i32.const 1059328
+                  i32.const 1059316
                   i32.store
-                  i32.const 1054460
-                  i32.const 1054448
+                  i32.const 1059336
+                  i32.const 1059324
                   i32.store
-                  i32.const 1054448
-                  i32.const 1054440
+                  i32.const 1059324
+                  i32.const 1059316
                   i32.store
-                  i32.const 1054468
-                  i32.const 1054456
+                  i32.const 1059344
+                  i32.const 1059332
                   i32.store
-                  i32.const 1054456
-                  i32.const 1054448
+                  i32.const 1059332
+                  i32.const 1059324
                   i32.store
-                  i32.const 1054476
-                  i32.const 1054464
+                  i32.const 1059352
+                  i32.const 1059340
                   i32.store
-                  i32.const 1054464
-                  i32.const 1054456
+                  i32.const 1059340
+                  i32.const 1059332
                   i32.store
-                  i32.const 1054484
-                  i32.const 1054472
+                  i32.const 1059360
+                  i32.const 1059348
                   i32.store
-                  i32.const 1054472
-                  i32.const 1054464
+                  i32.const 1059348
+                  i32.const 1059340
                   i32.store
-                  i32.const 1054492
-                  i32.const 1054480
+                  i32.const 1059368
+                  i32.const 1059356
                   i32.store
-                  i32.const 1054480
-                  i32.const 1054472
+                  i32.const 1059356
+                  i32.const 1059348
                   i32.store
-                  i32.const 1054500
-                  i32.const 1054488
+                  i32.const 1059376
+                  i32.const 1059364
                   i32.store
-                  i32.const 1054488
-                  i32.const 1054480
+                  i32.const 1059364
+                  i32.const 1059356
                   i32.store
-                  i32.const 1054508
-                  i32.const 1054496
+                  i32.const 1059384
+                  i32.const 1059372
                   i32.store
-                  i32.const 1054496
-                  i32.const 1054488
+                  i32.const 1059372
+                  i32.const 1059364
                   i32.store
-                  i32.const 1054868
+                  i32.const 1059744
                   i32.const 0
                   i32.store
-                  i32.const 1054516
-                  i32.const 1054504
+                  i32.const 1059392
+                  i32.const 1059380
                   i32.store
-                  i32.const 1054504
-                  i32.const 1054496
+                  i32.const 1059380
+                  i32.const 1059372
                   i32.store
-                  i32.const 1054512
-                  i32.const 1054504
+                  i32.const 1059388
+                  i32.const 1059380
                   i32.store
-                  i32.const 1054524
-                  i32.const 1054512
+                  i32.const 1059400
+                  i32.const 1059388
                   i32.store
-                  i32.const 1054520
-                  i32.const 1054512
+                  i32.const 1059396
+                  i32.const 1059388
                   i32.store
-                  i32.const 1054532
-                  i32.const 1054520
+                  i32.const 1059408
+                  i32.const 1059396
                   i32.store
-                  i32.const 1054528
-                  i32.const 1054520
+                  i32.const 1059404
+                  i32.const 1059396
                   i32.store
-                  i32.const 1054540
-                  i32.const 1054528
+                  i32.const 1059416
+                  i32.const 1059404
                   i32.store
-                  i32.const 1054536
-                  i32.const 1054528
+                  i32.const 1059412
+                  i32.const 1059404
                   i32.store
-                  i32.const 1054548
-                  i32.const 1054536
+                  i32.const 1059424
+                  i32.const 1059412
                   i32.store
-                  i32.const 1054544
-                  i32.const 1054536
+                  i32.const 1059420
+                  i32.const 1059412
                   i32.store
-                  i32.const 1054556
-                  i32.const 1054544
+                  i32.const 1059432
+                  i32.const 1059420
                   i32.store
-                  i32.const 1054552
-                  i32.const 1054544
+                  i32.const 1059428
+                  i32.const 1059420
                   i32.store
-                  i32.const 1054564
-                  i32.const 1054552
+                  i32.const 1059440
+                  i32.const 1059428
                   i32.store
-                  i32.const 1054560
-                  i32.const 1054552
+                  i32.const 1059436
+                  i32.const 1059428
                   i32.store
-                  i32.const 1054572
-                  i32.const 1054560
+                  i32.const 1059448
+                  i32.const 1059436
                   i32.store
-                  i32.const 1054568
-                  i32.const 1054560
+                  i32.const 1059444
+                  i32.const 1059436
                   i32.store
-                  i32.const 1054580
-                  i32.const 1054568
+                  i32.const 1059456
+                  i32.const 1059444
                   i32.store
-                  i32.const 1054588
-                  i32.const 1054576
+                  i32.const 1059464
+                  i32.const 1059452
                   i32.store
-                  i32.const 1054576
-                  i32.const 1054568
+                  i32.const 1059452
+                  i32.const 1059444
                   i32.store
-                  i32.const 1054596
-                  i32.const 1054584
+                  i32.const 1059472
+                  i32.const 1059460
                   i32.store
-                  i32.const 1054584
-                  i32.const 1054576
+                  i32.const 1059460
+                  i32.const 1059452
                   i32.store
-                  i32.const 1054604
-                  i32.const 1054592
+                  i32.const 1059480
+                  i32.const 1059468
                   i32.store
-                  i32.const 1054592
-                  i32.const 1054584
+                  i32.const 1059468
+                  i32.const 1059460
                   i32.store
-                  i32.const 1054612
-                  i32.const 1054600
+                  i32.const 1059488
+                  i32.const 1059476
                   i32.store
-                  i32.const 1054600
-                  i32.const 1054592
+                  i32.const 1059476
+                  i32.const 1059468
                   i32.store
-                  i32.const 1054620
-                  i32.const 1054608
+                  i32.const 1059496
+                  i32.const 1059484
                   i32.store
-                  i32.const 1054608
-                  i32.const 1054600
+                  i32.const 1059484
+                  i32.const 1059476
                   i32.store
-                  i32.const 1054628
-                  i32.const 1054616
+                  i32.const 1059504
+                  i32.const 1059492
                   i32.store
-                  i32.const 1054616
-                  i32.const 1054608
+                  i32.const 1059492
+                  i32.const 1059484
                   i32.store
-                  i32.const 1054636
-                  i32.const 1054624
+                  i32.const 1059512
+                  i32.const 1059500
                   i32.store
-                  i32.const 1054624
-                  i32.const 1054616
+                  i32.const 1059500
+                  i32.const 1059492
                   i32.store
-                  i32.const 1054644
-                  i32.const 1054632
+                  i32.const 1059520
+                  i32.const 1059508
                   i32.store
-                  i32.const 1054632
-                  i32.const 1054624
+                  i32.const 1059508
+                  i32.const 1059500
                   i32.store
-                  i32.const 1054652
-                  i32.const 1054640
+                  i32.const 1059528
+                  i32.const 1059516
                   i32.store
-                  i32.const 1054640
-                  i32.const 1054632
+                  i32.const 1059516
+                  i32.const 1059508
                   i32.store
-                  i32.const 1054660
-                  i32.const 1054648
+                  i32.const 1059536
+                  i32.const 1059524
                   i32.store
-                  i32.const 1054648
-                  i32.const 1054640
+                  i32.const 1059524
+                  i32.const 1059516
                   i32.store
-                  i32.const 1054668
-                  i32.const 1054656
+                  i32.const 1059544
+                  i32.const 1059532
                   i32.store
-                  i32.const 1054656
-                  i32.const 1054648
+                  i32.const 1059532
+                  i32.const 1059524
                   i32.store
-                  i32.const 1054676
-                  i32.const 1054664
+                  i32.const 1059552
+                  i32.const 1059540
                   i32.store
-                  i32.const 1054664
-                  i32.const 1054656
+                  i32.const 1059540
+                  i32.const 1059532
                   i32.store
-                  i32.const 1054684
-                  i32.const 1054672
+                  i32.const 1059560
+                  i32.const 1059548
                   i32.store
-                  i32.const 1054672
-                  i32.const 1054664
+                  i32.const 1059548
+                  i32.const 1059540
                   i32.store
-                  i32.const 1054692
-                  i32.const 1054680
+                  i32.const 1059568
+                  i32.const 1059556
                   i32.store
-                  i32.const 1054680
-                  i32.const 1054672
+                  i32.const 1059556
+                  i32.const 1059548
                   i32.store
-                  i32.const 1054700
-                  i32.const 1054688
+                  i32.const 1059576
+                  i32.const 1059564
                   i32.store
-                  i32.const 1054688
-                  i32.const 1054680
+                  i32.const 1059564
+                  i32.const 1059556
                   i32.store
-                  i32.const 1054844
-                  local.get $l7
+                  i32.const 1059720
+                  local.get $l3
                   i32.store
-                  i32.const 1054696
-                  i32.const 1054688
+                  i32.const 1059572
+                  i32.const 1059564
                   i32.store
-                  i32.const 1054836
-                  local.get $l4
+                  i32.const 1059712
+                  local.get $l5
                   i32.const 40
                   i32.sub
                   local.tee $p0
                   i32.store
-                  local.get $l7
+                  local.get $l3
                   local.get $p0
                   i32.const 1
                   i32.or
                   i32.store offset=4
                   local.get $p0
-                  local.get $l7
+                  local.get $l3
                   i32.add
                   i32.const 40
                   i32.store offset=4
-                  i32.const 1054872
+                  i32.const 1059748
                   i32.const 2097152
                   i32.store
-                  br $B55
+                  br $B53
                 end
                 local.get $p0
-                i32.load offset=12
-                local.tee $l5
-                i32.const 1
-                i32.and
-                br_if $B56
-                local.get $l5
-                i32.const 1
-                i32.gt_u
-                br_if $B56
-                local.get $l1
-                local.get $l2
-                i32.lt_u
-                br_if $B56
-                local.get $l1
-                local.get $l7
-                i32.ge_u
-                br_if $B56
-                local.get $p0
+                i32.const 12
+                i32.add
+                i32.load
+                br_if $B54
                 local.get $l3
                 local.get $l4
+                i32.le_u
+                br_if $B54
+                local.get $l1
+                local.get $l4
+                i32.gt_u
+                br_if $B54
+                local.get $p0
+                local.get $l2
+                local.get $l5
                 i32.add
                 i32.store offset=4
-                i32.const 1054844
-                i32.const 1054844
+                i32.const 1059720
+                i32.const 1059720
                 i32.load
-                local.tee $p0
+                local.tee $l3
                 i32.const 15
                 i32.add
                 i32.const -8
@@ -11520,653 +14195,478 @@
                 i32.const 8
                 i32.sub
                 i32.store
-                i32.const 1054836
-                i32.const 1054836
+                i32.const 1059712
+                i32.const 1059712
                 i32.load
-                local.get $l4
+                local.get $l5
                 i32.add
                 local.tee $l2
-                local.get $p0
+                local.get $l3
                 local.get $l1
                 i32.sub
                 i32.add
                 i32.const 8
                 i32.add
-                local.tee $l4
+                local.tee $p0
                 i32.store
                 local.get $l1
                 i32.const 4
                 i32.sub
-                local.get $l4
+                local.get $p0
                 i32.const 1
                 i32.or
                 i32.store
-                local.get $p0
                 local.get $l2
+                local.get $l3
                 i32.add
                 i32.const 40
                 i32.store offset=4
-                i32.const 1054872
+                i32.const 1059748
                 i32.const 2097152
                 i32.store
-                br $B55
+                br $B53
               end
-              i32.const 1054836
+              i32.const 1059712
               local.get $p0
               local.get $l6
               i32.sub
-              local.tee $l1
-              i32.store
-              i32.const 1054844
-              i32.const 1054844
-              i32.load
-              local.tee $p0
-              local.get $l6
-              i32.add
               local.tee $l2
               i32.store
+              i32.const 1059720
+              i32.const 1059720
+              i32.load
+              local.tee $l1
+              local.get $l6
+              i32.add
+              local.tee $p0
+              i32.store
+              local.get $p0
               local.get $l2
-              local.get $l1
               i32.const 1
               i32.or
               i32.store offset=4
-              local.get $p0
+              local.get $l1
               local.get $l6
               i32.const 3
               i32.or
               i32.store offset=4
-              local.get $p0
+              local.get $l1
               i32.const 8
               i32.add
-              local.set $l1
+              local.set $l5
               br $B2
             end
-            i32.const 1054876
-            i32.const 1054876
+            i32.const 1059752
+            i32.const 1059752
             i32.load
             local.tee $p0
-            local.get $l7
+            local.get $l3
             local.get $p0
-            local.get $l7
+            local.get $l3
             i32.lt_u
             select
             i32.store
-            local.get $l4
-            local.get $l7
+            local.get $l3
+            local.get $l5
             i32.add
-            local.set $l3
-            i32.const 1054856
+            local.set $l1
+            i32.const 1059732
             local.set $p0
-            block $B65
-              loop $L66
-                local.get $l3
+            block $B63
+              loop $L64
+                local.get $l1
                 local.get $p0
                 i32.load
                 i32.ne
-                if $I67
+                if $I65
                   local.get $p0
                   i32.load offset=8
                   local.tee $p0
-                  br_if $L66
-                  br $B65
+                  br_if $L64
+                  br $B63
                 end
               end
               local.get $p0
-              i32.load offset=12
-              br_if $B65
+              i32.const 12
+              i32.add
+              i32.load
+              br_if $B63
               local.get $p0
-              local.get $l7
+              local.get $l3
               i32.store
               local.get $p0
               local.get $p0
               i32.load offset=4
-              local.get $l4
+              local.get $l5
               i32.add
               i32.store offset=4
-              local.get $l7
+              local.get $l3
               local.get $l6
               i32.const 3
               i32.or
               i32.store offset=4
-              local.get $l6
-              local.get $l7
-              i32.add
-              local.set $l5
               local.get $l3
-              local.get $l7
+              local.get $l6
+              i32.add
+              local.set $l4
+              local.get $l1
+              local.get $l3
               i32.sub
               local.get $l6
               i32.sub
               local.set $l6
-              block $B68
-                block $B69
-                  block $B70
-                    block $B71
-                      block $B72
-                        local.get $l3
-                        i32.const 1054844
-                        i32.load
-                        i32.ne
-                        if $I73
-                          i32.const 1054840
-                          i32.load
-                          local.get $l3
-                          i32.eq
-                          br_if $B72
-                          local.get $l3
-                          i32.load offset=4
-                          local.tee $p0
-                          i32.const 3
-                          i32.and
-                          i32.const 1
-                          i32.ne
-                          br_if $B69
-                          local.get $p0
-                          i32.const -8
-                          i32.and
-                          local.tee $l9
-                          i32.const 256
-                          i32.ge_u
-                          if $I74
-                            local.get $l3
-                            i32.load offset=24
-                            local.set $l8
-                            block $B75
-                              block $B76
-                                local.get $l3
-                                local.get $l3
-                                i32.load offset=12
-                                local.tee $l2
-                                i32.eq
-                                if $I77
-                                  i32.const 20
-                                  i32.const 16
-                                  local.get $l3
-                                  i32.load offset=20
-                                  local.tee $p0
-                                  select
-                                  local.get $l3
-                                  i32.add
-                                  i32.load
-                                  local.tee $l1
-                                  br_if $B76
-                                  i32.const 0
-                                  local.set $l2
-                                  br $B75
-                                end
-                                local.get $l3
-                                i32.load offset=8
-                                local.tee $p0
-                                local.get $l2
-                                i32.store offset=12
-                                local.get $l2
-                                local.get $p0
-                                i32.store offset=8
-                                br $B75
-                              end
-                              local.get $l3
-                              i32.const 20
-                              i32.add
-                              local.get $l3
-                              i32.const 16
-                              i32.add
-                              local.get $p0
-                              select
-                              local.set $p0
-                              loop $L78
-                                local.get $p0
-                                local.set $l4
-                                local.get $l1
-                                local.tee $l2
-                                i32.const 20
-                                i32.add
-                                local.tee $p0
-                                i32.load
-                                local.tee $l1
-                                i32.eqz
-                                if $I79
-                                  local.get $l2
-                                  i32.load offset=16
-                                  local.set $l1
-                                  local.get $l2
-                                  i32.const 16
-                                  i32.add
-                                  local.set $p0
-                                end
-                                local.get $l1
-                                br_if $L78
-                              end
-                              local.get $l4
-                              i32.const 0
-                              i32.store
-                            end
-                            local.get $l8
-                            i32.eqz
-                            br_if $B70
-                            local.get $l3
-                            local.get $l3
-                            i32.load offset=28
-                            i32.const 2
-                            i32.shl
-                            i32.const 1054704
-                            i32.add
-                            local.tee $p0
-                            i32.load
-                            i32.ne
-                            if $I80
-                              i32.const 16
-                              i32.const 20
-                              local.get $l8
-                              i32.load offset=16
-                              local.get $l3
-                              i32.eq
-                              select
-                              local.get $l8
-                              i32.add
-                              local.get $l2
-                              i32.store
-                              local.get $l2
-                              i32.eqz
-                              br_if $B70
-                              br $B71
-                            end
-                            local.get $p0
-                            local.get $l2
-                            i32.store
-                            local.get $l2
-                            br_if $B71
-                            i32.const 1054436
-                            i32.const 1054436
-                            i32.load
-                            i32.const -2
-                            local.get $l3
-                            i32.load offset=28
-                            i32.rotl
-                            i32.and
-                            i32.store
-                            br $B70
-                          end
-                          local.get $l3
-                          i32.const 12
-                          i32.add
-                          i32.load
-                          local.tee $l1
-                          local.get $l3
-                          i32.const 8
-                          i32.add
-                          i32.load
-                          local.tee $l2
-                          i32.ne
-                          if $I81
-                            local.get $l2
-                            local.get $l1
-                            i32.store offset=12
-                            local.get $l1
-                            local.get $l2
-                            i32.store offset=8
-                            br $B70
-                          end
-                          i32.const 1054432
-                          i32.const 1054432
-                          i32.load
-                          i32.const -2
-                          local.get $p0
-                          i32.const 3
-                          i32.shr_u
-                          i32.rotl
-                          i32.and
-                          i32.store
-                          br $B70
-                        end
-                        i32.const 1054844
-                        local.get $l5
-                        i32.store
-                        i32.const 1054836
-                        i32.const 1054836
-                        i32.load
-                        local.get $l6
-                        i32.add
-                        local.tee $p0
-                        i32.store
-                        local.get $l5
-                        local.get $p0
-                        i32.const 1
-                        i32.or
-                        i32.store offset=4
-                        br $B68
-                      end
-                      i32.const 1054840
-                      local.get $l5
-                      i32.store
-                      i32.const 1054832
-                      i32.const 1054832
-                      i32.load
+              block $B66
+                block $B67
+                  local.get $l1
+                  i32.const 1059720
+                  i32.load
+                  i32.ne
+                  if $I68
+                    i32.const 1059716
+                    i32.load
+                    local.get $l1
+                    i32.eq
+                    br_if $B67
+                    local.get $l1
+                    i32.const 4
+                    i32.add
+                    i32.load
+                    local.tee $p0
+                    i32.const 3
+                    i32.and
+                    i32.const 1
+                    i32.eq
+                    if $I69
+                      local.get $l1
+                      local.get $p0
+                      i32.const -8
+                      i32.and
+                      local.tee $p0
+                      call $f24
+                      local.get $p0
                       local.get $l6
                       i32.add
-                      local.tee $p0
-                      i32.store
-                      local.get $l5
+                      local.set $l6
                       local.get $p0
-                      i32.const 1
-                      i32.or
-                      i32.store offset=4
-                      local.get $p0
-                      local.get $l5
+                      local.get $l1
                       i32.add
-                      local.get $p0
-                      i32.store
-                      br $B68
+                      local.set $l1
                     end
-                    local.get $l2
-                    local.get $l8
-                    i32.store offset=24
-                    local.get $l3
-                    i32.load offset=16
-                    local.tee $p0
-                    if $I82
-                      local.get $l2
-                      local.get $p0
-                      i32.store offset=16
-                      local.get $p0
-                      local.get $l2
-                      i32.store offset=24
-                    end
-                    local.get $l3
-                    i32.load offset=20
-                    local.tee $p0
-                    i32.eqz
-                    br_if $B70
-                    local.get $l2
-                    i32.const 20
+                    local.get $l1
+                    local.get $l1
+                    i32.load offset=4
+                    i32.const -2
+                    i32.and
+                    i32.store offset=4
+                    local.get $l4
+                    local.get $l6
+                    i32.const 1
+                    i32.or
+                    i32.store offset=4
+                    local.get $l4
+                    local.get $l6
                     i32.add
-                    local.get $p0
+                    local.get $l6
                     i32.store
+                    local.get $l6
+                    i32.const 256
+                    i32.ge_u
+                    if $I70
+                      i32.const 31
+                      local.set $l5
+                      local.get $l4
+                      i64.const 0
+                      i64.store offset=16 align=4
+                      local.get $l6
+                      i32.const 16777215
+                      i32.le_u
+                      if $I71
+                        local.get $l6
+                        i32.const 6
+                        local.get $l6
+                        i32.const 8
+                        i32.shr_u
+                        i32.clz
+                        local.tee $p0
+                        i32.sub
+                        i32.shr_u
+                        i32.const 1
+                        i32.and
+                        local.get $p0
+                        i32.const 1
+                        i32.shl
+                        i32.sub
+                        i32.const 62
+                        i32.add
+                        local.set $l5
+                      end
+                      local.get $l4
+                      local.get $l5
+                      i32.store offset=28
+                      local.get $l5
+                      i32.const 2
+                      i32.shl
+                      i32.const 1059580
+                      i32.add
+                      local.set $l1
+                      block $B72
+                        block $B73
+                          block $B74
+                            block $B75
+                              i32.const 1059312
+                              i32.load
+                              local.tee $l2
+                              i32.const 1
+                              local.get $l5
+                              i32.shl
+                              local.tee $p0
+                              i32.and
+                              if $I76
+                                local.get $l1
+                                i32.load
+                                local.tee $l2
+                                i32.const 4
+                                i32.add
+                                i32.load
+                                i32.const -8
+                                i32.and
+                                local.get $l6
+                                i32.ne
+                                br_if $B75
+                                local.get $l2
+                                local.set $l5
+                                br $B74
+                              end
+                              i32.const 1059312
+                              local.get $p0
+                              local.get $l2
+                              i32.or
+                              i32.store
+                              local.get $l1
+                              local.get $l4
+                              i32.store
+                              local.get $l4
+                              local.get $l1
+                              i32.store offset=24
+                              br $B72
+                            end
+                            local.get $l6
+                            i32.const 0
+                            i32.const 25
+                            local.get $l5
+                            i32.const 1
+                            i32.shr_u
+                            i32.sub
+                            i32.const 31
+                            i32.and
+                            local.get $l5
+                            i32.const 31
+                            i32.eq
+                            select
+                            i32.shl
+                            local.set $l1
+                            loop $L77
+                              local.get $l1
+                              i32.const 29
+                              i32.shr_u
+                              i32.const 4
+                              i32.and
+                              local.get $l2
+                              i32.add
+                              i32.const 16
+                              i32.add
+                              local.tee $p0
+                              i32.load
+                              local.tee $l5
+                              i32.eqz
+                              br_if $B73
+                              local.get $l1
+                              i32.const 1
+                              i32.shl
+                              local.set $l1
+                              local.get $l5
+                              local.tee $l2
+                              i32.const 4
+                              i32.add
+                              i32.load
+                              i32.const -8
+                              i32.and
+                              local.get $l6
+                              i32.ne
+                              br_if $L77
+                            end
+                          end
+                          local.get $l5
+                          i32.load offset=8
+                          local.tee $p0
+                          local.get $l4
+                          i32.store offset=12
+                          local.get $l5
+                          local.get $l4
+                          i32.store offset=8
+                          local.get $l4
+                          i32.const 0
+                          i32.store offset=24
+                          local.get $l4
+                          local.get $l5
+                          i32.store offset=12
+                          local.get $l4
+                          local.get $p0
+                          i32.store offset=8
+                          br $B66
+                        end
+                        local.get $p0
+                        local.get $l4
+                        i32.store
+                        local.get $l4
+                        local.get $l2
+                        i32.store offset=24
+                      end
+                      local.get $l4
+                      local.get $l4
+                      i32.store offset=12
+                      local.get $l4
+                      local.get $l4
+                      i32.store offset=8
+                      br $B66
+                    end
+                    local.get $l6
+                    i32.const 3
+                    i32.shr_u
+                    local.tee $l2
+                    i32.const 3
+                    i32.shl
+                    i32.const 1059316
+                    i32.add
+                    local.set $p0
+                    block $B78 (result i32)
+                      i32.const 1059308
+                      i32.load
+                      local.tee $l1
+                      i32.const 1
+                      local.get $l2
+                      i32.shl
+                      local.tee $l2
+                      i32.and
+                      if $I79
+                        local.get $p0
+                        i32.load offset=8
+                        br $B78
+                      end
+                      i32.const 1059308
+                      local.get $l1
+                      local.get $l2
+                      i32.or
+                      i32.store
+                      local.get $p0
+                    end
+                    local.set $l5
                     local.get $p0
-                    local.get $l2
-                    i32.store offset=24
+                    local.get $l4
+                    i32.store offset=8
+                    local.get $l5
+                    local.get $l4
+                    i32.store offset=12
+                    local.get $l4
+                    local.get $p0
+                    i32.store offset=12
+                    local.get $l4
+                    local.get $l5
+                    i32.store offset=8
+                    br $B66
                   end
+                  i32.const 1059720
+                  local.get $l4
+                  i32.store
+                  i32.const 1059712
+                  i32.const 1059712
+                  i32.load
                   local.get $l6
-                  local.get $l9
                   i32.add
-                  local.set $l6
-                  local.get $l3
-                  local.get $l9
-                  i32.add
-                  local.set $l3
+                  local.tee $p0
+                  i32.store
+                  local.get $l4
+                  local.get $p0
+                  i32.const 1
+                  i32.or
+                  i32.store offset=4
+                  br $B66
                 end
-                local.get $l3
-                local.get $l3
-                i32.load offset=4
-                i32.const -2
-                i32.and
-                i32.store offset=4
-                local.get $l5
+                i32.const 1059716
+                local.get $l4
+                i32.store
+                i32.const 1059708
+                i32.const 1059708
+                i32.load
                 local.get $l6
+                i32.add
+                local.tee $p0
+                i32.store
+                local.get $l4
+                local.get $p0
                 i32.const 1
                 i32.or
                 i32.store offset=4
-                local.get $l5
-                local.get $l6
+                local.get $p0
+                local.get $l4
                 i32.add
-                local.get $l6
+                local.get $p0
                 i32.store
-                local.get $l6
-                i32.const 256
-                i32.ge_u
-                if $I83
-                  i32.const 31
-                  local.set $l1
-                  local.get $l5
-                  i64.const 0
-                  i64.store offset=16
-                  local.get $l6
-                  i32.const 16777215
-                  i32.le_u
-                  if $I84
-                    local.get $l6
-                    i32.const 6
-                    local.get $l6
-                    i32.const 8
-                    i32.shr_u
-                    i32.clz
-                    local.tee $p0
-                    i32.sub
-                    i32.shr_u
-                    i32.const 1
-                    i32.and
-                    local.get $p0
-                    i32.const 1
-                    i32.shl
-                    i32.sub
-                    i32.const 62
-                    i32.add
-                    local.set $l1
-                  end
-                  local.get $l5
-                  local.get $l1
-                  i32.store offset=28
-                  local.get $l1
-                  i32.const 2
-                  i32.shl
-                  i32.const 1054704
-                  i32.add
-                  local.set $p0
-                  block $B85
-                    block $B86
-                      block $B87
-                        block $B88
-                          i32.const 1054436
-                          i32.load
-                          local.tee $l2
-                          i32.const 1
-                          local.get $l1
-                          i32.shl
-                          local.tee $l4
-                          i32.and
-                          if $I89
-                            local.get $p0
-                            i32.load
-                            local.tee $l2
-                            i32.load offset=4
-                            i32.const -8
-                            i32.and
-                            local.get $l6
-                            i32.ne
-                            br_if $B88
-                            local.get $l2
-                            local.set $l1
-                            br $B87
-                          end
-                          i32.const 1054436
-                          local.get $l2
-                          local.get $l4
-                          i32.or
-                          i32.store
-                          local.get $p0
-                          local.get $l5
-                          i32.store
-                          local.get $l5
-                          local.get $p0
-                          i32.store offset=24
-                          br $B85
-                        end
-                        local.get $l6
-                        i32.const 0
-                        i32.const 25
-                        local.get $l1
-                        i32.const 1
-                        i32.shr_u
-                        i32.sub
-                        i32.const 31
-                        i32.and
-                        local.get $l1
-                        i32.const 31
-                        i32.eq
-                        select
-                        i32.shl
-                        local.set $l3
-                        loop $L90
-                          local.get $l3
-                          i32.const 29
-                          i32.shr_u
-                          i32.const 4
-                          i32.and
-                          local.get $l2
-                          i32.add
-                          i32.const 16
-                          i32.add
-                          local.tee $p0
-                          i32.load
-                          local.tee $l1
-                          i32.eqz
-                          br_if $B86
-                          local.get $l3
-                          i32.const 1
-                          i32.shl
-                          local.set $l3
-                          local.get $l1
-                          local.tee $l2
-                          i32.load offset=4
-                          i32.const -8
-                          i32.and
-                          local.get $l6
-                          i32.ne
-                          br_if $L90
-                        end
-                      end
-                      local.get $l1
-                      i32.load offset=8
-                      local.tee $p0
-                      local.get $l5
-                      i32.store offset=12
-                      local.get $l1
-                      local.get $l5
-                      i32.store offset=8
-                      local.get $l5
-                      i32.const 0
-                      i32.store offset=24
-                      local.get $l5
-                      local.get $l1
-                      i32.store offset=12
-                      local.get $l5
-                      local.get $p0
-                      i32.store offset=8
-                      br $B68
-                    end
-                    local.get $p0
-                    local.get $l5
-                    i32.store
-                    local.get $l5
-                    local.get $l2
-                    i32.store offset=24
-                  end
-                  local.get $l5
-                  local.get $l5
-                  i32.store offset=12
-                  local.get $l5
-                  local.get $l5
-                  i32.store offset=8
-                  br $B68
-                end
-                local.get $l6
-                i32.const 3
-                i32.shr_u
-                local.tee $l1
-                i32.const 3
-                i32.shl
-                i32.const 1054440
-                i32.add
-                local.set $p0
-                block $B91 (result i32)
-                  i32.const 1054432
-                  i32.load
-                  local.tee $l2
-                  i32.const 1
-                  local.get $l1
-                  i32.shl
-                  local.tee $l1
-                  i32.and
-                  if $I92
-                    local.get $p0
-                    i32.load offset=8
-                    br $B91
-                  end
-                  i32.const 1054432
-                  local.get $l1
-                  local.get $l2
-                  i32.or
-                  i32.store
-                  local.get $p0
-                end
-                local.set $l1
-                local.get $p0
-                local.get $l5
-                i32.store offset=8
-                local.get $l1
-                local.get $l5
-                i32.store offset=12
-                local.get $l5
-                local.get $p0
-                i32.store offset=12
-                local.get $l5
-                local.get $l1
-                i32.store offset=8
               end
-              local.get $l7
+              local.get $l3
               i32.const 8
               i32.add
               return
             end
-            i32.const 1054856
+            i32.const 1059732
             local.set $p0
-            block $B93
-              loop $L94
-                local.get $l1
+            loop $L80
+              block $B81
+                local.get $l4
                 local.get $p0
                 i32.load
                 local.tee $l2
                 i32.ge_u
-                if $I95
+                if $I82
                   local.get $p0
                   i32.load offset=4
                   local.get $l2
                   i32.add
-                  local.tee $l3
-                  local.get $l1
+                  local.tee $l2
+                  local.get $l4
                   i32.gt_u
-                  br_if $B93
+                  br_if $B81
                 end
                 local.get $p0
                 i32.load offset=8
-                local.tee $p0
-                br_if $L94
+                local.set $p0
+                br $L80
               end
-              unreachable
             end
-            i32.const 1054844
-            local.get $l7
+            i32.const 1059720
+            local.get $l3
             i32.store
-            i32.const 1054836
-            local.get $l4
+            i32.const 1059712
+            local.get $l5
             i32.const 40
             i32.sub
             local.tee $p0
             i32.store
-            local.get $l7
+            local.get $l3
             local.get $p0
             i32.const 1
             i32.or
             i32.store offset=4
             local.get $p0
-            local.get $l7
+            local.get $l3
             i32.add
             i32.const 40
             i32.store offset=4
-            i32.const 1054872
+            i32.const 1059748
             i32.const 2097152
             i32.store
-            local.get $l1
-            local.get $l3
+            local.get $l4
+            local.get $l2
             i32.const 32
             i32.sub
             i32.const -8
@@ -12174,94 +14674,94 @@
             i32.const 8
             i32.sub
             local.tee $p0
-            local.get $l1
+            local.get $l4
             i32.const 16
             i32.add
             local.get $p0
             i32.gt_u
             select
-            local.tee $l2
+            local.tee $l1
             i32.const 27
             i32.store offset=4
-            i32.const 1054856
+            i32.const 1059732
             i64.load align=4
-            local.set $l10
-            local.get $l2
+            local.set $l9
+            local.get $l1
             i32.const 16
             i32.add
-            i32.const 1054864
+            i32.const 1059740
             i64.load align=4
             i64.store align=4
-            local.get $l2
-            local.get $l10
+            local.get $l1
+            local.get $l9
             i64.store offset=8 align=4
-            i32.const 1054860
-            local.get $l4
+            i32.const 1059736
+            local.get $l5
             i32.store
-            i32.const 1054856
-            local.get $l7
+            i32.const 1059732
+            local.get $l3
             i32.store
-            i32.const 1054864
-            local.get $l2
+            i32.const 1059740
+            local.get $l1
             i32.const 8
             i32.add
             i32.store
-            i32.const 1054868
+            i32.const 1059744
             i32.const 0
             i32.store
-            local.get $l2
+            local.get $l1
             i32.const 28
             i32.add
             local.set $p0
-            loop $L96
+            loop $L83
               local.get $p0
               i32.const 7
               i32.store
-              local.get $l3
+              local.get $l2
               local.get $p0
               i32.const 4
               i32.add
               local.tee $p0
               i32.gt_u
-              br_if $L96
+              br_if $L83
             end
             local.get $l1
-            local.get $l2
+            local.get $l4
             i32.eq
-            br_if $B55
-            local.get $l2
-            local.get $l2
+            br_if $B53
+            local.get $l1
+            local.get $l1
             i32.load offset=4
             i32.const -2
             i32.and
             i32.store offset=4
+            local.get $l4
             local.get $l1
-            local.get $l2
-            local.get $l1
+            local.get $l4
             i32.sub
-            local.tee $l4
+            local.tee $l5
             i32.const 1
             i32.or
             i32.store offset=4
-            local.get $l2
-            local.get $l4
+            local.get $l1
+            local.get $l5
             i32.store
-            local.get $l4
+            local.get $l5
             i32.const 256
             i32.ge_u
-            if $I97
+            if $I84
               i32.const 31
               local.set $p0
-              local.get $l1
+              local.get $l4
               i64.const 0
               i64.store offset=16 align=4
-              local.get $l4
+              local.get $l5
               i32.const 16777215
               i32.le_u
-              if $I98
-                local.get $l4
+              if $I85
+                local.get $l5
                 i32.const 6
-                local.get $l4
+                local.get $l5
                 i32.const 8
                 i32.shr_u
                 i32.clz
@@ -12278,7 +14778,7 @@
                 i32.add
                 local.set $p0
               end
-              local.get $l1
+              local.get $l4
               i32.const 28
               i32.add
               local.get $p0
@@ -12286,46 +14786,53 @@
               local.get $p0
               i32.const 2
               i32.shl
-              i32.const 1054704
+              i32.const 1059580
               i32.add
-              local.set $l2
-              block $B99
-                block $B100
-                  block $B101
-                    block $B102
-                      i32.const 1054436
+              local.set $l3
+              block $B86
+                block $B87
+                  block $B88
+                    block $B89
+                      i32.const 1059312
                       i32.load
-                      local.tee $l3
+                      local.tee $l1
                       i32.const 1
                       local.get $p0
                       i32.shl
-                      local.tee $l5
+                      local.tee $l2
                       i32.and
-                      if $I103
-                        local.get $l2
+                      if $I90
+                        local.get $l3
                         i32.load
                         local.tee $l2
-                        i32.load offset=4
+                        i32.const 4
+                        i32.add
+                        i32.load
                         i32.const -8
                         i32.and
-                        local.get $l4
+                        local.get $l5
                         i32.ne
-                        br_if $B102
+                        br_if $B89
                         local.get $l2
                         local.set $p0
-                        br $B101
+                        br $B88
                       end
-                      i32.const 1054436
-                      local.get $l3
-                      local.get $l5
+                      i32.const 1059312
+                      local.get $l1
+                      local.get $l2
                       i32.or
                       i32.store
-                      local.get $l2
-                      local.get $l1
+                      local.get $l3
+                      local.get $l4
                       i32.store
-                      br $B99
+                      local.get $l4
+                      i32.const 24
+                      i32.add
+                      local.get $l3
+                      i32.store
+                      br $B86
                     end
-                    local.get $l4
+                    local.get $l5
                     i32.const 0
                     i32.const 25
                     local.get $p0
@@ -12339,9 +14846,9 @@
                     i32.eq
                     select
                     i32.shl
-                    local.set $l3
-                    loop $L104
-                      local.get $l3
+                    local.set $l1
+                    loop $L91
+                      local.get $l1
                       i32.const 29
                       i32.shr_u
                       i32.const 4
@@ -12350,155 +14857,157 @@
                       i32.add
                       i32.const 16
                       i32.add
-                      local.tee $l5
+                      local.tee $l3
                       i32.load
                       local.tee $p0
                       i32.eqz
-                      br_if $B100
-                      local.get $l3
+                      br_if $B87
+                      local.get $l1
                       i32.const 1
                       i32.shl
-                      local.set $l3
+                      local.set $l1
                       local.get $p0
                       local.set $l2
                       local.get $p0
-                      i32.load offset=4
+                      i32.const 4
+                      i32.add
+                      i32.load
                       i32.const -8
                       i32.and
-                      local.get $l4
+                      local.get $l5
                       i32.ne
-                      br_if $L104
+                      br_if $L91
                     end
                   end
                   local.get $p0
                   i32.load offset=8
                   local.tee $l2
-                  local.get $l1
+                  local.get $l4
                   i32.store offset=12
                   local.get $p0
-                  local.get $l1
+                  local.get $l4
                   i32.store offset=8
-                  local.get $l1
+                  local.get $l4
                   i32.const 24
                   i32.add
                   i32.const 0
                   i32.store
-                  local.get $l1
+                  local.get $l4
                   local.get $p0
                   i32.store offset=12
-                  local.get $l1
+                  local.get $l4
                   local.get $l2
                   i32.store offset=8
-                  br $B55
+                  br $B53
                 end
-                local.get $l5
-                local.get $l1
+                local.get $l3
+                local.get $l4
+                i32.store
+                local.get $l4
+                i32.const 24
+                i32.add
+                local.get $l2
                 i32.store
               end
-              local.get $l1
-              i32.const 24
-              i32.add
-              local.get $l2
-              i32.store
-              local.get $l1
-              local.get $l1
+              local.get $l4
+              local.get $l4
               i32.store offset=12
-              local.get $l1
-              local.get $l1
+              local.get $l4
+              local.get $l4
               i32.store offset=8
-              br $B55
+              br $B53
             end
-            local.get $l4
+            local.get $l5
             i32.const 3
             i32.shr_u
             local.tee $l2
             i32.const 3
             i32.shl
-            i32.const 1054440
+            i32.const 1059316
             i32.add
             local.set $p0
-            block $B105 (result i32)
-              i32.const 1054432
+            block $B92 (result i32)
+              i32.const 1059308
               i32.load
-              local.tee $l4
+              local.tee $l1
               i32.const 1
               local.get $l2
               i32.shl
               local.tee $l2
               i32.and
-              if $I106
+              if $I93
                 local.get $p0
                 i32.load offset=8
-                br $B105
+                br $B92
               end
-              i32.const 1054432
+              i32.const 1059308
+              local.get $l1
               local.get $l2
-              local.get $l4
               i32.or
               i32.store
               local.get $p0
             end
-            local.set $l3
+            local.set $l1
             local.get $p0
-            local.get $l1
+            local.get $l4
             i32.store offset=8
-            local.get $l3
             local.get $l1
+            local.get $l4
             i32.store offset=12
-            local.get $l1
+            local.get $l4
             local.get $p0
             i32.store offset=12
+            local.get $l4
             local.get $l1
-            local.get $l3
             i32.store offset=8
           end
           i32.const 0
-          local.set $l1
-          i32.const 1054836
+          local.set $l5
+          i32.const 1059712
           i32.load
           local.tee $p0
           local.get $l6
           i32.le_u
           br_if $B2
-          i32.const 1054836
+          i32.const 1059712
           local.get $p0
           local.get $l6
           i32.sub
-          local.tee $l1
-          i32.store
-          i32.const 1054844
-          i32.const 1054844
-          i32.load
-          local.tee $p0
-          local.get $l6
-          i32.add
           local.tee $l2
           i32.store
+          i32.const 1059720
+          i32.const 1059720
+          i32.load
+          local.tee $l1
+          local.get $l6
+          i32.add
+          local.tee $p0
+          i32.store
+          local.get $p0
           local.get $l2
-          local.get $l1
           i32.const 1
           i32.or
           i32.store offset=4
-          local.get $p0
+          local.get $l1
           local.get $l6
           i32.const 3
           i32.or
           i32.store offset=4
-          local.get $p0
+          local.get $l1
           i32.const 8
           i32.add
           return
         end
-        local.get $l1
+        local.get $l5
         return
       end
       local.get $l1
       local.get $l7
       i32.store offset=24
-      local.get $l2
+      local.get $l3
       i32.load offset=16
       local.tee $p0
-      if $I107
+      if $I94
         local.get $l1
         local.get $p0
         i32.store offset=16
@@ -12506,7 +15015,7 @@
         local.get $l1
         i32.store offset=24
       end
-      local.get $l2
+      local.get $l3
       i32.const 20
       i32.add
       i32.load
@@ -12522,90 +15031,90 @@
       local.get $l1
       i32.store offset=24
     end
-    block $B108
-      local.get $l3
+    block $B95
+      local.get $l5
       i32.const 16
       i32.ge_u
-      if $I109
-        local.get $l2
+      if $I96
+        local.get $l3
         local.get $l6
         i32.const 3
         i32.or
         i32.store offset=4
-        local.get $l2
+        local.get $l3
         local.get $l6
         i32.add
-        local.tee $l5
-        local.get $l3
+        local.tee $l4
+        local.get $l5
         i32.const 1
         i32.or
         i32.store offset=4
-        local.get $l3
+        local.get $l4
         local.get $l5
         i32.add
-        local.get $l3
+        local.get $l5
         i32.store
-        i32.const 1054832
+        i32.const 1059708
         i32.load
         local.tee $p0
-        if $I110
+        if $I97
           local.get $p0
           i32.const 3
           i32.shr_u
-          local.tee $l4
+          local.tee $l2
           i32.const 3
           i32.shl
-          i32.const 1054440
+          i32.const 1059316
           i32.add
           local.set $p0
-          i32.const 1054840
+          i32.const 1059716
           i32.load
-          local.set $l1
-          block $B111 (result i32)
-            i32.const 1054432
+          local.set $l7
+          block $B98 (result i32)
+            i32.const 1059308
             i32.load
-            local.tee $l6
+            local.tee $l1
             i32.const 1
-            local.get $l4
+            local.get $l2
             i32.shl
-            local.tee $l4
+            local.tee $l2
             i32.and
-            if $I112
+            if $I99
               local.get $p0
               i32.load offset=8
-              br $B111
+              br $B98
             end
-            i32.const 1054432
-            local.get $l4
-            local.get $l6
+            i32.const 1059308
+            local.get $l1
+            local.get $l2
             i32.or
             i32.store
             local.get $p0
           end
-          local.set $l4
+          local.set $l2
           local.get $p0
-          local.get $l1
+          local.get $l7
           i32.store offset=8
-          local.get $l4
-          local.get $l1
+          local.get $l2
+          local.get $l7
           i32.store offset=12
-          local.get $l1
+          local.get $l7
           local.get $p0
           i32.store offset=12
-          local.get $l1
-          local.get $l4
+          local.get $l7
+          local.get $l2
           i32.store offset=8
         end
-        i32.const 1054840
+        i32.const 1059716
+        local.get $l4
+        i32.store
+        i32.const 1059708
         local.get $l5
         i32.store
-        i32.const 1054832
-        local.get $l3
-        i32.store
-        br $B108
+        br $B95
       end
-      local.get $l2
       local.get $l3
+      local.get $l5
       local.get $l6
       i32.add
       local.tee $p0
@@ -12613,7 +15122,7 @@
       i32.or
       i32.store offset=4
       local.get $p0
-      local.get $l2
+      local.get $l3
       i32.add
       local.tee $p0
       local.get $p0
@@ -12622,10 +15131,4490 @@
       i32.or
       i32.store offset=4
     end
-    local.get $l2
+    local.get $l3
     i32.const 8
     i32.add)
-  (func $f4 (type $t7) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32)
+  (func $f5 (type $t4) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (result i32)
+    (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32) (local $l29 i32) (local $l30 i32) (local $l31 i32) (local $l32 i32) (local $l33 i32) (local $l34 i32) (local $l35 i32) (local $l36 i32) (local $l37 i32) (local $l38 i32) (local $l39 i32) (local $l40 i32) (local $l41 i32) (local $l42 i32) (local $l43 i32) (local $l44 i32) (local $l45 i32) (local $l46 i32) (local $l47 i32) (local $l48 i32) (local $l49 i32) (local $l50 i32) (local $l51 i32) (local $l52 i32) (local $l53 i32) (local $l54 i32) (local $l55 i32)
+    global.get $g0
+    i32.const 32
+    i32.sub
+    local.tee $l11
+    global.set $g0
+    local.get $l11
+    local.get $p3
+    i32.store offset=20
+    local.get $l11
+    local.get $p3
+    i32.store offset=16
+    local.get $l11
+    i64.const 0
+    i64.store offset=8
+    local.get $l11
+    local.get $p3
+    local.get $p4
+    i32.add
+    i32.const 8
+    i32.sub
+    i32.store offset=24
+    local.get $p2
+    i32.const 32768
+    local.get $p2
+    i32.const 32768
+    i32.lt_u
+    select
+    local.set $p4
+    local.get $p0
+    i32.load offset=37344
+    local.set $l9
+    i32.const 38848
+    local.set $p3
+    loop $L0
+      local.get $p0
+      local.get $p3
+      i32.add
+      i32.const 32768
+      i32.store16
+      local.get $p3
+      i32.const 2
+      i32.add
+      local.tee $p3
+      i32.const 432064
+      i32.ne
+      br_if $L0
+    end
+    i32.const 258
+    local.set $l21
+    local.get $l9
+    i32.const 258
+    local.get $l9
+    i32.const 258
+    i32.lt_u
+    select
+    local.set $l19
+    local.get $p0
+    i32.const 2852
+    i32.add
+    local.set $l40
+    local.get $p0
+    i32.const 2564
+    i32.add
+    local.set $l41
+    local.get $p0
+    i32.const 8967252
+    i32.add
+    local.set $l37
+    local.get $p0
+    i32.const 8968276
+    i32.add
+    local.set $l48
+    local.get $p0
+    i32.const 6565180
+    i32.add
+    local.set $l49
+    local.get $p0
+    i32.const 8969312
+    i32.add
+    local.set $l42
+    local.get $p0
+    i32.const 8968288
+    i32.add
+    local.set $l38
+    local.get $p0
+    i32.const 6565188
+    i32.add
+    local.set $l39
+    local.get $p0
+    i32.const 38848
+    i32.add
+    local.set $l43
+    local.get $p0
+    i32.const 2436
+    i32.add
+    local.set $l50
+    local.get $p0
+    i32.const 1156
+    i32.add
+    local.set $l51
+    local.get $p0
+    i32.const 1284
+    i32.add
+    local.set $l52
+    local.get $p0
+    i32.const 4
+    i32.add
+    local.set $l53
+    local.get $p0
+    i32.const 6563136
+    i32.add
+    local.set $l54
+    local.get $p0
+    i32.const 563136
+    i32.add
+    local.set $l55
+    local.get $p1
+    local.get $p4
+    i32.add
+    local.set $l18
+    local.get $p1
+    local.get $p2
+    i32.add
+    local.set $l22
+    local.get $p0
+    i32.const 432064
+    i32.add
+    local.set $l23
+    local.get $p1
+    local.tee $l24
+    local.tee $l25
+    local.set $l5
+    loop $L1
+      local.get $p0
+      i32.const 0
+      i32.store offset=4524
+      local.get $p0
+      i64.const 0
+      i64.store offset=4484 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4528 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4492 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4536 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4500 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4544 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4508 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4552 align=4
+      local.get $p0
+      i32.const 0
+      i32.store offset=4568
+      local.get $p0
+      i64.const 0
+      i64.store offset=4560 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4516 align=4
+      local.get $l22
+      local.get $l25
+      i32.sub
+      local.tee $p2
+      i32.const 300000
+      local.get $p2
+      i32.const 300000
+      i32.lt_s
+      select
+      local.get $l25
+      i32.add
+      local.set $l31
+      i32.const 0
+      local.set $l15
+      local.get $l55
+      local.set $l13
+      local.get $l25
+      local.set $l28
+      loop $L2
+        local.get $l5
+        local.get $l18
+        i32.ne
+        if $I3 (result i32)
+          local.get $l18
+        else
+          i32.const 0
+          local.set $p3
+          loop $L4
+            local.get $p3
+            local.get $l43
+            i32.add
+            local.tee $p2
+            i32.load16_u
+            local.set $p4
+            local.get $p2
+            local.get $p4
+            i32.const -1
+            i32.xor
+            i32.const 16
+            i32.shl
+            i32.const 16
+            i32.shr_s
+            i32.const 15
+            i32.shr_u
+            local.get $p4
+            i32.and
+            i32.const 32768
+            i32.or
+            i32.store16
+            local.get $p3
+            i32.const 2
+            i32.add
+            local.tee $p3
+            i32.const 524288
+            i32.ne
+            br_if $L4
+          end
+          local.get $l18
+          local.set $l24
+          local.get $l22
+          local.get $l18
+          i32.sub
+          local.tee $p2
+          i32.const 32768
+          local.get $p2
+          i32.const 32768
+          i32.lt_u
+          select
+          local.get $l18
+          i32.add
+        end
+        local.set $l9
+        local.get $l22
+        local.get $l5
+        i32.sub
+        local.tee $p3
+        local.get $l21
+        i32.lt_u
+        local.set $p2
+        local.get $p3
+        local.get $l19
+        local.get $p3
+        local.get $l19
+        i32.lt_u
+        select
+        local.get $l19
+        local.get $p2
+        select
+        local.set $l19
+        block $B5
+          local.get $p3
+          local.get $l21
+          local.get $p2
+          select
+          local.tee $l21
+          i32.const 5
+          i32.lt_u
+          if $I6
+            i32.const 0
+            local.set $l10
+            local.get $l29
+            local.set $l8
+            local.get $l13
+            local.set $l6
+            br $B5
+          end
+          local.get $l33
+          i32.const 2
+          i32.shl
+          local.get $p0
+          i32.add
+          local.tee $p3
+          i32.const 38848
+          i32.add
+          local.tee $p2
+          i32.load16_s
+          local.set $l14
+          local.get $p2
+          local.get $l5
+          local.get $l24
+          i32.sub
+          local.tee $l10
+          i32.store16
+          local.get $p3
+          i32.const 38850
+          i32.add
+          local.tee $p2
+          i32.load16_s
+          local.set $l12
+          local.get $p2
+          local.get $l14
+          i32.store16
+          local.get $l5
+          i32.const 1
+          i32.add
+          i32.load8_u
+          local.tee $l18
+          local.get $l5
+          i32.const 3
+          i32.add
+          i32.load8_u
+          i32.const 16
+          i32.shl
+          local.get $l5
+          i32.const 4
+          i32.add
+          i32.load8_u
+          i32.const 24
+          i32.shl
+          i32.or
+          local.get $l5
+          i32.const 2
+          i32.add
+          i32.load8_u
+          local.tee $l8
+          i32.const 8
+          i32.shl
+          i32.or
+          i32.or
+          local.tee $p2
+          i32.const 506832829
+          i32.mul
+          local.get $p2
+          i32.const 16777215
+          i32.and
+          i32.const 506832829
+          i32.mul
+          local.set $p3
+          local.get $p0
+          i32.load offset=37348
+          local.set $l7
+          block $B7 (result i32)
+            local.get $l13
+            local.get $l10
+            i32.const 32768
+            i32.sub
+            local.tee $l26
+            local.get $l14
+            i32.ge_s
+            br_if $B7
+            drop
+            block $B8
+              local.get $l5
+              i32.load8_u
+              local.get $l18
+              i32.const 8
+              i32.shl
+              local.get $l8
+              i32.const 16
+              i32.shl
+              i32.or
+              i32.or
+              local.tee $p2
+              local.get $l14
+              local.get $l24
+              i32.add
+              local.tee $l8
+              i32.load16_u align=1
+              local.get $l8
+              i32.const 2
+              i32.add
+              i32.load8_u
+              i32.const 16
+              i32.shl
+              i32.or
+              i32.eq
+              if $I9
+                local.get $l13
+                i32.const 3
+                i32.store16
+                local.get $l13
+                local.get $l5
+                local.get $l8
+                i32.sub
+                i32.store16 offset=2
+                br $B8
+              end
+              local.get $l13
+              local.get $l12
+              local.get $l26
+              i32.le_s
+              br_if $B7
+              drop
+              local.get $l13
+              local.get $p2
+              local.get $l12
+              local.get $l24
+              i32.add
+              local.tee $p2
+              i32.load16_u align=1
+              local.get $p2
+              i32.const 2
+              i32.add
+              i32.load8_u
+              i32.const 16
+              i32.shl
+              i32.or
+              i32.ne
+              br_if $B7
+              drop
+              local.get $l13
+              i32.const 3
+              i32.store16
+              local.get $l13
+              local.get $l5
+              local.get $p2
+              i32.sub
+              i32.store16 offset=2
+            end
+            local.get $l13
+            i32.const 4
+            i32.add
+          end
+          local.set $l6
+          i32.const 16
+          i32.shr_u
+          local.set $l8
+          local.get $p3
+          i32.const 16
+          i32.shr_u
+          local.set $l33
+          local.get $l29
+          i32.const 1
+          i32.shl
+          local.get $p0
+          i32.add
+          i32.const 300992
+          i32.add
+          local.tee $p2
+          i32.load16_s
+          local.set $p4
+          local.get $p2
+          local.get $l10
+          i32.store16
+          local.get $l10
+          i32.const 2
+          i32.shl
+          i32.const 131068
+          i32.and
+          local.tee $p2
+          local.get $l23
+          i32.add
+          local.set $l16
+          local.get $p2
+          i32.const 2
+          i32.or
+          local.get $l23
+          i32.add
+          local.set $l17
+          block $B10
+            local.get $p4
+            local.get $l26
+            i32.gt_s
+            if $I11
+              i32.const 3
+              local.set $l10
+              i32.const 0
+              local.set $l14
+              i32.const 0
+              local.set $l12
+              i32.const 0
+              local.set $p3
+              loop $L12
+                block $B13
+                  local.get $p4
+                  local.get $l24
+                  i32.add
+                  local.tee $p2
+                  local.get $p3
+                  i32.add
+                  i32.load8_u
+                  local.get $p3
+                  local.get $l5
+                  i32.add
+                  i32.load8_u
+                  i32.ne
+                  br_if $B13
+                  block $B14
+                    local.get $l21
+                    local.get $p3
+                    i32.const 1
+                    i32.add
+                    local.tee $p3
+                    i32.le_u
+                    br_if $B14
+                    loop $L15
+                      local.get $p2
+                      local.get $p3
+                      i32.add
+                      i32.load8_u
+                      local.get $p3
+                      local.get $l5
+                      i32.add
+                      i32.load8_u
+                      i32.ne
+                      br_if $B14
+                      local.get $l21
+                      local.get $p3
+                      i32.const 1
+                      i32.add
+                      local.tee $p3
+                      i32.ne
+                      br_if $L15
+                    end
+                    local.get $l21
+                    local.set $p3
+                  end
+                  local.get $p3
+                  local.get $l10
+                  i32.le_u
+                  br_if $B13
+                  local.get $l6
+                  local.get $p3
+                  i32.store16
+                  local.get $l6
+                  local.get $l5
+                  local.get $p2
+                  i32.sub
+                  i32.store16 offset=2
+                  local.get $l6
+                  i32.const 4
+                  i32.add
+                  local.set $l6
+                  local.get $p3
+                  local.get $l19
+                  i32.ge_u
+                  br_if $B10
+                  local.get $p3
+                  local.set $l10
+                end
+                block $B16 (result i32)
+                  local.get $p2
+                  local.get $p3
+                  i32.add
+                  i32.load8_u
+                  local.get $p3
+                  local.get $l5
+                  i32.add
+                  i32.load8_u
+                  i32.lt_u
+                  if $I17
+                    local.get $l16
+                    local.get $p4
+                    i32.store16
+                    local.get $p4
+                    i32.const 2
+                    i32.shl
+                    i32.const 131068
+                    i32.and
+                    i32.const 2
+                    i32.or
+                    local.get $p0
+                    i32.add
+                    i32.const 432064
+                    i32.add
+                    local.tee $p4
+                    local.set $l16
+                    local.get $p3
+                    local.set $l14
+                    local.get $l12
+                    br $B16
+                  end
+                  local.get $l17
+                  local.get $p4
+                  i32.store16
+                  local.get $p4
+                  i32.const 2
+                  i32.shl
+                  i32.const 131068
+                  i32.and
+                  local.get $p0
+                  i32.add
+                  i32.const 432064
+                  i32.add
+                  local.tee $p4
+                  local.set $l17
+                  local.get $p3
+                  local.set $l12
+                  local.get $l14
+                end
+                local.set $p2
+                local.get $p4
+                i32.load16_s
+                local.tee $p4
+                local.get $l26
+                i32.gt_s
+                if $I18
+                  local.get $p2
+                  local.get $p3
+                  local.get $p2
+                  local.get $p3
+                  i32.lt_u
+                  select
+                  local.set $p3
+                  local.get $l7
+                  i32.const 1
+                  i32.sub
+                  local.tee $l7
+                  br_if $L12
+                end
+              end
+              local.get $l16
+              i32.const 32768
+              i32.store16
+              local.get $l17
+              i32.const 32768
+              i32.store16
+              br $B5
+            end
+            local.get $l17
+            i32.const 32768
+            i32.store16
+            local.get $l16
+            i32.const 32768
+            i32.store16
+            i32.const 3
+            local.set $l10
+            br $B5
+          end
+          local.get $l16
+          local.get $p4
+          i32.const 2
+          i32.shl
+          i32.const 131068
+          i32.and
+          local.tee $p2
+          local.get $l23
+          i32.add
+          i32.load16_u
+          i32.store16
+          local.get $l17
+          local.get $p2
+          i32.const 2
+          i32.or
+          local.get $l23
+          i32.add
+          i32.load16_u
+          i32.store16
+          local.get $p3
+          local.set $l10
+        end
+        local.get $l5
+        local.get $l28
+        i32.ge_u
+        if $I19
+          block $B20 (result i32)
+            local.get $l10
+            i32.const 4
+            i32.ge_u
+            if $I21
+              i32.const 36
+              i32.const 32
+              local.get $l10
+              i32.const 8
+              i32.gt_u
+              select
+              local.get $p0
+              i32.add
+              i32.const 4484
+              i32.add
+              local.tee $p2
+              local.get $p2
+              i32.load
+              i32.const 1
+              i32.add
+              i32.store
+              local.get $p0
+              i32.load offset=4564
+              i32.const 1
+              i32.add
+              local.set $l15
+              local.get $l10
+              br $B20
+            end
+            local.get $l5
+            i32.load8_u
+            local.tee $p2
+            i32.const 5
+            i32.shr_u
+            i32.const 6
+            i32.and
+            local.get $p2
+            i32.const 1
+            i32.and
+            i32.or
+            i32.const 2
+            i32.shl
+            local.get $p0
+            i32.add
+            i32.const 4484
+            i32.add
+            local.tee $p2
+            local.get $p2
+            i32.load
+            i32.const 1
+            i32.add
+            i32.store
+            local.get $p0
+            i32.load offset=4564
+            i32.const 1
+            i32.add
+            local.set $l15
+            i32.const 1
+          end
+          local.get $p0
+          local.get $l15
+          i32.store offset=4564
+          local.get $l5
+          i32.add
+          local.set $l28
+        end
+        local.get $l6
+        local.get $l6
+        local.get $l13
+        i32.sub
+        i32.const 2
+        i32.shr_u
+        i32.store16
+        local.get $l6
+        local.get $l5
+        i32.load8_u
+        i32.store16 offset=2
+        local.get $l6
+        i32.const 4
+        i32.add
+        local.set $l13
+        local.get $l5
+        i32.const 1
+        i32.add
+        local.set $p2
+        block $B22
+          block $B23
+            local.get $l10
+            i32.const 3
+            i32.lt_u
+            br_if $B23
+            local.get $l10
+            local.get $l19
+            i32.lt_u
+            br_if $B23
+            local.get $l5
+            i32.const 2
+            i32.add
+            local.set $p4
+            local.get $l10
+            i32.const 1
+            i32.sub
+            local.set $l14
+            local.get $l8
+            local.set $l29
+            local.get $l9
+            local.set $l18
+            local.get $p2
+            local.set $l5
+            loop $L24
+              local.get $l5
+              local.get $l18
+              i32.eq
+              if $I25
+                i32.const 0
+                local.set $p3
+                loop $L26
+                  local.get $p3
+                  local.get $l43
+                  i32.add
+                  local.tee $p2
+                  i32.load16_u
+                  local.set $l9
+                  local.get $p2
+                  local.get $l9
+                  i32.const -1
+                  i32.xor
+                  i32.const 16
+                  i32.shl
+                  i32.const 16
+                  i32.shr_s
+                  i32.const 15
+                  i32.shr_u
+                  local.get $l9
+                  i32.and
+                  i32.const 32768
+                  i32.or
+                  i32.store16
+                  local.get $p3
+                  i32.const 2
+                  i32.add
+                  local.tee $p3
+                  i32.const 524288
+                  i32.ne
+                  br_if $L26
+                end
+                local.get $l18
+                local.tee $l24
+                local.get $l22
+                local.get $l18
+                i32.sub
+                local.tee $p2
+                i32.const 32768
+                local.get $p2
+                i32.const 32768
+                i32.lt_u
+                select
+                i32.add
+                local.set $l18
+              end
+              local.get $l22
+              local.get $l5
+              i32.sub
+              local.tee $p3
+              local.get $l21
+              i32.lt_u
+              local.set $p2
+              local.get $p3
+              local.get $l19
+              local.get $p3
+              local.get $l19
+              i32.lt_u
+              select
+              local.get $l19
+              local.get $p2
+              select
+              local.set $l19
+              block $B27
+                local.get $p3
+                local.get $l21
+                local.get $p2
+                select
+                local.tee $l21
+                i32.const 5
+                i32.lt_u
+                br_if $B27
+                local.get $l5
+                i32.const 1
+                i32.add
+                i32.load align=1
+                local.set $l8
+                local.get $l33
+                i32.const 2
+                i32.shl
+                local.get $p0
+                i32.add
+                local.tee $l9
+                i32.const 38848
+                i32.add
+                local.tee $p3
+                i32.load16_u
+                local.set $p2
+                local.get $p3
+                local.get $l5
+                local.get $l24
+                i32.sub
+                local.tee $p3
+                i32.store16
+                local.get $l9
+                i32.const 38850
+                i32.add
+                local.get $p2
+                i32.store16
+                local.get $l29
+                i32.const 1
+                i32.shl
+                local.get $p0
+                i32.add
+                i32.const 300992
+                i32.add
+                local.tee $p2
+                i32.load16_s
+                local.set $l7
+                local.get $p2
+                local.get $p3
+                i32.store16
+                local.get $p3
+                i32.const 2
+                i32.shl
+                i32.const 131068
+                i32.and
+                local.tee $p2
+                local.get $l23
+                i32.add
+                local.set $l16
+                local.get $p2
+                i32.const 2
+                i32.or
+                local.get $l23
+                i32.add
+                local.set $l17
+                local.get $l8
+                i32.const 506832829
+                i32.mul
+                i32.const 16
+                i32.shr_u
+                local.set $l29
+                local.get $l8
+                i32.const 16777215
+                i32.and
+                i32.const 506832829
+                i32.mul
+                i32.const 16
+                i32.shr_u
+                local.set $l33
+                block $B28
+                  local.get $l7
+                  local.get $p3
+                  i32.const 32768
+                  i32.sub
+                  local.tee $l12
+                  i32.gt_s
+                  if $I29
+                    local.get $p0
+                    i32.load offset=37348
+                    local.set $l30
+                    i32.const 0
+                    local.set $l9
+                    i32.const 0
+                    local.set $l8
+                    i32.const 0
+                    local.set $p3
+                    loop $L30
+                      block $B31 (result i32)
+                        local.get $p3
+                        local.get $l5
+                        i32.add
+                        i32.load8_u
+                        local.tee $l10
+                        local.get $l7
+                        local.get $l24
+                        i32.add
+                        local.tee $p2
+                        local.get $p3
+                        i32.add
+                        i32.load8_u
+                        local.tee $l6
+                        i32.eq
+                        if $I32 (result i32)
+                          block $B33
+                            local.get $l19
+                            local.get $p3
+                            i32.const 1
+                            i32.add
+                            local.tee $p3
+                            i32.le_u
+                            br_if $B33
+                            loop $L34
+                              local.get $p2
+                              local.get $p3
+                              i32.add
+                              i32.load8_u
+                              local.get $p3
+                              local.get $p4
+                              i32.add
+                              i32.const 1
+                              i32.sub
+                              i32.load8_u
+                              i32.ne
+                              br_if $B33
+                              local.get $l19
+                              local.get $p3
+                              i32.const 1
+                              i32.add
+                              local.tee $p3
+                              i32.ne
+                              br_if $L34
+                            end
+                            br $B28
+                          end
+                          local.get $p3
+                          local.get $l19
+                          i32.ge_u
+                          br_if $B28
+                          local.get $p3
+                          local.get $l5
+                          i32.add
+                          i32.load8_u
+                          local.set $l10
+                          local.get $p2
+                          local.get $p3
+                          i32.add
+                          i32.load8_u
+                        else
+                          local.get $l6
+                        end
+                        i32.const 255
+                        i32.and
+                        local.get $l10
+                        i32.const 255
+                        i32.and
+                        i32.ge_u
+                        if $I35
+                          local.get $l17
+                          local.get $l7
+                          i32.store16
+                          local.get $l7
+                          i32.const 2
+                          i32.shl
+                          i32.const 131068
+                          i32.and
+                          local.get $p0
+                          i32.add
+                          i32.const 432064
+                          i32.add
+                          local.tee $l7
+                          local.set $l17
+                          local.get $p3
+                          local.set $l8
+                          local.get $l9
+                          br $B31
+                        end
+                        local.get $l16
+                        local.get $l7
+                        i32.store16
+                        local.get $l7
+                        i32.const 2
+                        i32.shl
+                        i32.const 131068
+                        i32.and
+                        i32.const 2
+                        i32.or
+                        local.get $p0
+                        i32.add
+                        i32.const 432064
+                        i32.add
+                        local.tee $l7
+                        local.set $l16
+                        local.get $p3
+                        local.set $l9
+                        local.get $l8
+                      end
+                      local.set $p2
+                      local.get $l7
+                      i32.load16_s
+                      local.tee $l7
+                      local.get $l12
+                      i32.gt_s
+                      if $I36
+                        local.get $p2
+                        local.get $p3
+                        local.get $p2
+                        local.get $p3
+                        i32.lt_u
+                        select
+                        local.set $p3
+                        local.get $l30
+                        i32.const 1
+                        i32.sub
+                        local.tee $l30
+                        br_if $L30
+                      end
+                    end
+                    local.get $l16
+                    i32.const 32768
+                    i32.store16
+                    local.get $l17
+                    i32.const 32768
+                    i32.store16
+                    br $B27
+                  end
+                  local.get $l17
+                  i32.const 32768
+                  i32.store16
+                  local.get $l16
+                  i32.const 32768
+                  i32.store16
+                  br $B27
+                end
+                local.get $l16
+                local.get $l7
+                i32.const 2
+                i32.shl
+                i32.const 131068
+                i32.and
+                local.tee $p2
+                local.get $l23
+                i32.add
+                i32.load16_u
+                i32.store16
+                local.get $l17
+                local.get $p2
+                i32.const 2
+                i32.or
+                local.get $l23
+                i32.add
+                i32.load16_u
+                i32.store16
+              end
+              local.get $l13
+              i32.const 0
+              i32.store16
+              local.get $l13
+              local.get $l5
+              i32.load8_u
+              i32.store16 offset=2
+              local.get $p4
+              i32.const 1
+              i32.add
+              local.set $p4
+              local.get $l13
+              i32.const 4
+              i32.add
+              local.set $l13
+              local.get $l5
+              i32.const 1
+              i32.add
+              local.set $l5
+              local.get $l14
+              i32.const 1
+              i32.sub
+              local.tee $l14
+              br_if $L24
+            end
+            br $B22
+          end
+          local.get $l8
+          local.set $l29
+          local.get $l9
+          local.set $l18
+          local.get $p2
+          local.set $l5
+        end
+        block $B37
+          local.get $l13
+          local.get $l54
+          i32.lt_u
+          i32.const 0
+          local.get $l5
+          local.get $l31
+          i32.lt_u
+          select
+          i32.eqz
+          if $I38
+            local.get $l5
+            local.get $l25
+            i32.sub
+            local.set $l27
+            br $B37
+          end
+          local.get $l15
+          i32.const 512
+          i32.lt_u
+          br_if $L2
+          local.get $l5
+          local.get $l25
+          i32.sub
+          local.tee $l27
+          i32.const 10000
+          i32.lt_s
+          br_if $L2
+          local.get $l22
+          local.get $l5
+          i32.sub
+          i32.const 10000
+          i32.lt_s
+          br_if $L2
+          block $B39
+            local.get $p0
+            i32.load offset=4568
+            local.tee $l20
+            i32.eqz
+            if $I40
+              local.get $p0
+              i32.load offset=4528
+              local.set $l9
+              local.get $p0
+              i32.load offset=4488
+              local.set $p2
+              local.get $p0
+              i32.load offset=4524
+              local.set $l8
+              local.get $p0
+              i32.load offset=4484
+              local.set $p4
+              local.get $p0
+              i32.load offset=4560
+              local.set $l44
+              local.get $p0
+              i32.load offset=4520
+              local.set $l7
+              local.get $p0
+              i32.load offset=4556
+              local.set $l45
+              local.get $p0
+              i32.load offset=4516
+              local.set $l6
+              local.get $p0
+              i32.load offset=4552
+              local.set $l46
+              local.get $p0
+              i32.load offset=4512
+              local.set $l10
+              local.get $p0
+              i32.load offset=4548
+              local.set $l47
+              local.get $p0
+              i32.load offset=4508
+              local.set $l30
+              local.get $p0
+              i32.load offset=4544
+              local.set $l32
+              local.get $p0
+              i32.load offset=4504
+              local.set $l16
+              local.get $p0
+              i32.load offset=4540
+              local.set $l34
+              local.get $p0
+              i32.load offset=4500
+              local.set $l17
+              local.get $p0
+              i32.load offset=4536
+              local.set $l35
+              local.get $p0
+              i32.load offset=4496
+              local.set $l14
+              local.get $p0
+              i32.load offset=4532
+              local.set $l36
+              local.get $p0
+              i32.load offset=4492
+              local.set $l12
+              br $B39
+            end
+            local.get $l27
+            i32.const 12
+            i32.shr_u
+            local.get $l20
+            i32.mul
+            local.get $l20
+            local.get $p0
+            i32.load offset=4484
+            local.tee $p4
+            i32.mul
+            local.tee $p3
+            local.get $p0
+            i32.load offset=4524
+            local.tee $l8
+            local.get $l15
+            i32.mul
+            local.tee $p2
+            i32.sub
+            local.get $p2
+            local.get $p3
+            i32.sub
+            local.get $p2
+            local.get $p3
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4488
+            local.tee $p2
+            i32.mul
+            local.tee $l12
+            local.get $p0
+            i32.load offset=4528
+            local.tee $l9
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l12
+            i32.sub
+            local.get $p3
+            local.get $l12
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4492
+            local.tee $l12
+            i32.mul
+            local.tee $l6
+            local.get $p0
+            i32.load offset=4532
+            local.tee $l36
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4496
+            local.tee $l14
+            i32.mul
+            local.tee $l6
+            local.get $p0
+            i32.load offset=4536
+            local.tee $l35
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4500
+            local.tee $l17
+            i32.mul
+            local.tee $l6
+            local.get $p0
+            i32.load offset=4540
+            local.tee $l34
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4504
+            local.tee $l16
+            i32.mul
+            local.tee $l6
+            local.get $p0
+            i32.load offset=4544
+            local.tee $l32
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4508
+            local.tee $l30
+            i32.mul
+            local.tee $l6
+            local.get $p0
+            i32.load offset=4548
+            local.tee $l47
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4512
+            local.tee $l10
+            i32.mul
+            local.tee $l6
+            local.get $p0
+            i32.load offset=4552
+            local.tee $l46
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.sub
+            local.get $p3
+            local.get $l6
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4516
+            local.tee $l6
+            i32.mul
+            local.tee $l7
+            local.get $p0
+            i32.load offset=4556
+            local.tee $l45
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l7
+            i32.sub
+            local.get $p3
+            local.get $l7
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            local.get $p0
+            i32.load offset=4520
+            local.tee $l7
+            i32.mul
+            local.tee $l26
+            local.get $p0
+            i32.load offset=4560
+            local.tee $l44
+            local.get $l15
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $l26
+            i32.sub
+            local.get $p3
+            local.get $l26
+            i32.lt_u
+            select
+            i32.add
+            local.get $l20
+            i32.const 200
+            i32.mul
+            i32.ge_u
+            br_if $B37
+          end
+          i32.const 0
+          local.set $l15
+          local.get $p0
+          i32.const 0
+          i32.store offset=4484
+          local.get $p0
+          i64.const 0
+          i64.store offset=4488 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4496 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4504 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4512 align=4
+          local.get $p0
+          i32.const 0
+          i32.store offset=4564
+          local.get $p0
+          i32.const 0
+          i32.store offset=4520
+          local.get $p0
+          local.get $p2
+          local.get $l9
+          i32.add
+          i32.store offset=4528
+          local.get $p0
+          local.get $p4
+          local.get $l8
+          i32.add
+          i32.store offset=4524
+          local.get $p0
+          local.get $l12
+          local.get $l36
+          i32.add
+          i32.store offset=4532
+          local.get $p0
+          local.get $l14
+          local.get $l35
+          i32.add
+          i32.store offset=4536
+          local.get $p0
+          local.get $l17
+          local.get $l34
+          i32.add
+          i32.store offset=4540
+          local.get $p0
+          local.get $l16
+          local.get $l32
+          i32.add
+          i32.store offset=4544
+          local.get $p0
+          local.get $l30
+          local.get $l47
+          i32.add
+          i32.store offset=4548
+          local.get $p0
+          local.get $l10
+          local.get $l46
+          i32.add
+          i32.store offset=4552
+          local.get $p0
+          local.get $l6
+          local.get $l45
+          i32.add
+          i32.store offset=4556
+          local.get $p0
+          local.get $l7
+          local.get $l44
+          i32.add
+          i32.store offset=4560
+          local.get $p0
+          local.get $l7
+          local.get $l20
+          i32.add
+          local.get $l6
+          i32.add
+          local.get $l10
+          i32.add
+          local.get $l30
+          i32.add
+          local.get $l16
+          i32.add
+          local.get $l17
+          i32.add
+          local.get $l14
+          i32.add
+          local.get $l12
+          i32.add
+          local.get $p4
+          i32.add
+          local.get $p2
+          i32.add
+          i32.store offset=4568
+          br $L2
+        end
+      end
+      local.get $p0
+      i32.load offset=8969440
+      local.set $l32
+      local.get $l27
+      local.get $l27
+      i32.const 257
+      i32.add
+      local.tee $p2
+      i32.const 300257
+      local.get $p2
+      i32.const 300257
+      i32.lt_u
+      select
+      local.tee $p4
+      i32.le_u
+      if $I41
+        local.get $l27
+        i32.const 1
+        i32.sub
+        local.set $p2
+        local.get $l27
+        i32.const 3
+        i32.shl
+        local.get $l39
+        i32.add
+        local.set $p3
+        loop $L42
+          local.get $p3
+          i32.const -2147483648
+          i32.store
+          local.get $p3
+          i32.const 8
+          i32.add
+          local.set $p3
+          local.get $p4
+          local.get $p2
+          i32.const 1
+          i32.add
+          local.tee $p2
+          i32.gt_u
+          br_if $L42
+        end
+      end
+      block $B43
+        local.get $p1
+        local.get $l25
+        i32.ne
+        if $I44
+          i32.const 0
+          local.set $p3
+          loop $L45
+            local.get $p3
+            local.get $l37
+            i32.add
+            local.tee $p2
+            i32.load
+            local.set $p4
+            local.get $p2
+            i32.const 66
+            local.get $p4
+            i32.sub
+            i32.const 1
+            i32.shr_s
+            local.get $p4
+            i32.add
+            i32.store
+            local.get $p3
+            i32.const 4
+            i32.add
+            local.tee $p3
+            i32.const 1024
+            i32.ne
+            br_if $L45
+          end
+          i32.const 3
+          local.set $p2
+          local.get $l38
+          local.set $p3
+          loop $L46
+            local.get $p3
+            local.get $p3
+            i32.load
+            local.tee $p4
+            local.get $p2
+            i32.const 1058672
+            i32.add
+            i32.load8_u
+            i32.const 1058944
+            i32.add
+            i32.load8_u
+            i32.const 3
+            i32.shl
+            local.get $p4
+            i32.sub
+            i32.const 60
+            i32.add
+            i32.const 1
+            i32.shr_s
+            i32.add
+            i32.store
+            local.get $p3
+            i32.const 4
+            i32.add
+            local.set $p3
+            local.get $p2
+            i32.const 1
+            i32.add
+            local.tee $p2
+            i32.const 259
+            i32.ne
+            br_if $L46
+          end
+          i32.const -30
+          local.set $p3
+          local.get $l42
+          local.set $p2
+          loop $L47
+            local.get $p2
+            local.get $p2
+            i32.load
+            local.tee $p4
+            local.get $p3
+            i32.const 1059006
+            i32.add
+            i32.load8_u
+            i32.const 3
+            i32.shl
+            local.get $p4
+            i32.sub
+            i32.const 39
+            i32.add
+            i32.const 1
+            i32.shr_s
+            i32.add
+            i32.store
+            local.get $p2
+            i32.const 4
+            i32.add
+            local.set $p2
+            local.get $p3
+            local.get $p3
+            i32.const 1
+            i32.add
+            local.tee $p3
+            i32.le_u
+            br_if $L47
+          end
+          br $B43
+        end
+        i32.const 0
+        local.set $p3
+        loop $L48
+          local.get $p3
+          local.get $l37
+          i32.add
+          i32.const 66
+          i32.store
+          local.get $p3
+          i32.const 4
+          i32.add
+          local.tee $p3
+          i32.const 1024
+          i32.ne
+          br_if $L48
+        end
+        i32.const 3
+        local.set $p3
+        local.get $l38
+        local.set $p2
+        loop $L49
+          local.get $p2
+          local.get $p3
+          i32.const 1058672
+          i32.add
+          i32.load8_u
+          i32.const 1058944
+          i32.add
+          i32.load8_u
+          i32.const 3
+          i32.shl
+          i32.const 60
+          i32.add
+          i32.store
+          local.get $p2
+          i32.const 4
+          i32.add
+          local.set $p2
+          local.get $p3
+          i32.const 1
+          i32.add
+          local.tee $p3
+          i32.const 259
+          i32.ne
+          br_if $L49
+        end
+        local.get $p0
+        i64.const 614180323471
+        i64.store offset=8969424 align=4
+        local.get $p0
+        i64.const 579820585095
+        i64.store offset=8969416 align=4
+        local.get $p0
+        i64.const 545460846719
+        i64.store offset=8969408 align=4
+        local.get $p0
+        i64.const 511101108343
+        i64.store offset=8969400 align=4
+        local.get $p0
+        i64.const 476741369967
+        i64.store offset=8969392 align=4
+        local.get $p0
+        i64.const 442381631591
+        i64.store offset=8969384 align=4
+        local.get $p0
+        i64.const 408021893215
+        i64.store offset=8969376 align=4
+        local.get $p0
+        i64.const 373662154839
+        i64.store offset=8969368 align=4
+        local.get $p0
+        i64.const 339302416463
+        i64.store offset=8969360 align=4
+        local.get $p0
+        i64.const 304942678087
+        i64.store offset=8969352 align=4
+        local.get $p0
+        i64.const 270582939711
+        i64.store offset=8969344 align=4
+        local.get $p0
+        i64.const 236223201335
+        i64.store offset=8969336 align=4
+        local.get $p0
+        i64.const 201863462959
+        i64.store offset=8969328 align=4
+        local.get $p0
+        i64.const 167503724583
+        i64.store offset=8969320 align=4
+        local.get $p0
+        i64.const 167503724583
+        i64.store offset=8969312 align=4
+      end
+      local.get $l27
+      i32.const 3
+      i32.shl
+      local.tee $p2
+      local.get $l49
+      i32.add
+      local.set $l10
+      local.get $p0
+      local.get $p2
+      i32.add
+      i32.const 6565188
+      i32.add
+      local.set $l28
+      loop $L50
+        i32.const 0
+        local.set $l7
+        local.get $l28
+        i32.const 0
+        i32.store
+        local.get $l10
+        local.set $l9
+        local.get $l28
+        local.set $l8
+        local.get $l13
+        local.set $l12
+        loop $L51
+          local.get $l12
+          i32.const 4
+          i32.sub
+          local.tee $p2
+          i32.load16_u offset=2
+          local.tee $p4
+          i32.const 2
+          i32.shl
+          local.get $p0
+          i32.add
+          i32.const 8967252
+          i32.add
+          i32.load
+          local.get $l8
+          i32.const 4
+          i32.sub
+          local.tee $l34
+          local.get $p4
+          i32.const 9
+          i32.shl
+          i32.const 1
+          i32.or
+          i32.store
+          local.get $l8
+          i32.const 8
+          i32.sub
+          local.set $l8
+          local.get $l7
+          i32.add
+          local.set $l7
+          block $B52 (result i32)
+            local.get $p2
+            local.get $p2
+            i32.load16_u
+            local.tee $p3
+            i32.eqz
+            br_if $B52
+            drop
+            i32.const 3
+            local.set $p4
+            local.get $p3
+            i32.const -1
+            i32.xor
+            local.tee $l35
+            local.set $l14
+            loop $L53
+              local.get $p4
+              i32.const 2
+              i32.shl
+              local.get $l48
+              i32.add
+              local.set $p3
+              local.get $p4
+              i32.const 3
+              i32.shl
+              local.get $l9
+              i32.add
+              local.set $p2
+              local.get $l14
+              i32.const 2
+              i32.shl
+              local.get $l12
+              i32.add
+              local.tee $l31
+              i32.load16_u offset=2
+              local.tee $l6
+              i32.const 9
+              i32.shl
+              local.set $l36
+              local.get $l31
+              i32.load16_u
+              local.set $l26
+              local.get $p0
+              local.get $l6
+              i32.add
+              i32.const 4572
+              i32.add
+              i32.load8_u
+              i32.const 2
+              i32.shl
+              local.get $p0
+              i32.add
+              i32.const 8969312
+              i32.add
+              i32.load
+              local.set $l31
+              loop $L54
+                local.get $l7
+                local.get $p2
+                i32.load
+                local.get $p3
+                i32.load
+                local.get $l31
+                i32.add
+                i32.add
+                local.tee $l6
+                i32.gt_u
+                if $I55
+                  local.get $l34
+                  local.get $p4
+                  local.get $l36
+                  i32.or
+                  i32.store
+                  local.get $l6
+                  local.set $l7
+                end
+                local.get $p3
+                i32.const 4
+                i32.add
+                local.set $p3
+                local.get $p2
+                i32.const 8
+                i32.add
+                local.set $p2
+                local.get $l26
+                local.get $p4
+                i32.const 1
+                i32.add
+                local.tee $p4
+                i32.ge_u
+                br_if $L54
+              end
+              local.get $l14
+              i32.const 1
+              i32.add
+              local.tee $l14
+              i32.const -1
+              i32.ne
+              br_if $L53
+            end
+            local.get $l35
+            i32.const 2
+            i32.shl
+            local.get $l12
+            i32.add
+          end
+          local.set $l12
+          local.get $l8
+          local.get $l7
+          i32.store
+          local.get $l9
+          i32.const 8
+          i32.sub
+          local.set $l9
+          local.get $l8
+          local.get $l39
+          i32.ne
+          br_if $L51
+        end
+        local.get $l53
+        i32.const 1280
+        call $f42
+        local.set $l8
+        local.get $l39
+        local.set $p3
+        loop $L56
+          local.get $p3
+          i32.load offset=4
+          local.tee $p2
+          i32.const 9
+          i32.shr_u
+          local.set $l9
+          block $B57 (result i32)
+            local.get $l9
+            i32.const 2
+            i32.shl
+            local.get $p0
+            i32.add
+            i32.const 4
+            i32.add
+            local.get $p2
+            i32.const 511
+            i32.and
+            local.tee $p4
+            i32.const 1
+            i32.eq
+            br_if $B57
+            drop
+            local.get $p4
+            i32.const 1058672
+            i32.add
+            i32.load8_u
+            i32.const 2
+            i32.shl
+            local.get $l8
+            i32.add
+            i32.const 1028
+            i32.add
+            local.tee $p2
+            local.get $p2
+            i32.load
+            i32.const 1
+            i32.add
+            i32.store
+            local.get $p0
+            local.get $l9
+            i32.add
+            i32.const 4572
+            i32.add
+            i32.load8_u
+            i32.const 2
+            i32.shl
+            local.get $l8
+            i32.add
+            i32.const 1152
+            i32.add
+          end
+          local.tee $p2
+          local.get $p2
+          i32.load
+          i32.const 1
+          i32.add
+          i32.store
+          local.get $l28
+          local.get $p4
+          i32.const 3
+          i32.shl
+          local.get $p3
+          i32.add
+          local.tee $p3
+          i32.ne
+          br_if $L56
+        end
+        local.get $l32
+        i32.const 1
+        i32.sub
+        local.tee $l32
+        if $I58
+          i32.const 288
+          i32.const 14
+          local.get $l8
+          local.get $l41
+          local.get $l52
+          call $f10
+          i32.const 32
+          i32.const 15
+          local.get $l51
+          local.get $l40
+          local.get $l50
+          call $f10
+          i32.const 0
+          local.set $p3
+          local.get $l37
+          local.set $p2
+          loop $L59
+            local.get $p2
+            local.get $p3
+            local.get $l41
+            i32.add
+            i32.load8_u
+            local.tee $p4
+            i32.const 13
+            local.get $p4
+            select
+            i32.const 3
+            i32.shl
+            i32.store
+            local.get $p2
+            i32.const 4
+            i32.add
+            local.set $p2
+            local.get $p3
+            i32.const 1
+            i32.add
+            local.tee $p3
+            i32.const 256
+            i32.ne
+            br_if $L59
+          end
+          i32.const 3
+          local.set $p3
+          local.get $l38
+          local.set $p2
+          loop $L60
+            local.get $p2
+            local.get $p3
+            i32.const 1058672
+            i32.add
+            i32.load8_u
+            local.tee $l9
+            local.get $p0
+            i32.add
+            i32.const 2821
+            i32.add
+            i32.load8_u
+            local.tee $p4
+            i32.const 13
+            local.get $p4
+            select
+            local.get $l9
+            i32.const 1058944
+            i32.add
+            i32.load8_u
+            i32.add
+            i32.const 3
+            i32.shl
+            i32.store
+            local.get $p2
+            i32.const 4
+            i32.add
+            local.set $p2
+            local.get $p3
+            i32.const 1
+            i32.add
+            local.tee $p3
+            i32.const 259
+            i32.ne
+            br_if $L60
+          end
+          i32.const 0
+          local.set $p3
+          local.get $l42
+          local.set $p2
+          loop $L61
+            local.get $p2
+            local.get $p3
+            i32.const 1058976
+            i32.add
+            i32.load8_u
+            local.get $p3
+            local.get $l40
+            i32.add
+            i32.load8_u
+            local.tee $p4
+            i32.const 10
+            local.get $p4
+            select
+            i32.add
+            i32.const 3
+            i32.shl
+            i32.store
+            local.get $p2
+            i32.const 4
+            i32.add
+            local.set $p2
+            local.get $p3
+            i32.const 1
+            i32.add
+            local.tee $p3
+            i32.const 30
+            i32.ne
+            br_if $L61
+          end
+          br $L50
+        end
+      end
+      local.get $p0
+      local.get $l11
+      i32.const 8
+      i32.add
+      local.get $l25
+      local.get $l27
+      local.get $l5
+      local.get $l22
+      i32.eq
+      i32.const 1
+      call $f2
+      local.get $l5
+      local.set $l25
+      local.get $l5
+      local.get $l22
+      i32.ne
+      br_if $L1
+    end
+    block $B62 (result i32)
+      i32.const 0
+      local.get $l11
+      i32.load offset=20
+      local.tee $p3
+      local.get $l11
+      i32.load offset=24
+      i32.eq
+      br_if $B62
+      drop
+      local.get $l11
+      i32.load offset=12
+      i32.const 1
+      i32.ge_s
+      if $I63 (result i32)
+        local.get $l11
+        local.get $p3
+        i32.const 1
+        i32.add
+        i32.store offset=20
+        local.get $p3
+        local.get $l11
+        i32.load offset=8
+        i32.store8
+        local.get $l11
+        local.get $l11
+        i32.load offset=8
+        i32.const 8
+        i32.shr_u
+        local.tee $p3
+        i32.store offset=8
+        local.get $l11
+        local.get $l11
+        i32.load offset=12
+        i32.const 8
+        i32.sub
+        local.tee $p0
+        i32.store offset=12
+        local.get $p0
+        i32.const 1
+        i32.ge_s
+        if $I64
+          loop $L65
+            local.get $l11
+            local.get $l11
+            i32.load offset=20
+            local.tee $p0
+            i32.const 1
+            i32.add
+            i32.store offset=20
+            local.get $p0
+            local.get $p3
+            i32.store8
+            local.get $l11
+            local.get $l11
+            i32.load offset=8
+            i32.const 8
+            i32.shr_u
+            local.tee $p3
+            i32.store offset=8
+            local.get $l11
+            local.get $l11
+            i32.load offset=12
+            i32.const 8
+            i32.sub
+            local.tee $p0
+            i32.store offset=12
+            local.get $p0
+            i32.const 0
+            i32.gt_s
+            br_if $L65
+          end
+        end
+        local.get $l11
+        i32.load offset=20
+      else
+        local.get $p3
+      end
+      local.get $l11
+      i32.load offset=16
+      i32.sub
+    end
+    local.get $l11
+    i32.const 32
+    i32.add
+    global.set $g0)
+  (func $f6 (type $t4) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (result i32)
+    (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32) (local $l29 i32) (local $l30 i32) (local $l31 i32) (local $l32 i32) (local $l33 i32) (local $l34 i32) (local $l35 i32) (local $l36 i32) (local $l37 i32) (local $l38 i32) (local $l39 i32) (local $l40 i32) (local $l41 i32) (local $l42 i32)
+    global.get $g0
+    i32.const 32
+    i32.sub
+    local.tee $l10
+    global.set $g0
+    local.get $l10
+    local.get $p3
+    i32.store offset=20
+    local.get $l10
+    local.get $p3
+    i32.store offset=16
+    local.get $l10
+    i64.const 0
+    i64.store offset=8
+    local.get $l10
+    local.get $p3
+    local.get $p4
+    i32.add
+    i32.const 8
+    i32.sub
+    i32.store offset=24
+    i32.const 38848
+    local.set $p3
+    local.get $p0
+    i32.const 38848
+    i32.add
+    local.set $l11
+    local.get $p0
+    i32.load offset=37344
+    local.set $p4
+    loop $L0
+      local.get $p0
+      local.get $p3
+      i32.add
+      i32.const 32768
+      i32.store16
+      local.get $p3
+      i32.const 2
+      i32.add
+      local.tee $p3
+      i32.const 235456
+      i32.ne
+      br_if $L0
+    end
+    local.get $p4
+    i32.const 258
+    local.get $p4
+    i32.const 258
+    i32.lt_u
+    select
+    local.set $l14
+    local.get $p0
+    i32.const 38848
+    i32.add
+    local.set $l29
+    local.get $p0
+    i32.const 4
+    i32.add
+    local.set $l40
+    local.get $p0
+    i32.const 300992
+    i32.add
+    local.set $l41
+    local.get $p1
+    local.get $p2
+    i32.add
+    local.set $l24
+    i32.const 258
+    local.set $l13
+    local.get $p1
+    local.set $p2
+    loop $L1
+      local.get $p0
+      i32.const 0
+      i32.store offset=4524
+      local.get $p0
+      i64.const 0
+      i64.store offset=4484 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4528 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4492 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4536 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4500 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4544 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4508 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4552 align=4
+      local.get $p0
+      i32.const 0
+      i32.store offset=4568
+      local.get $p0
+      i64.const 0
+      i64.store offset=4560 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4516 align=4
+      local.get $l40
+      i32.const 1280
+      call $f42
+      local.set $l30
+      local.get $p2
+      local.tee $l31
+      local.get $l24
+      local.get $p2
+      i32.sub
+      local.tee $p2
+      i32.const 300000
+      local.get $p2
+      i32.const 300000
+      i32.lt_s
+      select
+      i32.add
+      local.set $l42
+      i32.const 0
+      local.set $l28
+      local.get $l41
+      local.set $l17
+      local.get $l31
+      local.set $l5
+      loop $L2
+        local.get $l24
+        local.get $l5
+        i32.sub
+        local.tee $p2
+        i32.const 258
+        i32.lt_s
+        local.set $l8
+        local.get $p2
+        local.get $l13
+        local.get $l8
+        select
+        local.set $l13
+        local.get $p2
+        local.get $l14
+        local.get $p2
+        local.get $l14
+        i32.lt_u
+        select
+        local.get $p0
+        i32.load offset=37348
+        local.set $l12
+        local.get $l5
+        local.get $p1
+        i32.sub
+        local.tee $p4
+        i32.const 32768
+        i32.eq
+        if $I3
+          i32.const 0
+          local.set $p3
+          loop $L4
+            local.get $p3
+            local.get $l29
+            i32.add
+            local.tee $p2
+            i32.load16_u
+            local.set $p4
+            local.get $p2
+            local.get $p4
+            i32.const -1
+            i32.xor
+            i32.const 16
+            i32.shl
+            i32.const 16
+            i32.shr_s
+            i32.const 15
+            i32.shr_u
+            local.get $p4
+            i32.and
+            i32.const 32768
+            i32.or
+            i32.store16
+            local.get $p3
+            i32.const 2
+            i32.add
+            local.tee $p3
+            i32.const 262144
+            i32.ne
+            br_if $L4
+          end
+          i32.const 0
+          local.set $p4
+          local.get $p1
+          i32.const 32768
+          i32.add
+          local.set $p1
+        end
+        local.get $l14
+        local.get $l8
+        select
+        local.set $l14
+        block $B5 (result i32)
+          block $B6
+            block $B7
+              block $B8
+                block $B9
+                  block $B10
+                    block $B11
+                      block $B12
+                        block $B13
+                          local.get $l13
+                          i32.const 5
+                          i32.lt_u
+                          local.tee $l19
+                          br_if $B13
+                          local.get $l26
+                          i32.const 1
+                          i32.shl
+                          local.get $l11
+                          i32.add
+                          local.tee $l7
+                          i32.load16_s
+                          local.set $l8
+                          local.get $l25
+                          i32.const 1
+                          i32.shl
+                          local.get $l11
+                          i32.add
+                          i32.const 65536
+                          i32.add
+                          local.tee $p2
+                          i32.load16_s
+                          local.set $p3
+                          local.get $l7
+                          local.get $p4
+                          i32.store16
+                          local.get $p2
+                          local.get $p4
+                          i32.store16
+                          local.get $p4
+                          i32.const 1
+                          i32.shl
+                          local.get $l11
+                          i32.add
+                          i32.const 196608
+                          i32.add
+                          local.get $p3
+                          i32.store16
+                          local.get $l5
+                          i32.load8_u offset=1
+                          local.get $l5
+                          i32.load8_u offset=3
+                          i32.const 16
+                          i32.shl
+                          local.get $l5
+                          i32.load8_u offset=4
+                          local.tee $l6
+                          i32.const 24
+                          i32.shl
+                          i32.or
+                          local.get $l5
+                          i32.load8_u offset=2
+                          i32.const 8
+                          i32.shl
+                          i32.or
+                          i32.or
+                          local.tee $p2
+                          i32.const 506832829
+                          i32.mul
+                          i32.const 16
+                          i32.shr_u
+                          local.set $l25
+                          local.get $p2
+                          i32.const 16777215
+                          i32.and
+                          i32.const 506832829
+                          i32.mul
+                          i32.const 17
+                          i32.shr_u
+                          local.set $l26
+                          local.get $p4
+                          i32.const 32768
+                          i32.xor
+                          i32.const 16
+                          i32.shl
+                          i32.const 16
+                          i32.shr_s
+                          local.tee $l16
+                          local.get $l8
+                          i32.ge_s
+                          br_if $B13
+                          i32.const 3
+                          i32.const 2
+                          local.get $l5
+                          i32.load align=1
+                          local.tee $l15
+                          i32.const 16777215
+                          i32.and
+                          local.get $p1
+                          local.get $l8
+                          i32.add
+                          local.tee $p4
+                          i32.load16_u align=1
+                          local.get $p4
+                          i32.const 2
+                          i32.add
+                          i32.load8_u
+                          i32.const 16
+                          i32.shl
+                          i32.or
+                          i32.eq
+                          local.tee $p2
+                          select
+                          local.set $l9
+                          local.get $p4
+                          local.get $l5
+                          local.get $p2
+                          select
+                          local.set $l8
+                          local.get $p3
+                          local.get $l16
+                          i32.le_s
+                          br_if $B10
+                          i32.const 1
+                          local.get $l12
+                          i32.sub
+                          local.set $p4
+                          loop $L14
+                            local.get $l15
+                            local.get $p3
+                            i32.const 16
+                            i32.shl
+                            i32.const 16
+                            i32.shr_s
+                            local.tee $l27
+                            local.get $p1
+                            i32.add
+                            local.tee $l7
+                            i32.load align=1
+                            i32.ne
+                            if $I15
+                              local.get $l16
+                              local.get $l27
+                              i32.const 32767
+                              i32.and
+                              i32.const 1
+                              i32.shl
+                              local.get $l11
+                              i32.add
+                              i32.const 196608
+                              i32.add
+                              i32.load16_s
+                              local.tee $p3
+                              i32.ge_s
+                              br_if $B10
+                              local.get $p4
+                              i32.const 1
+                              i32.add
+                              local.tee $p4
+                              i32.const 1
+                              i32.ne
+                              br_if $L14
+                              br $B10
+                            end
+                          end
+                          i32.const 4
+                          local.set $l12
+                          block $B16
+                            local.get $l19
+                            br_if $B16
+                            local.get $l7
+                            i32.load8_u offset=4
+                            local.get $l6
+                            i32.const 255
+                            i32.and
+                            i32.ne
+                            br_if $B16
+                            local.get $p1
+                            local.get $l27
+                            i32.add
+                            local.set $l8
+                            i32.const 5
+                            local.set $l6
+                            loop $L17
+                              local.get $l6
+                              local.get $l13
+                              i32.eq
+                              if $I18
+                                local.get $l13
+                                local.set $l12
+                                br $B16
+                              end
+                              local.get $l5
+                              local.get $l6
+                              i32.add
+                              local.set $p3
+                              local.get $l6
+                              local.get $l8
+                              i32.add
+                              local.get $l6
+                              i32.const 1
+                              i32.add
+                              local.set $l6
+                              i32.load8_u
+                              local.get $p3
+                              i32.load8_u
+                              i32.eq
+                              br_if $L17
+                            end
+                            local.get $l6
+                            i32.const 1
+                            i32.sub
+                            local.set $l12
+                          end
+                          local.get $l12
+                          local.get $l14
+                          i32.ge_u
+                          br_if $B11
+                          local.get $l16
+                          local.get $l27
+                          i32.const 32767
+                          i32.and
+                          i32.const 1
+                          i32.shl
+                          local.get $l11
+                          i32.add
+                          i32.const 196608
+                          i32.add
+                          i32.load16_s
+                          local.tee $p3
+                          i32.ge_s
+                          br_if $B11
+                          local.get $p4
+                          i32.eqz
+                          br_if $B11
+                          i32.const 0
+                          local.get $p4
+                          i32.sub
+                          local.set $l6
+                          local.get $l13
+                          br_if $B12
+                          local.get $p1
+                          local.get $l12
+                          i32.add
+                          local.set $l8
+                          local.get $l5
+                          local.get $l12
+                          i32.add
+                          i32.load8_u
+                          local.set $p4
+                          loop $L19
+                            local.get $p3
+                            i32.const 16
+                            i32.shl
+                            i32.const 16
+                            i32.shr_s
+                            local.tee $p2
+                            i32.const 1
+                            i32.shl
+                            i32.const 65534
+                            i32.and
+                            local.get $l11
+                            i32.add
+                            i32.const 196608
+                            i32.add
+                            i32.load16_s
+                            local.set $p3
+                            local.get $p2
+                            local.get $l8
+                            i32.add
+                            i32.load8_u
+                            local.get $p4
+                            i32.const 255
+                            i32.and
+                            i32.ne
+                            drop
+                            local.get $p3
+                            local.get $l16
+                            i32.le_s
+                            br_if $B11
+                            local.get $l6
+                            i32.const 1
+                            i32.sub
+                            local.tee $l6
+                            br_if $L19
+                          end
+                          br $B11
+                        end
+                        local.get $l5
+                        i32.const 1
+                        i32.add
+                        local.set $p2
+                        local.get $l5
+                        i32.load8_u
+                        local.set $l15
+                        br $B9
+                      end
+                      loop $L20
+                        i32.const 1
+                        local.get $l6
+                        i32.sub
+                        local.set $p4
+                        local.get $l5
+                        local.get $l12
+                        i32.add
+                        i32.load8_u
+                        local.set $p2
+                        loop $L21
+                          local.get $l12
+                          local.get $p3
+                          i32.const 16
+                          i32.shl
+                          i32.const 16
+                          i32.shr_s
+                          local.tee $p3
+                          local.get $p1
+                          i32.add
+                          local.tee $l8
+                          i32.add
+                          i32.load8_u
+                          local.get $p2
+                          i32.const 255
+                          i32.and
+                          i32.eq
+                          if $I22
+                            local.get $p1
+                            local.get $p3
+                            i32.add
+                            local.set $p2
+                            i32.const 0
+                            local.set $l9
+                            block $B23
+                              loop $L24
+                                local.get $p2
+                                local.get $l9
+                                i32.add
+                                i32.load8_u
+                                local.get $l5
+                                local.get $l9
+                                i32.add
+                                i32.load8_u
+                                i32.ne
+                                br_if $B23
+                                local.get $l9
+                                i32.const 1
+                                i32.add
+                                local.tee $l9
+                                local.get $l13
+                                i32.ne
+                                br_if $L24
+                              end
+                              local.get $l13
+                              local.set $l9
+                            end
+                            local.get $l9
+                            local.get $l12
+                            i32.gt_u
+                            if $I25
+                              local.get $l8
+                              local.set $l7
+                              local.get $l9
+                              local.set $l12
+                              local.get $l9
+                              local.get $l14
+                              i32.ge_u
+                              br_if $B10
+                            end
+                            local.get $l16
+                            local.get $p3
+                            i32.const 32767
+                            i32.and
+                            i32.const 1
+                            i32.shl
+                            local.get $l11
+                            i32.add
+                            i32.const 196608
+                            i32.add
+                            i32.load16_s
+                            local.tee $p3
+                            i32.ge_s
+                            br_if $B11
+                            i32.const 0
+                            local.get $p4
+                            i32.sub
+                            local.set $l6
+                            local.get $l7
+                            local.set $l8
+                            local.get $l12
+                            local.set $l9
+                            local.get $p4
+                            br_if $L20
+                            br $B10
+                          end
+                          local.get $l16
+                          local.get $p3
+                          i32.const 32767
+                          i32.and
+                          i32.const 1
+                          i32.shl
+                          local.get $l11
+                          i32.add
+                          i32.const 196608
+                          i32.add
+                          i32.load16_s
+                          local.tee $p3
+                          i32.ge_s
+                          br_if $B11
+                          local.get $p4
+                          i32.const 1
+                          i32.add
+                          local.tee $p4
+                          i32.const 1
+                          i32.ne
+                          br_if $L21
+                        end
+                      end
+                    end
+                    local.get $l7
+                    local.set $l8
+                    local.get $l12
+                    local.set $l9
+                  end
+                  local.get $l5
+                  i32.const 1
+                  i32.add
+                  local.set $p2
+                  local.get $l9
+                  i32.const 3
+                  i32.lt_u
+                  br_if $B9
+                  local.get $l5
+                  local.get $l8
+                  i32.sub
+                  local.set $l23
+                  i32.const 36
+                  i32.const 32
+                  local.get $l9
+                  i32.const 8
+                  i32.gt_u
+                  select
+                  local.get $p0
+                  i32.add
+                  i32.const 4484
+                  i32.add
+                  local.tee $p3
+                  local.get $p3
+                  i32.load
+                  i32.const 1
+                  i32.add
+                  i32.store
+                  local.get $p0
+                  local.get $p0
+                  i32.load offset=4564
+                  i32.const 1
+                  i32.add
+                  i32.store offset=4564
+                  local.get $l9
+                  local.get $l14
+                  i32.lt_u
+                  br_if $B8
+                  local.get $l9
+                  local.set $p4
+                  local.get $p2
+                  local.set $l5
+                  br $B7
+                end
+                local.get $l15
+                i32.const 255
+                i32.and
+                i32.const 2
+                i32.shl
+                local.get $p0
+                i32.add
+                i32.const 4
+                i32.add
+                local.tee $p3
+                local.get $p3
+                i32.load
+                i32.const 1
+                i32.add
+                i32.store
+                local.get $l5
+                i32.load8_u
+                local.tee $p3
+                i32.const 5
+                i32.shr_u
+                i32.const 6
+                i32.and
+                local.get $p3
+                i32.const 1
+                i32.and
+                i32.or
+                i32.const 2
+                i32.shl
+                local.get $p0
+                i32.add
+                i32.const 4484
+                i32.add
+                local.tee $p3
+                local.get $p3
+                i32.load
+                i32.const 1
+                i32.add
+                i32.store
+                local.get $p0
+                local.get $p0
+                i32.load offset=4564
+                i32.const 1
+                i32.add
+                i32.store offset=4564
+                local.get $l28
+                i32.const 1
+                i32.add
+                br $B5
+              end
+              local.get $l5
+              i32.const 6
+              i32.add
+              local.set $l12
+              loop $L26
+                local.get $l24
+                local.get $p2
+                i32.sub
+                local.tee $p3
+                i32.const 258
+                i32.lt_s
+                local.set $l6
+                local.get $p3
+                local.get $l13
+                local.get $l6
+                select
+                local.set $l13
+                local.get $p3
+                local.get $l14
+                local.get $p3
+                local.get $l14
+                i32.lt_u
+                select
+                local.get $p0
+                i32.load offset=37348
+                local.set $l5
+                local.get $p2
+                local.get $p1
+                i32.sub
+                local.tee $p4
+                i32.const 32768
+                i32.eq
+                if $I27
+                  i32.const 0
+                  local.set $p3
+                  loop $L28
+                    local.get $p3
+                    local.get $l29
+                    i32.add
+                    local.tee $p4
+                    i32.load16_u
+                    local.set $l8
+                    local.get $p4
+                    local.get $l8
+                    i32.const -1
+                    i32.xor
+                    i32.const 16
+                    i32.shl
+                    i32.const 16
+                    i32.shr_s
+                    i32.const 15
+                    i32.shr_u
+                    local.get $l8
+                    i32.and
+                    i32.const 32768
+                    i32.or
+                    i32.store16
+                    local.get $p3
+                    i32.const 2
+                    i32.add
+                    local.tee $p3
+                    i32.const 262144
+                    i32.ne
+                    br_if $L28
+                  end
+                  i32.const 0
+                  local.set $p4
+                  local.get $p1
+                  i32.const 32768
+                  i32.add
+                  local.set $p1
+                end
+                local.get $l14
+                local.get $l6
+                select
+                local.set $l14
+                block $B29
+                  block $B30
+                    block $B31
+                      block $B32
+                        local.get $l13
+                        i32.const 5
+                        i32.lt_u
+                        local.tee $l27
+                        br_if $B32
+                        local.get $l5
+                        i32.const 1
+                        i32.shr_u
+                        local.set $l21
+                        local.get $p4
+                        i32.const 32768
+                        i32.xor
+                        i32.const 16
+                        i32.shl
+                        i32.const 16
+                        i32.shr_s
+                        local.set $l20
+                        local.get $l26
+                        i32.const 1
+                        i32.shl
+                        local.get $l11
+                        i32.add
+                        local.tee $l7
+                        i32.load16_s
+                        local.set $l8
+                        local.get $l25
+                        i32.const 1
+                        i32.shl
+                        local.get $l11
+                        i32.add
+                        i32.const 65536
+                        i32.add
+                        local.tee $l5
+                        i32.load16_s
+                        local.set $p3
+                        local.get $l7
+                        local.get $p4
+                        i32.store16
+                        local.get $l5
+                        local.get $p4
+                        i32.store16
+                        local.get $p4
+                        i32.const 1
+                        i32.shl
+                        local.get $l11
+                        i32.add
+                        i32.const 196608
+                        i32.add
+                        local.get $p3
+                        i32.store16
+                        local.get $p2
+                        i32.load8_u offset=1
+                        local.get $p2
+                        i32.load8_u offset=3
+                        i32.const 16
+                        i32.shl
+                        local.get $p2
+                        i32.load8_u offset=4
+                        local.tee $l19
+                        i32.const 24
+                        i32.shl
+                        i32.or
+                        local.get $p2
+                        i32.load8_u offset=2
+                        i32.const 8
+                        i32.shl
+                        i32.or
+                        i32.or
+                        local.tee $p4
+                        i32.const 506832829
+                        i32.mul
+                        i32.const 16
+                        i32.shr_u
+                        local.set $l25
+                        local.get $p4
+                        i32.const 16777215
+                        i32.and
+                        i32.const 506832829
+                        i32.mul
+                        i32.const 17
+                        i32.shr_u
+                        local.set $l26
+                        block $B33
+                          local.get $l9
+                          i32.const 3
+                          i32.le_u
+                          if $I34
+                            local.get $l8
+                            local.get $l20
+                            i32.le_s
+                            br_if $B32
+                            local.get $p2
+                            i32.load align=1
+                            local.set $l6
+                            i32.const 3
+                            local.set $p4
+                            local.get $p2
+                            local.set $l7
+                            local.get $l9
+                            i32.const 2
+                            i32.le_u
+                            if $I35
+                              i32.const 3
+                              local.get $l9
+                              local.get $l6
+                              i32.const 16777215
+                              i32.and
+                              local.get $p1
+                              local.get $l8
+                              i32.add
+                              local.tee $l7
+                              i32.load16_u align=1
+                              local.get $l7
+                              i32.const 2
+                              i32.add
+                              i32.load8_u
+                              i32.const 16
+                              i32.shl
+                              i32.or
+                              i32.eq
+                              local.tee $l5
+                              select
+                              local.set $p4
+                              local.get $l7
+                              local.get $p2
+                              local.get $l5
+                              select
+                              local.set $l7
+                            end
+                            local.get $p3
+                            local.get $l20
+                            i32.le_s
+                            br_if $B30
+                            i32.const 1
+                            local.get $l21
+                            i32.sub
+                            local.set $l5
+                            loop $L36
+                              local.get $l6
+                              local.get $p3
+                              i32.const 16
+                              i32.shl
+                              i32.const 16
+                              i32.shr_s
+                              local.tee $l16
+                              local.get $p1
+                              i32.add
+                              local.tee $l8
+                              i32.load align=1
+                              i32.ne
+                              if $I37
+                                local.get $l20
+                                local.get $l16
+                                i32.const 32767
+                                i32.and
+                                i32.const 1
+                                i32.shl
+                                local.get $l11
+                                i32.add
+                                i32.const 196608
+                                i32.add
+                                i32.load16_s
+                                local.tee $p3
+                                i32.ge_s
+                                br_if $B30
+                                local.get $l5
+                                i32.const 1
+                                i32.add
+                                local.tee $l5
+                                i32.const 1
+                                i32.ne
+                                br_if $L36
+                                br $B30
+                              end
+                            end
+                            i32.const 4
+                            local.set $l6
+                            block $B38
+                              local.get $l27
+                              br_if $B38
+                              local.get $l8
+                              i32.load8_u offset=4
+                              local.get $l19
+                              i32.const 255
+                              i32.and
+                              i32.ne
+                              br_if $B38
+                              local.get $l13
+                              i32.const 5
+                              i32.sub
+                              local.set $l19
+                              local.get $p1
+                              local.get $l16
+                              i32.add
+                              i32.const 5
+                              i32.add
+                              local.set $l6
+                              i32.const 0
+                              local.set $p4
+                              loop $L39
+                                local.get $p4
+                                local.get $l19
+                                i32.eq
+                                if $I40
+                                  local.get $l13
+                                  local.set $l6
+                                  br $B38
+                                end
+                                local.get $p4
+                                local.get $l12
+                                i32.add
+                                local.set $l7
+                                local.get $p4
+                                local.get $l6
+                                i32.add
+                                local.get $p4
+                                i32.const 1
+                                i32.add
+                                local.set $p4
+                                i32.load8_u
+                                local.get $l7
+                                i32.load8_u
+                                i32.eq
+                                br_if $L39
+                              end
+                              local.get $p4
+                              i32.const 4
+                              i32.add
+                              local.set $l6
+                            end
+                            local.get $l6
+                            local.get $l14
+                            i32.ge_u
+                            br_if $B31
+                            local.get $l20
+                            local.get $l16
+                            i32.const 32767
+                            i32.and
+                            i32.const 1
+                            i32.shl
+                            local.get $l11
+                            i32.add
+                            i32.const 196608
+                            i32.add
+                            i32.load16_s
+                            local.tee $p3
+                            i32.ge_s
+                            br_if $B31
+                            local.get $l5
+                            i32.eqz
+                            br_if $B31
+                            i32.const 0
+                            local.get $l5
+                            i32.sub
+                            local.set $l21
+                            local.get $l13
+                            br_if $B33
+                            local.get $p1
+                            local.get $l6
+                            i32.add
+                            local.set $l7
+                            local.get $p2
+                            local.get $l6
+                            i32.add
+                            i32.load8_u
+                            local.set $l5
+                            loop $L41
+                              local.get $p3
+                              i32.const 16
+                              i32.shl
+                              i32.const 16
+                              i32.shr_s
+                              local.tee $p4
+                              i32.const 1
+                              i32.shl
+                              i32.const 65534
+                              i32.and
+                              local.get $l11
+                              i32.add
+                              i32.const 196608
+                              i32.add
+                              i32.load16_s
+                              local.set $p3
+                              local.get $p4
+                              local.get $l7
+                              i32.add
+                              i32.load8_u
+                              local.get $l5
+                              i32.const 255
+                              i32.and
+                              i32.ne
+                              drop
+                              local.get $p3
+                              local.get $l20
+                              i32.le_s
+                              br_if $B31
+                              local.get $l21
+                              i32.const 1
+                              i32.sub
+                              local.tee $l21
+                              br_if $L41
+                            end
+                            br $B31
+                          end
+                          local.get $l9
+                          local.get $l14
+                          i32.ge_u
+                          br_if $B32
+                          local.get $p2
+                          local.set $l8
+                          local.get $l9
+                          local.set $l6
+                          local.get $p3
+                          local.get $l20
+                          i32.le_s
+                          br_if $B32
+                        end
+                        loop $L42
+                          i32.const 1
+                          local.get $l21
+                          i32.sub
+                          local.set $l5
+                          local.get $p2
+                          local.get $l6
+                          i32.add
+                          i32.load8_u
+                          local.set $p4
+                          loop $L43
+                            local.get $l6
+                            local.get $p3
+                            i32.const 16
+                            i32.shl
+                            i32.const 16
+                            i32.shr_s
+                            local.tee $l19
+                            local.get $p1
+                            i32.add
+                            local.tee $l7
+                            i32.add
+                            i32.load8_u
+                            local.get $p4
+                            i32.const 255
+                            i32.and
+                            i32.eq
+                            if $I44
+                              local.get $p1
+                              local.get $l19
+                              i32.add
+                              local.set $p3
+                              i32.const 0
+                              local.set $p4
+                              block $B45
+                                loop $L46
+                                  local.get $p3
+                                  local.get $p4
+                                  i32.add
+                                  i32.load8_u
+                                  local.get $p2
+                                  local.get $p4
+                                  i32.add
+                                  i32.load8_u
+                                  i32.ne
+                                  br_if $B45
+                                  local.get $l13
+                                  local.get $p4
+                                  i32.const 1
+                                  i32.add
+                                  local.tee $p4
+                                  i32.ne
+                                  br_if $L46
+                                end
+                                local.get $l13
+                                local.set $p4
+                              end
+                              local.get $p4
+                              local.get $l6
+                              i32.gt_u
+                              if $I47
+                                local.get $l7
+                                local.set $l8
+                                local.get $p4
+                                local.set $l6
+                                local.get $p4
+                                local.get $l14
+                                i32.ge_u
+                                br_if $B30
+                              end
+                              local.get $l20
+                              local.get $l19
+                              i32.const 32767
+                              i32.and
+                              i32.const 1
+                              i32.shl
+                              local.get $l11
+                              i32.add
+                              i32.const 196608
+                              i32.add
+                              i32.load16_s
+                              local.tee $p3
+                              i32.ge_s
+                              br_if $B31
+                              i32.const 0
+                              local.get $l5
+                              i32.sub
+                              local.set $l21
+                              local.get $l8
+                              local.set $l7
+                              local.get $l6
+                              local.set $p4
+                              local.get $l5
+                              br_if $L42
+                              br $B30
+                            end
+                            local.get $l20
+                            local.get $l19
+                            i32.const 32767
+                            i32.and
+                            i32.const 1
+                            i32.shl
+                            local.get $l11
+                            i32.add
+                            i32.const 196608
+                            i32.add
+                            i32.load16_s
+                            local.tee $p3
+                            i32.ge_s
+                            br_if $B31
+                            local.get $l5
+                            i32.const 1
+                            i32.add
+                            local.tee $l5
+                            i32.const 1
+                            i32.ne
+                            br_if $L43
+                          end
+                        end
+                        br $B31
+                      end
+                      local.get $p2
+                      i32.const 1
+                      i32.add
+                      local.set $l5
+                      br $B29
+                    end
+                    local.get $l8
+                    local.set $l7
+                    local.get $l6
+                    local.set $p4
+                  end
+                  local.get $p2
+                  i32.const 1
+                  i32.add
+                  local.set $l5
+                  local.get $p4
+                  local.get $l9
+                  i32.le_u
+                  br_if $B29
+                  local.get $p2
+                  i32.const 1
+                  i32.sub
+                  i32.load8_u
+                  i32.const 2
+                  i32.shl
+                  local.get $p0
+                  i32.add
+                  i32.const 4
+                  i32.add
+                  local.tee $p3
+                  local.get $p3
+                  i32.load
+                  i32.const 1
+                  i32.add
+                  i32.store
+                  i32.const 36
+                  i32.const 32
+                  local.get $p4
+                  i32.const 8
+                  i32.gt_u
+                  select
+                  local.get $p0
+                  i32.add
+                  i32.const 4484
+                  i32.add
+                  local.tee $p3
+                  local.get $p3
+                  i32.load
+                  i32.const 1
+                  i32.add
+                  i32.store
+                  local.get $p0
+                  local.get $p0
+                  i32.load offset=4564
+                  i32.const 1
+                  i32.add
+                  i32.store offset=4564
+                  local.get $l12
+                  i32.const 1
+                  i32.add
+                  local.set $l12
+                  local.get $l28
+                  i32.const 1
+                  i32.add
+                  local.set $l28
+                  local.get $p2
+                  local.get $l7
+                  i32.sub
+                  local.set $l23
+                  local.get $l5
+                  local.set $p2
+                  local.get $p4
+                  local.set $l9
+                  local.get $p4
+                  local.get $l14
+                  i32.ge_u
+                  br_if $B7
+                  br $L26
+                end
+              end
+              local.get $p0
+              local.get $l23
+              i32.add
+              i32.const 4572
+              i32.add
+              i32.load8_u
+              local.set $l7
+              local.get $l9
+              i32.const 1058672
+              i32.add
+              i32.load8_u
+              local.tee $p4
+              i32.const 2
+              i32.shl
+              local.get $l30
+              i32.add
+              i32.const 1028
+              i32.add
+              local.tee $p3
+              local.get $p3
+              i32.load
+              i32.const 1
+              i32.add
+              i32.store
+              local.get $l7
+              i32.const 2
+              i32.shl
+              local.get $l30
+              i32.add
+              i32.const 1152
+              i32.add
+              local.tee $p3
+              local.get $p3
+              i32.load
+              i32.const 1
+              i32.add
+              i32.store
+              local.get $l17
+              local.get $p4
+              i32.store8 offset=7
+              local.get $l17
+              local.get $l23
+              i32.store16 offset=4
+              local.get $l17
+              local.get $l7
+              i32.store8 offset=6
+              local.get $l17
+              local.get $l9
+              i32.const 23
+              i32.shl
+              local.get $l28
+              i32.or
+              i32.store
+              local.get $l9
+              i32.const 2
+              i32.sub
+              local.set $l15
+              local.get $l17
+              i32.const 8
+              i32.add
+              local.set $l17
+              local.get $l9
+              i32.const 3
+              i32.add
+              local.get $l24
+              local.get $l5
+              i32.sub
+              i32.gt_u
+              if $I48
+                local.get $p2
+                local.get $l15
+                i32.add
+                i32.const 1
+                i32.add
+                local.set $p2
+                br $B6
+              end
+              local.get $l5
+              local.get $p1
+              i32.sub
+              local.set $p3
+              loop $L49
+                local.get $p3
+                i32.const 32768
+                i32.eq
+                if $I50
+                  i32.const 0
+                  local.set $p3
+                  loop $L51
+                    local.get $p3
+                    local.get $l29
+                    i32.add
+                    local.tee $p2
+                    i32.load16_u
+                    local.set $p4
+                    local.get $p2
+                    local.get $p4
+                    i32.const -1
+                    i32.xor
+                    i32.const 16
+                    i32.shl
+                    i32.const 16
+                    i32.shr_s
+                    i32.const 15
+                    i32.shr_u
+                    local.get $p4
+                    i32.and
+                    i32.const 32768
+                    i32.or
+                    i32.store16
+                    local.get $p3
+                    i32.const 2
+                    i32.add
+                    local.tee $p3
+                    i32.const 262144
+                    i32.ne
+                    br_if $L51
+                  end
+                  i32.const 0
+                  local.set $p3
+                  local.get $p1
+                  i32.const 32768
+                  i32.add
+                  local.set $p1
+                end
+                local.get $l26
+                i32.const 1
+                i32.shl
+                local.get $l11
+                i32.add
+                local.get $p3
+                i32.store16
+                local.get $p3
+                i32.const 1
+                i32.shl
+                local.get $l11
+                i32.add
+                i32.const 196608
+                i32.add
+                local.get $l25
+                i32.const 1
+                i32.shl
+                local.get $l11
+                i32.add
+                i32.const 65536
+                i32.add
+                local.tee $p2
+                i32.load16_u
+                i32.store16
+                local.get $p2
+                local.get $p3
+                i32.store16
+                local.get $p3
+                i32.const 1
+                i32.add
+                local.set $p3
+                local.get $l5
+                i32.load offset=1 align=1
+                local.tee $p2
+                i32.const 506832829
+                i32.mul
+                i32.const 16
+                i32.shr_u
+                local.set $l25
+                local.get $p2
+                i32.const 16777215
+                i32.and
+                i32.const 506832829
+                i32.mul
+                i32.const 17
+                i32.shr_u
+                local.set $l26
+                local.get $l5
+                i32.const 1
+                i32.add
+                local.tee $p2
+                local.set $l5
+                local.get $l15
+                i32.const 1
+                i32.sub
+                local.tee $l15
+                br_if $L49
+              end
+              br $B6
+            end
+            local.get $p0
+            local.get $l23
+            i32.add
+            i32.const 4572
+            i32.add
+            i32.load8_u
+            local.set $l7
+            local.get $p4
+            i32.const 1058672
+            i32.add
+            i32.load8_u
+            local.tee $p3
+            i32.const 2
+            i32.shl
+            local.get $l30
+            i32.add
+            i32.const 1028
+            i32.add
+            local.tee $p2
+            local.get $p2
+            i32.load
+            i32.const 1
+            i32.add
+            i32.store
+            local.get $l7
+            i32.const 2
+            i32.shl
+            local.get $l30
+            i32.add
+            i32.const 1152
+            i32.add
+            local.tee $p2
+            local.get $p2
+            i32.load
+            i32.const 1
+            i32.add
+            i32.store
+            local.get $l17
+            local.get $p3
+            i32.store8 offset=7
+            local.get $l17
+            local.get $l23
+            i32.store16 offset=4
+            local.get $l17
+            local.get $l7
+            i32.store8 offset=6
+            local.get $l17
+            local.get $p4
+            i32.const 23
+            i32.shl
+            local.get $l28
+            i32.or
+            i32.store
+            local.get $p4
+            i32.const 1
+            i32.sub
+            local.set $l15
+            local.get $l17
+            i32.const 8
+            i32.add
+            local.set $l17
+            local.get $p4
+            i32.const 4
+            i32.add
+            local.get $l24
+            local.get $l5
+            i32.sub
+            i32.gt_u
+            if $I52
+              local.get $l5
+              local.get $l15
+              i32.add
+              local.set $p2
+              br $B6
+            end
+            local.get $l5
+            local.get $p1
+            i32.sub
+            local.set $p3
+            loop $L53
+              local.get $p3
+              i32.const 32768
+              i32.eq
+              if $I54
+                i32.const 0
+                local.set $p3
+                loop $L55
+                  local.get $p3
+                  local.get $l29
+                  i32.add
+                  local.tee $p2
+                  i32.load16_u
+                  local.set $p4
+                  local.get $p2
+                  local.get $p4
+                  i32.const -1
+                  i32.xor
+                  i32.const 16
+                  i32.shl
+                  i32.const 16
+                  i32.shr_s
+                  i32.const 15
+                  i32.shr_u
+                  local.get $p4
+                  i32.and
+                  i32.const 32768
+                  i32.or
+                  i32.store16
+                  local.get $p3
+                  i32.const 2
+                  i32.add
+                  local.tee $p3
+                  i32.const 262144
+                  i32.ne
+                  br_if $L55
+                end
+                i32.const 0
+                local.set $p3
+                local.get $p1
+                i32.const 32768
+                i32.add
+                local.set $p1
+              end
+              local.get $l26
+              i32.const 1
+              i32.shl
+              local.get $l11
+              i32.add
+              local.get $p3
+              i32.store16
+              local.get $p3
+              i32.const 1
+              i32.shl
+              local.get $l11
+              i32.add
+              i32.const 196608
+              i32.add
+              local.get $l25
+              i32.const 1
+              i32.shl
+              local.get $l11
+              i32.add
+              i32.const 65536
+              i32.add
+              local.tee $p2
+              i32.load16_u
+              i32.store16
+              local.get $p2
+              local.get $p3
+              i32.store16
+              local.get $p3
+              i32.const 1
+              i32.add
+              local.set $p3
+              local.get $l5
+              i32.load offset=1 align=1
+              local.tee $p2
+              i32.const 506832829
+              i32.mul
+              i32.const 16
+              i32.shr_u
+              local.set $l25
+              local.get $p2
+              i32.const 16777215
+              i32.and
+              i32.const 506832829
+              i32.mul
+              i32.const 17
+              i32.shr_u
+              local.set $l26
+              local.get $l5
+              i32.const 1
+              i32.add
+              local.tee $p2
+              local.set $l5
+              local.get $l15
+              i32.const 1
+              i32.sub
+              local.tee $l15
+              br_if $L53
+            end
+          end
+          i32.const 0
+        end
+        local.set $l28
+        block $B56
+          local.get $p2
+          local.get $l42
+          i32.ge_u
+          if $I57
+            local.get $p2
+            local.get $l31
+            i32.sub
+            local.set $l32
+            br $B56
+          end
+          local.get $p2
+          local.set $l5
+          local.get $p0
+          i32.load offset=4564
+          local.tee $l22
+          i32.const 512
+          i32.lt_u
+          br_if $L2
+          local.get $l5
+          local.get $l31
+          i32.sub
+          local.tee $l32
+          i32.const 10000
+          i32.lt_s
+          br_if $L2
+          local.get $l24
+          local.get $l5
+          i32.sub
+          i32.const 10000
+          i32.lt_s
+          br_if $L2
+          block $B58
+            local.get $p0
+            i32.load offset=4568
+            local.tee $l18
+            i32.eqz
+            if $I59
+              local.get $p0
+              i32.load offset=4528
+              local.set $l34
+              local.get $p0
+              i32.load offset=4488
+              local.set $l5
+              local.get $p0
+              i32.load offset=4524
+              local.set $l35
+              local.get $p0
+              i32.load offset=4484
+              local.set $l15
+              local.get $p0
+              i32.load offset=4560
+              local.set $l36
+              local.get $p0
+              i32.load offset=4520
+              local.set $l7
+              local.get $p0
+              i32.load offset=4556
+              local.set $l37
+              local.get $p0
+              i32.load offset=4516
+              local.set $l6
+              local.get $p0
+              i32.load offset=4552
+              local.set $l38
+              local.get $p0
+              i32.load offset=4512
+              local.set $l9
+              local.get $p0
+              i32.load offset=4548
+              local.set $l39
+              local.get $p0
+              i32.load offset=4508
+              local.set $l21
+              local.get $p0
+              i32.load offset=4544
+              local.set $l20
+              local.get $p0
+              i32.load offset=4504
+              local.set $l8
+              local.get $p0
+              i32.load offset=4540
+              local.set $l16
+              local.get $p0
+              i32.load offset=4500
+              local.set $l12
+              local.get $p0
+              i32.load offset=4536
+              local.set $l27
+              local.get $p0
+              i32.load offset=4496
+              local.set $l23
+              local.get $p0
+              i32.load offset=4532
+              local.set $l19
+              local.get $p0
+              i32.load offset=4492
+              local.set $l33
+              br $B58
+            end
+            local.get $l32
+            i32.const 12
+            i32.shr_u
+            local.get $l18
+            i32.mul
+            local.get $l18
+            local.get $p0
+            i32.load offset=4484
+            local.tee $l15
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4524
+            local.tee $l35
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4488
+            local.tee $l5
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4528
+            local.tee $l34
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4492
+            local.tee $l33
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4532
+            local.tee $l19
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4496
+            local.tee $l23
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4536
+            local.tee $l27
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4500
+            local.tee $l12
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4540
+            local.tee $l16
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4504
+            local.tee $l8
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4544
+            local.tee $l20
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4508
+            local.tee $l21
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4548
+            local.tee $l39
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4512
+            local.tee $l9
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4552
+            local.tee $l38
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4516
+            local.tee $l6
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4556
+            local.tee $l37
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            local.get $p0
+            i32.load offset=4520
+            local.tee $l7
+            i32.mul
+            local.tee $p4
+            local.get $l22
+            local.get $p0
+            i32.load offset=4560
+            local.tee $l36
+            i32.mul
+            local.tee $p3
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.sub
+            local.get $p3
+            local.get $p4
+            i32.lt_u
+            select
+            i32.add
+            local.get $l18
+            i32.const 200
+            i32.mul
+            i32.ge_u
+            br_if $B56
+          end
+          local.get $p0
+          i32.const 0
+          i32.store offset=4484
+          local.get $p0
+          i64.const 0
+          i64.store offset=4488 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4496 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4504 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4512 align=4
+          local.get $p0
+          i32.const 0
+          i32.store offset=4564
+          local.get $p0
+          i32.const 0
+          i32.store offset=4520
+          local.get $p0
+          local.get $l5
+          local.get $l34
+          i32.add
+          i32.store offset=4528
+          local.get $p0
+          local.get $l15
+          local.get $l35
+          i32.add
+          i32.store offset=4524
+          local.get $p0
+          local.get $l19
+          local.get $l33
+          i32.add
+          i32.store offset=4532
+          local.get $p0
+          local.get $l23
+          local.get $l27
+          i32.add
+          i32.store offset=4536
+          local.get $p0
+          local.get $l12
+          local.get $l16
+          i32.add
+          i32.store offset=4540
+          local.get $p0
+          local.get $l8
+          local.get $l20
+          i32.add
+          i32.store offset=4544
+          local.get $p0
+          local.get $l21
+          local.get $l39
+          i32.add
+          i32.store offset=4548
+          local.get $p0
+          local.get $l9
+          local.get $l38
+          i32.add
+          i32.store offset=4552
+          local.get $p0
+          local.get $l6
+          local.get $l37
+          i32.add
+          i32.store offset=4556
+          local.get $p0
+          local.get $l7
+          local.get $l36
+          i32.add
+          i32.store offset=4560
+          local.get $p0
+          local.get $l7
+          local.get $l18
+          i32.add
+          local.get $l6
+          i32.add
+          local.get $l9
+          i32.add
+          local.get $l21
+          i32.add
+          local.get $l8
+          i32.add
+          local.get $l12
+          i32.add
+          local.get $l23
+          i32.add
+          local.get $l33
+          i32.add
+          local.get $l15
+          i32.add
+          local.get $l5
+          i32.add
+          i32.store offset=4568
+          local.get $p2
+          local.set $l5
+          br $L2
+        end
+      end
+      local.get $l17
+      local.get $l28
+      i32.store
+      local.get $p0
+      local.get $l10
+      i32.const 8
+      i32.add
+      local.get $l31
+      local.get $l32
+      local.get $p2
+      local.get $l24
+      i32.eq
+      i32.const 0
+      call $f2
+      local.get $p2
+      local.get $l24
+      i32.ne
+      br_if $L1
+    end
+    block $B60 (result i32)
+      i32.const 0
+      local.get $l10
+      i32.load offset=20
+      local.tee $p3
+      local.get $l10
+      i32.load offset=24
+      i32.eq
+      br_if $B60
+      drop
+      local.get $l10
+      i32.load offset=12
+      i32.const 1
+      i32.ge_s
+      if $I61 (result i32)
+        local.get $l10
+        local.get $p3
+        i32.const 1
+        i32.add
+        i32.store offset=20
+        local.get $p3
+        local.get $l10
+        i32.load offset=8
+        i32.store8
+        local.get $l10
+        local.get $l10
+        i32.load offset=8
+        i32.const 8
+        i32.shr_u
+        local.tee $p3
+        i32.store offset=8
+        local.get $l10
+        local.get $l10
+        i32.load offset=12
+        i32.const 8
+        i32.sub
+        local.tee $p0
+        i32.store offset=12
+        local.get $p0
+        i32.const 1
+        i32.ge_s
+        if $I62
+          loop $L63
+            local.get $l10
+            local.get $l10
+            i32.load offset=20
+            local.tee $p0
+            i32.const 1
+            i32.add
+            i32.store offset=20
+            local.get $p0
+            local.get $p3
+            i32.store8
+            local.get $l10
+            local.get $l10
+            i32.load offset=8
+            i32.const 8
+            i32.shr_u
+            local.tee $p3
+            i32.store offset=8
+            local.get $l10
+            local.get $l10
+            i32.load offset=12
+            i32.const 8
+            i32.sub
+            local.tee $p0
+            i32.store offset=12
+            local.get $p0
+            i32.const 0
+            i32.gt_s
+            br_if $L63
+          end
+        end
+        local.get $l10
+        i32.load offset=20
+      else
+        local.get $p3
+      end
+      local.get $l10
+      i32.load offset=16
+      i32.sub
+    end
+    local.get $l10
+    i32.const 32
+    i32.add
+    global.set $g0)
+  (func $f7 (type $t7) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32)
     (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32)
     global.get $g0
     i32.const 32
@@ -12737,12 +19726,12 @@
           end
           local.get $l6
           local.get $l5
-          call $f22
+          call $f35
           unreachable
         end
         local.get $l5
         local.get $l8
-        call $f20
+        call $f33
         unreachable
       end
       i32.const 0
@@ -13079,7 +20068,7 @@
                                                               i32.const 48
                                                               i32.lt_u
                                                               i32.or
-                                                              call $f2
+                                                              call $f3
                                                               i32.const 255
                                                               i32.and
                                                               i32.const 2
@@ -13215,7 +20204,7 @@
                                                 i32.add
                                                 local.get $p1
                                                 i32.const 1
-                                                call $f2
+                                                call $f3
                                                 i32.const 255
                                                 i32.and
                                                 i32.const 2
@@ -14162,7 +21151,7 @@
                                         i32.add
                                         i32.load
                                         i32.load offset=12
-                                        call_indirect (type $t2) $T0
+                                        call_indirect (type $t3) $T0
                                         br_if $B6
                                         i32.const -1
                                         local.set $l5
@@ -14202,22 +21191,22 @@
                 end
                 local.get $l7
                 local.get $l6
-                call $f22
+                call $f35
                 unreachable
               end
               local.get $l6
               local.get $l8
-              call $f20
+              call $f33
               unreachable
             end
             local.get $l5
             i32.const 85196
-            call $f20
+            call $f33
             unreachable
           end
           local.get $p3
           i32.const 85196
-          call $f20
+          call $f33
           unreachable
         end
         unreachable
@@ -14238,7 +21227,7 @@
     i32.const 32
     i32.add
     global.set $g0)
-  (func $f5 (type $t1) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
+  (func $f8 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
     (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32)
     global.get $g0
     i32.const 5648
@@ -15033,7 +22022,7 @@
                                     end
                                     local.get $l6
                                     i32.const 288
-                                    call $f20
+                                    call $f33
                                     unreachable
                                   end
                                   local.get $l8
@@ -15196,13 +22185,11 @@
                                           local.get $l5
                                           i32.const 8
                                           i32.sub
-                                          local.set $l15
                                           local.get $l5
                                           i32.const 4
                                           i32.sub
                                           local.tee $l6
                                           local.set $l5
-                                          local.get $l15
                                           i32.load
                                           local.tee $l15
                                           i32.eqz
@@ -15345,12 +22332,12 @@
                                     end
                                     local.get $l14
                                     local.get $l5
-                                    call $f22
+                                    call $f35
                                     unreachable
                                   end
                                   local.get $l5
                                   local.get $l7
-                                  call $f20
+                                  call $f33
                                   unreachable
                                 end
                                 local.get $p3
@@ -15557,1623 +22544,3078 @@
       unreachable
     end
     unreachable)
-  (func $f6 (type $t5) (param $p0 i32)
-    (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32)
-    local.get $p0
+  (func $f9 (type $t4) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (result i32)
+    (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32) (local $l29 i32) (local $l30 i32) (local $l31 i32) (local $l32 i32) (local $l33 i32) (local $l34 i32) (local $l35 i32) (local $l36 i32) (local $l37 i32) (local $l38 i32) (local $l39 i32) (local $l40 i32) (local $l41 i32)
+    global.get $g0
+    i32.const 32
+    i32.sub
+    local.tee $l8
+    global.set $g0
+    local.get $l8
+    local.get $p3
+    i32.store offset=20
+    local.get $l8
+    local.get $p3
+    i32.store offset=16
+    local.get $l8
+    i64.const 0
+    i64.store offset=8
+    local.get $l8
+    local.get $p3
+    local.get $p4
+    i32.add
     i32.const 8
     i32.sub
-    local.set $l1
-    local.get $l1
+    i32.store offset=24
+    i32.const 38848
+    local.set $p3
+    local.get $p0
+    i32.const 38848
+    i32.add
+    local.set $l12
+    local.get $p0
+    i32.load offset=37344
+    local.set $p4
+    loop $L0
+      local.get $p0
+      local.get $p3
+      i32.add
+      i32.const 32768
+      i32.store16
+      local.get $p3
+      i32.const 2
+      i32.add
+      local.tee $p3
+      i32.const 235456
+      i32.ne
+      br_if $L0
+    end
+    i32.const 258
+    local.set $l13
+    local.get $p4
+    i32.const 258
+    local.get $p4
+    i32.const 258
+    i32.lt_u
+    select
+    local.set $l15
+    local.get $p0
+    i32.const 38848
+    i32.add
+    local.set $l27
     local.get $p0
     i32.const 4
-    i32.sub
-    i32.load
-    local.tee $l2
-    i32.const -8
-    i32.and
-    local.tee $p0
     i32.add
-    local.set $l4
-    block $B0
-      block $B1
-        local.get $l2
-        i32.const 1
-        i32.and
-        br_if $B1
-        local.get $l2
-        i32.const 3
-        i32.and
-        i32.eqz
-        br_if $B0
-        local.get $l1
-        i32.load
-        local.tee $l2
-        local.get $p0
-        i32.add
-        local.set $p0
-        local.get $l1
-        local.get $l2
-        i32.sub
-        local.tee $l1
-        i32.const 1054840
-        i32.load
-        i32.eq
-        if $I2
-          local.get $l4
-          i32.load offset=4
-          i32.const 3
-          i32.and
-          i32.const 3
-          i32.ne
-          br_if $B1
-          i32.const 1054832
-          local.get $p0
-          i32.store
-          local.get $l4
-          local.get $l4
-          i32.load offset=4
-          i32.const -2
-          i32.and
-          i32.store offset=4
-          local.get $l1
-          local.get $p0
-          i32.const 1
-          i32.or
-          i32.store offset=4
-          local.get $p0
-          local.get $l1
-          i32.add
-          local.get $p0
-          i32.store
-          return
-        end
-        block $B3
-          local.get $l2
-          i32.const 256
-          i32.ge_u
-          if $I4
-            local.get $l1
-            i32.load offset=24
-            local.set $l6
-            block $B5
-              block $B6
-                local.get $l1
-                local.get $l1
-                i32.load offset=12
-                local.tee $l2
-                i32.eq
-                if $I7
-                  i32.const 20
-                  i32.const 16
-                  local.get $l1
-                  i32.load offset=20
-                  local.tee $l2
-                  select
-                  local.get $l1
-                  i32.add
-                  i32.load
-                  local.tee $l5
-                  br_if $B6
-                  i32.const 0
-                  local.set $l2
-                  br $B5
-                end
-                local.get $l1
-                i32.load offset=8
-                local.tee $l3
-                local.get $l2
-                i32.store offset=12
-                local.get $l2
-                local.get $l3
-                i32.store offset=8
-                br $B5
-              end
-              local.get $l1
-              i32.const 20
-              i32.add
-              local.get $l1
-              i32.const 16
-              i32.add
-              local.get $l2
-              select
-              local.set $l3
-              loop $L8
-                local.get $l3
-                local.set $l7
-                local.get $l5
-                local.tee $l2
-                i32.const 20
-                i32.add
-                local.tee $l3
-                i32.load
-                local.tee $l5
-                i32.eqz
-                if $I9
-                  local.get $l2
-                  i32.load offset=16
-                  local.set $l5
-                  local.get $l2
-                  i32.const 16
-                  i32.add
-                  local.set $l3
-                end
-                local.get $l5
-                br_if $L8
-              end
-              local.get $l7
-              i32.const 0
-              i32.store
-            end
-            local.get $l6
-            i32.eqz
-            br_if $B1
-            local.get $l1
-            local.get $l1
-            i32.load offset=28
-            i32.const 2
-            i32.shl
-            i32.const 1054704
-            i32.add
-            local.tee $l3
-            i32.load
-            i32.ne
-            if $I10
-              i32.const 16
-              i32.const 20
-              local.get $l6
-              i32.load offset=16
-              local.get $l1
-              i32.eq
-              select
-              local.get $l6
-              i32.add
-              local.get $l2
-              i32.store
-              local.get $l2
-              i32.eqz
-              br_if $B1
-              br $B3
-            end
-            local.get $l3
-            local.get $l2
-            i32.store
-            local.get $l2
-            br_if $B3
-            i32.const 1054436
-            i32.const 1054436
-            i32.load
-            i32.const -2
-            local.get $l1
-            i32.load offset=28
-            i32.rotl
-            i32.and
-            i32.store
-            br $B1
-          end
-          local.get $l1
-          i32.const 12
-          i32.add
-          i32.load
-          local.tee $l3
-          local.get $l1
-          i32.const 8
-          i32.add
-          i32.load
-          local.tee $l5
-          i32.ne
-          if $I11
-            local.get $l5
-            local.get $l3
-            i32.store offset=12
-            local.get $l3
-            local.get $l5
-            i32.store offset=8
-            br $B1
-          end
-          i32.const 1054432
-          i32.const 1054432
-          i32.load
-          i32.const -2
-          local.get $l2
-          i32.const 3
-          i32.shr_u
-          i32.rotl
-          i32.and
-          i32.store
-          br $B1
-        end
-        local.get $l2
-        local.get $l6
-        i32.store offset=24
-        local.get $l1
-        i32.load offset=16
-        local.tee $l3
-        if $I12
-          local.get $l2
-          local.get $l3
-          i32.store offset=16
-          local.get $l3
-          local.get $l2
-          i32.store offset=24
-        end
-        local.get $l1
-        i32.load offset=20
-        local.tee $l3
-        i32.eqz
-        br_if $B1
-        local.get $l2
-        i32.const 20
-        i32.add
-        local.get $l3
-        i32.store
-        local.get $l3
-        local.get $l2
-        i32.store offset=24
-      end
-      block $B13
-        local.get $l4
-        i32.load offset=4
-        local.tee $l2
-        i32.const 2
-        i32.and
-        if $I14
-          local.get $l4
-          local.get $l2
-          i32.const -2
-          i32.and
-          i32.store offset=4
-          local.get $l1
-          local.get $p0
-          i32.const 1
-          i32.or
-          i32.store offset=4
-          local.get $p0
-          local.get $l1
-          i32.add
-          local.get $p0
-          i32.store
-          br $B13
-        end
-        block $B15
-          local.get $l4
-          i32.const 1054844
-          i32.load
-          i32.ne
-          if $I16
-            i32.const 1054840
-            i32.load
-            local.get $l4
-            i32.ne
-            br_if $B15
-            i32.const 1054840
-            local.get $l1
-            i32.store
-            i32.const 1054832
-            i32.const 1054832
-            i32.load
-            local.get $p0
-            i32.add
-            local.tee $p0
-            i32.store
-            local.get $l1
-            local.get $p0
-            i32.const 1
-            i32.or
-            i32.store offset=4
-            local.get $p0
-            local.get $l1
-            i32.add
-            local.get $p0
-            i32.store
-            return
-          end
-          i32.const 1054844
-          local.get $l1
-          i32.store
-          i32.const 1054836
-          i32.const 1054836
-          i32.load
-          local.get $p0
-          i32.add
-          local.tee $p0
-          i32.store
-          local.get $l1
-          local.get $p0
-          i32.const 1
-          i32.or
-          i32.store offset=4
-          local.get $l1
-          i32.const 1054840
-          i32.load
-          i32.eq
-          if $I17
-            i32.const 1054832
-            i32.const 0
-            i32.store
-            i32.const 1054840
-            i32.const 0
-            i32.store
-          end
-          i32.const 1054872
-          i32.load
-          local.tee $l2
-          local.get $p0
-          i32.ge_u
-          br_if $B0
-          i32.const 1054844
-          i32.load
-          local.tee $p0
-          i32.eqz
-          br_if $B0
-          block $B18
-            i32.const 1054836
-            i32.load
-            local.tee $l3
-            i32.const 41
-            i32.lt_u
-            br_if $B18
-            i32.const 1054856
-            local.set $l1
-            loop $L19
-              local.get $p0
-              local.get $l1
-              i32.load
-              local.tee $l5
-              i32.ge_u
-              if $I20
-                local.get $l1
-                i32.load offset=4
-                local.get $l5
-                i32.add
-                local.get $p0
-                i32.gt_u
-                br_if $B18
-              end
-              local.get $l1
-              i32.load offset=8
-              local.tee $l1
-              br_if $L19
-            end
-          end
-          i32.const 1054880
-          block $B21 (result i32)
-            i32.const 4095
-            i32.const 1054864
-            i32.load
-            local.tee $p0
-            i32.eqz
-            br_if $B21
-            drop
-            i32.const 0
-            local.set $l1
-            loop $L22
-              local.get $l1
-              i32.const 1
-              i32.add
-              local.set $l1
-              local.get $p0
-              i32.load offset=8
-              local.tee $p0
-              br_if $L22
-            end
-            local.get $l1
-            i32.const 4095
-            local.get $l1
-            i32.const 4095
-            i32.gt_u
-            select
-          end
-          i32.store
-          local.get $l2
-          local.get $l3
-          i32.ge_u
-          br_if $B0
-          i32.const 1054872
-          i32.const -1
-          i32.store
-          return
-        end
-        local.get $l2
-        i32.const -8
-        i32.and
-        local.tee $l3
-        local.get $p0
-        i32.add
-        local.set $p0
-        block $B23
-          block $B24
-            local.get $l3
-            i32.const 256
-            i32.ge_u
-            if $I25
-              local.get $l4
-              i32.load offset=24
-              local.set $l6
-              block $B26
-                block $B27
-                  local.get $l4
-                  i32.load offset=12
-                  local.tee $l2
-                  local.get $l4
-                  i32.eq
-                  if $I28
-                    i32.const 20
-                    i32.const 16
-                    local.get $l4
-                    i32.load offset=20
-                    local.tee $l2
-                    select
-                    local.get $l4
-                    i32.add
-                    i32.load
-                    local.tee $l5
-                    br_if $B27
-                    i32.const 0
-                    local.set $l2
-                    br $B26
-                  end
-                  local.get $l4
-                  i32.load offset=8
-                  local.tee $l3
-                  local.get $l2
-                  i32.store offset=12
-                  local.get $l2
-                  local.get $l3
-                  i32.store offset=8
-                  br $B26
-                end
-                local.get $l4
-                i32.const 20
-                i32.add
-                local.get $l4
-                i32.const 16
-                i32.add
-                local.get $l2
-                select
-                local.set $l3
-                loop $L29
-                  local.get $l3
-                  local.set $l7
-                  local.get $l5
-                  local.tee $l2
-                  i32.const 20
-                  i32.add
-                  local.tee $l3
-                  i32.load
-                  local.tee $l5
-                  i32.eqz
-                  if $I30
-                    local.get $l2
-                    i32.load offset=16
-                    local.set $l5
-                    local.get $l2
-                    i32.const 16
-                    i32.add
-                    local.set $l3
-                  end
-                  local.get $l5
-                  br_if $L29
-                end
-                local.get $l7
-                i32.const 0
-                i32.store
-              end
-              local.get $l6
-              i32.eqz
-              br_if $B23
-              local.get $l4
-              local.get $l4
-              i32.load offset=28
-              i32.const 2
-              i32.shl
-              i32.const 1054704
-              i32.add
-              local.tee $l3
-              i32.load
-              i32.ne
-              if $I31
-                i32.const 16
-                i32.const 20
-                local.get $l6
-                i32.load offset=16
-                local.get $l4
-                i32.eq
-                select
-                local.get $l6
-                i32.add
-                local.get $l2
-                i32.store
-                local.get $l2
-                i32.eqz
-                br_if $B23
-                br $B24
-              end
-              local.get $l3
-              local.get $l2
-              i32.store
-              local.get $l2
-              br_if $B24
-              i32.const 1054436
-              i32.const 1054436
-              i32.load
-              i32.const -2
-              local.get $l4
-              i32.load offset=28
-              i32.rotl
-              i32.and
-              i32.store
-              br $B23
-            end
-            local.get $l4
-            i32.const 12
-            i32.add
-            i32.load
-            local.tee $l3
-            local.get $l4
-            i32.const 8
-            i32.add
-            i32.load
-            local.tee $l5
-            i32.ne
-            if $I32
-              local.get $l5
-              local.get $l3
-              i32.store offset=12
-              local.get $l3
-              local.get $l5
-              i32.store offset=8
-              br $B23
-            end
-            i32.const 1054432
-            i32.const 1054432
-            i32.load
-            i32.const -2
-            local.get $l2
-            i32.const 3
-            i32.shr_u
-            i32.rotl
-            i32.and
-            i32.store
-            br $B23
-          end
-          local.get $l2
-          local.get $l6
-          i32.store offset=24
-          local.get $l4
-          i32.load offset=16
-          local.tee $l3
-          if $I33
-            local.get $l2
-            local.get $l3
-            i32.store offset=16
-            local.get $l3
-            local.get $l2
-            i32.store offset=24
-          end
-          local.get $l4
-          i32.load offset=20
-          local.tee $l3
-          i32.eqz
-          br_if $B23
-          local.get $l2
-          i32.const 20
-          i32.add
-          local.get $l3
-          i32.store
-          local.get $l3
-          local.get $l2
-          i32.store offset=24
-        end
-        local.get $l1
-        local.get $p0
-        i32.const 1
-        i32.or
-        i32.store offset=4
-        local.get $p0
-        local.get $l1
-        i32.add
-        local.get $p0
-        i32.store
-        i32.const 1054840
-        i32.load
-        local.get $l1
-        i32.ne
-        br_if $B13
-        i32.const 1054832
-        local.get $p0
-        i32.store
-        return
-      end
-      i32.const 1054880
-      block $B34 (result i32)
-        block $B35
-          local.get $p0
-          i32.const 256
-          i32.ge_u
-          if $I36
-            i32.const 31
-            local.set $l3
-            local.get $l1
-            i64.const 0
-            i64.store offset=16 align=4
-            local.get $p0
-            i32.const 16777215
-            i32.le_u
-            if $I37
-              local.get $p0
-              i32.const 6
-              local.get $p0
-              i32.const 8
-              i32.shr_u
-              i32.clz
-              local.tee $l2
-              i32.sub
-              i32.shr_u
-              i32.const 1
-              i32.and
-              local.get $l2
-              i32.const 1
-              i32.shl
-              i32.sub
-              i32.const 62
-              i32.add
-              local.set $l3
-            end
-            local.get $l1
-            i32.const 28
-            i32.add
-            local.get $l3
-            i32.store
-            local.get $l3
-            i32.const 2
-            i32.shl
-            i32.const 1054704
-            i32.add
-            local.set $l2
-            block $B38
-              block $B39
-                block $B40
-                  block $B41
-                    block $B42
-                      i32.const 1054436
-                      i32.load
-                      local.tee $l5
-                      i32.const 1
-                      local.get $l3
-                      i32.shl
-                      local.tee $l7
-                      i32.and
-                      if $I43
-                        local.get $l2
-                        i32.load
-                        local.tee $l2
-                        i32.load offset=4
-                        i32.const -8
-                        i32.and
-                        local.get $p0
-                        i32.ne
-                        br_if $B42
-                        local.get $l2
-                        local.set $l3
-                        br $B41
-                      end
-                      i32.const 1054436
-                      local.get $l5
-                      local.get $l7
-                      i32.or
-                      i32.store
-                      local.get $l2
-                      local.get $l1
-                      i32.store
-                      br $B39
-                    end
-                    local.get $p0
-                    i32.const 0
-                    i32.const 25
-                    local.get $l3
-                    i32.const 1
-                    i32.shr_u
-                    i32.sub
-                    i32.const 31
-                    i32.and
-                    local.get $l3
-                    i32.const 31
-                    i32.eq
-                    select
-                    i32.shl
-                    local.set $l5
-                    loop $L44
-                      local.get $l5
-                      i32.const 29
-                      i32.shr_u
-                      i32.const 4
-                      i32.and
-                      local.get $l2
-                      i32.add
-                      i32.const 16
-                      i32.add
-                      local.tee $l7
-                      i32.load
-                      local.tee $l3
-                      i32.eqz
-                      br_if $B40
-                      local.get $l5
-                      i32.const 1
-                      i32.shl
-                      local.set $l5
-                      local.get $l3
-                      local.tee $l2
-                      i32.load offset=4
-                      i32.const -8
-                      i32.and
-                      local.get $p0
-                      i32.ne
-                      br_if $L44
-                    end
-                  end
-                  local.get $l3
-                  i32.load offset=8
-                  local.tee $p0
-                  local.get $l1
-                  i32.store offset=12
-                  local.get $l3
-                  local.get $l1
-                  i32.store offset=8
-                  local.get $l1
-                  i32.const 24
-                  i32.add
-                  i32.const 0
-                  i32.store
-                  local.get $l1
-                  local.get $l3
-                  i32.store offset=12
-                  local.get $l1
-                  local.get $p0
-                  i32.store offset=8
-                  br $B38
-                end
-                local.get $l7
-                local.get $l1
-                i32.store
-              end
-              local.get $l1
-              i32.const 24
-              i32.add
-              local.get $l2
-              i32.store
-              local.get $l1
-              local.get $l1
-              i32.store offset=12
-              local.get $l1
-              local.get $l1
-              i32.store offset=8
-            end
-            i32.const 1054880
-            i32.const 1054880
-            i32.load
-            i32.const 1
-            i32.sub
-            local.tee $p0
-            i32.store
-            local.get $p0
-            br_if $B0
-            i32.const 1054864
-            i32.load
-            local.tee $p0
-            br_if $B35
-            i32.const 4095
-            br $B34
-          end
-          local.get $p0
-          i32.const 3
-          i32.shr_u
-          local.tee $l2
-          i32.const 3
-          i32.shl
-          i32.const 1054440
-          i32.add
-          local.set $p0
-          block $B45 (result i32)
-            i32.const 1054432
-            i32.load
-            local.tee $l3
-            i32.const 1
-            local.get $l2
-            i32.shl
-            local.tee $l2
-            i32.and
-            if $I46
-              local.get $p0
-              i32.load offset=8
-              br $B45
-            end
-            i32.const 1054432
-            local.get $l2
-            local.get $l3
-            i32.or
-            i32.store
-            local.get $p0
-          end
-          local.set $l3
-          local.get $p0
-          local.get $l1
-          i32.store offset=8
-          local.get $l3
-          local.get $l1
-          i32.store offset=12
-          local.get $l1
-          local.get $p0
-          i32.store offset=12
-          local.get $l1
-          local.get $l3
-          i32.store offset=8
-          return
-        end
-        i32.const 0
-        local.set $l1
-        loop $L47
-          local.get $l1
-          i32.const 1
-          i32.add
-          local.set $l1
-          local.get $p0
-          i32.load offset=8
-          local.tee $p0
-          br_if $L47
-        end
-        local.get $l1
-        i32.const 4095
-        local.get $l1
-        i32.const 4095
-        i32.gt_u
-        select
-      end
-      i32.store
-    end)
-  (func $f7 (type $t0) (param $p0 i32) (param $p1 i32)
-    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32)
+    local.set $l39
     local.get $p0
-    local.get $p1
+    i32.const 300992
     i32.add
-    local.set $l4
-    block $B0
-      block $B1
-        local.get $p0
-        i32.load offset=4
-        local.tee $l2
-        i32.const 1
-        i32.and
-        br_if $B1
-        local.get $l2
-        i32.const 3
-        i32.and
-        i32.eqz
-        br_if $B0
-        local.get $p0
-        i32.load
-        local.tee $l2
-        local.get $p1
-        i32.add
-        local.set $p1
-        local.get $p0
-        local.get $l2
+    local.set $l40
+    local.get $p1
+    local.get $p2
+    i32.add
+    local.set $l16
+    local.get $p1
+    local.set $l7
+    loop $L1
+      local.get $p0
+      i32.const 0
+      i32.store offset=4524
+      local.get $p0
+      i64.const 0
+      i64.store offset=4484 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4528 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4492 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4536 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4500 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4544 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4508 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4552 align=4
+      local.get $p0
+      i32.const 0
+      i32.store offset=4568
+      local.get $p0
+      i64.const 0
+      i64.store offset=4560 align=4
+      local.get $p0
+      i64.const 0
+      i64.store offset=4516 align=4
+      local.get $l39
+      i32.const 1280
+      call $f42
+      local.set $l28
+      local.get $l7
+      local.set $l22
+      local.get $l16
+      local.get $l7
+      i32.sub
+      local.tee $p2
+      i32.const 300000
+      local.get $p2
+      i32.const 300000
+      i32.lt_s
+      select
+      local.get $l7
+      i32.add
+      local.set $l41
+      i32.const 0
+      local.set $l21
+      local.get $l40
+      local.set $l14
+      loop $L2
+        local.get $l16
+        local.get $l7
         i32.sub
-        local.tee $p0
-        i32.const 1054840
-        i32.load
+        local.tee $p2
+        local.get $l13
+        i32.lt_u
+        local.set $l5
+        local.get $p2
+        local.get $l13
+        local.get $l5
+        select
+        local.set $l13
+        local.get $p2
+        local.get $l15
+        local.get $p2
+        local.get $l15
+        i32.lt_u
+        select
+        local.get $p0
+        i32.load offset=37348
+        local.set $l9
+        local.get $l7
+        local.get $p1
+        i32.sub
+        local.tee $p4
+        i32.const 32768
         i32.eq
-        if $I2
-          local.get $l4
-          i32.load offset=4
-          i32.const 3
-          i32.and
-          i32.const 3
-          i32.ne
-          br_if $B1
-          i32.const 1054832
+        if $I3
+          i32.const 0
+          local.set $p3
+          loop $L4
+            local.get $p3
+            local.get $l27
+            i32.add
+            local.tee $p4
+            i32.load16_u
+            local.set $p2
+            local.get $p4
+            local.get $p2
+            i32.const -1
+            i32.xor
+            i32.const 16
+            i32.shl
+            i32.const 16
+            i32.shr_s
+            i32.const 15
+            i32.shr_u
+            local.get $p2
+            i32.and
+            i32.const 32768
+            i32.or
+            i32.store16
+            local.get $p3
+            i32.const 2
+            i32.add
+            local.tee $p3
+            i32.const 262144
+            i32.ne
+            br_if $L4
+          end
+          i32.const 0
+          local.set $p4
           local.get $p1
-          i32.store
-          local.get $l4
-          local.get $l4
-          i32.load offset=4
-          i32.const -2
-          i32.and
-          i32.store offset=4
-          local.get $p0
-          local.get $p1
-          i32.const 1
-          i32.or
-          i32.store offset=4
-          local.get $l4
-          local.get $p1
-          i32.store
-          return
+          i32.const 32768
+          i32.add
+          local.set $p1
         end
-        block $B3
-          local.get $l2
-          i32.const 256
-          i32.ge_u
-          if $I4
-            local.get $p0
-            i32.load offset=24
-            local.set $l6
-            block $B5
-              block $B6
-                local.get $p0
-                local.get $p0
-                i32.load offset=12
-                local.tee $l2
-                i32.eq
-                if $I7
-                  i32.const 20
-                  i32.const 16
-                  local.get $p0
-                  i32.load offset=20
-                  local.tee $l2
-                  select
-                  local.get $p0
-                  i32.add
-                  i32.load
-                  local.tee $l5
-                  br_if $B6
-                  i32.const 0
-                  local.set $l2
-                  br $B5
-                end
-                local.get $p0
-                i32.load offset=8
-                local.tee $l3
-                local.get $l2
-                i32.store offset=12
-                local.get $l2
-                local.get $l3
-                i32.store offset=8
-                br $B5
-              end
-              local.get $p0
-              i32.const 20
+        local.get $l15
+        local.get $l5
+        select
+        local.set $l15
+        block $B5 (result i32)
+          block $B6
+            block $B7
+              local.get $l13
+              i32.const 5
+              i32.lt_u
+              local.tee $l11
+              br_if $B7
+              local.get $l20
+              i32.const 1
+              i32.shl
+              local.get $l12
               i32.add
-              local.get $p0
-              i32.const 16
+              local.tee $p2
+              i32.load16_s
+              local.set $l5
+              local.get $l19
+              i32.const 1
+              i32.shl
+              local.get $l12
               i32.add
-              local.get $l2
-              select
-              local.set $l3
-              loop $L8
-                local.get $l3
-                local.set $l7
-                local.get $l5
-                local.tee $l2
-                i32.const 20
-                i32.add
-                local.tee $l3
-                i32.load
-                local.tee $l5
-                i32.eqz
-                if $I9
-                  local.get $l2
-                  i32.load offset=16
-                  local.set $l5
-                  local.get $l2
-                  i32.const 16
-                  i32.add
-                  local.set $l3
-                end
-                local.get $l5
-                br_if $L8
-              end
+              i32.const 65536
+              i32.add
+              local.tee $l6
+              i32.load16_s
+              local.set $p3
+              local.get $p2
+              local.get $p4
+              i32.store16
+              local.get $l6
+              local.get $p4
+              i32.store16
+              local.get $p4
+              i32.const 1
+              i32.shl
+              local.get $l12
+              i32.add
+              i32.const 196608
+              i32.add
+              local.get $p3
+              i32.store16
               local.get $l7
-              i32.const 0
-              i32.store
+              i32.load8_u offset=1
+              local.get $l7
+              i32.load8_u offset=3
+              i32.const 16
+              i32.shl
+              local.get $l7
+              i32.load8_u offset=4
+              local.tee $l17
+              i32.const 24
+              i32.shl
+              i32.or
+              local.get $l7
+              i32.load8_u offset=2
+              i32.const 8
+              i32.shl
+              i32.or
+              i32.or
+              local.tee $p2
+              i32.const 506832829
+              i32.mul
+              i32.const 16
+              i32.shr_u
+              local.set $l19
+              local.get $p2
+              i32.const 16777215
+              i32.and
+              i32.const 506832829
+              i32.mul
+              i32.const 17
+              i32.shr_u
+              local.set $l20
+              local.get $p4
+              i32.const 32768
+              i32.xor
+              i32.const 16
+              i32.shl
+              i32.const 16
+              i32.shr_s
+              local.tee $p2
+              local.get $l5
+              i32.ge_s
+              br_if $B7
+              i32.const 3
+              i32.const 2
+              local.get $p1
+              local.get $l5
+              i32.add
+              local.tee $p4
+              i32.load16_u align=1
+              local.get $p4
+              i32.const 2
+              i32.add
+              i32.load8_u
+              i32.const 16
+              i32.shl
+              i32.or
+              local.get $l7
+              i32.load align=1
+              local.tee $l5
+              i32.const 16777215
+              i32.and
+              i32.eq
+              local.tee $l10
+              select
+              local.set $l6
+              local.get $p4
+              local.get $l7
+              local.get $l10
+              select
+              local.set $l10
+              block $B8
+                local.get $p2
+                local.get $p3
+                i32.ge_s
+                br_if $B8
+                i32.const 1
+                local.get $l9
+                i32.sub
+                local.set $p4
+                loop $L9
+                  local.get $l5
+                  local.get $p3
+                  i32.const 16
+                  i32.shl
+                  i32.const 16
+                  i32.shr_s
+                  local.tee $p3
+                  local.get $p1
+                  i32.add
+                  local.tee $l9
+                  i32.load align=1
+                  i32.ne
+                  if $I10
+                    local.get $p2
+                    local.get $p3
+                    i32.const 32767
+                    i32.and
+                    i32.const 1
+                    i32.shl
+                    local.get $l12
+                    i32.add
+                    i32.const 196608
+                    i32.add
+                    i32.load16_s
+                    local.tee $p3
+                    i32.ge_s
+                    br_if $B8
+                    local.get $p4
+                    i32.const 1
+                    i32.add
+                    local.tee $p4
+                    i32.const 1
+                    i32.ne
+                    br_if $L9
+                    br $B8
+                  end
+                end
+                i32.const 4
+                local.set $l5
+                block $B11
+                  local.get $l11
+                  br_if $B11
+                  local.get $l9
+                  i32.load8_u offset=4
+                  local.get $l17
+                  i32.const 255
+                  i32.and
+                  i32.ne
+                  br_if $B11
+                  local.get $p1
+                  local.get $p3
+                  i32.add
+                  local.set $l6
+                  i32.const 5
+                  local.set $l5
+                  loop $L12
+                    local.get $l5
+                    local.get $l13
+                    i32.eq
+                    if $I13
+                      local.get $l13
+                      local.set $l5
+                      br $B11
+                    end
+                    local.get $l5
+                    local.get $l7
+                    i32.add
+                    local.set $l10
+                    local.get $l5
+                    local.get $l6
+                    i32.add
+                    local.get $l5
+                    i32.const 1
+                    i32.add
+                    local.set $l5
+                    i32.load8_u
+                    local.get $l10
+                    i32.load8_u
+                    i32.eq
+                    br_if $L12
+                  end
+                  local.get $l5
+                  i32.const 1
+                  i32.sub
+                  local.set $l5
+                end
+                block $B14
+                  local.get $l5
+                  local.get $l15
+                  i32.ge_u
+                  br_if $B14
+                  local.get $p2
+                  local.get $p3
+                  i32.const 32767
+                  i32.and
+                  i32.const 1
+                  i32.shl
+                  local.get $l12
+                  i32.add
+                  i32.const 196608
+                  i32.add
+                  i32.load16_s
+                  local.tee $p3
+                  i32.ge_s
+                  br_if $B14
+                  local.get $p4
+                  i32.eqz
+                  br_if $B14
+                  i32.const 0
+                  local.get $p4
+                  i32.sub
+                  local.set $l11
+                  local.get $l13
+                  i32.eqz
+                  if $I15
+                    local.get $p1
+                    local.get $l5
+                    i32.add
+                    local.set $p4
+                    local.get $l5
+                    local.get $l7
+                    i32.add
+                    i32.load8_u
+                    local.set $l6
+                    loop $L16
+                      local.get $p3
+                      i32.const 16
+                      i32.shl
+                      i32.const 16
+                      i32.shr_s
+                      local.tee $l10
+                      i32.const 1
+                      i32.shl
+                      i32.const 65534
+                      i32.and
+                      local.get $l12
+                      i32.add
+                      i32.const 196608
+                      i32.add
+                      i32.load16_s
+                      local.set $p3
+                      local.get $p4
+                      local.get $l10
+                      i32.add
+                      i32.load8_u
+                      local.get $l6
+                      i32.const 255
+                      i32.and
+                      i32.ne
+                      drop
+                      local.get $p2
+                      local.get $p3
+                      i32.ge_s
+                      br_if $B14
+                      local.get $l11
+                      i32.const 1
+                      i32.sub
+                      local.tee $l11
+                      br_if $L16
+                    end
+                    br $B14
+                  end
+                  loop $L17
+                    i32.const 1
+                    local.get $l11
+                    i32.sub
+                    local.set $p4
+                    local.get $l5
+                    local.get $l7
+                    i32.add
+                    i32.load8_u
+                    local.set $l6
+                    loop $L18
+                      local.get $p3
+                      i32.const 16
+                      i32.shl
+                      i32.const 16
+                      i32.shr_s
+                      local.tee $p3
+                      local.get $p1
+                      i32.add
+                      local.tee $l10
+                      local.get $l5
+                      i32.add
+                      i32.load8_u
+                      local.get $l6
+                      i32.const 255
+                      i32.and
+                      i32.eq
+                      if $I19
+                        local.get $p1
+                        local.get $p3
+                        i32.add
+                        local.set $l11
+                        i32.const 0
+                        local.set $l6
+                        block $B20
+                          loop $L21
+                            local.get $l6
+                            local.get $l11
+                            i32.add
+                            i32.load8_u
+                            local.get $l6
+                            local.get $l7
+                            i32.add
+                            i32.load8_u
+                            i32.ne
+                            br_if $B20
+                            local.get $l6
+                            i32.const 1
+                            i32.add
+                            local.tee $l6
+                            local.get $l13
+                            i32.ne
+                            br_if $L21
+                          end
+                          local.get $l13
+                          local.set $l6
+                        end
+                        local.get $l5
+                        local.get $l6
+                        i32.lt_u
+                        if $I22
+                          local.get $l10
+                          local.set $l9
+                          local.get $l6
+                          local.tee $l5
+                          local.get $l15
+                          i32.ge_u
+                          br_if $B8
+                        end
+                        local.get $p2
+                        local.get $p3
+                        i32.const 32767
+                        i32.and
+                        i32.const 1
+                        i32.shl
+                        local.get $l12
+                        i32.add
+                        i32.const 196608
+                        i32.add
+                        i32.load16_s
+                        local.tee $p3
+                        i32.ge_s
+                        br_if $B14
+                        i32.const 0
+                        local.get $p4
+                        i32.sub
+                        local.set $l11
+                        local.get $l9
+                        local.set $l10
+                        local.get $l5
+                        local.set $l6
+                        local.get $p4
+                        br_if $L17
+                        br $B8
+                      end
+                      local.get $p2
+                      local.get $p3
+                      i32.const 32767
+                      i32.and
+                      i32.const 1
+                      i32.shl
+                      local.get $l12
+                      i32.add
+                      i32.const 196608
+                      i32.add
+                      i32.load16_s
+                      local.tee $p3
+                      i32.ge_s
+                      br_if $B14
+                      local.get $p4
+                      i32.const 1
+                      i32.add
+                      local.tee $p4
+                      i32.const 1
+                      i32.ne
+                      br_if $L18
+                    end
+                  end
+                end
+                local.get $l9
+                local.set $l10
+                local.get $l5
+                local.set $l6
+              end
+              local.get $l6
+              i32.const 3
+              i32.ge_u
+              br_if $B6
             end
-            local.get $l6
-            i32.eqz
-            br_if $B1
-            local.get $p0
-            local.get $p0
-            i32.load offset=28
+            local.get $l7
+            i32.load8_u
             i32.const 2
             i32.shl
-            i32.const 1054704
+            local.get $p0
             i32.add
-            local.tee $l3
-            i32.load
-            i32.ne
-            if $I10
-              i32.const 16
-              i32.const 20
-              local.get $l6
-              i32.load offset=16
-              local.get $p0
-              i32.eq
-              select
-              local.get $l6
-              i32.add
-              local.get $l2
-              i32.store
-              local.get $l2
-              i32.eqz
-              br_if $B1
-              br $B3
-            end
-            local.get $l3
-            local.get $l2
-            i32.store
-            local.get $l2
-            br_if $B3
-            i32.const 1054436
-            i32.const 1054436
-            i32.load
-            i32.const -2
-            local.get $p0
-            i32.load offset=28
-            i32.rotl
-            i32.and
-            i32.store
-            br $B1
-          end
-          local.get $p0
-          i32.const 12
-          i32.add
-          i32.load
-          local.tee $l3
-          local.get $p0
-          i32.const 8
-          i32.add
-          i32.load
-          local.tee $l5
-          i32.ne
-          if $I11
-            local.get $l5
-            local.get $l3
-            i32.store offset=12
-            local.get $l3
-            local.get $l5
-            i32.store offset=8
-            br $B1
-          end
-          i32.const 1054432
-          i32.const 1054432
-          i32.load
-          i32.const -2
-          local.get $l2
-          i32.const 3
-          i32.shr_u
-          i32.rotl
-          i32.and
-          i32.store
-          br $B1
-        end
-        local.get $l2
-        local.get $l6
-        i32.store offset=24
-        local.get $p0
-        i32.load offset=16
-        local.tee $l3
-        if $I12
-          local.get $l2
-          local.get $l3
-          i32.store offset=16
-          local.get $l3
-          local.get $l2
-          i32.store offset=24
-        end
-        local.get $p0
-        i32.load offset=20
-        local.tee $l3
-        i32.eqz
-        br_if $B1
-        local.get $l2
-        i32.const 20
-        i32.add
-        local.get $l3
-        i32.store
-        local.get $l3
-        local.get $l2
-        i32.store offset=24
-      end
-      block $B13
-        local.get $l4
-        i32.load offset=4
-        local.tee $l2
-        i32.const 2
-        i32.and
-        if $I14
-          local.get $l4
-          local.get $l2
-          i32.const -2
-          i32.and
-          i32.store offset=4
-          local.get $p0
-          local.get $p1
-          i32.const 1
-          i32.or
-          i32.store offset=4
-          local.get $p0
-          local.get $p1
-          i32.add
-          local.get $p1
-          i32.store
-          br $B13
-        end
-        block $B15
-          local.get $l4
-          i32.const 1054844
-          i32.load
-          i32.ne
-          if $I16
-            i32.const 1054840
-            i32.load
-            local.get $l4
-            i32.ne
-            br_if $B15
-            i32.const 1054840
-            local.get $p0
-            i32.store
-            i32.const 1054832
-            i32.const 1054832
-            i32.load
-            local.get $p1
+            i32.const 4
             i32.add
-            local.tee $p1
-            i32.store
-            local.get $p0
-            local.get $p1
+            local.tee $p2
+            local.get $p2
+            i32.load
             i32.const 1
-            i32.or
-            i32.store offset=4
-            local.get $p0
-            local.get $p1
             i32.add
-            local.get $p1
             i32.store
-            return
-          end
-          i32.const 1054844
-          local.get $p0
-          i32.store
-          i32.const 1054836
-          i32.const 1054836
-          i32.load
-          local.get $p1
-          i32.add
-          local.tee $p1
-          i32.store
-          local.get $p0
-          local.get $p1
-          i32.const 1
-          i32.or
-          i32.store offset=4
-          i32.const 1054840
-          i32.load
-          local.get $p0
-          i32.ne
-          br_if $B0
-          i32.const 1054832
-          i32.const 0
-          i32.store
-          i32.const 1054840
-          i32.const 0
-          i32.store
-          return
-        end
-        local.get $l2
-        i32.const -8
-        i32.and
-        local.tee $l3
-        local.get $p1
-        i32.add
-        local.set $p1
-        block $B17
-          block $B18
-            local.get $l3
-            i32.const 256
-            i32.ge_u
-            if $I19
-              local.get $l4
-              i32.load offset=24
-              local.set $l6
-              block $B20
-                block $B21
-                  local.get $l4
-                  i32.load offset=12
-                  local.tee $l2
-                  local.get $l4
-                  i32.eq
-                  if $I22
-                    i32.const 20
-                    i32.const 16
-                    local.get $l4
-                    i32.load offset=20
-                    local.tee $l2
-                    select
-                    local.get $l4
-                    i32.add
-                    i32.load
-                    local.tee $l5
-                    br_if $B21
-                    i32.const 0
-                    local.set $l2
-                    br $B20
-                  end
-                  local.get $l4
-                  i32.load offset=8
-                  local.tee $l3
-                  local.get $l2
-                  i32.store offset=12
-                  local.get $l2
-                  local.get $l3
-                  i32.store offset=8
-                  br $B20
-                end
-                local.get $l4
-                i32.const 20
-                i32.add
-                local.get $l4
-                i32.const 16
-                i32.add
-                local.get $l2
-                select
-                local.set $l3
-                loop $L23
-                  local.get $l3
-                  local.set $l7
-                  local.get $l5
-                  local.tee $l2
-                  i32.const 20
-                  i32.add
-                  local.tee $l3
-                  i32.load
-                  local.tee $l5
-                  i32.eqz
-                  if $I24
-                    local.get $l2
-                    i32.load offset=16
-                    local.set $l5
-                    local.get $l2
-                    i32.const 16
-                    i32.add
-                    local.set $l3
-                  end
-                  local.get $l5
-                  br_if $L23
-                end
-                local.get $l7
-                i32.const 0
-                i32.store
-              end
-              local.get $l6
-              i32.eqz
-              br_if $B17
-              local.get $l4
-              local.get $l4
-              i32.load offset=28
-              i32.const 2
-              i32.shl
-              i32.const 1054704
-              i32.add
-              local.tee $l3
-              i32.load
-              i32.ne
-              if $I25
-                i32.const 16
-                i32.const 20
-                local.get $l6
-                i32.load offset=16
-                local.get $l4
-                i32.eq
-                select
-                local.get $l6
-                i32.add
-                local.get $l2
-                i32.store
-                local.get $l2
-                i32.eqz
-                br_if $B17
-                br $B18
-              end
-              local.get $l3
-              local.get $l2
-              i32.store
-              local.get $l2
-              br_if $B18
-              i32.const 1054436
-              i32.const 1054436
-              i32.load
-              i32.const -2
-              local.get $l4
-              i32.load offset=28
-              i32.rotl
-              i32.and
-              i32.store
-              br $B17
-            end
-            local.get $l4
-            i32.const 12
-            i32.add
-            i32.load
-            local.tee $l3
-            local.get $l4
-            i32.const 8
-            i32.add
-            i32.load
-            local.tee $l5
-            i32.ne
-            if $I26
-              local.get $l5
-              local.get $l3
-              i32.store offset=12
-              local.get $l3
-              local.get $l5
-              i32.store offset=8
-              br $B17
-            end
-            i32.const 1054432
-            i32.const 1054432
-            i32.load
-            i32.const -2
-            local.get $l2
-            i32.const 3
+            local.get $l7
+            i32.load8_u
+            local.tee $p2
+            i32.const 5
             i32.shr_u
-            i32.rotl
+            i32.const 6
             i32.and
-            i32.store
-            br $B17
-          end
-          local.get $l2
-          local.get $l6
-          i32.store offset=24
-          local.get $l4
-          i32.load offset=16
-          local.tee $l3
-          if $I27
-            local.get $l2
-            local.get $l3
-            i32.store offset=16
-            local.get $l3
-            local.get $l2
-            i32.store offset=24
-          end
-          local.get $l4
-          i32.load offset=20
-          local.tee $l3
-          i32.eqz
-          br_if $B17
-          local.get $l2
-          i32.const 20
-          i32.add
-          local.get $l3
-          i32.store
-          local.get $l3
-          local.get $l2
-          i32.store offset=24
-        end
-        local.get $p0
-        local.get $p1
-        i32.const 1
-        i32.or
-        i32.store offset=4
-        local.get $p0
-        local.get $p1
-        i32.add
-        local.get $p1
-        i32.store
-        i32.const 1054840
-        i32.load
-        local.get $p0
-        i32.ne
-        br_if $B13
-        i32.const 1054832
-        local.get $p1
-        i32.store
-        return
-      end
-      local.get $p1
-      i32.const 256
-      i32.ge_u
-      if $I28
-        i32.const 31
-        local.set $l3
-        local.get $p0
-        i64.const 0
-        i64.store offset=16 align=4
-        local.get $p1
-        i32.const 16777215
-        i32.le_u
-        if $I29
-          local.get $p1
-          i32.const 6
-          local.get $p1
-          i32.const 8
-          i32.shr_u
-          i32.clz
-          local.tee $l2
-          i32.sub
-          i32.shr_u
-          i32.const 1
-          i32.and
-          local.get $l2
-          i32.const 1
-          i32.shl
-          i32.sub
-          i32.const 62
-          i32.add
-          local.set $l3
-        end
-        local.get $p0
-        i32.const 28
-        i32.add
-        local.get $l3
-        i32.store
-        local.get $l3
-        i32.const 2
-        i32.shl
-        i32.const 1054704
-        i32.add
-        local.set $l2
-        block $B30
-          block $B31
-            block $B32
-              block $B33
-                i32.const 1054436
-                i32.load
-                local.tee $l5
-                i32.const 1
-                local.get $l3
-                i32.shl
-                local.tee $l7
-                i32.and
-                if $I34
-                  local.get $l2
-                  i32.load
-                  local.tee $l2
-                  i32.load offset=4
-                  i32.const -8
-                  i32.and
-                  local.get $p1
-                  i32.ne
-                  br_if $B33
-                  local.get $l2
-                  local.set $l3
-                  br $B32
-                end
-                i32.const 1054436
-                local.get $l5
-                local.get $l7
-                i32.or
-                i32.store
-                local.get $l2
-                local.get $p0
-                i32.store
-                br $B30
-              end
-              local.get $p1
-              i32.const 0
-              i32.const 25
-              local.get $l3
-              i32.const 1
-              i32.shr_u
-              i32.sub
-              i32.const 31
-              i32.and
-              local.get $l3
-              i32.const 31
-              i32.eq
-              select
-              i32.shl
-              local.set $l5
-              loop $L35
-                local.get $l5
-                i32.const 29
-                i32.shr_u
-                i32.const 4
-                i32.and
-                local.get $l2
-                i32.add
-                i32.const 16
-                i32.add
-                local.tee $l7
-                i32.load
-                local.tee $l3
-                i32.eqz
-                br_if $B31
-                local.get $l5
-                i32.const 1
-                i32.shl
-                local.set $l5
-                local.get $l3
-                local.tee $l2
-                i32.load offset=4
-                i32.const -8
-                i32.and
-                local.get $p1
-                i32.ne
-                br_if $L35
-              end
-            end
-            local.get $l3
-            i32.load offset=8
-            local.tee $p1
+            local.get $p2
+            i32.const 1
+            i32.and
+            i32.or
+            i32.const 2
+            i32.shl
             local.get $p0
-            i32.store offset=12
-            local.get $l3
-            local.get $p0
-            i32.store offset=8
-            local.get $p0
-            i32.const 24
             i32.add
-            i32.const 0
+            i32.const 4484
+            i32.add
+            local.tee $p2
+            local.get $p2
+            i32.load
+            i32.const 1
+            i32.add
             i32.store
             local.get $p0
-            local.get $l3
-            i32.store offset=12
             local.get $p0
-            local.get $p1
-            i32.store offset=8
-            return
+            i32.load offset=4564
+            i32.const 1
+            i32.add
+            local.tee $l9
+            i32.store offset=4564
+            local.get $l7
+            i32.const 1
+            i32.add
+            local.set $l7
+            local.get $l21
+            i32.const 1
+            i32.add
+            br $B5
           end
           local.get $l7
+          local.get $l10
+          i32.sub
+          local.tee $p3
           local.get $p0
+          i32.add
+          i32.const 4572
+          i32.add
+          i32.load8_u
+          local.set $p2
+          local.get $l6
+          i32.const 1058672
+          i32.add
+          i32.load8_u
+          local.tee $p4
+          i32.const 2
+          i32.shl
+          local.get $l28
+          i32.add
+          i32.const 1028
+          i32.add
+          local.tee $l5
+          local.get $l5
+          i32.load
+          i32.const 1
+          i32.add
           i32.store
+          local.get $p2
+          i32.const 2
+          i32.shl
+          local.get $l28
+          i32.add
+          i32.const 1152
+          i32.add
+          local.tee $l5
+          local.get $l5
+          i32.load
+          i32.const 1
+          i32.add
+          i32.store
+          local.get $l14
+          local.get $l6
+          i32.const 23
+          i32.shl
+          local.get $l21
+          i32.or
+          i32.store
+          i32.const 36
+          i32.const 32
+          local.get $l6
+          i32.const 8
+          i32.gt_u
+          select
+          local.get $p0
+          i32.add
+          i32.const 4484
+          i32.add
+          local.tee $l5
+          local.get $l5
+          i32.load
+          i32.const 1
+          i32.add
+          i32.store
+          local.get $l14
+          local.get $p4
+          i32.store8 offset=7
+          local.get $l14
+          local.get $p3
+          i32.store16 offset=4
+          local.get $l14
+          local.get $p2
+          i32.store8 offset=6
+          local.get $p0
+          local.get $p0
+          i32.load offset=4564
+          i32.const 1
+          i32.add
+          local.tee $l9
+          i32.store offset=4564
+          local.get $l14
+          i32.const 8
+          i32.add
+          local.set $l14
+          block $B23
+            local.get $l6
+            i32.const 4
+            i32.add
+            local.get $l16
+            local.get $l7
+            i32.const 1
+            i32.add
+            local.tee $p2
+            i32.sub
+            i32.gt_u
+            if $I24
+              local.get $l6
+              local.get $l7
+              i32.add
+              local.set $l7
+              br $B23
+            end
+            local.get $p2
+            local.get $p1
+            i32.sub
+            local.set $p3
+            local.get $l6
+            i32.const 1
+            i32.sub
+            local.set $l5
+            loop $L25
+              local.get $p3
+              i32.const 32768
+              i32.eq
+              if $I26
+                i32.const 0
+                local.set $p3
+                loop $L27
+                  local.get $p3
+                  local.get $l27
+                  i32.add
+                  local.tee $l6
+                  i32.load16_u
+                  local.set $p4
+                  local.get $l6
+                  local.get $p4
+                  i32.const -1
+                  i32.xor
+                  i32.const 16
+                  i32.shl
+                  i32.const 16
+                  i32.shr_s
+                  i32.const 15
+                  i32.shr_u
+                  local.get $p4
+                  i32.and
+                  i32.const 32768
+                  i32.or
+                  i32.store16
+                  local.get $p3
+                  i32.const 2
+                  i32.add
+                  local.tee $p3
+                  i32.const 262144
+                  i32.ne
+                  br_if $L27
+                end
+                i32.const 0
+                local.set $p3
+                local.get $p1
+                i32.const 32768
+                i32.add
+                local.set $p1
+              end
+              local.get $l20
+              i32.const 1
+              i32.shl
+              local.get $l12
+              i32.add
+              local.get $p3
+              i32.store16
+              local.get $p3
+              i32.const 1
+              i32.shl
+              local.get $l12
+              i32.add
+              i32.const 196608
+              i32.add
+              local.get $l19
+              i32.const 1
+              i32.shl
+              local.get $l12
+              i32.add
+              i32.const 65536
+              i32.add
+              local.tee $p4
+              i32.load16_u
+              i32.store16
+              local.get $p4
+              local.get $p3
+              i32.store16
+              local.get $p3
+              i32.const 1
+              i32.add
+              local.set $p3
+              local.get $p2
+              i32.load offset=1 align=1
+              local.tee $p4
+              i32.const 506832829
+              i32.mul
+              i32.const 16
+              i32.shr_u
+              local.set $l19
+              local.get $p4
+              i32.const 16777215
+              i32.and
+              i32.const 506832829
+              i32.mul
+              i32.const 17
+              i32.shr_u
+              local.set $l20
+              local.get $p2
+              i32.const 1
+              i32.add
+              local.tee $l7
+              local.set $p2
+              local.get $l5
+              i32.const 1
+              i32.sub
+              local.tee $l5
+              br_if $L25
+            end
+          end
+          i32.const 0
         end
-        local.get $p0
-        i32.const 24
+        local.set $l21
+        block $B28
+          local.get $l7
+          local.get $l41
+          i32.ge_u
+          if $I29
+            local.get $l7
+            local.get $l22
+            i32.sub
+            local.set $l17
+            br $B28
+          end
+          local.get $l9
+          i32.const 512
+          i32.lt_u
+          br_if $L2
+          local.get $l7
+          local.get $l22
+          i32.sub
+          local.tee $l17
+          i32.const 10000
+          i32.lt_s
+          br_if $L2
+          local.get $l16
+          local.get $l7
+          i32.sub
+          i32.const 10000
+          i32.lt_s
+          br_if $L2
+          block $B30
+            local.get $p0
+            i32.load offset=4568
+            local.tee $p3
+            i32.eqz
+            if $I31
+              local.get $p0
+              i32.load offset=4528
+              local.set $l29
+              local.get $p0
+              i32.load offset=4488
+              local.set $p4
+              local.get $p0
+              i32.load offset=4524
+              local.set $l30
+              local.get $p0
+              i32.load offset=4484
+              local.set $p2
+              local.get $p0
+              i32.load offset=4560
+              local.set $l9
+              local.get $p0
+              i32.load offset=4520
+              local.set $l5
+              local.get $p0
+              i32.load offset=4556
+              local.set $l31
+              local.get $p0
+              i32.load offset=4516
+              local.set $l6
+              local.get $p0
+              i32.load offset=4552
+              local.set $l32
+              local.get $p0
+              i32.load offset=4512
+              local.set $l11
+              local.get $p0
+              i32.load offset=4548
+              local.set $l33
+              local.get $p0
+              i32.load offset=4508
+              local.set $l23
+              local.get $p0
+              i32.load offset=4544
+              local.set $l34
+              local.get $p0
+              i32.load offset=4504
+              local.set $l10
+              local.get $p0
+              i32.load offset=4540
+              local.set $l35
+              local.get $p0
+              i32.load offset=4500
+              local.set $l24
+              local.get $p0
+              i32.load offset=4536
+              local.set $l36
+              local.get $p0
+              i32.load offset=4496
+              local.set $l25
+              local.get $p0
+              i32.load offset=4532
+              local.set $l37
+              local.get $p0
+              i32.load offset=4492
+              local.set $l26
+              br $B30
+            end
+            local.get $l17
+            i32.const 12
+            i32.shr_u
+            local.get $p3
+            i32.mul
+            local.get $p3
+            local.get $p0
+            i32.load offset=4484
+            local.tee $p2
+            i32.mul
+            local.tee $p4
+            local.get $p0
+            i32.load offset=4524
+            local.tee $l30
+            local.get $l9
+            i32.mul
+            local.tee $l5
+            i32.sub
+            local.get $l5
+            local.get $p4
+            i32.sub
+            local.get $p4
+            local.get $l5
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4488
+            local.tee $p4
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4528
+            local.tee $l29
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4492
+            local.tee $l26
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4532
+            local.tee $l37
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4496
+            local.tee $l25
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4536
+            local.tee $l36
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4500
+            local.tee $l24
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4540
+            local.tee $l35
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4504
+            local.tee $l10
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4544
+            local.tee $l34
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4508
+            local.tee $l23
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4548
+            local.tee $l33
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4512
+            local.tee $l11
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4552
+            local.tee $l32
+            local.get $l9
+            i32.mul
+            local.tee $l6
+            i32.sub
+            local.get $l6
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l6
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4516
+            local.tee $l6
+            i32.mul
+            local.tee $l5
+            local.get $p0
+            i32.load offset=4556
+            local.tee $l31
+            local.get $l9
+            i32.mul
+            local.tee $l18
+            i32.sub
+            local.get $l18
+            local.get $l5
+            i32.sub
+            local.get $l5
+            local.get $l18
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            local.get $p0
+            i32.load offset=4520
+            local.tee $l5
+            i32.mul
+            local.tee $l18
+            local.get $l9
+            local.get $p0
+            i32.load offset=4560
+            local.tee $l9
+            i32.mul
+            local.tee $l38
+            i32.sub
+            local.get $l38
+            local.get $l18
+            i32.sub
+            local.get $l18
+            local.get $l38
+            i32.gt_u
+            select
+            i32.add
+            local.get $p3
+            i32.const 200
+            i32.mul
+            i32.ge_u
+            br_if $B28
+          end
+          local.get $p0
+          i32.const 0
+          i32.store offset=4484
+          local.get $p0
+          i64.const 0
+          i64.store offset=4488 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4496 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4504 align=4
+          local.get $p0
+          i64.const 0
+          i64.store offset=4512 align=4
+          local.get $p0
+          i32.const 0
+          i32.store offset=4564
+          local.get $p0
+          i32.const 0
+          i32.store offset=4520
+          local.get $p0
+          local.get $p4
+          local.get $l29
+          i32.add
+          i32.store offset=4528
+          local.get $p0
+          local.get $p2
+          local.get $l30
+          i32.add
+          i32.store offset=4524
+          local.get $p0
+          local.get $l26
+          local.get $l37
+          i32.add
+          i32.store offset=4532
+          local.get $p0
+          local.get $l25
+          local.get $l36
+          i32.add
+          i32.store offset=4536
+          local.get $p0
+          local.get $l24
+          local.get $l35
+          i32.add
+          i32.store offset=4540
+          local.get $p0
+          local.get $l10
+          local.get $l34
+          i32.add
+          i32.store offset=4544
+          local.get $p0
+          local.get $l23
+          local.get $l33
+          i32.add
+          i32.store offset=4548
+          local.get $p0
+          local.get $l11
+          local.get $l32
+          i32.add
+          i32.store offset=4552
+          local.get $p0
+          local.get $l6
+          local.get $l31
+          i32.add
+          i32.store offset=4556
+          local.get $p0
+          local.get $l5
+          local.get $l9
+          i32.add
+          i32.store offset=4560
+          local.get $p0
+          local.get $p3
+          local.get $l5
+          i32.add
+          local.get $l6
+          i32.add
+          local.get $l11
+          i32.add
+          local.get $l23
+          i32.add
+          local.get $l10
+          i32.add
+          local.get $l24
+          i32.add
+          local.get $l25
+          i32.add
+          local.get $l26
+          i32.add
+          local.get $p2
+          i32.add
+          local.get $p4
+          i32.add
+          i32.store offset=4568
+          br $L2
+        end
+      end
+      local.get $l14
+      local.get $l21
+      i32.store
+      local.get $p0
+      local.get $l8
+      i32.const 8
+      i32.add
+      local.get $l22
+      local.get $l17
+      local.get $l7
+      local.get $l16
+      i32.eq
+      i32.const 0
+      call $f2
+      local.get $l7
+      local.get $l16
+      i32.ne
+      br_if $L1
+    end
+    block $B32 (result i32)
+      i32.const 0
+      local.get $l8
+      i32.load offset=20
+      local.tee $p3
+      local.get $l8
+      i32.load offset=24
+      i32.eq
+      br_if $B32
+      drop
+      local.get $l8
+      i32.load offset=12
+      i32.const 1
+      i32.ge_s
+      if $I33 (result i32)
+        local.get $l8
+        local.get $p3
+        i32.const 1
         i32.add
-        local.get $l2
-        i32.store
-        local.get $p0
-        local.get $p0
+        i32.store offset=20
+        local.get $p3
+        local.get $l8
+        i32.load offset=8
+        i32.store8
+        local.get $l8
+        local.get $l8
+        i32.load offset=8
+        i32.const 8
+        i32.shr_u
+        local.tee $p3
+        i32.store offset=8
+        local.get $l8
+        local.get $l8
+        i32.load offset=12
+        i32.const 8
+        i32.sub
+        local.tee $p0
         i32.store offset=12
         local.get $p0
-        local.get $p0
-        i32.store offset=8
-        return
-      end
-      local.get $p1
-      i32.const 3
-      i32.shr_u
-      local.tee $l2
-      i32.const 3
-      i32.shl
-      i32.const 1054440
-      i32.add
-      local.set $p1
-      block $B36 (result i32)
-        i32.const 1054432
-        i32.load
-        local.tee $l3
         i32.const 1
-        local.get $l2
-        i32.shl
-        local.tee $l2
-        i32.and
-        if $I37
-          local.get $p1
-          i32.load offset=8
-          br $B36
+        i32.ge_s
+        if $I34
+          loop $L35
+            local.get $l8
+            local.get $l8
+            i32.load offset=20
+            local.tee $p0
+            i32.const 1
+            i32.add
+            i32.store offset=20
+            local.get $p0
+            local.get $p3
+            i32.store8
+            local.get $l8
+            local.get $l8
+            i32.load offset=8
+            i32.const 8
+            i32.shr_u
+            local.tee $p3
+            i32.store offset=8
+            local.get $l8
+            local.get $l8
+            i32.load offset=12
+            i32.const 8
+            i32.sub
+            local.tee $p0
+            i32.store offset=12
+            local.get $p0
+            i32.const 0
+            i32.gt_s
+            br_if $L35
+          end
         end
-        i32.const 1054432
-        local.get $l2
-        local.get $l3
+        local.get $l8
+        i32.load offset=20
+      else
+        local.get $p3
+      end
+      local.get $l8
+      i32.load offset=16
+      i32.sub
+    end
+    local.get $l8
+    i32.const 32
+    i32.add
+    global.set $g0)
+  (func $f10 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
+    (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32)
+    global.get $g0
+    i32.const 1216
+    i32.sub
+    local.tee $l10
+    global.set $g0
+    local.get $l10
+    i32.const -64
+    i32.sub
+    local.get $p0
+    i32.const 3
+    i32.add
+    i32.const -4
+    i32.and
+    local.tee $l11
+    i32.const 2
+    i32.shl
+    call $f42
+    drop
+    local.get $p0
+    if $I0
+      local.get $l11
+      i32.const 1
+      i32.sub
+      local.set $l6
+      local.get $p2
+      local.set $l5
+      local.get $p0
+      local.set $l7
+      loop $L1
+        local.get $l10
+        i32.const -64
+        i32.sub
+        local.get $l6
+        local.get $l5
+        i32.load
+        local.tee $l8
+        local.get $l6
+        local.get $l8
+        i32.lt_u
+        select
+        i32.const 2
+        i32.shl
+        i32.add
+        local.tee $l8
+        local.get $l8
+        i32.load
+        i32.const 1
+        i32.add
+        i32.store
+        local.get $l5
+        i32.const 4
+        i32.add
+        local.set $l5
+        local.get $l7
+        i32.const 1
+        i32.sub
+        local.tee $l7
+        br_if $L1
+      end
+    end
+    local.get $l11
+    if $I2
+      local.get $l10
+      i32.const -64
+      i32.sub
+      i32.const 4
+      i32.or
+      local.set $l5
+      i32.const 1
+      local.set $l6
+      loop $L3
+        local.get $l5
+        i32.load
+        local.get $l5
+        local.get $l13
+        i32.store
+        local.get $l5
+        i32.const 4
+        i32.add
+        local.set $l5
+        local.get $l13
+        i32.add
+        local.set $l13
+        local.get $l11
+        local.get $l6
+        i32.const 1
+        i32.add
+        local.tee $l6
+        i32.gt_u
+        br_if $L3
+      end
+    end
+    local.get $l11
+    i32.const 1
+    i32.sub
+    local.set $l9
+    local.get $p0
+    if $I4
+      i32.const 0
+      local.set $l5
+      loop $L5
+        block $B6
+          local.get $p2
+          i32.load
+          local.tee $l7
+          if $I7
+            local.get $l10
+            i32.const -64
+            i32.sub
+            local.get $l9
+            local.get $l7
+            local.get $l7
+            local.get $l9
+            i32.gt_u
+            select
+            i32.const 2
+            i32.shl
+            i32.add
+            local.tee $l8
+            i32.load
+            local.set $l6
+            local.get $l8
+            local.get $l6
+            i32.const 1
+            i32.add
+            i32.store
+            local.get $l6
+            i32.const 2
+            i32.shl
+            local.get $p4
+            i32.add
+            local.get $l7
+            i32.const 10
+            i32.shl
+            local.get $l5
+            i32.or
+            i32.store
+            br $B6
+          end
+          local.get $p3
+          local.get $l5
+          i32.add
+          i32.const 0
+          i32.store8
+        end
+        local.get $p2
+        i32.const 4
+        i32.add
+        local.set $p2
+        local.get $l5
+        i32.const 1
+        i32.add
+        local.tee $l5
+        local.get $p0
+        i32.ne
+        br_if $L5
+      end
+    end
+    local.get $l10
+    i32.const -64
+    i32.sub
+    local.tee $l8
+    local.get $l11
+    i32.const 2
+    i32.shl
+    i32.add
+    i32.const 8
+    i32.sub
+    i32.load
+    local.tee $p2
+    i32.const 2
+    i32.shl
+    local.get $p4
+    i32.add
+    local.tee $l11
+    i32.const 4
+    i32.sub
+    local.set $l12
+    local.get $l9
+    i32.const 2
+    i32.shl
+    local.get $l8
+    i32.add
+    i32.load
+    local.get $p2
+    i32.sub
+    local.tee $l15
+    i32.const 1
+    i32.shr_u
+    local.tee $l14
+    if $I8
+      loop $L9
+        local.get $l14
+        i32.const 2
+        i32.shl
+        local.get $l12
+        i32.add
+        i32.load
+        local.set $l7
+        block $B10
+          local.get $l15
+          local.get $l14
+          local.tee $p2
+          i32.const 1
+          i32.shl
+          local.tee $l6
+          i32.lt_u
+          br_if $B10
+          local.get $l14
+          local.set $l8
+          loop $L11
+            local.get $l7
+            local.get $l6
+            local.get $l15
+            i32.ge_u
+            if $I12 (result i32)
+              local.get $l6
+            else
+              local.get $l6
+              i32.const 1
+              i32.or
+              local.tee $p2
+              local.get $l6
+              local.get $p2
+              i32.const 2
+              i32.shl
+              local.get $l12
+              i32.add
+              i32.load
+              local.get $l6
+              i32.const 2
+              i32.shl
+              local.get $l12
+              i32.add
+              i32.load
+              i32.gt_u
+              select
+            end
+            local.tee $p2
+            i32.const 2
+            i32.shl
+            local.get $l12
+            i32.add
+            i32.load
+            local.tee $l5
+            i32.ge_u
+            if $I13
+              local.get $l8
+              local.set $p2
+              br $B10
+            end
+            local.get $l8
+            i32.const 2
+            i32.shl
+            local.get $l12
+            i32.add
+            local.get $l5
+            i32.store
+            local.get $p2
+            local.set $l8
+            local.get $l15
+            local.get $p2
+            i32.const 1
+            i32.shl
+            local.tee $l6
+            i32.ge_u
+            br_if $L11
+          end
+        end
+        local.get $p2
+        i32.const 2
+        i32.shl
+        local.get $l12
+        i32.add
+        local.get $l7
+        i32.store
+        local.get $l14
+        i32.const 1
+        i32.sub
+        local.tee $l14
+        br_if $L9
+      end
+    end
+    local.get $l15
+    i32.const 2
+    i32.ge_u
+    if $I14
+      local.get $l15
+      i32.const 2
+      i32.shl
+      local.get $l12
+      i32.add
+      local.tee $p2
+      i32.load
+      local.set $l9
+      local.get $p2
+      local.get $l11
+      i32.load
+      i32.store
+      local.get $l11
+      local.get $l9
+      i32.store
+      local.get $l15
+      i32.const 1
+      i32.sub
+      local.tee $l7
+      i32.const 2
+      i32.ge_u
+      if $I15
+        loop $L16
+          i32.const 2
+          local.set $p2
+          i32.const 1
+          local.set $l8
+          loop $L17
+            block $B18
+              local.get $l9
+              local.get $p2
+              local.get $l7
+              i32.ge_u
+              if $I19 (result i32)
+                local.get $p2
+              else
+                local.get $p2
+                i32.const 1
+                i32.or
+                local.tee $l5
+                local.get $p2
+                local.get $l5
+                i32.const 2
+                i32.shl
+                local.get $l12
+                i32.add
+                i32.load
+                local.get $p2
+                i32.const 2
+                i32.shl
+                local.get $l12
+                i32.add
+                i32.load
+                i32.gt_u
+                select
+              end
+              local.tee $l6
+              i32.const 2
+              i32.shl
+              local.get $l12
+              i32.add
+              i32.load
+              local.tee $p2
+              i32.ge_u
+              if $I20
+                local.get $l8
+                local.set $l6
+                br $B18
+              end
+              local.get $l8
+              i32.const 2
+              i32.shl
+              local.get $l12
+              i32.add
+              local.get $p2
+              i32.store
+              local.get $l6
+              local.set $l8
+              local.get $l7
+              local.get $l6
+              i32.const 1
+              i32.shl
+              local.tee $p2
+              i32.ge_u
+              br_if $L17
+            end
+          end
+          local.get $l6
+          i32.const 2
+          i32.shl
+          local.get $l12
+          i32.add
+          local.get $l9
+          i32.store
+          local.get $l7
+          i32.const 2
+          i32.shl
+          local.get $l12
+          i32.add
+          local.tee $p2
+          i32.load
+          local.set $l9
+          local.get $p2
+          local.get $l11
+          i32.load
+          i32.store
+          local.get $l11
+          local.get $l9
+          i32.store
+          local.get $l7
+          i32.const 1
+          i32.sub
+          local.tee $l7
+          i32.const 2
+          i32.ge_u
+          br_if $L16
+        end
+      end
+      local.get $l11
+      local.get $l9
+      i32.store
+    end
+    block $B21
+      local.get $l13
+      i32.const 1
+      i32.le_u
+      if $I22
+        local.get $l13
+        i32.const 1
+        i32.sub
+        br_if $B21
+        local.get $p3
+        i32.const 1
+        i32.store8
+        local.get $p4
+        i32.load
+        local.get $p4
+        i32.const 0
+        i32.store
+        i32.const 1023
+        i32.and
+        local.tee $p1
+        i32.const 1
+        local.get $p1
+        select
+        local.tee $p1
+        local.get $p3
+        i32.add
+        i32.const 1
+        i32.store8
+        local.get $p1
+        i32.const 2
+        i32.shl
+        local.get $p4
+        i32.add
+        i32.const 1
+        i32.store
+        br $B21
+      end
+      i32.const 0
+      local.set $p2
+      local.get $p4
+      local.set $l6
+      local.get $l13
+      local.set $l15
+      i32.const 0
+      local.set $l9
+      i32.const 0
+      local.set $l14
+      i32.const 0
+      local.set $l7
+      loop $L23
+        block $B24 (result i32)
+          block $B25
+            block $B26 (result i32)
+              block $B27
+                local.get $l7
+                local.get $l13
+                i32.eq
+                br_if $B27
+                local.get $l9
+                local.get $l14
+                i32.ne
+                if $I28
+                  local.get $l7
+                  i32.const 2
+                  i32.shl
+                  local.get $p4
+                  i32.add
+                  i32.load
+                  i32.const 10
+                  i32.shr_u
+                  local.get $l9
+                  i32.const 2
+                  i32.shl
+                  local.get $p4
+                  i32.add
+                  i32.load
+                  i32.const 10
+                  i32.shr_u
+                  i32.gt_u
+                  br_if $B27
+                end
+                local.get $l9
+                local.set $l5
+                local.get $l7
+                local.set $l11
+                local.get $l7
+                i32.const 1
+                i32.add
+                br $B26
+              end
+              local.get $l9
+              i32.const 1
+              i32.add
+              local.set $l5
+              local.get $l9
+              local.set $l11
+              local.get $l7
+            end
+            local.tee $l8
+            local.get $l13
+            i32.eq
+            br_if $B25
+            local.get $l5
+            local.get $l14
+            i32.ne
+            if $I29
+              local.get $l8
+              i32.const 2
+              i32.shl
+              local.get $p4
+              i32.add
+              i32.load
+              i32.const 10
+              i32.shr_u
+              local.get $l5
+              i32.const 2
+              i32.shl
+              local.get $p4
+              i32.add
+              i32.load
+              i32.const 10
+              i32.shr_u
+              i32.gt_u
+              br_if $B25
+            end
+            local.get $l5
+            local.set $l9
+            local.get $l8
+            local.tee $l5
+            i32.const 1
+            i32.add
+            br $B24
+          end
+          local.get $l5
+          i32.const 1
+          i32.add
+          local.set $l9
+          local.get $l8
+        end
+        local.set $l7
+        local.get $l5
+        i32.const 2
+        i32.shl
+        local.get $p4
+        i32.add
+        local.tee $l12
+        i32.load
+        local.set $l5
+        local.get $l11
+        i32.const 2
+        i32.shl
+        local.get $p4
+        i32.add
+        local.tee $l8
+        i32.load
+        local.set $l11
+        local.get $l8
+        local.get $l11
+        i32.const 1023
+        i32.and
+        local.get $p2
         i32.or
         i32.store
-        local.get $p1
+        local.get $l12
+        local.get $l12
+        i32.load
+        i32.const 1023
+        i32.and
+        local.get $p2
+        i32.or
+        i32.store
+        local.get $l6
+        local.get $l5
+        i32.const -1024
+        i32.and
+        local.get $l11
+        i32.const -1024
+        i32.and
+        i32.add
+        local.get $l6
+        i32.load
+        i32.const 1023
+        i32.and
+        i32.or
+        i32.store
+        local.get $p2
+        i32.const 1024
+        i32.add
+        local.set $p2
+        local.get $l6
+        i32.const 4
+        i32.add
+        local.set $l6
+        local.get $l14
+        i32.const 1
+        i32.add
+        local.set $l14
+        local.get $l15
+        i32.const 1
+        i32.sub
+        local.tee $l15
+        i32.const 1
+        i32.gt_u
+        br_if $L23
       end
-      local.set $l3
-      local.get $p1
+      local.get $l10
+      local.set $l5
+      i32.const 0
+      local.set $p2
+      loop $L30
+        local.get $l5
+        i32.const 0
+        i32.store
+        local.get $l5
+        i32.const 4
+        i32.add
+        local.set $l5
+        local.get $p2
+        i32.const 1
+        i32.add
+        local.tee $p2
+        local.get $p1
+        i32.le_u
+        br_if $L30
+      end
+      local.get $l10
+      i32.const 2
+      i32.store offset=4
+      local.get $l13
+      i32.const 2
+      i32.shl
+      local.get $p4
+      i32.add
+      i32.const 8
+      i32.sub
+      local.tee $p2
+      local.get $p2
+      i32.load
+      i32.const 1023
+      i32.and
+      i32.store
+      local.get $l13
+      i32.const 3
+      i32.sub
+      local.tee $l7
+      i32.const 0
+      i32.ge_s
+      if $I31
+        local.get $p1
+        i32.const 2
+        i32.shl
+        local.get $l10
+        i32.add
+        i32.const 4
+        i32.sub
+        local.set $l8
+        loop $L32
+          local.get $l7
+          i32.const 2
+          i32.shl
+          local.get $p4
+          i32.add
+          local.tee $l6
+          i32.load
+          local.tee $l5
+          i32.const 8
+          i32.shr_u
+          i32.const 16777212
+          i32.and
+          local.get $p4
+          i32.add
+          i32.load
+          i32.const 10
+          i32.shr_u
+          i32.const 1
+          i32.add
+          local.set $p2
+          local.get $l6
+          local.get $l5
+          i32.const 1023
+          i32.and
+          local.get $p2
+          i32.const 10
+          i32.shl
+          i32.or
+          i32.store
+          block $B33
+            local.get $p1
+            local.get $p2
+            i32.le_u
+            if $I34
+              local.get $l8
+              local.set $l5
+              local.get $p1
+              local.set $p2
+              loop $L35
+                local.get $p2
+                i32.const 1
+                i32.sub
+                local.set $p2
+                local.get $l5
+                i32.load
+                local.set $l6
+                local.get $l5
+                i32.const 4
+                i32.sub
+                local.set $l5
+                local.get $l6
+                i32.eqz
+                br_if $L35
+              end
+              br $B33
+            end
+            local.get $p2
+            i32.const 2
+            i32.shl
+            local.get $l10
+            i32.add
+            i32.load
+            local.set $l6
+          end
+          local.get $p2
+          i32.const 2
+          i32.shl
+          local.get $l10
+          i32.add
+          local.tee $p2
+          local.get $l6
+          i32.const 1
+          i32.sub
+          i32.store
+          local.get $p2
+          i32.const 4
+          i32.add
+          local.tee $p2
+          local.get $p2
+          i32.load
+          i32.const 2
+          i32.add
+          i32.store
+          local.get $l7
+          i32.const 1
+          i32.sub
+          local.tee $l7
+          i32.const -1
+          i32.gt_s
+          br_if $L32
+        end
+      end
+      block $B36
+        local.get $p1
+        if $I37
+          i32.const 0
+          local.set $l6
+          local.get $p1
+          local.set $l7
+          loop $L38
+            local.get $l7
+            i32.const 2
+            i32.shl
+            local.get $l10
+            i32.add
+            i32.load
+            local.tee $p2
+            if $I39
+              local.get $l6
+              i32.const 2
+              i32.shl
+              local.get $p4
+              i32.add
+              local.set $l5
+              loop $L40
+                local.get $l5
+                i32.load
+                i32.const 1023
+                i32.and
+                local.get $p3
+                i32.add
+                local.get $l7
+                i32.store8
+                local.get $l5
+                i32.const 4
+                i32.add
+                local.set $l5
+                local.get $l6
+                i32.const 1
+                i32.add
+                local.set $l6
+                local.get $p2
+                i32.const 1
+                i32.sub
+                local.tee $p2
+                br_if $L40
+              end
+            end
+            local.get $l7
+            i32.const 1
+            i32.sub
+            local.tee $l7
+            br_if $L38
+          end
+          local.get $l10
+          i64.const 0
+          i64.store offset=64
+          i32.const 2
+          local.set $l6
+          local.get $p1
+          i32.const 2
+          i32.lt_u
+          br_if $B36
+          local.get $l10
+          i32.const 4
+          i32.or
+          local.set $l5
+          local.get $l10
+          i32.const -64
+          i32.sub
+          i32.const 8
+          i32.or
+          local.set $p2
+          i32.const 0
+          local.set $l7
+          loop $L41
+            local.get $p2
+            local.get $l5
+            i32.load
+            local.get $l7
+            i32.add
+            i32.const 1
+            i32.shl
+            local.tee $l7
+            i32.store
+            local.get $l5
+            i32.const 4
+            i32.add
+            local.set $l5
+            local.get $p2
+            i32.const 4
+            i32.add
+            local.set $p2
+            local.get $l6
+            i32.const 1
+            i32.add
+            local.tee $l6
+            local.get $p1
+            i32.le_u
+            br_if $L41
+          end
+          br $B36
+        end
+        local.get $l10
+        i64.const 0
+        i64.store offset=64
+      end
       local.get $p0
-      i32.store offset=8
-      local.get $l3
+      i32.eqz
+      br_if $B21
+      local.get $p3
+      local.set $l5
+      local.get $p4
+      local.set $p2
       local.get $p0
-      i32.store offset=12
-      local.get $p0
-      local.get $p1
-      i32.store offset=12
-      local.get $p0
-      local.get $l3
-      i32.store offset=8
-    end)
-  (func $f8 (type $t3) (param $p0 i32) (param $p1 i32) (result i32)
+      local.set $l6
+      loop $L42
+        local.get $p2
+        local.get $l10
+        i32.const -64
+        i32.sub
+        local.get $l5
+        i32.load8_u
+        i32.const 2
+        i32.shl
+        i32.add
+        local.tee $l8
+        i32.load
+        local.tee $p1
+        i32.store
+        local.get $l8
+        local.get $p1
+        i32.const 1
+        i32.add
+        i32.store
+        local.get $l5
+        i32.const 1
+        i32.add
+        local.set $l5
+        local.get $p2
+        i32.const 4
+        i32.add
+        local.set $p2
+        local.get $l6
+        i32.const 1
+        i32.sub
+        local.tee $l6
+        br_if $L42
+      end
+    end
+    local.get $p0
+    if $I43
+      loop $L44
+        local.get $p4
+        local.get $p4
+        i32.load
+        local.tee $p1
+        i32.const 1
+        i32.shl
+        i32.const 43690
+        i32.and
+        local.get $p1
+        i32.const 1
+        i32.shr_u
+        i32.const 21845
+        i32.and
+        i32.or
+        local.tee $p1
+        i32.const 2
+        i32.shl
+        i32.const 52428
+        i32.and
+        local.get $p1
+        i32.const 2
+        i32.shr_u
+        i32.const 13107
+        i32.and
+        i32.or
+        local.tee $p1
+        i32.const 4
+        i32.shl
+        i32.const 61680
+        i32.and
+        local.get $p1
+        i32.const 4
+        i32.shr_u
+        i32.const 3855
+        i32.and
+        i32.or
+        local.tee $p1
+        i32.const 8
+        i32.shl
+        i32.const 65280
+        i32.and
+        local.get $p1
+        i32.const 8
+        i32.shr_u
+        i32.or
+        i32.const 16
+        local.get $p3
+        i32.load8_u
+        i32.sub
+        i32.shr_u
+        i32.store
+        local.get $p4
+        i32.const 4
+        i32.add
+        local.set $p4
+        local.get $p3
+        i32.const 1
+        i32.add
+        local.set $p3
+        local.get $p0
+        i32.const 1
+        i32.sub
+        local.tee $p0
+        br_if $L44
+      end
+    end
+    local.get $l10
+    i32.const 1216
+    i32.add
+    global.set $g0)
+  (func $f11 (type $t1) (param $p0 i32)
+    (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32)
+    global.get $g0
+    i32.const 112
+    i32.sub
+    local.tee $l1
+    global.set $g0
+    local.get $l1
+    i32.const 8
+    i32.add
+    i32.const 2
+    i32.or
+    local.set $l5
+    i32.const 1059300
+    i32.load
+    local.set $l2
+    loop $L0
+      block $B1
+        block $B2
+          block $B3
+            block $B4
+              block $B5
+                block $B6
+                  block $B7
+                    block $B8
+                      block $B9
+                        block $B10
+                          block $B11
+                            block $B12
+                              local.get $l2
+                              br_table $B11 $B12 $B9 $B10 $B9
+                            end
+                            unreachable
+                          end
+                          i32.const 1059300
+                          i32.const 1059300
+                          i32.load
+                          local.tee $l2
+                          i32.const 2
+                          local.get $l2
+                          select
+                          i32.store
+                          local.get $l2
+                          br_if $L0
+                          local.get $p0
+                          call $f40
+                          i32.const 1059300
+                          i32.load
+                          local.set $p0
+                          i32.const 1059300
+                          i32.const 3
+                          i32.store
+                          local.get $l1
+                          local.get $p0
+                          i32.const 3
+                          i32.and
+                          local.tee $l2
+                          i32.store offset=84
+                          local.get $l2
+                          i32.const 2
+                          i32.ne
+                          br_if $B8
+                          local.get $p0
+                          i32.const -4
+                          i32.and
+                          local.tee $l2
+                          i32.eqz
+                          br_if $B10
+                          loop $L13
+                            local.get $l2
+                            i32.load offset=4
+                            local.get $l2
+                            i32.load
+                            local.set $l3
+                            local.get $l2
+                            i32.const 0
+                            i32.store
+                            local.get $l3
+                            i32.eqz
+                            br_if $B7
+                            local.get $l2
+                            i32.const 1
+                            i32.store8 offset=8
+                            local.get $l3
+                            i32.load offset=24
+                            local.set $l2
+                            local.get $l3
+                            i32.const 2
+                            i32.store offset=24
+                            local.get $l1
+                            local.get $l3
+                            i32.store offset=80
+                            block $B14
+                              block $B15
+                                block $B16
+                                  local.get $l2
+                                  br_table $B14 $B15 $B14 $B16
+                                end
+                                unreachable
+                              end
+                              local.get $l3
+                              i32.const 24
+                              i32.add
+                              local.tee $l2
+                              i32.load8_u offset=4
+                              local.set $l4
+                              local.get $l2
+                              i32.const 1
+                              i32.store8 offset=4
+                              local.get $l1
+                              local.get $l4
+                              i32.const 1
+                              i32.and
+                              local.tee $l4
+                              i32.store8 offset=28
+                              local.get $l4
+                              br_if $B6
+                              local.get $l2
+                              i32.const 4
+                              i32.add
+                              local.set $l4
+                              i32.const 1059304
+                              i32.load
+                              if $I17
+                                unreachable
+                              end
+                              local.get $l2
+                              i32.const 5
+                              i32.add
+                              i32.load8_u
+                              br_if $B1
+                              i32.const 1059304
+                              i32.load
+                              if $I18
+                                unreachable
+                              end
+                              local.get $l4
+                              i32.const 0
+                              i32.store8
+                            end
+                            local.get $l3
+                            local.get $l3
+                            i32.load
+                            local.tee $l2
+                            i32.const 1
+                            i32.sub
+                            i32.store
+                            local.get $l2
+                            i32.const 1
+                            i32.eq
+                            if $I19
+                              local.get $l1
+                              i32.const 80
+                              i32.add
+                              call $f36
+                            end
+                            local.tee $l2
+                            br_if $L13
+                          end
+                        end
+                        local.get $l1
+                        i32.const 112
+                        i32.add
+                        global.set $g0
+                        return
+                      end
+                      local.get $l2
+                      i32.const 3
+                      i32.and
+                      i32.const 2
+                      i32.eq
+                      if $I20
+                        loop $L21
+                          local.get $l2
+                          local.set $l3
+                          i32.const 1059760
+                          i32.load
+                          i32.const 1
+                          i32.ne
+                          if $I22
+                            i32.const 1059760
+                            i64.const 1
+                            i64.store align=4
+                            i32.const 1059768
+                            i32.const 0
+                            i32.store
+                          end
+                          call $f19
+                          local.set $l6
+                          local.get $l3
+                          i32.const 1059300
+                          i32.load
+                          local.tee $l2
+                          i32.eq
+                          local.set $l4
+                          i32.const 1059300
+                          local.get $l5
+                          local.get $l2
+                          local.get $l4
+                          select
+                          i32.store
+                          local.get $l1
+                          i32.const 0
+                          i32.store8 offset=16
+                          local.get $l1
+                          local.get $l6
+                          i32.store offset=8
+                          local.get $l1
+                          local.get $l3
+                          i32.const -4
+                          i32.and
+                          i32.store offset=12
+                          block $B23
+                            local.get $l4
+                            if $I24
+                              local.get $l1
+                              i32.load8_u offset=16
+                              i32.eqz
+                              br_if $B23
+                              br $B3
+                            end
+                            block $B25
+                              local.get $l1
+                              i32.load offset=8
+                              local.tee $l3
+                              i32.eqz
+                              br_if $B25
+                              local.get $l3
+                              local.get $l3
+                              i32.load
+                              local.tee $l3
+                              i32.const 1
+                              i32.sub
+                              i32.store
+                              local.get $l3
+                              i32.const 1
+                              i32.ne
+                              br_if $B25
+                              local.get $l1
+                              i32.const 8
+                              i32.add
+                              call $f36
+                            end
+                            local.get $l2
+                            i32.const 3
+                            i32.and
+                            i32.const 2
+                            i32.eq
+                            br_if $L21
+                            br $B2
+                          end
+                        end
+                        block $B26
+                          loop $L27
+                            i32.const 1059760
+                            i32.load
+                            i32.const 1
+                            i32.ne
+                            if $I28
+                              i32.const 1059760
+                              i64.const 1
+                              i64.store align=4
+                              i32.const 1059768
+                              i32.const 0
+                              i32.store
+                            end
+                            call $f19
+                            local.tee $l2
+                            i32.load offset=24
+                            local.tee $l4
+                            i32.const 2
+                            i32.eq
+                            local.set $l3
+                            local.get $l2
+                            i32.const 0
+                            local.get $l4
+                            local.get $l3
+                            select
+                            i32.store offset=24
+                            local.get $l1
+                            local.get $l2
+                            i32.store offset=24
+                            block $B29
+                              local.get $l3
+                              i32.eqz
+                              if $I30
+                                local.get $l2
+                                i32.const 24
+                                i32.add
+                                local.tee $l2
+                                i32.load8_u offset=4
+                                local.set $l3
+                                local.get $l2
+                                i32.const 1
+                                i32.store8 offset=4
+                                local.get $l1
+                                local.get $l3
+                                i32.const 1
+                                i32.and
+                                local.tee $l3
+                                i32.store8 offset=28
+                                local.get $l3
+                                br_if $B5
+                                i32.const 1059304
+                                i32.load
+                                if $I31
+                                  unreachable
+                                end
+                                local.get $l2
+                                i32.const 4
+                                i32.add
+                                local.set $l4
+                                local.get $l2
+                                i32.const 5
+                                i32.add
+                                i32.load8_u
+                                br_if $B1
+                                local.get $l2
+                                local.get $l2
+                                i32.load
+                                local.tee $l3
+                                i32.const 1
+                                local.get $l3
+                                select
+                                i32.store
+                                local.get $l3
+                                i32.eqz
+                                br_if $B26
+                                local.get $l3
+                                i32.const 2
+                                i32.ne
+                                br_if $B4
+                                local.get $l2
+                                i32.load
+                                local.set $l3
+                                local.get $l2
+                                i32.const 0
+                                i32.store
+                                local.get $l1
+                                local.get $l3
+                                i32.store offset=28
+                                local.get $l3
+                                i32.const 2
+                                i32.ne
+                                br_if $B29
+                                i32.const 1059304
+                                i32.load
+                                if $I32
+                                  unreachable
+                                end
+                                local.get $l4
+                                i32.const 0
+                                i32.store8
+                              end
+                              local.get $l1
+                              i32.load offset=24
+                              local.tee $l3
+                              i32.load
+                              local.set $l2
+                              local.get $l3
+                              local.get $l2
+                              i32.const 1
+                              i32.sub
+                              i32.store
+                              local.get $l2
+                              i32.const 1
+                              i32.eq
+                              if $I33
+                                local.get $l1
+                                i32.const 24
+                                i32.add
+                                call $f36
+                              end
+                              local.get $l1
+                              i32.load8_u offset=16
+                              br_if $B3
+                              br $L27
+                            end
+                          end
+                          local.get $l1
+                          i32.const 56
+                          i32.add
+                          local.tee $p0
+                          i32.const 20
+                          i32.add
+                          i32.const 1
+                          i32.store
+                          local.get $l1
+                          i32.const 68
+                          i32.add
+                          i32.const 2
+                          i32.store
+                          local.get $l1
+                          i32.const 52
+                          i32.add
+                          i32.const 3
+                          i32.store
+                          local.get $l1
+                          local.get $l1
+                          i32.const 28
+                          i32.add
+                          i32.store offset=80
+                          local.get $l1
+                          i32.const 1058160
+                          i32.store offset=84
+                          local.get $l1
+                          i32.const 88
+                          i32.add
+                          local.tee $l2
+                          i32.const 20
+                          i32.add
+                          i32.const 0
+                          i32.store
+                          local.get $l1
+                          i64.const 3
+                          i64.store offset=36 align=4
+                          local.get $l1
+                          i32.const 1057524
+                          i32.store offset=32
+                          local.get $l1
+                          i32.const 2
+                          i32.store offset=60
+                          local.get $l1
+                          i32.const 1057524
+                          i32.store offset=104
+                          local.get $l1
+                          i64.const 1
+                          i64.store offset=92 align=4
+                          local.get $l1
+                          i32.const 1058164
+                          i32.store offset=88
+                          local.get $l1
+                          local.get $p0
+                          i32.store offset=48
+                          local.get $l1
+                          local.get $l2
+                          i32.store offset=72
+                          local.get $l1
+                          local.get $l1
+                          i32.const 84
+                          i32.add
+                          i32.store offset=64
+                          local.get $l1
+                          local.get $l1
+                          i32.const 80
+                          i32.add
+                          i32.store offset=56
+                          unreachable
+                        end
+                        unreachable
+                      end
+                      unreachable
+                    end
+                    local.get $l1
+                    i32.const 68
+                    i32.add
+                    i32.const 2
+                    i32.store
+                    local.get $l1
+                    i32.const 108
+                    i32.add
+                    i32.const 2
+                    i32.store
+                    local.get $l1
+                    i64.const 3
+                    i64.store offset=92 align=4
+                    local.get $l1
+                    i32.const 1058552
+                    i32.store offset=88
+                    local.get $l1
+                    i32.const 2
+                    i32.store offset=60
+                    local.get $l1
+                    local.get $l1
+                    i32.const 84
+                    i32.add
+                    i32.store offset=8
+                    local.get $l1
+                    i32.const 1058160
+                    i32.store offset=32
+                    local.get $l1
+                    local.get $l1
+                    i32.const 56
+                    i32.add
+                    i32.store offset=104
+                    local.get $l1
+                    local.get $l1
+                    i32.const 32
+                    i32.add
+                    i32.store offset=64
+                    local.get $l1
+                    local.get $l1
+                    i32.const 8
+                    i32.add
+                    i32.store offset=56
+                    unreachable
+                  end
+                  unreachable
+                end
+                local.get $l1
+                i32.const 32
+                i32.add
+                local.tee $p0
+                i32.const 20
+                i32.add
+                i32.const 1
+                i32.store
+                local.get $l1
+                i32.const 44
+                i32.add
+                i32.const 3
+                i32.store
+                local.get $l1
+                i32.const 76
+                i32.add
+                i32.const 3
+                i32.store
+                local.get $l1
+                local.get $l1
+                i32.const 28
+                i32.add
+                i32.store offset=84
+                local.get $l1
+                i32.const 1057513
+                i32.store offset=8
+                local.get $l1
+                i32.const 88
+                i32.add
+                local.tee $l2
+                i32.const 20
+                i32.add
+                i32.const 0
+                i32.store
+                local.get $l1
+                i64.const 3
+                i64.store offset=60 align=4
+                local.get $l1
+                i32.const 1057524
+                i32.store offset=56
+                local.get $l1
+                i32.const 3
+                i32.store offset=36
+                local.get $l1
+                i32.const 1057524
+                i32.store offset=104
+                local.get $l1
+                i64.const 1
+                i64.store offset=92 align=4
+                local.get $l1
+                i32.const 1057516
+                i32.store offset=88
+                local.get $l1
+                local.get $p0
+                i32.store offset=72
+                local.get $l1
+                local.get $l2
+                i32.store offset=48
+                local.get $l1
+                local.get $l1
+                i32.const 8
+                i32.add
+                i32.store offset=40
+                local.get $l1
+                local.get $l1
+                i32.const 84
+                i32.add
+                i32.store offset=32
+                unreachable
+              end
+              local.get $l1
+              i32.const 32
+              i32.add
+              local.tee $p0
+              i32.const 20
+              i32.add
+              i32.const 1
+              i32.store
+              local.get $l1
+              i32.const 44
+              i32.add
+              i32.const 3
+              i32.store
+              local.get $l1
+              i32.const 76
+              i32.add
+              i32.const 3
+              i32.store
+              local.get $l1
+              local.get $l1
+              i32.const 28
+              i32.add
+              i32.store offset=80
+              local.get $l1
+              i32.const 1057513
+              i32.store offset=84
+              local.get $l1
+              i32.const 88
+              i32.add
+              local.tee $l2
+              i32.const 20
+              i32.add
+              i32.const 0
+              i32.store
+              local.get $l1
+              i64.const 3
+              i64.store offset=60 align=4
+              local.get $l1
+              i32.const 1057524
+              i32.store offset=56
+              local.get $l1
+              i32.const 3
+              i32.store offset=36
+              local.get $l1
+              i32.const 1057524
+              i32.store offset=104
+              local.get $l1
+              i64.const 1
+              i64.store offset=92 align=4
+              local.get $l1
+              i32.const 1057516
+              i32.store offset=88
+              local.get $l1
+              local.get $p0
+              i32.store offset=72
+              local.get $l1
+              local.get $l2
+              i32.store offset=48
+              local.get $l1
+              local.get $l1
+              i32.const 84
+              i32.add
+              i32.store offset=40
+              local.get $l1
+              local.get $l1
+              i32.const 80
+              i32.add
+              i32.store offset=32
+              unreachable
+            end
+            unreachable
+          end
+          local.get $l1
+          i32.load offset=8
+          local.tee $l2
+          i32.eqz
+          br_if $B2
+          local.get $l2
+          local.get $l2
+          i32.load
+          local.tee $l2
+          i32.const 1
+          i32.sub
+          i32.store
+          local.get $l2
+          i32.const 1
+          i32.ne
+          br_if $B2
+          local.get $l1
+          i32.const 8
+          i32.add
+          call $f36
+          i32.const 1059300
+          i32.load
+          local.set $l2
+          br $L0
+        end
+        i32.const 1059300
+        i32.load
+        local.set $l2
+        br $L0
+      end
+    end
+    local.get $l1
+    i32.const 0
+    i32.store8 offset=92
+    local.get $l1
+    local.get $l4
+    i32.store offset=88
+    i32.const 1058044
+    i32.const 43
+    local.get $l1
+    i32.const 88
+    i32.add
+    i32.const 1058088
+    call $f32
+    unreachable)
+  (func $f12 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
     (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32) (local $l21 i32) (local $l22 i32) (local $l23 i32) (local $l24 i32) (local $l25 i32) (local $l26 i32) (local $l27 i32) (local $l28 i32)
     global.get $g0
     i32.const 144
@@ -17359,7 +25801,7 @@
                     end
                     local.get $l12
                     i32.const 288
-                    call $f20
+                    call $f33
                     unreachable
                   end
                   local.get $l2
@@ -17807,14 +26249,12 @@
                         i32.add
                         local.tee $l3
                         i32.extend16_s
-                        local.set $l6
                         local.get $l3
                         i32.const 65535
                         i32.and
                         i32.const 576
                         i32.ge_u
                         br_if $B0
-                        local.get $l6
                         i32.const 1
                         i32.shl
                         local.get $l14
@@ -17847,12 +26287,10 @@
                     i32.store offset=12
                     i32.const 10
                   end
-                  local.set $l5
                   local.get $l2
                   i32.const 144
                   i32.add
                   global.set $g0
-                  local.get $l5
                   i32.const 8
                   i32.shl
                   i32.const 1
@@ -17880,531 +26318,920 @@
       unreachable
     end
     unreachable)
-  (func $f9 (type $t3) (param $p0 i32) (param $p1 i32) (result i32)
-    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32)
+  (func $f13 (type $t1) (param $p0 i32)
+    (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32)
+    local.get $p0
+    i32.const 8
+    i32.sub
+    local.set $l1
+    local.get $l1
+    local.get $p0
+    i32.const 4
+    i32.sub
+    i32.load
+    local.tee $l3
+    i32.const -8
+    i32.and
+    local.tee $p0
+    i32.add
+    local.set $l2
     block $B0
-      local.get $p1
-      i32.const -65588
-      i32.gt_u
-      br_if $B0
-      i32.const 16
-      local.get $p1
-      i32.const 11
-      i32.add
-      i32.const -8
-      i32.and
-      local.get $p1
-      i32.const 11
-      i32.lt_u
-      select
-      local.set $l4
-      local.get $p0
-      i32.const 4
-      i32.sub
-      local.tee $l7
-      i32.load
-      local.tee $l6
-      i32.const -8
-      i32.and
-      local.set $l3
       block $B1
-        block $B2
-          block $B3
-            block $B4
-              block $B5
-                block $B6
-                  local.get $l6
-                  i32.const 3
-                  i32.and
-                  if $I7
-                    local.get $p0
-                    i32.const 8
-                    i32.sub
-                    local.set $l8
-                    local.get $l3
-                    local.get $l4
-                    i32.ge_u
-                    br_if $B6
-                    local.get $l3
-                    local.get $l8
-                    i32.add
-                    local.tee $l5
-                    i32.const 1054844
-                    i32.load
-                    i32.eq
-                    br_if $B5
-                    i32.const 1054840
-                    i32.load
-                    local.get $l5
-                    i32.eq
-                    br_if $B4
-                    local.get $l5
-                    i32.load offset=4
-                    local.tee $l6
-                    i32.const 2
-                    i32.and
-                    br_if $B1
-                    local.get $l4
-                    local.get $l3
-                    local.get $l6
-                    i32.const -8
-                    i32.and
-                    local.tee $l3
-                    i32.add
-                    local.tee $l11
-                    i32.le_u
-                    br_if $B3
-                    br $B1
-                  end
-                  local.get $l4
-                  i32.const 256
-                  i32.lt_u
-                  br_if $B1
-                  local.get $l4
-                  i32.const 4
-                  i32.or
-                  local.get $l3
-                  i32.gt_u
-                  br_if $B1
-                  local.get $l3
-                  local.get $l4
-                  i32.sub
-                  i32.const 131073
-                  i32.ge_u
-                  br_if $B1
-                  br $B2
-                end
-                local.get $l3
-                local.get $l4
-                i32.sub
-                local.tee $p1
-                i32.const 16
-                i32.lt_u
-                br_if $B2
-                local.get $l7
-                local.get $l6
-                i32.const 1
-                i32.and
-                local.get $l4
-                i32.or
-                i32.const 2
-                i32.or
-                i32.store
-                local.get $l4
-                local.get $l8
-                i32.add
-                local.tee $l2
-                local.get $p1
-                i32.const 3
-                i32.or
-                i32.store offset=4
-                local.get $p1
-                local.get $l2
-                i32.add
-                local.tee $l3
-                local.get $l3
-                i32.load offset=4
-                i32.const 1
-                i32.or
-                i32.store offset=4
-                local.get $l2
-                local.get $p1
-                call $f7
-                br $B2
-              end
-              i32.const 1054836
-              i32.load
-              local.get $l3
-              i32.add
-              local.tee $l3
-              local.get $l4
-              i32.le_u
-              br_if $B1
-              local.get $l7
-              local.get $l6
-              i32.const 1
-              i32.and
-              local.get $l4
-              i32.or
-              i32.const 2
-              i32.or
-              i32.store
-              local.get $l4
-              local.get $l8
-              i32.add
-              local.tee $p1
-              local.get $l3
-              local.get $l4
-              i32.sub
-              local.tee $l2
-              i32.const 1
-              i32.or
-              i32.store offset=4
-              i32.const 1054836
-              local.get $l2
-              i32.store
-              i32.const 1054844
-              local.get $p1
-              i32.store
-              br $B2
-            end
-            i32.const 1054832
-            i32.load
-            local.get $l3
-            i32.add
-            local.tee $l3
-            local.get $l4
-            i32.lt_u
-            br_if $B1
-            block $B8
-              local.get $l3
-              local.get $l4
-              i32.sub
-              local.tee $p1
-              i32.const 15
-              i32.le_u
-              if $I9
-                local.get $l7
-                local.get $l6
-                i32.const 1
-                i32.and
-                local.get $l3
-                i32.or
-                i32.const 2
-                i32.or
-                i32.store
-                local.get $l3
-                local.get $l8
-                i32.add
-                local.tee $p1
-                local.get $p1
-                i32.load offset=4
-                i32.const 1
-                i32.or
-                i32.store offset=4
-                i32.const 0
-                local.set $p1
-                br $B8
-              end
-              local.get $l7
-              local.get $l6
-              i32.const 1
-              i32.and
-              local.get $l4
-              i32.or
-              i32.const 2
-              i32.or
-              i32.store
-              local.get $l4
-              local.get $l8
-              i32.add
-              local.tee $l2
-              local.get $p1
-              i32.const 1
-              i32.or
-              i32.store offset=4
-              local.get $p1
-              local.get $l2
-              i32.add
-              local.tee $l3
-              local.get $p1
-              i32.store
-              local.get $l3
-              local.get $l3
-              i32.load offset=4
-              i32.const -2
-              i32.and
-              i32.store offset=4
-            end
-            i32.const 1054840
-            local.get $l2
-            i32.store
-            i32.const 1054832
-            local.get $p1
-            i32.store
-            br $B2
-          end
-          local.get $l11
-          local.get $l4
-          i32.sub
-          local.set $l9
-          block $B10
-            block $B11
-              local.get $l3
-              i32.const 256
-              i32.ge_u
-              if $I12
-                local.get $l5
-                i32.load offset=24
-                local.set $l10
-                block $B13
-                  block $B14
-                    local.get $l5
-                    i32.load offset=12
-                    local.tee $l2
-                    local.get $l5
-                    i32.eq
-                    if $I15
-                      i32.const 20
-                      i32.const 16
-                      local.get $l5
-                      i32.load offset=20
-                      local.tee $l2
-                      select
-                      local.get $l5
-                      i32.add
-                      i32.load
-                      local.tee $p1
-                      br_if $B14
-                      i32.const 0
-                      local.set $l2
-                      br $B13
-                    end
-                    local.get $l5
-                    i32.load offset=8
-                    local.tee $p1
-                    local.get $l2
-                    i32.store offset=12
-                    local.get $l2
-                    local.get $p1
-                    i32.store offset=8
-                    br $B13
-                  end
-                  local.get $l5
-                  i32.const 20
-                  i32.add
-                  local.get $l5
-                  i32.const 16
-                  i32.add
-                  local.get $l2
-                  select
-                  local.set $l3
-                  loop $L16
-                    local.get $l3
-                    local.set $l6
-                    local.get $p1
-                    local.tee $l2
-                    i32.const 20
-                    i32.add
-                    local.tee $l3
-                    i32.load
-                    local.tee $p1
-                    i32.eqz
-                    if $I17
-                      local.get $l2
-                      i32.const 16
-                      i32.add
-                      local.set $l3
-                      local.get $l2
-                      i32.load offset=16
-                      local.set $p1
-                    end
-                    local.get $p1
-                    br_if $L16
-                  end
-                  local.get $l6
-                  i32.const 0
-                  i32.store
-                end
-                local.get $l10
-                i32.eqz
-                br_if $B10
-                local.get $l5
-                local.get $l5
-                i32.load offset=28
-                i32.const 2
-                i32.shl
-                i32.const 1054704
-                i32.add
-                local.tee $p1
-                i32.load
-                i32.ne
-                if $I18
-                  i32.const 16
-                  i32.const 20
-                  local.get $l10
-                  i32.load offset=16
-                  local.get $l5
-                  i32.eq
-                  select
-                  local.get $l10
-                  i32.add
-                  local.get $l2
-                  i32.store
-                  local.get $l2
-                  i32.eqz
-                  br_if $B10
-                  br $B11
-                end
-                local.get $p1
-                local.get $l2
-                i32.store
-                local.get $l2
-                br_if $B11
-                i32.const 1054436
-                i32.const 1054436
-                i32.load
-                i32.const -2
-                local.get $l5
-                i32.load offset=28
-                i32.rotl
-                i32.and
-                i32.store
-                br $B10
-              end
-              local.get $l5
-              i32.const 12
-              i32.add
-              i32.load
-              local.tee $p1
-              local.get $l5
-              i32.const 8
-              i32.add
-              i32.load
-              local.tee $l2
-              i32.ne
-              if $I19
-                local.get $l2
-                local.get $p1
-                i32.store offset=12
-                local.get $p1
-                local.get $l2
-                i32.store offset=8
-                br $B10
-              end
-              i32.const 1054432
-              i32.const 1054432
-              i32.load
-              i32.const -2
-              local.get $l6
-              i32.const 3
-              i32.shr_u
-              i32.rotl
-              i32.and
-              i32.store
-              br $B10
-            end
-            local.get $l2
-            local.get $l10
-            i32.store offset=24
-            local.get $l5
-            i32.load offset=16
-            local.tee $p1
-            if $I20
-              local.get $l2
-              local.get $p1
-              i32.store offset=16
-              local.get $p1
-              local.get $l2
-              i32.store offset=24
-            end
-            local.get $l5
-            i32.load offset=20
-            local.tee $p1
-            i32.eqz
-            br_if $B10
-            local.get $l2
-            i32.const 20
-            i32.add
-            local.get $p1
-            i32.store
-            local.get $p1
-            local.get $l2
-            i32.store offset=24
-          end
-          local.get $l9
-          i32.const 16
-          i32.ge_u
-          if $I21
-            local.get $l7
-            local.get $l7
-            i32.load
-            i32.const 1
-            i32.and
-            local.get $l4
-            i32.or
-            i32.const 2
-            i32.or
-            i32.store
-            local.get $l4
-            local.get $l8
-            i32.add
-            local.tee $p1
-            local.get $l9
-            i32.const 3
-            i32.or
-            i32.store offset=4
-            local.get $p1
-            local.get $l9
-            i32.add
-            local.tee $l2
-            local.get $l2
-            i32.load offset=4
-            i32.const 1
-            i32.or
-            i32.store offset=4
-            local.get $p1
-            local.get $l9
-            call $f7
-            br $B2
-          end
-          local.get $l7
-          local.get $l7
-          i32.load
-          i32.const 1
-          i32.and
-          local.get $l11
-          i32.or
-          i32.const 2
-          i32.or
-          i32.store
-          local.get $l8
-          local.get $l11
-          i32.add
-          local.tee $p1
-          local.get $p1
+        local.get $l3
+        i32.const 1
+        i32.and
+        br_if $B1
+        local.get $l3
+        i32.const 3
+        i32.and
+        i32.eqz
+        br_if $B0
+        local.get $l1
+        i32.load
+        local.tee $l3
+        local.get $p0
+        i32.add
+        local.set $p0
+        local.get $l1
+        local.get $l3
+        i32.sub
+        local.tee $l1
+        i32.const 1059716
+        i32.load
+        i32.eq
+        if $I2
+          local.get $l2
           i32.load offset=4
+          i32.const 3
+          i32.and
+          i32.const 3
+          i32.ne
+          br_if $B1
+          i32.const 1059708
+          local.get $p0
+          i32.store
+          local.get $l2
+          local.get $l2
+          i32.load offset=4
+          i32.const -2
+          i32.and
+          i32.store offset=4
+          local.get $l1
+          local.get $p0
           i32.const 1
           i32.or
           i32.store offset=4
+          local.get $p0
+          local.get $l1
+          i32.add
+          local.get $p0
+          i32.store
+          return
+        end
+        local.get $l1
+        local.get $l3
+        call $f24
+      end
+      block $B3
+        local.get $l2
+        i32.const 4
+        i32.add
+        local.tee $l4
+        i32.load
+        local.tee $l3
+        i32.const 2
+        i32.and
+        if $I4
+          local.get $l4
+          local.get $l3
+          i32.const -2
+          i32.and
+          i32.store
+          local.get $l1
+          local.get $p0
+          i32.const 1
+          i32.or
+          i32.store offset=4
+          local.get $p0
+          local.get $l1
+          i32.add
+          local.get $p0
+          i32.store
+          br $B3
+        end
+        block $B5
+          local.get $l2
+          i32.const 1059720
+          i32.load
+          i32.ne
+          if $I6
+            i32.const 1059716
+            i32.load
+            local.get $l2
+            i32.eq
+            br_if $B5
+            local.get $l2
+            local.get $l3
+            i32.const -8
+            i32.and
+            local.tee $l2
+            call $f24
+            local.get $l1
+            local.get $p0
+            local.get $l2
+            i32.add
+            local.tee $p0
+            i32.const 1
+            i32.or
+            i32.store offset=4
+            local.get $p0
+            local.get $l1
+            i32.add
+            local.get $p0
+            i32.store
+            i32.const 1059716
+            i32.load
+            local.get $l1
+            i32.ne
+            br_if $B3
+            i32.const 1059708
+            local.get $p0
+            i32.store
+            return
+          end
+          i32.const 1059720
+          local.get $l1
+          i32.store
+          i32.const 1059712
+          i32.const 1059712
+          i32.load
+          local.get $p0
+          i32.add
+          local.tee $p0
+          i32.store
+          local.get $l1
+          local.get $p0
+          i32.const 1
+          i32.or
+          i32.store offset=4
+          local.get $l1
+          i32.const 1059716
+          i32.load
+          i32.eq
+          if $I7
+            i32.const 1059708
+            i32.const 0
+            i32.store
+            i32.const 1059716
+            i32.const 0
+            i32.store
+          end
+          i32.const 1059748
+          i32.load
+          local.tee $l2
+          local.get $p0
+          i32.ge_u
+          br_if $B0
+          i32.const 1059720
+          i32.load
+          local.tee $p0
+          i32.eqz
+          br_if $B0
+          block $B8
+            i32.const 1059712
+            i32.load
+            local.tee $l3
+            i32.const 41
+            i32.lt_u
+            br_if $B8
+            i32.const 1059732
+            local.set $l1
+            loop $L9
+              local.get $p0
+              local.get $l1
+              i32.load
+              local.tee $l4
+              i32.ge_u
+              if $I10
+                local.get $l1
+                i32.load offset=4
+                local.get $l4
+                i32.add
+                local.get $p0
+                i32.gt_u
+                br_if $B8
+              end
+              local.get $l1
+              i32.load offset=8
+              local.tee $l1
+              br_if $L9
+            end
+          end
+          i32.const 1059756
+          block $B11 (result i32)
+            i32.const 4095
+            i32.const 1059740
+            i32.load
+            local.tee $p0
+            i32.eqz
+            br_if $B11
+            drop
+            i32.const 0
+            local.set $l1
+            loop $L12
+              local.get $l1
+              i32.const 1
+              i32.add
+              local.set $l1
+              local.get $p0
+              i32.load offset=8
+              local.tee $p0
+              br_if $L12
+            end
+            local.get $l1
+            i32.const 4095
+            local.get $l1
+            i32.const 4095
+            i32.gt_u
+            select
+          end
+          i32.store
+          local.get $l2
+          local.get $l3
+          i32.ge_u
+          br_if $B0
+          i32.const 1059748
+          i32.const -1
+          i32.store
+          return
+        end
+        i32.const 1059716
+        local.get $l1
+        i32.store
+        i32.const 1059708
+        i32.const 1059708
+        i32.load
+        local.get $p0
+        i32.add
+        local.tee $p0
+        i32.store
+        local.get $l1
+        local.get $p0
+        i32.const 1
+        i32.or
+        i32.store offset=4
+        local.get $p0
+        local.get $l1
+        i32.add
+        local.get $p0
+        i32.store
+        return
+      end
+      i32.const 1059756
+      block $B13 (result i32)
+        block $B14
+          local.get $p0
+          i32.const 256
+          i32.ge_u
+          if $I15
+            i32.const 31
+            local.set $l2
+            local.get $l1
+            i64.const 0
+            i64.store offset=16 align=4
+            local.get $p0
+            i32.const 16777215
+            i32.le_u
+            if $I16
+              local.get $p0
+              i32.const 6
+              local.get $p0
+              i32.const 8
+              i32.shr_u
+              i32.clz
+              local.tee $l2
+              i32.sub
+              i32.shr_u
+              i32.const 1
+              i32.and
+              local.get $l2
+              i32.const 1
+              i32.shl
+              i32.sub
+              i32.const 62
+              i32.add
+              local.set $l2
+            end
+            local.get $l1
+            i32.const 28
+            i32.add
+            local.get $l2
+            i32.store
+            local.get $l2
+            i32.const 2
+            i32.shl
+            i32.const 1059580
+            i32.add
+            local.set $l3
+            block $B17
+              block $B18
+                block $B19
+                  block $B20
+                    block $B21
+                      i32.const 1059312
+                      i32.load
+                      local.tee $l4
+                      i32.const 1
+                      local.get $l2
+                      i32.shl
+                      local.tee $l5
+                      i32.and
+                      if $I22
+                        local.get $l3
+                        i32.load
+                        local.tee $l3
+                        i32.const 4
+                        i32.add
+                        i32.load
+                        i32.const -8
+                        i32.and
+                        local.get $p0
+                        i32.ne
+                        br_if $B21
+                        local.get $l3
+                        local.set $l2
+                        br $B20
+                      end
+                      i32.const 1059312
+                      local.get $l4
+                      local.get $l5
+                      i32.or
+                      i32.store
+                      local.get $l3
+                      local.get $l1
+                      i32.store
+                      br $B18
+                    end
+                    local.get $p0
+                    i32.const 0
+                    i32.const 25
+                    local.get $l2
+                    i32.const 1
+                    i32.shr_u
+                    i32.sub
+                    i32.const 31
+                    i32.and
+                    local.get $l2
+                    i32.const 31
+                    i32.eq
+                    select
+                    i32.shl
+                    local.set $l4
+                    loop $L23
+                      local.get $l4
+                      i32.const 29
+                      i32.shr_u
+                      i32.const 4
+                      i32.and
+                      local.get $l3
+                      i32.add
+                      i32.const 16
+                      i32.add
+                      local.tee $l5
+                      i32.load
+                      local.tee $l2
+                      i32.eqz
+                      br_if $B19
+                      local.get $l4
+                      i32.const 1
+                      i32.shl
+                      local.set $l4
+                      local.get $l2
+                      local.set $l3
+                      local.get $l2
+                      i32.const 4
+                      i32.add
+                      i32.load
+                      i32.const -8
+                      i32.and
+                      local.get $p0
+                      i32.ne
+                      br_if $L23
+                    end
+                  end
+                  local.get $l2
+                  i32.load offset=8
+                  local.tee $p0
+                  local.get $l1
+                  i32.store offset=12
+                  local.get $l2
+                  local.get $l1
+                  i32.store offset=8
+                  local.get $l1
+                  i32.const 24
+                  i32.add
+                  i32.const 0
+                  i32.store
+                  local.get $l1
+                  local.get $l2
+                  i32.store offset=12
+                  local.get $l1
+                  local.get $p0
+                  i32.store offset=8
+                  br $B17
+                end
+                local.get $l5
+                local.get $l1
+                i32.store
+              end
+              local.get $l1
+              i32.const 24
+              i32.add
+              local.get $l3
+              i32.store
+              local.get $l1
+              local.get $l1
+              i32.store offset=12
+              local.get $l1
+              local.get $l1
+              i32.store offset=8
+            end
+            i32.const 1059756
+            i32.const 1059756
+            i32.load
+            i32.const 1
+            i32.sub
+            local.tee $p0
+            i32.store
+            local.get $p0
+            br_if $B0
+            i32.const 1059740
+            i32.load
+            local.tee $p0
+            br_if $B14
+            i32.const 4095
+            br $B13
+          end
+          local.get $p0
+          i32.const 3
+          i32.shr_u
+          local.tee $l2
+          i32.const 3
+          i32.shl
+          i32.const 1059316
+          i32.add
+          local.set $p0
+          block $B24 (result i32)
+            i32.const 1059308
+            i32.load
+            local.tee $l3
+            i32.const 1
+            local.get $l2
+            i32.shl
+            local.tee $l2
+            i32.and
+            if $I25
+              local.get $p0
+              i32.load offset=8
+              br $B24
+            end
+            i32.const 1059308
+            local.get $l2
+            local.get $l3
+            i32.or
+            i32.store
+            local.get $p0
+          end
+          local.set $l2
+          local.get $p0
+          local.get $l1
+          i32.store offset=8
+          local.get $l2
+          local.get $l1
+          i32.store offset=12
+          local.get $l1
+          local.get $p0
+          i32.store offset=12
+          local.get $l1
+          local.get $l2
+          i32.store offset=8
+          return
+        end
+        i32.const 0
+        local.set $l1
+        loop $L26
+          local.get $l1
+          i32.const 1
+          i32.add
+          local.set $l1
+          local.get $p0
+          i32.load offset=8
+          local.tee $p0
+          br_if $L26
+        end
+        local.get $l1
+        i32.const 4095
+        local.get $l1
+        i32.const 4095
+        i32.gt_u
+        select
+      end
+      i32.store
+    end)
+  (func $f14 (type $t0) (param $p0 i32) (param $p1 i32)
+    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32)
+    local.get $p0
+    local.get $p1
+    i32.add
+    local.set $l2
+    block $B0
+      block $B1
+        local.get $p0
+        i32.const 4
+        i32.add
+        i32.load
+        local.tee $l3
+        i32.const 1
+        i32.and
+        br_if $B1
+        local.get $l3
+        i32.const 3
+        i32.and
+        i32.eqz
+        br_if $B0
+        local.get $p0
+        i32.load
+        local.tee $l3
+        local.get $p1
+        i32.add
+        local.set $p1
+        local.get $p0
+        local.get $l3
+        i32.sub
+        local.tee $p0
+        i32.const 1059716
+        i32.load
+        i32.eq
+        if $I2
+          local.get $l2
+          i32.load offset=4
+          i32.const 3
+          i32.and
+          i32.const 3
+          i32.ne
+          br_if $B1
+          i32.const 1059708
+          local.get $p1
+          i32.store
+          local.get $l2
+          local.get $l2
+          i32.load offset=4
+          i32.const -2
+          i32.and
+          i32.store offset=4
+          local.get $p0
+          local.get $p1
+          i32.const 1
+          i32.or
+          i32.store offset=4
+          local.get $l2
+          local.get $p1
+          i32.store
+          return
         end
         local.get $p0
-        local.set $l2
-        br $B0
+        local.get $l3
+        call $f24
+      end
+      block $B3
+        local.get $l2
+        i32.const 4
+        i32.add
+        i32.load
+        local.tee $l3
+        i32.const 2
+        i32.and
+        if $I4
+          local.get $l2
+          i32.const 4
+          i32.add
+          local.get $l3
+          i32.const -2
+          i32.and
+          i32.store
+          local.get $p0
+          local.get $p1
+          i32.const 1
+          i32.or
+          i32.store offset=4
+          local.get $p0
+          local.get $p1
+          i32.add
+          local.get $p1
+          i32.store
+          br $B3
+        end
+        block $B5
+          local.get $l2
+          i32.const 1059720
+          i32.load
+          i32.ne
+          if $I6
+            i32.const 1059716
+            i32.load
+            local.get $l2
+            i32.eq
+            br_if $B5
+            local.get $l2
+            local.get $l3
+            i32.const -8
+            i32.and
+            local.tee $l2
+            call $f24
+            local.get $p0
+            local.get $p1
+            local.get $l2
+            i32.add
+            local.tee $p1
+            i32.const 1
+            i32.or
+            i32.store offset=4
+            local.get $p0
+            local.get $p1
+            i32.add
+            local.get $p1
+            i32.store
+            i32.const 1059716
+            i32.load
+            local.get $p0
+            i32.ne
+            br_if $B3
+            i32.const 1059708
+            local.get $p1
+            i32.store
+            return
+          end
+          i32.const 1059720
+          local.get $p0
+          i32.store
+          i32.const 1059712
+          i32.const 1059712
+          i32.load
+          local.get $p1
+          i32.add
+          local.tee $p1
+          i32.store
+          local.get $p0
+          local.get $p1
+          i32.const 1
+          i32.or
+          i32.store offset=4
+          i32.const 1059716
+          i32.load
+          local.get $p0
+          i32.ne
+          br_if $B0
+          i32.const 1059708
+          i32.const 0
+          i32.store
+          i32.const 1059716
+          i32.const 0
+          i32.store
+          return
+        end
+        i32.const 1059716
+        local.get $p0
+        i32.store
+        i32.const 1059708
+        i32.const 1059708
+        i32.load
+        local.get $p1
+        i32.add
+        local.tee $p1
+        i32.store
+        local.get $p0
+        local.get $p1
+        i32.const 1
+        i32.or
+        i32.store offset=4
+        local.get $p0
+        local.get $p1
+        i32.add
+        local.get $p1
+        i32.store
+        return
       end
       local.get $p1
-      call $f3
-      local.tee $l3
-      i32.eqz
-      br_if $B0
-      local.get $l3
-      local.get $p0
+      i32.const 256
+      i32.ge_u
+      if $I7
+        i32.const 31
+        local.set $l2
+        local.get $p0
+        i64.const 0
+        i64.store offset=16 align=4
+        local.get $p1
+        i32.const 16777215
+        i32.le_u
+        if $I8
+          local.get $p1
+          i32.const 6
+          local.get $p1
+          i32.const 8
+          i32.shr_u
+          i32.clz
+          local.tee $l2
+          i32.sub
+          i32.shr_u
+          i32.const 1
+          i32.and
+          local.get $l2
+          i32.const 1
+          i32.shl
+          i32.sub
+          i32.const 62
+          i32.add
+          local.set $l2
+        end
+        local.get $p0
+        i32.const 28
+        i32.add
+        local.get $l2
+        i32.store
+        local.get $l2
+        i32.const 2
+        i32.shl
+        i32.const 1059580
+        i32.add
+        local.set $l3
+        block $B9
+          block $B10
+            block $B11
+              block $B12
+                i32.const 1059312
+                i32.load
+                local.tee $l4
+                i32.const 1
+                local.get $l2
+                i32.shl
+                local.tee $l5
+                i32.and
+                if $I13
+                  local.get $l3
+                  i32.load
+                  local.tee $l3
+                  i32.const 4
+                  i32.add
+                  i32.load
+                  i32.const -8
+                  i32.and
+                  local.get $p1
+                  i32.ne
+                  br_if $B12
+                  local.get $l3
+                  local.set $l2
+                  br $B11
+                end
+                i32.const 1059312
+                local.get $l4
+                local.get $l5
+                i32.or
+                i32.store
+                local.get $l3
+                local.get $p0
+                i32.store
+                br $B9
+              end
+              local.get $p1
+              i32.const 0
+              i32.const 25
+              local.get $l2
+              i32.const 1
+              i32.shr_u
+              i32.sub
+              i32.const 31
+              i32.and
+              local.get $l2
+              i32.const 31
+              i32.eq
+              select
+              i32.shl
+              local.set $l4
+              loop $L14
+                local.get $l4
+                i32.const 29
+                i32.shr_u
+                i32.const 4
+                i32.and
+                local.get $l3
+                i32.add
+                i32.const 16
+                i32.add
+                local.tee $l5
+                i32.load
+                local.tee $l2
+                i32.eqz
+                br_if $B10
+                local.get $l4
+                i32.const 1
+                i32.shl
+                local.set $l4
+                local.get $l2
+                local.set $l3
+                local.get $l2
+                i32.const 4
+                i32.add
+                i32.load
+                i32.const -8
+                i32.and
+                local.get $p1
+                i32.ne
+                br_if $L14
+              end
+            end
+            local.get $l2
+            i32.load offset=8
+            local.tee $p1
+            local.get $p0
+            i32.store offset=12
+            local.get $l2
+            local.get $p0
+            i32.store offset=8
+            local.get $p0
+            i32.const 24
+            i32.add
+            i32.const 0
+            i32.store
+            local.get $p0
+            local.get $l2
+            i32.store offset=12
+            local.get $p0
+            local.get $p1
+            i32.store offset=8
+            return
+          end
+          local.get $l5
+          local.get $p0
+          i32.store
+        end
+        local.get $p0
+        i32.const 24
+        i32.add
+        local.get $l3
+        i32.store
+        local.get $p0
+        local.get $p0
+        i32.store offset=12
+        local.get $p0
+        local.get $p0
+        i32.store offset=8
+        return
+      end
       local.get $p1
-      i32.const -4
-      i32.const -8
-      local.get $l7
-      i32.load
+      i32.const 3
+      i32.shr_u
       local.tee $l2
       i32.const 3
-      i32.and
-      select
-      local.get $l2
-      i32.const -8
-      i32.and
+      i32.shl
+      i32.const 1059316
       i32.add
-      local.tee $l2
+      local.set $p1
+      block $B15 (result i32)
+        i32.const 1059308
+        i32.load
+        local.tee $l3
+        i32.const 1
+        local.get $l2
+        i32.shl
+        local.tee $l2
+        i32.and
+        if $I16
+          local.get $p1
+          i32.load offset=8
+          br $B15
+        end
+        i32.const 1059308
+        local.get $l2
+        local.get $l3
+        i32.or
+        i32.store
+        local.get $p1
+      end
+      local.set $l2
       local.get $p1
-      local.get $l2
-      i32.lt_u
-      select
-      memory.copy
       local.get $p0
-      call $f6
-      local.get $l3
-      return
-    end
-    local.get $l2)
-  (func $f10 (type $t1) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
+      i32.store offset=8
+      local.get $l2
+      local.get $p0
+      i32.store offset=12
+      local.get $p0
+      local.get $p1
+      i32.store offset=12
+      local.get $p0
+      local.get $l2
+      i32.store offset=8
+    end)
+  (func $f15 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
     (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32)
     block $B0
       block $B1
@@ -18715,7 +27542,735 @@
       unreachable
     end
     unreachable)
-  (func $f11 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32)
+  (func $f16 (type $t5) (param $p0 i32) (result i32)
+    (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32)
+    block $B0
+      local.get $p0
+      i32.const 12
+      i32.gt_u
+      br_if $B0
+      i32.const 8969472
+      i32.const 1101024
+      i32.const 38848
+      local.get $p0
+      select
+      local.get $p0
+      i32.const 7
+      i32.gt_s
+      select
+      i32.const 35
+      i32.add
+      i32.const 1059792
+      i32.load
+      call_indirect (type $t5) $T0
+      local.tee $l3
+      if $I1
+        local.get $l3
+        i32.const 35
+        i32.add
+        i32.const -32
+        i32.and
+        local.tee $l1
+        i32.const 4
+        i32.sub
+        local.get $l3
+        i32.store
+      end
+      local.get $l1
+      i32.eqz
+      br_if $B0
+      local.get $l1
+      local.get $p0
+      i32.store offset=37352
+      local.get $l1
+      i32.const 56
+      local.get $p0
+      i32.const 2
+      i32.shl
+      i32.sub
+      i32.store offset=37356
+      block $B2
+        local.get $p0
+        i32.const 11
+        i32.le_u
+        if $I3
+          block $B4
+            block $B5
+              block $B6
+                block $B7
+                  block $B8
+                    block $B9
+                      block $B10
+                        block $B11
+                          block $B12
+                            block $B13
+                              block $B14
+                                block $B15
+                                  local.get $p0
+                                  i32.const 1
+                                  i32.sub
+                                  br_table $B14 $B13 $B12 $B11 $B10 $B9 $B8 $B7 $B6 $B5 $B4 $B15
+                                end
+                                local.get $l1
+                                i32.const 36
+                                i32.store
+                                br $B2
+                              end
+                              local.get $l1
+                              i32.const 37
+                              i32.store
+                              local.get $l1
+                              i64.const 8589934600
+                              i64.store offset=37344
+                              br $B2
+                            end
+                            local.get $l1
+                            i32.const 37
+                            i32.store
+                            local.get $l1
+                            i64.const 25769803786
+                            i64.store offset=37344
+                            br $B2
+                          end
+                          local.get $l1
+                          i32.const 37
+                          i32.store
+                          local.get $l1
+                          i64.const 51539607566
+                          i64.store offset=37344
+                          br $B2
+                        end
+                        local.get $l1
+                        i32.const 37
+                        i32.store
+                        local.get $l1
+                        i64.const 103079215128
+                        i64.store offset=37344
+                        br $B2
+                      end
+                      local.get $l1
+                      i32.const 38
+                      i32.store
+                      local.get $l1
+                      i64.const 85899345950
+                      i64.store offset=37344
+                      br $B2
+                    end
+                    local.get $l1
+                    i32.const 38
+                    i32.store
+                    local.get $l1
+                    i64.const 171798691905
+                    i64.store offset=37344
+                    br $B2
+                  end
+                  local.get $l1
+                  i32.const 38
+                  i32.store
+                  local.get $l1
+                  i64.const 429496729730
+                  i64.store offset=37344
+                  br $B2
+                end
+                local.get $l1
+                i32.const 39
+                i32.store
+                local.get $l1
+                i32.const 1
+                i32.store offset=8969440
+                local.get $l1
+                i64.const 51539607572
+                i64.store offset=37344
+                br $B2
+              end
+              local.get $l1
+              i32.const 39
+              i32.store
+              local.get $l1
+              i32.const 2
+              i32.store offset=8969440
+              local.get $l1
+              i64.const 68719476762
+              i64.store offset=37344
+              br $B2
+            end
+            local.get $l1
+            i32.const 39
+            i32.store
+            local.get $l1
+            i32.const 2
+            i32.store offset=8969440
+            local.get $l1
+            i64.const 128849018930
+            i64.store offset=37344
+            br $B2
+          end
+          local.get $l1
+          i32.const 39
+          i32.store
+          local.get $l1
+          i32.const 3
+          i32.store offset=8969440
+          local.get $l1
+          i64.const 257698037840
+          i64.store offset=37344
+          br $B2
+        end
+        local.get $l1
+        i32.const 39
+        i32.store
+        local.get $l1
+        i32.const 4
+        i32.store offset=8969440
+        local.get $l1
+        i64.const 429496729733
+        i64.store offset=37344
+      end
+      local.get $l1
+      i32.const 4572
+      i32.add
+      local.set $l3
+      loop $L16
+        i32.const 1
+        local.get $l4
+        i32.const 1058976
+        i32.add
+        i32.load8_u
+        i32.shl
+        local.set $l2
+        local.get $l4
+        i32.const 2
+        i32.shl
+        i32.const 1059168
+        i32.add
+        i32.load
+        local.get $l3
+        i32.add
+        local.set $p0
+        loop $L17
+          local.get $p0
+          local.get $l4
+          i32.store8
+          local.get $p0
+          i32.const 1
+          i32.add
+          local.set $p0
+          local.get $l2
+          i32.const 1
+          i32.sub
+          local.tee $l2
+          br_if $L17
+        end
+        local.get $l4
+        i32.const 1
+        i32.add
+        local.tee $l4
+        i32.const 30
+        i32.ne
+        br_if $L16
+      end
+      i32.const 4
+      local.set $p0
+      loop $L18
+        local.get $p0
+        local.get $l1
+        i32.add
+        i32.const 2
+        i32.store
+        local.get $p0
+        i32.const 4
+        i32.add
+        local.tee $p0
+        i32.const 580
+        i32.ne
+        br_if $L18
+      end
+      local.get $l1
+      i32.const 580
+      i32.add
+      local.set $l2
+      i32.const 0
+      local.set $p0
+      loop $L19
+        local.get $p0
+        local.get $l2
+        i32.add
+        i32.const 1
+        i32.store
+        local.get $p0
+        i32.const 4
+        i32.add
+        local.tee $p0
+        i32.const 448
+        i32.ne
+        br_if $L19
+      end
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1276 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1268 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1260 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1252 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1244 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1236 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1228 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1220 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1212 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1204 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1196 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1188 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1180 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1172 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1164 align=4
+      local.get $l1
+      i64.const 4294967297
+      i64.store offset=1156 align=4
+      local.get $l1
+      i64.const 8589934594
+      i64.store offset=1148 align=4
+      local.get $l1
+      i64.const 8589934594
+      i64.store offset=1140 align=4
+      local.get $l1
+      i64.const 8589934594
+      i64.store offset=1132 align=4
+      local.get $l1
+      i64.const 8589934594
+      i64.store offset=1124 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1116 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1108 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1100 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1092 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1084 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1076 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1068 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1060 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1052 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1044 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1036 align=4
+      local.get $l1
+      i64.const 17179869188
+      i64.store offset=1028 align=4
+      i32.const 288
+      i32.const 14
+      local.get $l1
+      i32.const 4
+      i32.add
+      local.get $l1
+      i32.const 4164
+      i32.add
+      local.get $l1
+      i32.const 2884
+      i32.add
+      call $f10
+      i32.const 32
+      i32.const 15
+      local.get $l1
+      i32.const 1156
+      i32.add
+      local.get $l1
+      i32.const 4452
+      i32.add
+      local.get $l1
+      i32.const 4036
+      i32.add
+      call $f10
+      local.get $l1
+      local.set $l2
+    end
+    local.get $l2)
+  (func $f17 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
+    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32)
+    block $B0
+      local.get $p1
+      i32.const -65588
+      i32.gt_u
+      br_if $B0
+      i32.const 16
+      local.get $p1
+      i32.const 11
+      i32.add
+      i32.const -8
+      i32.and
+      local.get $p1
+      i32.const 11
+      i32.lt_u
+      select
+      local.set $l2
+      local.get $p0
+      i32.const 4
+      i32.sub
+      local.tee $l5
+      i32.load
+      local.tee $l6
+      i32.const -8
+      i32.and
+      local.set $l3
+      block $B1
+        block $B2
+          block $B3
+            block $B4
+              block $B5
+                block $B6
+                  local.get $l6
+                  i32.const 3
+                  i32.and
+                  if $I7
+                    local.get $l3
+                    local.get $p0
+                    i32.const 8
+                    i32.sub
+                    local.tee $l7
+                    i32.add
+                    local.set $l8
+                    local.get $l2
+                    local.get $l3
+                    i32.le_u
+                    br_if $B6
+                    i32.const 1059720
+                    i32.load
+                    local.get $l8
+                    i32.eq
+                    br_if $B5
+                    i32.const 1059716
+                    i32.load
+                    local.get $l8
+                    i32.eq
+                    br_if $B4
+                    local.get $l8
+                    i32.const 4
+                    i32.add
+                    i32.load
+                    local.tee $l6
+                    i32.const 2
+                    i32.and
+                    br_if $B1
+                    local.get $l6
+                    i32.const -8
+                    i32.and
+                    local.tee $l6
+                    local.get $l3
+                    i32.add
+                    local.tee $l3
+                    local.get $l2
+                    i32.ge_u
+                    br_if $B3
+                    br $B1
+                  end
+                  local.get $l2
+                  i32.const 256
+                  i32.lt_u
+                  br_if $B1
+                  local.get $l2
+                  i32.const 4
+                  i32.or
+                  local.get $l3
+                  i32.gt_u
+                  br_if $B1
+                  local.get $l3
+                  local.get $l2
+                  i32.sub
+                  i32.const 131073
+                  i32.ge_u
+                  br_if $B1
+                  br $B2
+                end
+                local.get $l3
+                local.get $l2
+                i32.sub
+                local.tee $p1
+                i32.const 16
+                i32.lt_u
+                br_if $B2
+                local.get $l5
+                local.get $l6
+                i32.const 1
+                i32.and
+                local.get $l2
+                i32.or
+                i32.const 2
+                i32.or
+                i32.store
+                local.get $l2
+                local.get $l7
+                i32.add
+                local.tee $l4
+                local.get $p1
+                i32.const 3
+                i32.or
+                i32.store offset=4
+                local.get $l8
+                local.get $l8
+                i32.load offset=4
+                i32.const 1
+                i32.or
+                i32.store offset=4
+                local.get $l4
+                local.get $p1
+                call $f14
+                br $B2
+              end
+              i32.const 1059712
+              i32.load
+              local.get $l3
+              i32.add
+              local.tee $l3
+              local.get $l2
+              i32.le_u
+              br_if $B1
+              local.get $l5
+              local.get $l6
+              i32.const 1
+              i32.and
+              local.get $l2
+              i32.or
+              i32.const 2
+              i32.or
+              i32.store
+              local.get $l2
+              local.get $l7
+              i32.add
+              local.tee $p1
+              local.get $l3
+              local.get $l2
+              i32.sub
+              local.tee $l4
+              i32.const 1
+              i32.or
+              i32.store offset=4
+              i32.const 1059712
+              local.get $l4
+              i32.store
+              i32.const 1059720
+              local.get $p1
+              i32.store
+              br $B2
+            end
+            i32.const 1059708
+            i32.load
+            local.get $l3
+            i32.add
+            local.tee $l3
+            local.get $l2
+            i32.lt_u
+            br_if $B1
+            block $B8
+              local.get $l3
+              local.get $l2
+              i32.sub
+              local.tee $p1
+              i32.const 15
+              i32.le_u
+              if $I9
+                local.get $l5
+                local.get $l6
+                i32.const 1
+                i32.and
+                local.get $l3
+                i32.or
+                i32.const 2
+                i32.or
+                i32.store
+                local.get $l3
+                local.get $l7
+                i32.add
+                local.tee $p1
+                local.get $p1
+                i32.load offset=4
+                i32.const 1
+                i32.or
+                i32.store offset=4
+                i32.const 0
+                local.set $p1
+                br $B8
+              end
+              local.get $l5
+              local.get $l6
+              i32.const 1
+              i32.and
+              local.get $l2
+              i32.or
+              i32.const 2
+              i32.or
+              i32.store
+              local.get $l2
+              local.get $l7
+              i32.add
+              local.tee $l4
+              local.get $p1
+              i32.const 1
+              i32.or
+              i32.store offset=4
+              local.get $l3
+              local.get $l7
+              i32.add
+              local.tee $l2
+              local.get $p1
+              i32.store
+              local.get $l2
+              local.get $l2
+              i32.load offset=4
+              i32.const -2
+              i32.and
+              i32.store offset=4
+            end
+            i32.const 1059716
+            local.get $l4
+            i32.store
+            i32.const 1059708
+            local.get $p1
+            i32.store
+            br $B2
+          end
+          local.get $l8
+          local.get $l6
+          call $f24
+          local.get $l3
+          local.get $l2
+          i32.sub
+          local.tee $p1
+          i32.const 16
+          i32.ge_u
+          if $I10
+            local.get $l5
+            local.get $l5
+            i32.load
+            i32.const 1
+            i32.and
+            local.get $l2
+            i32.or
+            i32.const 2
+            i32.or
+            i32.store
+            local.get $l2
+            local.get $l7
+            i32.add
+            local.tee $l4
+            local.get $p1
+            i32.const 3
+            i32.or
+            i32.store offset=4
+            local.get $l3
+            local.get $l7
+            i32.add
+            local.tee $l2
+            local.get $l2
+            i32.load offset=4
+            i32.const 1
+            i32.or
+            i32.store offset=4
+            local.get $l4
+            local.get $p1
+            call $f14
+            br $B2
+          end
+          local.get $l5
+          local.get $l5
+          i32.load
+          i32.const 1
+          i32.and
+          local.get $l3
+          i32.or
+          i32.const 2
+          i32.or
+          i32.store
+          local.get $l3
+          local.get $l7
+          i32.add
+          local.tee $p1
+          local.get $p1
+          i32.load offset=4
+          i32.const 1
+          i32.or
+          i32.store offset=4
+        end
+        local.get $p0
+        local.set $l4
+        br $B0
+      end
+      local.get $p1
+      call $f4
+      local.tee $l2
+      i32.eqz
+      br_if $B0
+      local.get $l2
+      local.get $p0
+      local.get $p1
+      i32.const -4
+      i32.const -8
+      local.get $l5
+      i32.load
+      local.tee $l4
+      i32.const 3
+      i32.and
+      select
+      local.get $l4
+      i32.const -8
+      i32.and
+      i32.add
+      local.tee $l4
+      local.get $p1
+      local.get $l4
+      i32.lt_u
+      select
+      memory.copy
+      local.get $p0
+      call $f13
+      local.get $l2
+      return
+    end
+    local.get $l4)
+  (func $f18 (type $t9) (param $p0 i32) (param $p1 i32) (param $p2 i32)
     (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32) (local $l11 i32) (local $l12 i32) (local $l13 i32) (local $l14 i32) (local $l15 i32) (local $l16 i32) (local $l17 i32) (local $l18 i32) (local $l19 i32) (local $l20 i32)
     local.get $p0
     i32.load16_u offset=2
@@ -19016,7 +28571,248 @@
     i32.const 65521
     i32.rem_u
     i32.store16)
-  (func $f12 (type $t7) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32)
+  (func $f19 (type $t10) (result i32)
+    (local $l0 i32) (local $l1 i32) (local $l2 i32) (local $l3 i64)
+    global.get $g0
+    i32.const 96
+    i32.sub
+    local.tee $l0
+    global.set $g0
+    block $B0
+      block $B1
+        block $B2
+          block $B3
+            i32.const 1059764
+            i32.load
+            local.tee $l2
+            i32.const 1
+            i32.add
+            i32.const 0
+            i32.gt_s
+            if $I4
+              i32.const 1059768
+              i32.load
+              local.tee $l1
+              i32.eqz
+              if $I5
+                i32.const 1059772
+                i32.load8_u
+                local.set $l1
+                i32.const 1059772
+                i32.const 1
+                i32.store8
+                local.get $l0
+                local.get $l1
+                i32.store8 offset=15
+                local.get $l1
+                br_if $B3
+                block $B6
+                  i32.const 1059288
+                  i64.load
+                  local.tee $l3
+                  i64.const -1
+                  i64.ne
+                  if $I7
+                    i32.const 1059288
+                    local.get $l3
+                    i64.const 1
+                    i64.add
+                    i64.store
+                    local.get $l3
+                    i64.const 0
+                    i64.ne
+                    br_if $B6
+                    unreachable
+                  end
+                  unreachable
+                end
+                i32.const 1059772
+                i32.const 0
+                i32.store8
+                i32.const 32
+                call $f4
+                local.tee $l1
+                i32.eqz
+                br_if $B2
+                local.get $l1
+                i64.const 0
+                i64.store offset=24
+                local.get $l1
+                i32.const 0
+                i32.store offset=16
+                local.get $l1
+                local.get $l3
+                i64.store offset=8
+                local.get $l1
+                i64.const 4294967297
+                i64.store
+                i32.const 1059764
+                i32.load
+                br_if $B0
+                i32.const 1059764
+                i32.const -1
+                i32.store
+                block $B8
+                  i32.const 1059768
+                  i32.load
+                  local.tee $l2
+                  i32.eqz
+                  br_if $B8
+                  local.get $l2
+                  local.get $l2
+                  i32.load
+                  local.tee $l2
+                  i32.const 1
+                  i32.sub
+                  i32.store
+                  local.get $l2
+                  i32.const 1
+                  i32.ne
+                  br_if $B8
+                  i32.const 1059768
+                  call $f36
+                end
+                i32.const 1059768
+                local.get $l1
+                i32.store
+                i32.const 1059764
+                i32.const 1059764
+                i32.load
+                i32.const 1
+                i32.add
+                local.tee $l2
+                i32.store
+              end
+              local.get $l2
+              br_if $B0
+              i32.const 1059764
+              i32.const -1
+              i32.store
+              local.get $l1
+              local.get $l1
+              i32.load
+              local.tee $l2
+              i32.const 1
+              i32.add
+              i32.store
+              local.get $l2
+              i32.const -1
+              i32.le_s
+              br_if $B1
+              i32.const 1059764
+              i32.const 1059764
+              i32.load
+              i32.const 1
+              i32.add
+              i32.store
+              local.get $l0
+              i32.const 96
+              i32.add
+              global.set $g0
+              local.get $l1
+              return
+            end
+            i32.const 1057350
+            i32.const 24
+            local.get $l0
+            i32.const 72
+            i32.add
+            i32.const 1057376
+            call $f32
+            unreachable
+          end
+          local.get $l0
+          i32.const 40
+          i32.add
+          local.tee $l1
+          i32.const 20
+          i32.add
+          i32.const 1
+          i32.store
+          local.get $l0
+          i32.const 52
+          i32.add
+          i32.const 3
+          i32.store
+          local.get $l0
+          i32.const 36
+          i32.add
+          i32.const 3
+          i32.store
+          local.get $l0
+          local.get $l0
+          i32.const 15
+          i32.add
+          i32.store offset=64
+          local.get $l0
+          i32.const 1057513
+          i32.store offset=68
+          local.get $l0
+          i32.const 72
+          i32.add
+          local.tee $l2
+          i32.const 20
+          i32.add
+          i32.const 0
+          i32.store
+          local.get $l0
+          i64.const 3
+          i64.store offset=20 align=4
+          local.get $l0
+          i32.const 1057524
+          i32.store offset=16
+          local.get $l0
+          i32.const 3
+          i32.store offset=44
+          local.get $l0
+          i32.const 1057524
+          i32.store offset=88
+          local.get $l0
+          i64.const 1
+          i64.store offset=76 align=4
+          local.get $l0
+          i32.const 1057516
+          i32.store offset=72
+          local.get $l0
+          local.get $l1
+          i32.store offset=32
+          local.get $l0
+          local.get $l2
+          i32.store offset=56
+          local.get $l0
+          local.get $l0
+          i32.const 68
+          i32.add
+          i32.store offset=48
+          local.get $l0
+          local.get $l0
+          i32.const -64
+          i32.sub
+          i32.store offset=40
+          unreachable
+        end
+        i32.const 32
+        i32.const 8
+        i32.const 1059788
+        i32.load
+        local.tee $l0
+        i32.const 4
+        local.get $l0
+        select
+        call_indirect (type $t0) $T0
+        unreachable
+      end
+      unreachable
+    end
+    i32.const 1057408
+    i32.const 16
+    local.get $l0
+    i32.const 72
+    i32.add
+    i32.const 1057424
+    call $f32
+    unreachable)
+  (func $f20 (type $t7) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32)
     (local $l4 i32) (local $l5 i32)
     block $B0
       block $B1
@@ -19165,10 +28961,10 @@
                       i32.store
                     end
                     local.get $p2
-                    i32.const 1049380
+                    i32.const 1052412
                     i32.add
                     local.get $p3
-                    i32.const 1049892
+                    i32.const 1052924
                     i32.add
                     local.get $p2
                     i32.const 512
@@ -19195,7 +28991,7 @@
                         local.get $l5
                         i32.const 1
                         i32.shl
-                        i32.const 1050020
+                        i32.const 1053052
                         i32.add
                         i32.load16_u
                         local.tee $p1
@@ -19234,178 +29030,1127 @@
       unreachable
     end
     unreachable)
-  (func $f13 (type $t0) (param $p0 i32) (param $p1 i32)
-    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32)
+  (func $compress (type $t3) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
+    (local $l3 i32) (local $l4 i32) (local $l5 i32)
     global.get $g0
     i32.const 32
     i32.sub
     local.tee $l3
     global.set $g0
     block $B0
-      local.get $p0
-      i32.const 8
-      i32.add
-      local.tee $l7
-      i32.load
-      local.tee $l5
-      local.get $p1
-      i32.ge_u
-      if $I1
-        local.get $p1
-        local.set $p0
-        br $B0
-      end
-      block $B2
-        local.get $p1
-        local.get $l5
-        i32.sub
-        local.tee $l6
-        local.get $p0
-        i32.const 4
-        i32.add
-        i32.load
-        local.tee $l4
-        local.get $l5
-        i32.sub
-        i32.le_u
-        if $I3
-          local.get $p0
-          i32.load
-          local.set $l4
-          local.get $l5
-          local.set $p0
-          br $B2
-        end
-        block $B4
-          local.get $l5
-          local.get $l6
-          i32.add
-          local.tee $l2
-          local.get $l5
-          i32.lt_u
-          br_if $B4
-          local.get $l4
-          i32.const 1
-          i32.shl
-          local.tee $l8
-          local.get $l2
-          local.get $l2
-          local.get $l8
-          i32.lt_u
-          select
-          local.tee $l2
-          i32.const 8
-          local.get $l2
-          i32.const 8
-          i32.gt_u
-          select
-          local.set $l2
-          block $B5
-            local.get $l4
-            if $I6
+      block $B1
+        block $B2
+          block $B3
+            block $B4
+              local.get $p2
+              if $I5
+                i32.const 1059300
+                i32.load
+                i32.const 3
+                i32.ne
+                if $I6
+                  local.get $l3
+                  i32.const 1
+                  i32.store8 offset=28
+                  local.get $l3
+                  local.get $l3
+                  i32.const 28
+                  i32.add
+                  i32.store offset=8
+                  local.get $l3
+                  i32.const 8
+                  i32.add
+                  call $f11
+                end
+                local.get $p2
+                call $f16
+                local.tee $l5
+                i32.eqz
+                br_if $B3
+                local.get $p1
+                i32.const 9999
+                i32.add
+                local.tee $p2
+                i32.const 10000
+                i32.ge_u
+                if $I7 (result i32)
+                  local.get $p2
+                  i32.const 10000
+                  i32.div_u
+                  i32.const 5
+                  i32.mul
+                else
+                  i32.const 5
+                end
+                local.get $p1
+                i32.add
+                i32.const 15
+                i32.add
+                local.tee $p2
+                i32.const -1
+                i32.le_s
+                br_if $B2
+                local.get $l3
+                i32.const 8
+                i32.add
+                block $B8 (result i32)
+                  local.get $p2
+                  i32.eqz
+                  if $I9
+                    local.get $l3
+                    i64.const 1
+                    i64.store offset=8
+                    local.get $l3
+                    i32.const 0
+                    i32.store offset=16
+                    i32.const 1059300
+                    i32.load
+                    i32.const 3
+                    i32.ne
+                    if $I10
+                      local.get $l3
+                      i32.const 1
+                      i32.store8 offset=27
+                      local.get $l3
+                      local.get $l3
+                      i32.const 27
+                      i32.add
+                      i32.store offset=28
+                      local.get $l3
+                      i32.const 28
+                      i32.add
+                      call $f11
+                    end
+                    local.get $l5
+                    local.get $p0
+                    local.get $p1
+                    i32.const 1
+                    i32.const 0
+                    call $f29
+                    br $B8
+                  end
+                  local.get $p2
+                  call $f43
+                  local.tee $l4
+                  i32.eqz
+                  br_if $B1
+                  local.get $l3
+                  local.get $p2
+                  i32.store offset=16
+                  local.get $l3
+                  local.get $p2
+                  i32.store offset=12
+                  local.get $l3
+                  local.get $l4
+                  i32.store offset=8
+                  i32.const 1059300
+                  i32.load
+                  i32.const 3
+                  i32.ne
+                  if $I11
+                    local.get $l3
+                    i32.const 1
+                    i32.store8 offset=27
+                    local.get $l3
+                    local.get $l3
+                    i32.const 27
+                    i32.add
+                    i32.store offset=28
+                    local.get $l3
+                    i32.const 28
+                    i32.add
+                    call $f11
+                  end
+                  local.get $l5
+                  local.get $p0
+                  local.get $p1
+                  local.get $l4
+                  local.get $p2
+                  call $f29
+                end
+                call $f25
+                local.get $l3
+                i32.load offset=16
+                local.set $l4
+                block $B12
+                  local.get $l3
+                  i32.load offset=8
+                  local.tee $p2
+                  i32.eqz
+                  br_if $B12
+                  local.get $l3
+                  i32.load offset=12
+                  local.get $l4
+                  i32.le_u
+                  br_if $B12
+                  local.get $l4
+                  i32.eqz
+                  if $I13
+                    local.get $p2
+                    call $f13
+                    i32.const 1
+                    local.set $p2
+                    br $B12
+                  end
+                  local.get $p2
+                  local.get $l4
+                  call $f50
+                  local.tee $p2
+                  i32.eqz
+                  br_if $B0
+                end
+                i32.const 1059296
+                local.get $l4
+                i32.store
+                local.get $p1
+                if $I14
+                  local.get $p0
+                  call $f13
+                end
+                local.get $l5
+                if $I15
+                  local.get $l5
+                  i32.const 4
+                  i32.sub
+                  i32.load
+                  i32.const 1059796
+                  i32.load
+                  call_indirect (type $t1) $T0
+                end
+                br $B4
+              end
               local.get $l3
-              i32.const 24
+              i32.const 8
               i32.add
-              i32.const 1
-              i32.store
-              local.get $l3
-              local.get $l4
-              i32.store offset=20
-              local.get $l3
               local.get $p0
-              i32.load
-              i32.store offset=16
-              br $B5
+              local.get $p1
+              i32.const 1
+              call $f1
+              block $B16
+                local.get $l3
+                i32.load offset=16
+                local.tee $l4
+                local.get $l3
+                i32.load offset=12
+                i32.ge_u
+                if $I17
+                  local.get $l3
+                  i32.load offset=8
+                  local.set $p2
+                  br $B16
+                end
+                local.get $l3
+                i32.load offset=8
+                local.tee $p2
+                i32.eqz
+                br_if $B16
+                block $B18
+                  local.get $l4
+                  i32.eqz
+                  if $I19
+                    local.get $p2
+                    call $f13
+                    i32.const 1
+                    local.set $p2
+                    br $B18
+                  end
+                  local.get $p2
+                  local.get $l4
+                  call $f50
+                  local.tee $p2
+                  i32.eqz
+                  br_if $B0
+                end
+                local.get $l3
+                local.get $l4
+                i32.store offset=12
+                local.get $l3
+                local.get $p2
+                i32.store offset=8
+              end
+              i32.const 1059296
+              local.get $l4
+              i32.store
+              local.get $p1
+              i32.eqz
+              br_if $B4
+              local.get $p0
+              call $f13
             end
             local.get $l3
-            i32.const 0
-            i32.store offset=16
-          end
-          local.get $l3
-          local.get $l2
-          local.get $l3
-          i32.const 16
-          i32.add
-          call $f19
-          local.get $l3
-          i32.const 8
-          i32.add
-          i32.load
-          local.set $l2
-          local.get $l3
-          i32.load offset=4
-          local.set $l4
-          local.get $l3
-          i32.load
-          i32.const 1
-          i32.ne
-          if $I7
-            local.get $p0
-            local.get $l4
-            i32.store
-            local.get $p0
-            i32.const 4
+            i32.const 32
             i32.add
-            local.get $l2
-            i32.store
-            local.get $p0
-            i32.const 8
-            i32.add
-            i32.load
-            local.set $p0
-            br $B2
+            global.set $g0
+            local.get $p2
+            return
           end
-          local.get $l2
-          i32.eqz
-          br_if $B4
-          local.get $l4
-          local.get $l2
-          i32.const 1054900
-          i32.load
-          local.tee $p0
-          i32.const 1
-          local.get $p0
-          select
-          call_indirect (type $t0) $T0
           unreachable
         end
         unreachable
       end
+      local.get $p2
+      i32.const 1
+      i32.const 1059788
+      i32.load
+      local.tee $p0
+      i32.const 4
       local.get $p0
-      local.get $l4
-      i32.add
-      local.set $l2
-      block $B8
-        local.get $l6
-        i32.const 2
-        i32.ge_u
-        if $I9
-          local.get $l2
-          i32.const 0
-          local.get $l6
-          i32.const 1
+      select
+      call_indirect (type $t0) $T0
+      unreachable
+    end
+    local.get $l4
+    i32.const 1
+    i32.const 1059788
+    i32.load
+    local.tee $p0
+    i32.const 4
+    local.get $p0
+    select
+    call_indirect (type $t0) $T0
+    unreachable)
+  (func $compress_raw (type $t3) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
+    (local $l3 i32) (local $l4 i32) (local $l5 i32)
+    global.get $g0
+    i32.const 32
+    i32.sub
+    local.tee $l3
+    global.set $g0
+    block $B0
+      block $B1
+        block $B2
+          block $B3
+            block $B4
+              local.get $p2
+              if $I5
+                i32.const 1059300
+                i32.load
+                i32.const 3
+                i32.ne
+                if $I6
+                  local.get $l3
+                  i32.const 1
+                  i32.store8 offset=28
+                  local.get $l3
+                  local.get $l3
+                  i32.const 28
+                  i32.add
+                  i32.store offset=8
+                  local.get $l3
+                  i32.const 8
+                  i32.add
+                  call $f11
+                end
+                local.get $p2
+                call $f16
+                local.tee $l5
+                i32.eqz
+                br_if $B3
+                local.get $p1
+                i32.const 9999
+                i32.add
+                local.tee $p2
+                i32.const 10000
+                i32.ge_u
+                if $I7 (result i32)
+                  local.get $p2
+                  i32.const 10000
+                  i32.div_u
+                  i32.const 5
+                  i32.mul
+                else
+                  i32.const 5
+                end
+                local.get $p1
+                i32.add
+                i32.const 9
+                i32.add
+                local.tee $p2
+                i32.const -1
+                i32.le_s
+                br_if $B2
+                local.get $l3
+                i32.const 8
+                i32.add
+                block $B8 (result i32)
+                  local.get $p2
+                  i32.eqz
+                  if $I9
+                    local.get $l3
+                    i64.const 1
+                    i64.store offset=8
+                    local.get $l3
+                    i32.const 0
+                    i32.store offset=16
+                    i32.const 1059300
+                    i32.load
+                    i32.const 3
+                    i32.ne
+                    if $I10
+                      local.get $l3
+                      i32.const 1
+                      i32.store8 offset=27
+                      local.get $l3
+                      local.get $l3
+                      i32.const 27
+                      i32.add
+                      i32.store offset=28
+                      local.get $l3
+                      i32.const 28
+                      i32.add
+                      call $f11
+                    end
+                    local.get $l5
+                    local.get $p0
+                    local.get $p1
+                    i32.const 1
+                    i32.const 0
+                    call $f23
+                    br $B8
+                  end
+                  local.get $p2
+                  call $f43
+                  local.tee $l4
+                  i32.eqz
+                  br_if $B1
+                  local.get $l3
+                  local.get $p2
+                  i32.store offset=16
+                  local.get $l3
+                  local.get $p2
+                  i32.store offset=12
+                  local.get $l3
+                  local.get $l4
+                  i32.store offset=8
+                  i32.const 1059300
+                  i32.load
+                  i32.const 3
+                  i32.ne
+                  if $I11
+                    local.get $l3
+                    i32.const 1
+                    i32.store8 offset=27
+                    local.get $l3
+                    local.get $l3
+                    i32.const 27
+                    i32.add
+                    i32.store offset=28
+                    local.get $l3
+                    i32.const 28
+                    i32.add
+                    call $f11
+                  end
+                  local.get $l5
+                  local.get $p0
+                  local.get $p1
+                  local.get $l4
+                  local.get $p2
+                  call $f23
+                end
+                call $f25
+                local.get $l3
+                i32.load offset=16
+                local.set $l4
+                block $B12
+                  local.get $l3
+                  i32.load offset=8
+                  local.tee $p2
+                  i32.eqz
+                  br_if $B12
+                  local.get $l3
+                  i32.load offset=12
+                  local.get $l4
+                  i32.le_u
+                  br_if $B12
+                  local.get $l4
+                  i32.eqz
+                  if $I13
+                    local.get $p2
+                    call $f13
+                    i32.const 1
+                    local.set $p2
+                    br $B12
+                  end
+                  local.get $p2
+                  local.get $l4
+                  call $f50
+                  local.tee $p2
+                  i32.eqz
+                  br_if $B0
+                end
+                i32.const 1059296
+                local.get $l4
+                i32.store
+                local.get $p1
+                if $I14
+                  local.get $p0
+                  call $f13
+                end
+                local.get $l5
+                if $I15
+                  local.get $l5
+                  i32.const 4
+                  i32.sub
+                  i32.load
+                  i32.const 1059796
+                  i32.load
+                  call_indirect (type $t1) $T0
+                end
+                br $B4
+              end
+              local.get $l3
+              i32.const 8
+              i32.add
+              local.get $p0
+              local.get $p1
+              i32.const 0
+              call $f1
+              block $B16
+                local.get $l3
+                i32.load offset=16
+                local.tee $l4
+                local.get $l3
+                i32.load offset=12
+                i32.ge_u
+                if $I17
+                  local.get $l3
+                  i32.load offset=8
+                  local.set $p2
+                  br $B16
+                end
+                local.get $l3
+                i32.load offset=8
+                local.tee $p2
+                i32.eqz
+                br_if $B16
+                block $B18
+                  local.get $l4
+                  i32.eqz
+                  if $I19
+                    local.get $p2
+                    call $f13
+                    i32.const 1
+                    local.set $p2
+                    br $B18
+                  end
+                  local.get $p2
+                  local.get $l4
+                  call $f50
+                  local.tee $p2
+                  i32.eqz
+                  br_if $B0
+                end
+                local.get $l3
+                local.get $l4
+                i32.store offset=12
+                local.get $l3
+                local.get $p2
+                i32.store offset=8
+              end
+              i32.const 1059296
+              local.get $l4
+              i32.store
+              local.get $p1
+              i32.eqz
+              br_if $B4
+              local.get $p0
+              call $f13
+            end
+            local.get $l3
+            i32.const 32
+            i32.add
+            global.set $g0
+            local.get $p2
+            return
+          end
+          unreachable
+        end
+        unreachable
+      end
+      local.get $p2
+      i32.const 1
+      i32.const 1059788
+      i32.load
+      local.tee $p0
+      i32.const 4
+      local.get $p0
+      select
+      call_indirect (type $t0) $T0
+      unreachable
+    end
+    local.get $l4
+    i32.const 1
+    i32.const 1059788
+    i32.load
+    local.tee $p0
+    i32.const 4
+    local.get $p0
+    select
+    call_indirect (type $t0) $T0
+    unreachable)
+  (func $f23 (type $t4) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (result i32)
+    (local $l5 i32) (local $l6 i32)
+    global.get $g0
+    i32.const 32
+    i32.sub
+    local.tee $l5
+    global.set $g0
+    block $B0 (result i32)
+      i32.const 0
+      local.get $p4
+      i32.const 8
+      i32.lt_u
+      br_if $B0
+      drop
+      local.get $p2
+      local.get $p0
+      i32.load offset=37356
+      i32.lt_u
+      if $I1
+        local.get $l5
+        local.get $p3
+        i32.store offset=20
+        local.get $l5
+        local.get $p3
+        i32.store offset=16
+        local.get $l5
+        i64.const 34359738369
+        i64.store offset=8
+        local.get $l5
+        local.get $p3
+        local.get $p4
+        i32.add
+        i32.const 8
+        i32.sub
+        i32.store offset=24
+        local.get $p1
+        local.get $l5
+        i32.const 8
+        i32.add
+        local.get $p2
+        select
+        local.set $p4
+        i32.const 1
+        local.set $p0
+        loop $L2
+          local.get $p3
+          local.get $p0
+          i32.store8
+          local.get $p3
+          local.get $l5
+          i32.load offset=24
+          local.tee $p1
+          i32.ne
+          if $I3
+            local.get $l5
+            local.get $p3
+            i32.const 1
+            i32.add
+            local.tee $p3
+            i32.store offset=20
+          end
+          local.get $l5
+          local.get $l5
+          i32.load offset=8
+          i32.const 8
+          i32.shr_u
+          local.tee $p0
+          i32.store offset=8
+          local.get $l5
+          local.get $l5
+          i32.load offset=12
+          i32.const 8
           i32.sub
           local.tee $l6
+          i32.store offset=12
+          local.get $l6
+          i32.const 7
+          i32.gt_u
+          br_if $L2
+        end
+        local.get $p2
+        i32.const 65535
+        i32.and
+        local.tee $p0
+        i32.const 4
+        i32.add
+        local.get $p1
+        local.get $p3
+        i32.sub
+        i32.ge_u
+        if $I4
+          local.get $l5
+          local.get $p1
+          i32.store offset=20
+          i32.const 0
+          br $B0
+        end
+        local.get $p3
+        local.get $p2
+        i32.store16 align=1
+        local.get $l5
+        i32.load offset=20
+        local.tee $p1
+        local.get $p2
+        i32.const -1
+        i32.xor
+        i32.store16 offset=2 align=1
+        local.get $l5
+        local.get $p1
+        i32.const 4
+        i32.add
+        local.tee $p1
+        i32.store offset=20
+        local.get $l5
+        local.get $p1
+        local.get $p4
+        local.get $p0
+        call $f38
+        local.get $p0
+        i32.add
+        local.tee $p1
+        i32.store offset=20
+        i32.const 0
+        local.get $p1
+        local.get $l5
+        i32.load offset=24
+        i32.eq
+        br_if $B0
+        drop
+        block $B5
+          local.get $l5
+          i32.load offset=12
+          local.tee $p4
+          i32.const 1
+          i32.lt_s
+          if $I6
+            local.get $p1
+            local.set $p0
+            br $B5
+          end
+          local.get $l5
+          local.get $p1
+          i32.const 1
+          i32.add
+          local.tee $p0
+          i32.store offset=20
+          local.get $p1
+          local.get $l5
+          i32.load offset=8
+          local.tee $p1
+          i32.store8
+          local.get $l5
+          local.get $p1
+          i32.const 8
+          i32.shr_u
+          local.tee $p2
+          i32.store offset=8
+          local.get $l5
+          local.get $p4
+          i32.const 8
+          i32.sub
+          i32.store offset=12
+          local.get $p4
+          i32.const 9
+          i32.lt_s
+          br_if $B5
+          loop $L7
+            local.get $p0
+            local.get $p2
+            i32.store8
+            local.get $p2
+            i32.const 8
+            i32.shr_u
+            local.set $p2
+            local.get $p0
+            i32.const 1
+            i32.add
+            local.set $p0
+            local.get $p4
+            i32.const 8
+            i32.sub
+            local.tee $p4
+            i32.const 8
+            i32.gt_s
+            br_if $L7
+          end
+          local.get $l5
+          local.get $p0
+          i32.store offset=20
+          local.get $l5
+          local.get $p2
+          i32.store offset=8
+          local.get $l5
+          local.get $p4
+          i32.const 8
+          i32.sub
+          i32.store offset=12
+        end
+        local.get $p0
+        local.get $l5
+        i32.load offset=16
+        i32.sub
+        br $B0
+      end
+      local.get $p0
+      local.get $p1
+      local.get $p2
+      local.get $p3
+      local.get $p4
+      local.get $p0
+      i32.load
+      call_indirect (type $t4) $T0
+    end
+    local.get $l5
+    i32.const 32
+    i32.add
+    global.set $g0)
+  (func $f24 (type $t0) (param $p0 i32) (param $p1 i32)
+    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32)
+    block $B0
+      block $B1
+        local.get $p1
+        i32.const 256
+        i32.ge_u
+        if $I2
+          local.get $p0
+          i32.const 24
+          i32.add
+          i32.load
+          local.set $l4
+          block $B3
+            block $B4
+              local.get $p0
+              local.get $p0
+              i32.load offset=12
+              local.tee $l2
+              i32.eq
+              if $I5
+                i32.const 20
+                i32.const 16
+                local.get $p0
+                i32.const 20
+                i32.add
+                local.tee $l2
+                i32.load
+                local.tee $l3
+                select
+                local.get $p0
+                i32.add
+                i32.load
+                local.tee $p1
+                br_if $B4
+                i32.const 0
+                local.set $l2
+                br $B3
+              end
+              local.get $p0
+              i32.load offset=8
+              local.tee $p1
+              local.get $l2
+              i32.store offset=12
+              local.get $l2
+              local.get $p1
+              i32.store offset=8
+              br $B3
+            end
+            local.get $l2
+            local.get $p0
+            i32.const 16
+            i32.add
+            local.get $l3
+            select
+            local.set $l3
+            loop $L6
+              local.get $l3
+              local.set $l5
+              local.get $p1
+              local.tee $l2
+              i32.const 20
+              i32.add
+              local.tee $l3
+              i32.load
+              local.tee $p1
+              i32.eqz
+              if $I7
+                local.get $l2
+                i32.const 16
+                i32.add
+                local.set $l3
+                local.get $l2
+                i32.load offset=16
+                local.set $p1
+              end
+              local.get $p1
+              br_if $L6
+            end
+            local.get $l5
+            i32.const 0
+            i32.store
+          end
+          local.get $l4
+          i32.eqz
+          br_if $B0
+          local.get $p0
+          local.get $p0
+          i32.const 28
+          i32.add
+          i32.load
+          i32.const 2
+          i32.shl
+          i32.const 1059580
+          i32.add
+          local.tee $p1
+          i32.load
+          i32.ne
+          if $I8
+            i32.const 16
+            i32.const 20
+            local.get $l4
+            i32.load offset=16
+            local.get $p0
+            i32.eq
+            select
+            local.get $l4
+            i32.add
+            local.get $l2
+            i32.store
+            local.get $l2
+            i32.eqz
+            br_if $B0
+            br $B1
+          end
+          local.get $p1
+          local.get $l2
+          i32.store
+          local.get $l2
+          br_if $B1
+          i32.const 1059312
+          i32.const 1059312
+          i32.load
+          i32.const -2
+          local.get $p0
+          i32.load offset=28
+          i32.rotl
+          i32.and
+          i32.store
+          return
+        end
+        local.get $p0
+        i32.const 12
+        i32.add
+        i32.load
+        local.tee $l2
+        local.get $p0
+        i32.const 8
+        i32.add
+        i32.load
+        local.tee $p0
+        i32.ne
+        if $I9
+          local.get $p0
+          local.get $l2
+          i32.store offset=12
+          local.get $l2
+          local.get $p0
+          i32.store offset=8
+          return
+        end
+        i32.const 1059308
+        i32.const 1059308
+        i32.load
+        i32.const -2
+        local.get $p1
+        i32.const 3
+        i32.shr_u
+        i32.rotl
+        i32.and
+        i32.store
+        br $B0
+      end
+      local.get $l2
+      local.get $l4
+      i32.store offset=24
+      local.get $p0
+      i32.load offset=16
+      local.tee $p1
+      if $I10
+        local.get $l2
+        local.get $p1
+        i32.store offset=16
+        local.get $p1
+        local.get $l2
+        i32.store offset=24
+      end
+      local.get $p0
+      i32.const 20
+      i32.add
+      i32.load
+      local.tee $p0
+      i32.eqz
+      br_if $B0
+      local.get $l2
+      i32.const 20
+      i32.add
+      local.get $p0
+      i32.store
+      local.get $p0
+      local.get $l2
+      i32.store offset=24
+    end)
+  (func $f25 (type $t0) (param $p0 i32) (param $p1 i32)
+    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32)
+    local.get $p0
+    i32.const 8
+    i32.add
+    local.tee $l6
+    i32.load
+    local.tee $l4
+    local.get $p1
+    i32.ge_u
+    if $I0
+      local.get $l6
+      local.get $p1
+      i32.store
+      return
+    end
+    block $B1
+      local.get $p1
+      local.get $l4
+      i32.sub
+      local.tee $l5
+      local.get $p0
+      i32.const 4
+      i32.add
+      i32.load
+      local.tee $l3
+      local.get $l4
+      i32.sub
+      i32.le_u
+      if $I2
+        local.get $p0
+        i32.load
+        local.set $l3
+        local.get $l4
+        local.set $p0
+        br $B1
+      end
+      block $B3 (result i32)
+        block $B4
+          block $B5
+            local.get $l4
+            local.get $l5
+            i32.add
+            local.tee $l2
+            local.get $l4
+            i32.lt_u
+            br_if $B5
+            local.get $l3
+            i32.const 1
+            i32.shl
+            local.tee $l7
+            local.get $l2
+            local.get $l2
+            local.get $l7
+            i32.lt_u
+            select
+            local.tee $l2
+            i32.const 8
+            local.get $l2
+            i32.const 8
+            i32.gt_u
+            select
+            local.set $l2
+            local.get $l3
+            if $I6
+              local.get $l2
+              i32.const 0
+              i32.lt_s
+              br_if $B5
+              local.get $p0
+              i32.load
+              local.tee $l3
+              i32.eqz
+              br_if $B4
+              local.get $l3
+              local.get $l2
+              call $f50
+              br $B3
+            end
+            local.get $l2
+            i32.const 0
+            i32.ge_s
+            br_if $B4
+          end
+          unreachable
+        end
+        local.get $l2
+        call $f4
+      end
+      local.tee $l3
+      if $I7
+        local.get $p0
+        local.get $l3
+        i32.store
+        local.get $p0
+        i32.const 4
+        i32.add
+        local.get $l2
+        i32.store
+        local.get $p0
+        i32.const 8
+        i32.add
+        i32.load
+        local.set $p0
+        br $B1
+      end
+      local.get $l2
+      i32.const 1
+      i32.const 1059788
+      i32.load
+      local.tee $p0
+      i32.const 4
+      local.get $p0
+      select
+      call_indirect (type $t0) $T0
+      unreachable
+    end
+    local.get $p0
+    local.get $l3
+    i32.add
+    local.set $l2
+    block $B8
+      block $B9
+        local.get $l5
+        i32.const 2
+        i32.ge_u
+        if $I10
+          local.get $l2
+          i32.const 0
+          local.get $l5
+          i32.const 1
+          i32.sub
+          local.tee $l5
           memory.fill
           local.get $p0
           local.get $p1
           i32.add
-          local.get $l5
+          local.get $l4
           i32.const -1
           i32.xor
           i32.add
-          local.get $l4
+          local.get $l3
           i32.add
           local.set $l2
           local.get $p0
-          local.get $l6
+          local.get $l5
           i32.add
           local.set $p0
-          br $B8
+          br $B9
         end
-        local.get $l6
+        local.get $l5
         i32.eqz
-        br_if $B0
+        br_if $B8
       end
       local.get $l2
       i32.const 0
@@ -19415,14 +30160,139 @@
       i32.add
       local.set $p0
     end
-    local.get $l7
+    local.get $l6
     local.get $p0
-    i32.store
+    i32.store)
+  (func $f26 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
+    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i32)
+    local.get $p0
+    i32.eqz
+    if $I0
+      i32.const 1
+      return
+    end
+    i32.const 1
+    local.set $l3
+    local.get $p1
+    if $I1
+      local.get $p0
+      local.get $p1
+      i32.add
+      local.set $l6
+      loop $L2
+        local.get $l6
+        local.get $p0
+        i32.sub
+        local.tee $p1
+        i32.const 5552
+        local.get $p1
+        i32.const 5552
+        i32.lt_s
+        select
+        local.tee $l7
+        local.get $p0
+        i32.add
+        local.set $l5
+        local.get $l7
+        i32.const 2
+        i32.shr_u
+        local.tee $p1
+        if $I3
+          local.get $p0
+          local.set $l4
+          loop $L4
+            local.get $l4
+            i32.load8_u
+            local.get $l3
+            i32.add
+            local.tee $l8
+            local.get $l4
+            i32.const 1
+            i32.add
+            i32.load8_u
+            i32.add
+            local.tee $l9
+            local.get $l4
+            i32.const 2
+            i32.add
+            i32.load8_u
+            i32.add
+            local.tee $l10
+            local.get $l4
+            i32.const 3
+            i32.add
+            i32.load8_u
+            i32.add
+            local.tee $l3
+            local.get $l2
+            local.get $l8
+            i32.add
+            local.get $l9
+            i32.add
+            local.get $l10
+            i32.add
+            i32.add
+            local.set $l2
+            local.get $l4
+            i32.const 4
+            i32.add
+            local.set $l4
+            local.get $p1
+            i32.const 1
+            i32.sub
+            local.tee $p1
+            br_if $L4
+          end
+          local.get $l7
+          i32.const -4
+          i32.and
+          local.get $p0
+          i32.add
+          local.set $p0
+        end
+        local.get $p0
+        local.get $l5
+        i32.ne
+        if $I5
+          loop $L6
+            local.get $p0
+            i32.load8_u
+            local.get $l3
+            i32.add
+            local.tee $l3
+            local.get $l2
+            i32.add
+            local.set $l2
+            local.get $l5
+            local.get $p0
+            i32.const 1
+            i32.add
+            local.tee $p0
+            i32.ne
+            br_if $L6
+          end
+        end
+        local.get $l2
+        i32.const 65521
+        i32.rem_u
+        local.set $l2
+        local.get $l3
+        i32.const 65521
+        i32.rem_u
+        local.set $l3
+        local.get $l6
+        local.get $l5
+        local.tee $p0
+        i32.ne
+        br_if $L2
+      end
+    end
+    local.get $l2
+    i32.const 16
+    i32.shl
     local.get $l3
-    i32.const 32
-    i32.add
-    global.set $g0)
-  (func $f14 (type $t1) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
+    i32.or)
+  (func $f27 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32)
     (local $l5 i32)
     local.get $p2
     local.get $p3
@@ -19437,7 +30307,7 @@
       local.get $p3
       local.get $p2
       local.get $p4
-      call $f10
+      call $f15
       return
     end
     block $B1
@@ -19518,7 +30388,197 @@
       unreachable
     end
     unreachable)
-  (func $decompress_raw (type $t2) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
+  (func $f28 (type $t4) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (result i32)
+    (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32)
+    local.get $p3
+    local.get $p4
+    i32.add
+    i32.const 8
+    i32.sub
+    local.set $l6
+    local.get $p3
+    local.set $p4
+    loop $L0
+      local.get $p4
+      local.get $p2
+      i32.const 65536
+      i32.lt_u
+      local.get $l8
+      i32.or
+      i32.store8
+      local.get $l6
+      local.set $p0
+      local.get $p2
+      i32.const 65535
+      local.get $p2
+      i32.const 65535
+      i32.lt_u
+      select
+      local.tee $l5
+      i32.const 4
+      i32.add
+      local.get $l6
+      local.get $p4
+      local.get $p4
+      i32.const 1
+      i32.add
+      local.get $p4
+      local.get $l6
+      i32.eq
+      select
+      local.tee $l7
+      i32.sub
+      i32.lt_u
+      if $I1
+        local.get $p4
+        local.get $l6
+        i32.ne
+        local.get $p4
+        i32.add
+        local.get $l5
+        i32.store8
+        local.get $l7
+        local.get $l5
+        i32.const 8
+        i32.shr_u
+        i32.store8 offset=1
+        local.get $l7
+        local.get $l5
+        i32.const -1
+        i32.xor
+        local.tee $p0
+        i32.const 8
+        i32.shr_u
+        i32.store8 offset=3
+        local.get $l7
+        local.get $p0
+        i32.store8 offset=2
+        local.get $l7
+        i32.const 4
+        i32.add
+        local.get $p1
+        local.get $l5
+        call $f38
+        local.get $l5
+        i32.add
+        local.set $p0
+      end
+      local.get $l8
+      i32.const 8
+      i32.shr_u
+      local.set $l8
+      local.get $p1
+      local.get $l5
+      i32.add
+      local.set $p1
+      local.get $p0
+      local.set $p4
+      local.get $p2
+      local.get $l5
+      i32.sub
+      local.tee $p2
+      br_if $L0
+    end
+    i32.const 0
+    local.get $p4
+    local.get $p3
+    i32.sub
+    local.get $p4
+    local.get $l6
+    i32.eq
+    select)
+  (func $f29 (type $t4) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32) (param $p4 i32) (result i32)
+    (local $l5 i32) (local $l6 i32)
+    block $B0
+      local.get $p4
+      i32.const 7
+      i32.lt_u
+      br_if $B0
+      block $B1 (result i32)
+        i32.const 30720
+        local.get $p0
+        i32.load offset=37352
+        local.tee $l5
+        i32.const 2
+        i32.lt_u
+        br_if $B1
+        drop
+        i32.const 30784
+        local.get $l5
+        i32.const 6
+        i32.lt_u
+        br_if $B1
+        drop
+        i32.const 30848
+        i32.const 30912
+        local.get $l5
+        i32.const 8
+        i32.lt_u
+        select
+      end
+      local.set $l5
+      local.get $p3
+      i32.const 120
+      i32.store8
+      local.get $p3
+      local.get $l5
+      i32.const 31
+      i32.rem_u
+      local.get $l5
+      i32.or
+      i32.const 31
+      i32.xor
+      i32.store8 offset=1
+      local.get $p0
+      local.get $p1
+      local.get $p2
+      local.get $p3
+      i32.const 2
+      i32.add
+      local.tee $p0
+      local.get $p4
+      i32.const 6
+      i32.sub
+      call $f23
+      local.tee $p4
+      i32.eqz
+      br_if $B0
+      local.get $p0
+      local.get $p4
+      i32.add
+      local.tee $p4
+      local.get $p1
+      local.get $p2
+      call $f26
+      local.tee $p0
+      i32.const 24
+      i32.shl
+      local.get $p0
+      i32.const 8
+      i32.shl
+      i32.const 16711680
+      i32.and
+      i32.or
+      local.get $p0
+      i32.const 8
+      i32.shr_u
+      i32.const 65280
+      i32.and
+      local.get $p0
+      i32.const 24
+      i32.shr_u
+      i32.or
+      i32.or
+      i32.store align=1
+      local.get $p4
+      local.get $p3
+      i32.sub
+      i32.const 4
+      i32.add
+      local.set $l6
+    end
+    local.get $l6)
+  (func $decompress_raw (type $t3) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
     (local $l3 i32)
     global.get $g0
     i32.const 16
@@ -19550,7 +30610,7 @@
         br_if $B0
       end
       local.get $p0
-      call $f6
+      call $f13
     end
     i32.const 0
     local.set $p1
@@ -19582,19 +30642,19 @@
           i32.eqz
           if $I6
             local.get $p1
-            call $f6
+            call $f13
             i32.const 1
             local.set $p1
             br $B5
           end
           local.get $p1
           local.get $p0
-          call $f26
+          call $f50
           local.tee $p1
           i32.eqz
           br_if $B3
         end
-        i32.const 1054424
+        i32.const 1059296
         local.get $p0
         i32.store
       end
@@ -19607,15 +30667,15 @@
     end
     local.get $p0
     i32.const 1
-    i32.const 1054900
+    i32.const 1059788
     i32.load
     local.tee $p0
-    i32.const 1
+    i32.const 4
     local.get $p0
     select
     call_indirect (type $t0) $T0
     unreachable)
-  (func $decompress (type $t2) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
+  (func $decompress (type $t3) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
     (local $l3 i32)
     global.get $g0
     i32.const 16
@@ -19647,7 +30707,7 @@
         br_if $B0
       end
       local.get $p0
-      call $f6
+      call $f13
     end
     i32.const 0
     local.set $p1
@@ -19679,19 +30739,19 @@
           i32.eqz
           if $I6
             local.get $p1
-            call $f6
+            call $f13
             i32.const 1
             local.set $p1
             br $B5
           end
           local.get $p1
           local.get $p0
-          call $f26
+          call $f50
           local.tee $p1
           i32.eqz
           br_if $B3
         end
-        i32.const 1054424
+        i32.const 1059296
         local.get $p0
         i32.store
       end
@@ -19704,249 +30764,69 @@
     end
     local.get $p0
     i32.const 1
-    i32.const 1054900
+    i32.const 1059788
     i32.load
     local.tee $p0
-    i32.const 1
+    i32.const 4
     local.get $p0
     select
     call_indirect (type $t0) $T0
     unreachable)
-  (func $compress (type $t2) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
-    (local $l3 i32) (local $l4 i32)
+  (func $f32 (type $t7) (param $p0 i32) (param $p1 i32) (param $p2 i32) (param $p3 i32)
+    (local $l4 i32)
     global.get $g0
-    i32.const 16
-    i32.sub
-    local.tee $l3
+    i32.const -64
+    i32.add
+    local.tee $l4
     global.set $g0
-    local.get $l3
-    local.get $p0
-    local.get $p1
-    local.get $p2
-    i32.const 1
-    call $f1
-    block $B0
-      block $B1
-        local.get $l3
-        i32.load offset=8
-        local.tee $l4
-        local.get $l3
-        i32.load offset=4
-        i32.ge_u
-        if $I2
-          local.get $l3
-          i32.load
-          local.set $p2
-          br $B1
-        end
-        local.get $l3
-        i32.load
-        local.tee $p2
-        i32.eqz
-        br_if $B1
-        block $B3
-          local.get $l4
-          i32.eqz
-          if $I4
-            local.get $p2
-            call $f6
-            i32.const 1
-            local.set $p2
-            br $B3
-          end
-          local.get $p2
-          local.get $l4
-          call $f26
-          local.tee $p2
-          i32.eqz
-          br_if $B0
-        end
-        local.get $l3
-        local.get $l4
-        i32.store offset=4
-        local.get $l3
-        local.get $p2
-        i32.store
-      end
-      i32.const 1054424
-      local.get $l4
-      i32.store
-      local.get $p1
-      if $I5
-        local.get $p0
-        call $f6
-      end
-      local.get $l3
-      i32.const 16
-      i32.add
-      global.set $g0
-      local.get $p2
-      return
-    end
     local.get $l4
-    i32.const 1
-    i32.const 1054900
-    i32.load
-    local.tee $p0
-    i32.const 1
-    local.get $p0
-    select
-    call_indirect (type $t0) $T0
-    unreachable)
-  (func $compress_raw (type $t2) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
-    (local $l3 i32) (local $l4 i32)
-    global.get $g0
-    i32.const 16
-    i32.sub
-    local.tee $l3
-    global.set $g0
-    local.get $l3
-    local.get $p0
     local.get $p1
-    local.get $p2
-    i32.const 0
-    call $f1
-    block $B0
-      block $B1
-        local.get $l3
-        i32.load offset=8
-        local.tee $l4
-        local.get $l3
-        i32.load offset=4
-        i32.ge_u
-        if $I2
-          local.get $l3
-          i32.load
-          local.set $p2
-          br $B1
-        end
-        local.get $l3
-        i32.load
-        local.tee $p2
-        i32.eqz
-        br_if $B1
-        block $B3
-          local.get $l4
-          i32.eqz
-          if $I4
-            local.get $p2
-            call $f6
-            i32.const 1
-            local.set $p2
-            br $B3
-          end
-          local.get $p2
-          local.get $l4
-          call $f26
-          local.tee $p2
-          i32.eqz
-          br_if $B0
-        end
-        local.get $l3
-        local.get $l4
-        i32.store offset=4
-        local.get $l3
-        local.get $p2
-        i32.store
-      end
-      i32.const 1054424
-      local.get $l4
-      i32.store
-      local.get $p1
-      if $I5
-        local.get $p0
-        call $f6
-      end
-      local.get $l3
-      i32.const 16
-      i32.add
-      global.set $g0
-      local.get $p2
-      return
-    end
+    i32.store offset=12
     local.get $l4
-    i32.const 1
-    i32.const 1054900
-    i32.load
-    local.tee $p0
-    i32.const 1
     local.get $p0
-    select
-    call_indirect (type $t0) $T0
-    unreachable)
-  (func $f19 (type $t6) (param $p0 i32) (param $p1 i32) (param $p2 i32)
-    (local $l3 i32)
-    local.get $p0
-    block $B0 (result i32)
-      block $B1
-        block $B2
-          local.get $p1
-          i32.const 0
-          i32.ge_s
-          if $I3
-            block $B4 (result i32)
-              local.get $p2
-              i32.load
-              local.tee $l3
-              i32.eqz
-              if $I5
-                local.get $p1
-                i32.eqz
-                br_if $B2
-                local.get $p1
-                call $f3
-                br $B4
-              end
-              local.get $p2
-              i32.load offset=4
-              i32.eqz
-              if $I6
-                local.get $p1
-                i32.eqz
-                br_if $B2
-                local.get $p1
-                call $f3
-                br $B4
-              end
-              local.get $l3
-              local.get $p1
-              call $f26
-            end
-            local.tee $p2
-            br_if $B1
-            local.get $p0
-            local.get $p1
-            i32.store offset=4
-            i32.const 1
-            local.set $p1
-            i32.const 1
-            br $B0
-          end
-          local.get $p0
-          i32.const 1
-          i32.store
-          local.get $p0
-          i32.const 8
-          i32.add
-          i32.const 0
-          i32.store
-          return
-        end
-        i32.const 1
-        local.set $p2
-      end
-      local.get $p0
-      local.get $p2
-      i32.store offset=4
-      i32.const 0
-    end
+    i32.store offset=8
+    local.get $l4
+    local.get $p3
+    i32.store offset=20
+    local.get $l4
+    local.get $p2
+    i32.store offset=16
+    local.get $l4
+    i32.const 44
+    i32.add
+    i32.const 2
     i32.store
-    local.get $p0
+    local.get $l4
+    i32.const 60
+    i32.add
+    i32.const 10
+    i32.store
+    local.get $l4
+    i64.const 2
+    i64.store offset=28 align=4
+    local.get $l4
+    i32.const 1051772
+    i32.store offset=24
+    local.get $l4
+    i32.const 6
+    i32.store offset=52
+    local.get $l4
+    local.get $l4
+    i32.const 48
+    i32.add
+    i32.store offset=40
+    local.get $l4
+    local.get $l4
+    i32.const 16
+    i32.add
+    i32.store offset=56
+    local.get $l4
+    local.get $l4
     i32.const 8
     i32.add
-    local.get $p1
-    i32.store)
-  (func $f20 (type $t0) (param $p0 i32) (param $p1 i32)
+    i32.store offset=48
+    unreachable)
+  (func $f33 (type $t0) (param $p0 i32) (param $p1 i32)
     (local $l2 i32)
     global.get $g0
     i32.const 48
@@ -19967,7 +30847,7 @@
     local.get $l2
     i32.const 44
     i32.add
-    i32.const 2
+    i32.const 5
     i32.store
     local.get $l2
     i64.const 2
@@ -19976,7 +30856,7 @@
     i32.const 1048924
     i32.store offset=8
     local.get $l2
-    i32.const 2
+    i32.const 5
     i32.store offset=36
     local.get $l2
     local.get $l2
@@ -19992,7 +30872,7 @@
     local.get $l2
     i32.store offset=32
     unreachable)
-  (func $f21 (type $t0) (param $p0 i32) (param $p1 i32)
+  (func $f34 (type $t0) (param $p0 i32) (param $p1 i32)
     (local $l2 i32)
     global.get $g0
     i32.const 48
@@ -20013,16 +30893,16 @@
     local.get $l2
     i32.const 44
     i32.add
-    i32.const 2
+    i32.const 5
     i32.store
     local.get $l2
     i64.const 2
     i64.store offset=12 align=4
     local.get $l2
-    i32.const 1048992
+    i32.const 1049248
     i32.store offset=8
     local.get $l2
-    i32.const 2
+    i32.const 5
     i32.store offset=36
     local.get $l2
     local.get $l2
@@ -20038,7 +30918,7 @@
     local.get $l2
     i32.store offset=32
     unreachable)
-  (func $f22 (type $t0) (param $p0 i32) (param $p1 i32)
+  (func $f35 (type $t0) (param $p0 i32) (param $p1 i32)
     (local $l2 i32)
     global.get $g0
     i32.const 48
@@ -20059,16 +30939,16 @@
     local.get $l2
     i32.const 44
     i32.add
-    i32.const 2
+    i32.const 5
     i32.store
     local.get $l2
     i64.const 2
     i64.store offset=12 align=4
     local.get $l2
-    i32.const 1049028
+    i32.const 1050732
     i32.store offset=8
     local.get $l2
-    i32.const 2
+    i32.const 5
     i32.store offset=36
     local.get $l2
     local.get $l2
@@ -20084,7 +30964,113 @@
     local.get $l2
     i32.store offset=32
     unreachable)
-  (func $walloc (type $t4) (param $p0 i32) (result i32)
+  (func $f36 (type $t1) (param $p0 i32)
+    (local $l1 i32) (local $l2 i32)
+    block $B0
+      local.get $p0
+      i32.load
+      local.tee $l1
+      i32.load offset=16
+      local.tee $l2
+      if $I1
+        local.get $l2
+        i32.const 0
+        i32.store8
+        local.get $l1
+        i32.const 20
+        i32.add
+        i32.load
+        if $I2
+          local.get $l1
+          i32.load offset=16
+          call $f13
+        end
+        local.get $p0
+        i32.load
+        local.set $l1
+      end
+      local.get $l1
+      i32.const -1
+      i32.eq
+      br_if $B0
+      local.get $l1
+      local.get $l1
+      i32.load offset=4
+      local.tee $p0
+      i32.const 1
+      i32.sub
+      i32.store offset=4
+      local.get $p0
+      i32.const 1
+      i32.ne
+      br_if $B0
+      local.get $l1
+      call $f13
+    end)
+  (func $f37 (type $t9) (param $p0 i32) (param $p1 i32) (param $p2 i32)
+    local.get $p0
+    local.get $p1
+    i32.gt_u
+    if $I0
+      local.get $p2
+      if $I1
+        local.get $p1
+        i32.const 1
+        i32.sub
+        local.set $p1
+        loop $L2
+          local.get $p0
+          local.get $p2
+          i32.add
+          i32.const 1
+          i32.sub
+          local.get $p1
+          local.get $p2
+          i32.add
+          i32.load8_u
+          i32.store8
+          local.get $p2
+          i32.const 1
+          i32.sub
+          local.tee $p2
+          br_if $L2
+        end
+      end
+      return
+    end
+    local.get $p0
+    local.get $p1
+    local.get $p2
+    call $f38
+    drop)
+  (func $f38 (type $t3) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
+    (local $l3 i32)
+    local.get $p2
+    if $I0
+      local.get $p0
+      local.set $l3
+      loop $L1
+        local.get $l3
+        local.get $p1
+        i32.load8_u
+        i32.store8
+        local.get $p1
+        i32.const 1
+        i32.add
+        local.set $p1
+        local.get $l3
+        i32.const 1
+        i32.add
+        local.set $l3
+        local.get $p2
+        i32.const 1
+        i32.sub
+        local.tee $p2
+        br_if $L1
+      end
+    end
+    local.get $p0)
+  (func $walloc (type $t5) (param $p0 i32) (result i32)
     (local $l1 i32)
     block $B0
       local.get $p0
@@ -20098,7 +31084,7 @@
           return
         end
         local.get $p0
-        call $f3
+        call $f4
         local.tee $l1
         i32.eqz
         br_if $B0
@@ -20109,19 +31095,80 @@
     end
     local.get $p0
     i32.const 1
-    i32.const 1054900
+    i32.const 1059788
     i32.load
     local.tee $p0
-    i32.const 1
+    i32.const 4
     local.get $p0
     select
     call_indirect (type $t0) $T0
     unreachable)
-  (func $f24 (type $t4) (param $p0 i32) (result i32)
+  (func $f40 (type $t1) (param $p0 i32)
+    (local $l1 i32)
+    local.get $p0
+    i32.load
+    local.tee $p0
+    i32.load8_u
+    local.get $p0
+    i32.const 0
+    i32.store8
+    i32.const 1
+    i32.and
+    i32.eqz
+    if $I0
+      unreachable
+    end
+    i32.const 1059796
+    i32.const 12
+    i32.store
+    i32.const 1059792
+    i32.const 11
+    i32.store)
+  (func $f41 (type $t1) (param $p0 i32)
+    block $B0
+      local.get $p0
+      i32.load8_u offset=4
+      br_if $B0
+      i32.const 1059304
+      i32.load
+      i32.eqz
+      br_if $B0
+      local.get $p0
+      i32.load
+      drop
+      unreachable
+    end
+    local.get $p0
+    i32.load
+    i32.const 0
+    i32.store8)
+  (func $f42 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
+    (local $l2 i32)
+    local.get $p1
+    if $I0
+      local.get $p0
+      local.set $l2
+      loop $L1
+        local.get $l2
+        i32.const 0
+        i32.store8
+        local.get $l2
+        i32.const 1
+        i32.add
+        local.set $l2
+        local.get $p1
+        i32.const 1
+        i32.sub
+        local.tee $p1
+        br_if $L1
+      end
+    end
+    local.get $p0)
+  (func $f43 (type $t5) (param $p0 i32) (result i32)
     (local $l1 i32)
     block $B0
       local.get $p0
-      call $f3
+      call $f4
       local.tee $l1
       i32.eqz
       br_if $B0
@@ -20139,32 +31186,99 @@
       memory.fill
     end
     local.get $l1)
+  (func $f44 (type $t1) (param $p0 i32)
+    (local $l1 i32)
+    block $B0
+      local.get $p0
+      i32.load
+      local.tee $l1
+      i32.eqz
+      br_if $B0
+      local.get $p0
+      i32.const 4
+      i32.add
+      i32.load
+      i32.eqz
+      br_if $B0
+      local.get $l1
+      call $f13
+    end)
+  (func $f45 (type $t1) (param $p0 i32)
+    (local $l1 i32)
+    block $B0
+      local.get $p0
+      i32.load offset=4
+      local.tee $l1
+      i32.eqz
+      br_if $B0
+      local.get $p0
+      i32.const 8
+      i32.add
+      i32.load
+      i32.eqz
+      br_if $B0
+      local.get $l1
+      call $f13
+    end)
+  (func $f46 (type $t5) (param $p0 i32) (result i32)
+    (local $l1 i32)
+    local.get $p0
+    i32.const 4
+    i32.add
+    call $f4
+    local.tee $l1
+    local.get $p0
+    i32.store
+    local.get $l1
+    i32.const 4
+    i32.add)
   (func $wfree (type $t0) (param $p0 i32) (param $p1 i32)
     local.get $p1
     if $I0
       local.get $p0
-      call $f6
+      call $f13
     end)
-  (func $f26 (type $t3) (param $p0 i32) (param $p1 i32) (result i32)
+  (func $f48 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
+    local.get $p0
+    i32.load
+    drop
+    loop $L0
+      br $L0
+    end
+    unreachable)
+  (func $f49 (type $t1) (param $p0 i32)
+    local.get $p0
+    i32.const 4
+    i32.sub
+    call $f13)
+  (func $f50 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
     local.get $p0
     local.get $p1
-    call $f9)
-  (func $wlen (type $t8) (result i32)
-    i32.const 1054424
+    call $f17)
+  (func $wlen (type $t10) (result i32)
+    i32.const 1059296
     i32.load)
-  (func $f28 (type $t10) (param $p0 i32) (result i64)
-    i64.const -9040091204923801142)
-  (func $f29 (type $t3) (param $p0 i32) (param $p1 i32) (result i32)
+  (func $f52 (type $t8) (param $p0 i32) (result i64)
+    i64.const -4145659025194178455)
+  (func $f53 (type $t8) (param $p0 i32) (result i64)
+    i64.const 9147559743429524724)
+  (func $f54 (type $t8) (param $p0 i32) (result i64)
+    i64.const 7340117949532576887)
+  (func $f55 (type $t2) (param $p0 i32) (param $p1 i32) (result i32)
     unreachable)
-  (func $f30 (type $t0) (param $p0 i32) (param $p1 i32)
+  (func $f56 (type $t0) (param $p0 i32) (param $p1 i32)
+    unreachable)
+  (func $f57 (type $t3) (param $p0 i32) (param $p1 i32) (param $p2 i32) (result i32)
+    unreachable)
+  (func $f58 (type $t0) (param $p0 i32) (param $p1 i32)
     nop)
-  (func $f31 (type $t5) (param $p0 i32)
+  (func $f59 (type $t1) (param $p0 i32)
     nop)
-  (table $T0 5 5 funcref)
+  (table $T0 40 40 funcref)
   (memory $memory 17)
   (global $g0 (mut i32) (i32.const 1048576))
-  (global $__data_end i32 (i32.const 1054904))
-  (global $__heap_base i32 (i32.const 1054904))
+  (global $__data_end i32 (i32.const 1059800))
+  (global $__heap_base i32 (i32.const 1059800))
   (export "memory" (memory 0))
   (export "wlen" (func $wlen))
   (export "wfree" (func $wfree))
@@ -20175,7 +31289,11 @@
   (export "decompress" (func $decompress))
   (export "__data_end" (global 1))
   (export "__heap_base" (global 2))
-  (elem $e0 (i32.const 1) $f30 $f29 $f31 $f28)
-  (data $d0 (i32.const 1048576) "capacity overflow\00\00\00$\00\10\00\1c\00\00\00\19\02\00\00\05\00\00\00library/alloc/src/raw_vec.rs`\00\10\00 \00\00\00\80\00\10\00\12\00\00\00\03\00\00\00\00\00\00\00\01\00\00\00\04\00\00\00index out of bounds: the len is  but the index is 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00\00l\01\10\00\10\00\00\00|\01\10\00\22\00\00\00range end index  out of range for slice of length \00\00\b0\01\10\00\12\00\00\00|\01\10\00\22\00\00\00range start index \00\00\d4\01\10\00\16\00\00\00\ea\01\10\00\0d\00\00\00slice index starts at  but ends at \00\00\00\00\00\01\00\00\00\06\00\00\00 \00\00\00\10\00\00\00 \00\00\00\80\00\00\00\00\01\00\00\00\02\00\00\00\03\00\00\dc\05\00\00\e4\07\10\00a\00\00\00\0e\07\00\00\18\00\00\00\e4\07\10\00a\00\00\00\fc\06\00\00\18\00\00\00\e4\07\10\00a\00\00\00\86\01\00\00\05\00\00\00\e4\07\10\00a\00\00\00\86\01\00\00\1b\00\00\00\e4\07\10\00a\00\00\00\d5\04\00\00\1e\00\00\00\e4\07\10\00a\00\00\008\07\00\00!\00\00\00\e4\07\10\00a\00\00\00\b4\05\00\00\09\00\00\00\e4\07\10\00a\00\00\00\c2\05\00\00\0e\00\00\00assertion failed: lookahead_size >= len_to_move\00\e4\07\10\00a\00\00\00|\07\00\00\09\00\00\00\e4\07\10\00a\00\00\00\b8\07\00\00\0d\00\00\00\e4\07\10\00a\00\00\00\b8\07\00\00B\00\00\00\e4\07\10\00a\00\00\00\bc\07\00\00\11\00\00\00\e4\07\10\00a\00\00\00\bd\07\00\00'\00\00\00\00\01\02\03\04\04\05\05\06\06\06\06\07\07\07\07\08\08\08\08\08\08\08\08\09\09\09\09\09\09\09\09\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\00\00\12\13\14\14\15\15\16\16\16\16\17\17\17\17\18\18\18\18\18\18\18\18\19\19\19\19\19\19\19\19\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\01\01\02\01\03\01\04\01\05\01\06\01\07\01\08\01\09\01\09\01\0a\01\0a\01\0b\01\0b\01\0c\01\0c\01\0d\01\0d\01\0d\01\0d\01\0e\01\0e\01\0e\01\0e\01\0f\01\0f\01\0f\01\0f\01\10\01\10\01\10\01\10\01\11\01\11\01\11\01\11\01\11\01\11\01\11\01\11\01\12\01\12\01\12\01\12\01\12\01\12\01\12\01\12\01\13\01\13\01\13\01\13\01\13\01\13\01\13\01\13\01\14\01\14\01\14\01\14\01\14\01\14\01\14\01\14\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1d\01\e4\07\10\00a\00\00\00\0f\08\00\00\22\00\00\00\e4\07\10\00a\00\00\00\12\08\00\00)\00\00\00\e4\07\10\00a\00\00\00\12\08\00\00\19\00\00\00\e4\07\10\00a\00\00\00\da\08\00\00B\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/deflate/core.rs\00\00\00\e4\07\10\00a\00\00\00I\02\00\00\16\00\00\00assertion failed: d.params.flush_remaining == 0\00\e4\07\10\00a\00\00\00T\06\00\00\09\00\00\00\e4\07\10\00a\00\00\00\9f\02\00\00\0d\00\00\00\e4\07\10\00a\00\00\00)\02\00\00\13\00\00\00\e4\07\10\00a\00\00\00*\02\00\00#\00\00\00\e4\07\10\00a\00\00\00\0f\02\00\001\00\00\00\10\11\12\00\08\07\09\06\0a\05\0b\04\0c\03\0d\02\0e\01\0fassertion failed: bits <= ((1u32 << len) - 1u32)\00\e4\07\10\00a\00\00\00\9b\02\00\00\09\00\00\00assertion failed: code < MAX_HUFF_SYMBOLS_2\00\e4\07\10\00a\00\00\00\83\04\00\00\0d\00\00\00\e4\07\10\00a\00\00\00\81\04\00\00\18\00\00\00\e4\07\10\00a\00\00\00\8a\04\00\00\1f\00\00\00\e4\07\10\00a\00\00\00\8b\04\00\00\15\00\00\00\e4\07\10\00a\00\00\00A\06\00\00&")
-  (data $d1 (i32.const 1051056) "\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\00\00\00\00\00\01\00\00\00\03\00\00\00\07\00\00\00\0f\00\00\00\1f\00\00\00?\00\00\00\7f\00\00\00\ff\00\00\00\ff\01\00\00\ff\03\00\00\ff\07\00\00\ff\0f\00\00\ff\1f\00\00\ff?\00\00\ff\7f\00\00\ff\ff\00\00\00\00\00\00\01\01\01\01\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\08\08\09\09\09\09\0a\0a\0a\0a\0a\0a\0a\0a\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\e4\07\10\00a\00\00\00\d4\02\00\00\1e\00\00\00\e4\07\10\00a\00\00\00\11\06\00\00\1b\00\00\00\e4\07\10\00a\00\00\00\ec\05\00\00\1d\00\00\00\e4\07\10\00a\00\00\00\f4\05\00\00\1b\00\00\00\e4\07\10\00a\00\00\00\f8\05\00\00.\00\00\00\e4\07\10\00a\00\00\00\00\06\00\00\17\00\00\00\e4\07\10\00a\00\00\00\0a\06\00\003\00\00\00\e4\07\10\00a\00\00\00\e0\03\00\00\16\00\00\00\e4\07\10\00a\00\00\00]\03\00\00\1b\00\00\00\e4\07\10\00a\00\00\00b\03\00\00\11\00\00\00\e4\07\10\00a\00\00\00u\03\00\00(\00\00\00\e4\07\10\00a\00\00\00v\03\00\00-\00\00\00\e4\07\10\00a\00\00\00v\03\00\00\19\00\00\00\e4\07\10\00a\00\00\00z\03\00\00\19\00\00\00\e4\07\10\00a\00\00\00~\03\00\007\00\00\00\e4\07\10\00a\00\00\00\7f\03\00\00-\00\00\00\e4\07\10\00a\00\00\00\7f\03\00\00L\00\00\00\e4\07\10\00a\00\00\00\83\03\00\00-\00\00\00\e4\07\10\00a\00\00\00\88\03\00\00\11\00\00\00\e4\07\10\00a\00\00\00\8a\03\00\001\00\00\00\e4\07\10\00a\00\00\00\8a\03\00\00)\00\00\00\e4\07\10\00a\00\00\00\93\03\00\00+\00\00\00\e4\07\10\00a\00\00\00\98\03\00\00\19\00\00\00\e4\07\10\00a\00\00\00\b3\03\00\00\14\00\00\00\e4\07\10\00a\00\00\00\b5\03\00\00\15\00\00\00\e4\07\10\00a\00\00\00\f1\03\00\00 \00\00\00\e4\07\10\00a\00\00\00\c8\03\00\00\11\00\00\00\e4\07\10\00a\00\00\00\d6\03\00\00\14\00\00\00\e4\07\10\00a\00\00\00\d7\03\00\00\15\00\00\00\e4\07\10\00a\00\00\00\e6\03\00\00\11\00\00\00\e4\07\10\00a\00\00\00\f0\03\00\00$\00\00\00\e4\07\10\00a\00\00\00\f2\03\00\00\15\00\00\00\e4\07\10\00a\00\00\00\fb\03\00\00\16\00\00\00\e4\07\10\00a\00\00\00\fc\03\00\00\0d\00\00\00\e4\07\10\00a\00\00\00\08\04\00\00\1c\00\00\00assertion failed: match_len >= MIN_MATCH_LEN.into()\00\e4\07\10\00a\00\00\00\c4\06\00\00\05\00\00\00assertion failed: match_dist >= 1\00\00\00\e4\07\10\00a\00\00\00\c5\06\00\00\05\00\00\00assertion failed: match_dist as usize <= LZ_DICT_SIZE\00\00\00\e4\07\10\00a\00\00\00\c6\06\00\00\05\00\00\00\e4\07\10\00a\00\00\00\d9\06\00\00\10\00\00\00\e4\07\10\00a\00\00\00\d9\06\00\00\05\00\00\00\e4\07\10\00a\00\00\00k\08\00\00\13\00\00\00\e4\07\10\00a\00\00\00l\08\00\00#\00\00\00\f4\10\10\00`\00\00\00\84\00\00\00\0e\00\00\00\f4\10\10\00`\00\00\00\85\00\00\00\12\00\00\00Bug! Unexpectedly failed to compress!\00\00\00\f4\10\10\00`\00\00\00\98\00\00\00\12\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/deflate/mod.rs0\15\10\00j\00\00\00 \00\00\00\09\00\00\00,\13\10\00a\00\00\00\bc\04\00\00*\00\00\000\15\10\00j\00\00\00*\00\00\00\09\00\00\00\01\01\01\00\04\00\00\00,\13\10\00a\00\00\00\e0\04\00\00(\00\00\00,\13\10\00a\00\00\007\00\00\00 \00\00\00,\13\10\00a\00\00\00\f2\04\00\00!\00\00\00,\13\10\00a\00\00\00\f8\04\00\00/\00\00\00,\13\10\00a\00\00\00\d7\01\00\00\1d\00\00\00,\13\10\00a\00\00\00\00\05\00\00\15\00\00\00,\13\10\00a\00\00\00\06\05\00\00\15\00\00\00,\13\10\00a\00\00\00\07\05\00\00+\00\00\00,\13\10\00a\00\00\00\1a\05\00\00\1e\00\00\00,\13\10\00a\00\00\00\12\05\00\00#\00\00\00,\13\10\00a\00\00\00\14\05\00\00\19\00\00\00,\13\10\00a\00\00\00S\01\00\00\19")
-  (data $d2 (i32.const 1053268) "\01\01\01\01\02\02\02\02\03\03\03\03\04\04\04\04\05\05\05\05\00\00\00\00\03\00\04\00\05\00\06\00\07\00\08\00\09\00\0a\00\0b\00\0d\00\0f\00\11\00\13\00\17\00\1b\00\1f\00#\00+\003\00;\00C\00S\00c\00s\00\83\00\a3\00\c3\00\e3\00\02\01\00\02\00\02\00\02\00\00\00\00\01\01\02\02\03\03\04\04\05\05\06\06\07\07\08\08\09\09\0a\0a\0b\0b\0c\0c\0d\0d\0d\0d\01\00\02\00\03\00\04\00\05\00\07\00\09\00\0d\00\11\00\19\00!\001\00A\00a\00\81\00\c1\00\01\01\81\01\01\02\01\03\01\04\01\06\01\08\01\0c\01\10\01\18\01 \010\01@\01`\00\80\00\80,\13\10\00a\00\00\00\0b\06\00\00\1f\00\00\00,\13\10\00a\00\00\00V\06\00\00<\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/inflate/core.rs\00\00\00,\13\10\00a\00\00\00\f2\02\00\00\1e\00\00\00,\13\10\00a\00\00\00\f2\02\00\00\09\00\00\00,\13\10\00a\00\00\00\f3\02\00\00\22\00\00\00,\13\10\00a\00\00\00\f3\02\00\00\09\00\00\00,\13\10\00a\00\00\00\f4\02\00\00\22\00\00\00,\13\10\00a\00\00\00\f4\02\00\00\09\00\00\00,\13\10\00a\00\00\00\f5\02\00\00\22\00\00\00,\13\10\00a\00\00\00\f5\02\00\00\09\00\00\00,\13\10\00a\00\00\00\02\03\00\00\22\00\00\00,\13\10\00a\00\00\00\02\03\00\00\0d\00\00\00,\13\10\00a\00\00\00\03\03\00\00&\00\00\00,\13\10\00a\00\00\00\03\03\00\00\0d\00\00\00,\13\10\00a\00\00\00\04\03\00\00&\00\00\00,\13\10\00a\00\00\00\04\03\00\00\0d\00\00\00,\13\10\00a\00\00\00\fe\02\00\00\22\00\00\00,\13\10\00a\00\00\00\fe\02\00\00\0d\00\00\00,\13\10\00a\00\00\00\ff\02\00\00&\00\00\00,\13\10\00a\00\00\00\ff\02\00\00\0d\00\00\00,\13\10\00a\00\00\00\fc\02\00\00#\00\00\00,\13\10\00a\00\00\00\fc\02\00\00\0e\00\00\00,\13\10\00a\00\00\00\19\03\00\00\1e\00\00\00,\13\10\00a\00\00\00\19\03\00\00\09\00\00\00,\13\10\00a\00\00\00\1a\03\00\00\22\00\00\00,\13\10\00a\00\00\00\1a\03\00\00\09\00\00\00,\13\10\00a\00\00\00\1b\03\00\00\22\00\00\00,\13\10\00a\00\00\00\1b\03\00\00\09\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/inflate/output_buffer.rs\00\00,\13\10\00a\00\00\00{\02\00\00\1c\00\00\00,\13\10\00a\00\00\00t\02\00\00\1a\00\00\00,\13\10\00a\00\00\00|\02\00\00\0d\00\00\00,\13\10\00a\00\00\00\8f\02\00\00\1d\00\00\00,\13\10\00a\00\00\00\94\02\00\00 \00\00\00,\13\10\00a\00\00\00\b0\02\00\00\14\00\00\00,\13\10\00a\00\00\00\bb\02\00\00\0d\00\00\00\1c\16\10\00`\00\00\00w\00\00\00&\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/inflate/mod.rscalled `Option::unwrap()` on a `None` value\00\b8\16\10\00\1c\00\00\00\ec\01\00\00\1e\00\00\00library/std/src/panicking.rs"))
+  (elem $e0 (i32.const 1) $f55 $f55 $f55 $f58 $f55 $f55 $f55 $f55 $f48 $f55 $f46 $f49 $f59 $f52 $f59 $f56 $f56 $f53 $f55 $f55 $f56 $f56 $f53 $f45 $f56 $f56 $f56 $f56 $f57 $f55 $f55 $f44 $f54 $f41 $f55 $f28 $f9 $f6 $f5)
+  (data $d0 (i32.const 1048576) "capacity overflow\00\00\00$\00\10\00\1c\00\00\00\1e\02\00\00\05\00\00\00library/alloc/src/raw_vec.rs`\00\10\00 \00\00\00\80\00\10\00\12\00\00\00\0d\00\00\00\00\00\00\00\01\00\00\00\0e\00\00\00index out of bounds: the len is  but the index is 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00\00l\01\10\00\10\00\00\00|\01\10\00\22\00\00\00range end index  out of range for slice of length [...]\00\04\02\10\00\0b\00\00\00J\0c\10\00\16\00\00\00l'\10\00\01\00\00\00(\0c\10\00\0e\00\00\006\0c\10\00\04\00\00\00:\0c\10\00\10\00\00\00l'\10\00\01\00\00\00\04\02\10\00\0b\00\00\00\0f\02\10\00&\00\00\005\02\10\00\08\00\00\00=\02\10\00\06\00\00\00l'\10\00\01\00\00\00byte index  is not a char boundary; it is inside  (bytes ) of `\00\87\02\10\00\02\00\00\00l\02\10\00\1b\00\00\00_\04\00\00$\00\00\00l\02\10\00\1b\00\00\00U\04\00\00\11\00\00\00library/core/src/fmt/mod.rs..\00\00\00\c2\02\10\00\1b\00\00\00e\00\00\00\14\00\00\000x\00\00\b0\02\10\00\12\00\00\00|\01\10\00\22\00\00\00range start index library/core/src/fmt/num.rs\00\01\03\05\05\06\06\03\07\06\08\08\09\11\0a\1c\0b\19\0c\14\0d\10\0e\0d\0f\04\10\03\12\12\13\09\16\01\17\05\18\02\19\03\1a\07\1c\02\1d\01\1f\16 \03+\03,\02-\0b.\010\031\022\01\a7\02\a9\02\aa\04\ab\08\fa\02\fb\05\fd\04\fe\03\ff\09\00F\08\10\00%\00\00\00\0a\00\00\00\1c\00\00\00\adxy\8b\8d\a20WX\8b\8c\90\1c\1d\dd\0e\0fKL\fb\fc./?\5c]_\b5\e2\84\8d\8e\91\92\a9\b1\ba\bb\c5\c6\c9\ca\de\e4\e5\ff\00\04\11\12)147:;=IJ]\84\8e\92\a9\b1\b4\ba\bb\c6\ca\ce\cf\e4\e5\00\04\0d\0e\11\12)14:;EFIJ^de\84\91\9b\9d\c9\ce\cf\0d\11)EIWde\8d\91\a9\b4\ba\bb\c5\c9\df\e4\e5\f0\0d\11EIde\80\84\b2\bc\be\bf\d5\d7\f0\f1\83\85\8b\a4\a6\be\bf\c5\c7\ce\cf\da\dbH\98\bd\cd\c6\ce\cfINOWY^_\89\8e\8f\b1\b6\b7\bf\c1\c6\c7\d7\11\16\17[\5c\f6\f7\fe\ff\80\0dmq\de\df\0e\0f\1fno\1c\1d_}~\ae\af\bb\bc\fa\16\17\1e\1fFGNOXZ\5c^~\7f\b5\c5\d4\d5\dc\f0\f1\f5rs\8ftu\96/_&./\a7\af\b7\bf\c7\cf\d7\df\9a@\97\980\8f\1f\c0\c1\ce\ffNOZ[\07\08\0f\10'/\ee\efno7=?BE\90\91\fe\ffSgu\c8\c9\d0\d1\d8\d9\e7\fe\ff\00 _\22\82\df\04\82D\08\1b\04\06\11\81\ac\0e\80\ab5(\0b\80\e0\03\19\08\01\04/\044\04\07\03\01\07\06\07\11\0aP\0f\12\07U\07\03\04\1c\0a\09\03\08\03\07\03\02\03\03\03\0c\04\05\03\0b\06\01\0e\15\05:\03\11\07\06\05\10\07W\07\02\07\15\0dP\04C\03-\03\01\04\11\06\0f\0c:\04\1d%_ m\04j%\80\c8\05\82\b0\03\1a\06\82\fd\03Y\07\15\0b\17\09\14\0c\14\0cj\06\0a\06\1a\06Y\07+\05F\0a,\04\0c\04\01\031\0b,\04\1a\06\0b\03\80\ac\06\0a\06!?L\04-\03t\08<\03\0f\03<\078\08+\05\82\ff\11\18\08/\11-\03 \10!\0f\80\8c\04\82\97\19\0b\15\88\94\05/\05;\07\02\0e\18\09\80\b3-t\0c\80\d6\1a\0c\05\80\ff\05\80\df\0c\ee\0d\03\84\8d\037\09\81\5c\14\80\b8\08\80\cb*8\03\0a\068\08F\08\0c\06t\0b\1e\03Z\04Y\09\80\83\18\1c\0a\16\09L\04\80\8a\06\ab\a4\0c\17\041\a1\04\81\da&\07\0c\05\05\80\a5\11\81m\10x(*\06L\04\80\8d\04\80\be\03\1b\03\0f\0d\00F\08\10\00%\00\00\00\1a\00\00\006\00\00\00\00\06\01\01\03\01\04\02\08\08\09\02\0a\05\0b\02\0e\04\10\01\11\02\12\05\13\11\14\01\15\02\17\02\19\0d\1c\05\1d\08$\01j\03k\02\bc\02\d1\02\d4\0c\d5\09\d6\02\d7\02\da\01\e0\05\e1\02\e8\02\ee \f0\04\f8\02\f9\02\fa\02\fb\01\0c';>NO\8f\9e\9e\9f\06\07\096=>V\f3\d0\d1\04\14\1867VW\7f\aa\ae\af\bd5\e0\12\87\89\8e\9e\04\0d\0e\11\12)14:EFIJNOde\5c\b6\b7\1b\1c\07\08\0a\0b\14\1769:\a8\a9\d8\d9\097\90\91\a8\07\0a;>fi\8f\92o_\ee\efZb\9a\9b'(U\9d\a0\a1\a3\a4\a7\a8\ad\ba\bc\c4\06\0b\0c\15\1d:?EQ\a6\a7\cc\cd\a0\07\19\1a\22%>?\c5\c6\04 #%&(38:HJLPSUVXZ\5c^`cefksx}\7f\8a\a4\aa\af\b0\c0\d0\ae\afy\ccno\93^\22{\05\03\04-\03f\03\01/.\80\82\1d\031\0f\1c\04$\09\1e\05+\05D\04\0e*\80\aa\06$\04$\04(\084\0b\01\80\90\817\09\16\0a\08\80\989\03c\08\090\16\05!\03\1b\05\01@8\04K\05/\04\0a\07\09\07@ '\04\0c\096\03:\05\1a\07\04\0c\07PI73\0d3\07.\08\0a\81&RN(\08*V\1c\14\17\09N\04\1e\0fC\0e\19\07\0a\06H\08'\09u\0b?A*\06;\05\0a\06Q\06\01\05\10\03\05\80\8bb\1eH\08\0a\80\a6^\22E\0b\0a\06\0d\139\07\0a6,\04\10\80\c0<dS\0cH\09\0aFE\1bH\08S\1d9\81\07F\0a\1d\03GI7\03\0e\08\0a\069\07\0a\816\19\80\b7\01\0f2\0d\83\9bfu\0b\80\c4\8a\bc\84/\8f\d1\82G\a1\b9\829\07*\04\02`&\0aF\0a(\05\13\82\b0[eK\049\07\11@\05\0b\02\0e\97\f8\08\84\d6*\09\a2\f7\81\1f1\03\11\04\08\81\8c\89\04k\05\0d\03\09\07\10\93`\80\f6\0as\08n\17F\80\9a\14\0cW\09\19\80\87\81G\03\85B\0f\15\85P+\80\d5-\03\1a\04\02\81p:\05\01\85\00\80\d7)L\04\0a\04\02\83\11DL=\80\c2<\06\01\04U\05\1b4\02\81\0e,\04d\0cV\0a\80\ae8\1d\0d,\04\09\07\02\0e\06\80\9a\83\d8\08\0d\03\0d\03t\0cY\07\0c\14\0c\048\08\0a\06(\08\22N\81T\0c\15\03\03\05\07\09\19\07\07\09\03\0d\07)\80\cb%\0a\84\06library/core/src/unicode/printable.rs\00|\08\10\00\16\00\00\00\92\08\10\00\0d\00\00\00slice index starts at  but ends at \00\00\03\00\00\83\04 \00\91\05`\00]\13\a0\00\12\17\a0\1e\0c \e0\1e\ef, +*0\a0+o\a6`,\02\a8\e0,\1e\fb\e0-\00\fe\a05\9e\ff\e05\fd\01a6\01\0a\a16$\0da7\ab\0e\e18/\18!90\1caF\f3\1e\a1J\f0jaNOo\a1N\9d\bc!Oe\d1\e1O\00\da!P\00\e0\e1Q0\e1aS\ec\e2\a1T\d0\e8\e1T \00.U\f0\01\bfU\00\0c\10\00(\00\00\00R\00\00\00>\00\00\00\00p\00\07\00-\01\01\01\02\01\02\01\01H\0b0\15\10\01e\07\02\06\02\02\01\04#\01\1e\1b[\0b:\09\09\01\18\04\01\09\01\03\01\05+\03w\0f\01 7\01\01\01\04\08\04\01\03\07\0a\02\1d\01:\01\01\01\02\04\08\01\09\01\0a\02\1a\01\02\029\01\04\02\04\02\02\03\03\01\1e\02\03\01\0b\029\01\04\05\01\02\04\01\14\02\16\06\01\01:\01\01\02\01\04\08\01\07\03\0a\02\1e\01;\01\01\01\0c\01\09\01(\01\03\019\03\05\03\01\04\07\02\0b\02\1d\01:\01\02\01\02\01\03\01\05\02\07\02\0b\02\1c\029\02\01\01\02\04\08\01\09\01\0a\02\1d\01H\01\04\01\02\03\01\01\08\01Q\01\02\07\0c\08b\01\02\09\0b\06J\02\1b\01\01\01\01\017\0e\01\05\01\02\05\0b\01$\09\01f\04\01\06\01\02\02\02\19\02\04\03\10\04\0d\01\02\02\06\01\0f\01\00\03\00\03\1d\03\1d\02\1e\02@\02\01\07\08\01\02\0b\09\01-\03w\02\22\01v\03\04\02\09\01\06\03\db\02\02\01:\01\01\07\01\01\01\01\02\08\06\0a\02\010\11?\040\07\01\01\05\01(\09\0c\02 \04\02\02\01\038\01\01\02\03\01\01\03:\08\02\02\98\03\01\0d\01\07\04\01\06\01\03\02\c6:\01\05\00\01\c3!\00\03\8d\01` \00\06i\02\00\04\01\0a \02P\02\00\01\03\01\04\01\19\02\05\01\97\02\1a\12\0d\01&\08\19\0b.\030\01\02\04\02\02'\01C\06\02\02\02\02\0c\01\08\01/\013\01\01\03\02\02\05\02\01\01*\02\08\01\ee\01\02\01\04\01\00\01\00\10\10\10\00\02\00\01\e2\01\95\05\00\03\01\02\05\04(\03\04\01\a5\02\00\04\00\02\99\0b\b0\016\0f8\031\04\02\02E\03$\05\01\08>\01\0c\024\09\0a\04\02\01_\03\02\01\01\02\06\01\a0\01\03\08\15\029\02\01\01\01\01\16\01\0e\07\03\05\c3\08\02\03\01\01\17\01Q\01\02\06\01\01\02\01\01\02\01\02\eb\01\02\04\06\02\01\02\1b\02U\08\02\01\01\02j\01\01\01\02\06\01\01e\03\02\04\01\05\00\09\01\02\f5\01\0a\02\01\01\04\01\90\04\02\02\04\01 \0a(\06\02\04\08\01\09\06\02\03.\0d\01\02\00\07\01\06\01\01R\16\02\07\01\02\01\02z\06\03\01\01\02\01\07\01\01H\02\03\01\01\01\00\02\00\05;\07\00\01?\04Q\01\00\02\00\01\01\03\04\05\08\08\02\07\1e\04\94\03\007\042\08\01\0e\01\16\05\01\0f\00\07\01\11\02\07\01\02\01\05\00\07\00\04\00\07m\07\00`\80\f0\00\00\00\00\00\0c\10\00(\00\00\00K\00\00\00(\00\00\00\00\0c\10\00(\00\00\00W\00\00\00\16\00\00\00library/core/src/unicode/unicode_data.rsbegin <= end ( <= ) when slicing ` is out of bounds of `BorrowErrorBorrowMutError\00\00\00\f4\22\10\00\00\00\00\00\8c\0c\10\00\02\00\00\00: falsetrue\00l\02\10\00\1b\00\00\00\f7\07\00\00\16\00\00\00l\02\10\00\1b\00\00\00\f0\07\00\00\1e\00\00\00\0f\00\00\00\08\00\00\00\04\00\00\00\10\00\00\00\11\00\00\00\0f\00\00\00\08\00\00\00\04\00\00\00\12\00\00\00/usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/libdeflater-0.7.1/src/lib.rs\00\00D\0d\10\00n\00\00\00\05\01\00\002\00\00\00/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sync/once.rslibdeflate_alloc_compressor returned NULL: out of memory\00\00\dc\0c\10\00V\00\00\00\81\01\00\00\11\00\00\00\bc\13\10\00_\00\00\00\0e\07\00\00\18\00\00\00\bc\13\10\00_\00\00\00\fc\06\00\00\18\00\00\00\bc\13\10\00_\00\00\00\86\01\00\00\05\00\00\00\bc\13\10\00_\00\00\00\86\01\00\00\1b\00\00\00\bc\13\10\00_\00\00\00\d5\04\00\00\1e\00\00\00\bc\13\10\00_\00\00\008\07\00\00!\00\00\00\bc\13\10\00_\00\00\00\b4\05\00\00\09\00\00\00\bc\13\10\00_\00\00\00\c2\05\00\00\0e\00\00\00assertion failed: lookahead_size >= len_to_move\00\bc\13\10\00_\00\00\00|\07\00\00\09\00\00\00\bc\13\10\00_\00\00\00\b8\07\00\00\0d\00\00\00\bc\13\10\00_\00\00\00\b8\07\00\00B\00\00\00\bc\13\10\00_\00\00\00\bc\07\00\00\11\00\00\00\bc\13\10\00_\00\00\00\bd\07\00\00'\00\00\00\00\01\02\03\04\04\05\05\06\06\06\06\07\07\07\07\08\08\08\08\08\08\08\08\09\09\09\09\09\09\09\09\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0a\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0e\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\0f\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\10\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\11\00\00\12\13\14\14\15\15\16\16\16\16\17\17\17\17\18\18\18\18\18\18\18\18\19\19\19\19\19\19\19\19\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1c\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\1d\01\01\02\01\03\01\04\01\05\01\06\01\07\01\08\01\09\01\09\01\0a\01\0a\01\0b\01\0b\01\0c\01\0c\01\0d\01\0d\01\0d\01\0d\01\0e\01\0e\01\0e\01\0e\01\0f\01\0f\01\0f\01\0f\01\10\01\10\01\10\01\10\01\11\01\11\01\11\01\11\01\11\01\11\01\11\01\11\01\12\01\12\01\12\01\12\01\12\01\12\01\12\01\12\01\13\01\13\01\13\01\13\01\13\01\13\01\13\01\13\01\14\01\14\01\14\01\14\01\14\01\14\01\14\01\14\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\15\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\16\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\17\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\18\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\19\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1a\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1b\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1c\01\1d\01\bc\13\10\00_\00\00\00\0f\08\00\00\22\00\00\00\bc\13\10\00_\00\00\00\12\08\00\00)\00\00\00\bc\13\10\00_\00\00\00\12\08\00\00\19\00\00\00\bc\13\10\00_\00\00\00\da\08\00\00B\00\00\00/usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/deflate/core.rs\00\bc\13\10\00_\00\00\00I\02\00\00\16\00\00\00assertion failed: d.params.flush_remaining == 0\00\bc\13\10\00_\00\00\00T\06\00\00\09\00\00\00\bc\13\10\00_\00\00\00\9f\02\00\00\0d\00\00\00\bc\13\10\00_\00\00\00)\02\00\00\13\00\00\00\bc\13\10\00_\00\00\00*\02\00\00#\00\00\00\bc\13\10\00_\00\00\00\0f\02\00\001\00\00\00\10\11\12\00\08\07\09\06\0a\05\0b\04\0c\03\0d\02\0e\01\0fassertion failed: bits <= ((1u32 << len) - 1u32)\00\bc\13\10\00_\00\00\00\9b\02\00\00\09\00\00\00assertion failed: code < MAX_HUFF_SYMBOLS_2\00\bc\13\10\00_\00\00\00\83\04\00\00\0d\00\00\00\bc\13\10\00_\00\00\00\81\04\00\00\18\00\00\00\bc\13\10\00_\00\00\00\8a\04\00\00\1f\00\00\00\bc\13\10\00_\00\00\00\8b\04\00\00\15\00\00\00\bc\13\10\00_\00\00\00A\06\00\00&")
+  (data $d1 (i32.const 1054084) "\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\00\00\00\00\00\01\00\00\00\03\00\00\00\07\00\00\00\0f\00\00\00\1f\00\00\00?\00\00\00\7f\00\00\00\ff\00\00\00\ff\01\00\00\ff\03\00\00\ff\07\00\00\ff\0f\00\00\ff\1f\00\00\ff?\00\00\ff\7f\00\00\ff\ff\00\00\00\00\00\00\01\01\01\01\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\00\00\08\08\09\09\09\09\0a\0a\0a\0a\0a\0a\0a\0a\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0b\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0c\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\0d\bc\13\10\00_\00\00\00\d4\02\00\00\1e\00\00\00\bc\13\10\00_\00\00\00\11\06\00\00\1b\00\00\00\bc\13\10\00_\00\00\00\ec\05\00\00\1d\00\00\00\bc\13\10\00_\00\00\00\f4\05\00\00\1b\00\00\00\bc\13\10\00_\00\00\00\f8\05\00\00.\00\00\00\bc\13\10\00_\00\00\00\00\06\00\00\17\00\00\00\bc\13\10\00_\00\00\00\0a\06\00\003\00\00\00\bc\13\10\00_\00\00\00\e0\03\00\00\16\00\00\00\bc\13\10\00_\00\00\00]\03\00\00\1b\00\00\00\bc\13\10\00_\00\00\00b\03\00\00\11\00\00\00\bc\13\10\00_\00\00\00u\03\00\00(\00\00\00\bc\13\10\00_\00\00\00v\03\00\00-\00\00\00\bc\13\10\00_\00\00\00v\03\00\00\19\00\00\00\bc\13\10\00_\00\00\00z\03\00\00\19\00\00\00\bc\13\10\00_\00\00\00~\03\00\007\00\00\00\bc\13\10\00_\00\00\00\7f\03\00\00-\00\00\00\bc\13\10\00_\00\00\00\7f\03\00\00L\00\00\00\bc\13\10\00_\00\00\00\83\03\00\00-\00\00\00\bc\13\10\00_\00\00\00\88\03\00\00\11\00\00\00\bc\13\10\00_\00\00\00\8a\03\00\001\00\00\00\bc\13\10\00_\00\00\00\8a\03\00\00)\00\00\00\bc\13\10\00_\00\00\00\93\03\00\00+\00\00\00\bc\13\10\00_\00\00\00\98\03\00\00\19\00\00\00\bc\13\10\00_\00\00\00\b3\03\00\00\14\00\00\00\bc\13\10\00_\00\00\00\b5\03\00\00\15\00\00\00\bc\13\10\00_\00\00\00\f1\03\00\00 \00\00\00\bc\13\10\00_\00\00\00\c8\03\00\00\11\00\00\00\bc\13\10\00_\00\00\00\d6\03\00\00\14\00\00\00\bc\13\10\00_\00\00\00\d7\03\00\00\15\00\00\00\bc\13\10\00_\00\00\00\e6\03\00\00\11\00\00\00\bc\13\10\00_\00\00\00\f0\03\00\00$\00\00\00\bc\13\10\00_\00\00\00\f2\03\00\00\15\00\00\00\bc\13\10\00_\00\00\00\fb\03\00\00\16\00\00\00\bc\13\10\00_\00\00\00\fc\03\00\00\0d\00\00\00\bc\13\10\00_\00\00\00\08\04\00\00\1c\00\00\00assertion failed: match_len >= MIN_MATCH_LEN.into()\00\bc\13\10\00_\00\00\00\c4\06\00\00\05\00\00\00assertion failed: match_dist >= 1\00\00\00\bc\13\10\00_\00\00\00\c5\06\00\00\05\00\00\00assertion failed: match_dist as usize <= LZ_DICT_SIZE\00\00\00\bc\13\10\00_\00\00\00\c6\06\00\00\05\00\00\00\bc\13\10\00_\00\00\00\d9\06\00\00\10\00\00\00\bc\13\10\00_\00\00\00\d9\06\00\00\05\00\00\00\bc\13\10\00_\00\00\00k\08\00\00\13\00\00\00\bc\13\10\00_\00\00\00l\08\00\00#\00\00\00\c8\1c\10\00^\00\00\00\84\00\00\00\0e\00\00\00\c8\1c\10\00^\00\00\00\85\00\00\00\12\00\00\00Bug! Unexpectedly failed to compress!\00\00\00\c8\1c\10\00^\00\00\00\98\00\00\00\12\00\00\00/usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/deflate/mod.rs\00\00\00!\10\00h\00\00\00 \00\00\00\09\00\00\00\00\1f\10\00_\00\00\00\bc\04\00\00*\00\00\00\00!\10\00h\00\00\00*\00\00\00\09\00\00\00\01\01\01\00\04\00\00\00\00\1f\10\00_\00\00\00\e0\04\00\00(\00\00\00\00\1f\10\00_\00\00\007\00\00\00 \00\00\00\00\1f\10\00_\00\00\00\f2\04\00\00!\00\00\00\00\1f\10\00_\00\00\00\f8\04\00\00/\00\00\00\00\1f\10\00_\00\00\00\d7\01\00\00\1d\00\00\00\00\1f\10\00_\00\00\00\00\05\00\00\15\00\00\00\00\1f\10\00_\00\00\00\06\05\00\00\15\00\00\00\00\1f\10\00_\00\00\00\07\05\00\00+\00\00\00\00\1f\10\00_\00\00\00\1a\05\00\00\1e\00\00\00\00\1f\10\00_\00\00\00\12\05\00\00#\00\00\00\00\1f\10\00_\00\00\00\14\05\00\00\19\00\00\00\00\1f\10\00_\00\00\00S\01\00\00\19")
+  (data $d2 (i32.const 1056296) "\01\01\01\01\02\02\02\02\03\03\03\03\04\04\04\04\05\05\05\05\00\00\00\00\03\00\04\00\05\00\06\00\07\00\08\00\09\00\0a\00\0b\00\0d\00\0f\00\11\00\13\00\17\00\1b\00\1f\00#\00+\003\00;\00C\00S\00c\00s\00\83\00\a3\00\c3\00\e3\00\02\01\00\02\00\02\00\02\00\00\00\00\01\01\02\02\03\03\04\04\05\05\06\06\07\07\08\08\09\09\0a\0a\0b\0b\0c\0c\0d\0d\0d\0d\01\00\02\00\03\00\04\00\05\00\07\00\09\00\0d\00\11\00\19\00!\001\00A\00a\00\81\00\c1\00\01\01\81\01\01\02\01\03\01\04\01\06\01\08\01\0c\01\10\01\18\01 \010\01@\01`\00\80\00\80\00\1f\10\00_\00\00\00\0b\06\00\00\1f\00\00\00\00\1f\10\00_\00\00\00V\06\00\00<\00\00\00/usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/inflate/core.rs\00\00\1f\10\00_\00\00\00\f2\02\00\00\1e\00\00\00\00\1f\10\00_\00\00\00\f2\02\00\00\09\00\00\00\00\1f\10\00_\00\00\00\f3\02\00\00\22\00\00\00\00\1f\10\00_\00\00\00\f3\02\00\00\09\00\00\00\00\1f\10\00_\00\00\00\f4\02\00\00\22\00\00\00\00\1f\10\00_\00\00\00\f4\02\00\00\09\00\00\00\00\1f\10\00_\00\00\00\f5\02\00\00\22\00\00\00\00\1f\10\00_\00\00\00\f5\02\00\00\09\00\00\00\00\1f\10\00_\00\00\00\02\03\00\00\22\00\00\00\00\1f\10\00_\00\00\00\02\03\00\00\0d\00\00\00\00\1f\10\00_\00\00\00\03\03\00\00&\00\00\00\00\1f\10\00_\00\00\00\03\03\00\00\0d\00\00\00\00\1f\10\00_\00\00\00\04\03\00\00&\00\00\00\00\1f\10\00_\00\00\00\04\03\00\00\0d\00\00\00\00\1f\10\00_\00\00\00\fe\02\00\00\22\00\00\00\00\1f\10\00_\00\00\00\fe\02\00\00\0d\00\00\00\00\1f\10\00_\00\00\00\ff\02\00\00&\00\00\00\00\1f\10\00_\00\00\00\ff\02\00\00\0d\00\00\00\00\1f\10\00_\00\00\00\fc\02\00\00#\00\00\00\00\1f\10\00_\00\00\00\fc\02\00\00\0e\00\00\00\00\1f\10\00_\00\00\00\19\03\00\00\1e\00\00\00\00\1f\10\00_\00\00\00\19\03\00\00\09\00\00\00\00\1f\10\00_\00\00\00\1a\03\00\00\22\00\00\00\00\1f\10\00_\00\00\00\1a\03\00\00\09\00\00\00\00\1f\10\00_\00\00\00\1b\03\00\00\22\00\00\00\00\1f\10\00_\00\00\00\1b\03\00\00\09\00\00\00/usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/inflate/output_buffer.rs\00\1f\10\00_\00\00\00{\02\00\00\1c\00\00\00\00\1f\10\00_\00\00\00t\02\00\00\1a\00\00\00\00\1f\10\00_\00\00\00|\02\00\00\0d\00\00\00\00\1f\10\00_\00\00\00\8f\02\00\00\1d\00\00\00\00\1f\10\00_\00\00\00\94\02\00\00 \00\00\00\00\1f\10\00_\00\00\00\b0\02\00\00\14\00\00\00\00\1f\10\00_\00\00\00\bb\02\00\00\0d\00\00\00\e8!\10\00^\00\00\00w\00\00\00&\00\00\00/usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.4.3/src/inflate/mod.rsalready mutably borrowed\00\00\0d\00\00\00\00\00\00\00\01\00\00\00\13\00\00\00\c0\22\10\00)\00\00\00\15\00\00\00\16\00\00\00already borrowed\0d\00\00\00\00\00\00\00\01\00\00\00\14\00\00\00\c0\22\10\00)\00\00\00\16\00\00\00\18\00\00\00\c0\22\10\00)\00\00\00\19\00\00\00\15\00\00\00library/std/src/sys_common/thread_info.rs\00\00\00\dc$\10\00 \00\00\00\a0$\10\00-\00\00\00\cd$\10\00\0c\00\00\00\d9$\10\00\03\00\00\00p$\10\000\00\00\00\17\00\00\00\09\00\00\00called `Option::unwrap()` on a `None` value\00\d4#\10\00\1d\00\00\00\e9\03\00\00*\00\00\00failed to generate unique thread ID: bitspace exhausted\00\d4#\10\00\1d\00\00\00\e3\03\00\00\11\00\00\00\0d\00\00\00\08\00\00\00\04\00\00\00\15\00\00\00\16\00\00\00\0d\00\00\00\00\00\00\00\01\00\00\00\0e\00\00\00\0d\00\00\00\08\00\00\00\04\00\00\00\17\00\00\00library/std/src/thread/mod.rs\00\00\00\18\00\00\00\10\00\00\00\04\00\00\00\19\00\00\00\1a\00\00\00\0d\00\00\00\08\00\00\00\04\00\00\00\1b\00\00\00\1c\00\00\00\0d\00\00\00\04\00\00\00\04\00\00\00\1d\00\00\00\1e\00\00\00\1f\00\00\00 \00\00\00\0c\00\00\00\04\00\00\00!\00\00\00T$\10\00\1c\00\00\00\ee\01\00\00\1e\00\00\00library/std/src/panicking.rslibrary/std/src/sys/wasm/../unsupported/mutex.rsassertion failed: `(left == right)`\0a  left: ``,\0a right: ``: cannot recursively acquire mutexcalled `Result::unwrap()` on an `Err` value\00\22\00\00\00\08\00\00\00\04\00\00\00#\00\00\00\ea%\10\003\00\00\00!\00\00\00&\00\00\00inconsistent park state\00\ea%\10\003\00\00\00/\00\00\00\17\00\00\00\02\00\00\00\1d&\10\00\1f\00\00\00\ea%\10\003\00\00\00,\00\00\00\11\00\00\00condvar wait not supported\00\00\b8%\10\002\00\00\00\17\00\00\00\09\00\00\00library/std/src/sys/wasm/../unsupported/condvar.rslibrary/std/src/sys_common/thread_parker/generic.rspark state changed unexpectedlyPoisonError { inner: .. }Once instance has previously been poisoned\00\dc&\10\00\1c\00\00\00\8a\01\00\00\15\00\00\00assertion failed: state_and_queue & STATE_MASK == RUNNING\00\00\00\dc&\10\00\1c\00\00\00\aa\01\00\00\15\00\00\00library/std/src/sync/once.rs\a0$\10\00-\00\00\00\cd$\10\00\0c\00\00\00l'\10\00\01\00\00\00\dc&\10\00\1c\00\00\00\eb\01\00\00\09\00\00\00\dc&\10\00\1c\00\00\00\f7\01\00\005\00\00\00inconsistent state in unpark\ea%\10\003\00\00\00f\00\00\00\12\00\00\00\ea%\10\003\00\00\00t\00\00\00\1f\00\00\00`\00\00\00\00\00\00\00\01\02\03\04\05\06\07\08\08\09\09\0a\0a\0b\0b\0c\0c\0c\0c\0d\0d\0d\0d\0e\0e\0e\0e\0f\0f\0f\0f\10\10\10\10\10\10\10\10\11\11\11\11\11\11\11\11\12\12\12\12\12\12\12\12\13\13\13\13\13\13\13\13\14\14\14\14\14\14\14\14\14\14\14\14\14\14\14\14\15\15\15\15\15\15\15\15\15\15\15\15\15\15\15\15\16\16\16\16\16\16\16\16\16\16\16\16\16\16\16\16\17\17\17\17\17\17\17\17\17\17\17\17\17\17\17\17\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1a\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1b\1c")
+  (data $d3 (i32.const 1058952) "\01\01\01\01\02\02\02\02\03\03\03\03\04\04\04\04\05\05\05\05\00\00\00\00\00\00\00\00\01\01\02\02\03\03\04\04\05\05\06\06\07\07\08\08\09\09\0a\0a\0b\0b\0c\0c\0d\0d\00\00\10\11\12\00\08\07\09\06\0a\05\0b\04\0c\03\0d\02\0e\01\0f")
+  (data $d4 (i32.const 1059040) "\03\00\00\00\04\00\00\00\05\00\00\00\06\00\00\00\07\00\00\00\08\00\00\00\09\00\00\00\0a\00\00\00\0b\00\00\00\0d\00\00\00\0f\00\00\00\11\00\00\00\13\00\00\00\17\00\00\00\1b\00\00\00\1f\00\00\00#\00\00\00+\00\00\003\00\00\00;\00\00\00C\00\00\00S\00\00\00c\00\00\00s\00\00\00\83\00\00\00\a3\00\00\00\c3\00\00\00\e3\00\00\00\02\01")
+  (data $d5 (i32.const 1059168) "\01\00\00\00\02\00\00\00\03\00\00\00\04\00\00\00\05\00\00\00\07\00\00\00\09\00\00\00\0d\00\00\00\11\00\00\00\19\00\00\00!\00\00\001\00\00\00A\00\00\00a\00\00\00\81\00\00\00\c1\00\00\00\01\01\00\00\81\01\00\00\01\02\00\00\01\03\00\00\01\04\00\00\01\06\00\00\01\08\00\00\01\0c\00\00\01\10\00\00\01\18\00\00\01 \00\00\010\00\00\01@\00\00\01`")
+  (data $d6 (i32.const 1059288) "\01"))
