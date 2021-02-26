@@ -30,7 +30,7 @@ export function decompress_raw(size, buffer) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
   const x = wasm.decompress_raw(size, ptr, buffer.length);
-  if (0 === x) throw new Error('lz4: failed to decompress');
+  if (0 === x) throw new Error('lz4: failed to decompress (raw)');
 
   return mem.copy_and_free(x, mem.length());
 }
@@ -39,7 +39,7 @@ export function decompress_raw_with(size, buffer, transform) {
   const ptr = mem.alloc(buffer.length);
   mem.u8(ptr, buffer.length).set(buffer);
   const x = wasm.decompress_raw(size, ptr, buffer.length);
-  if (0 === x) throw new Error('lz4: failed to decompress');
+  if (0 === x) throw new Error('lz4: failed to decompress (raw)');
 
   const u8 = mem.u8(x, mem.length());
 

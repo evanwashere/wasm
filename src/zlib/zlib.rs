@@ -1,38 +1,34 @@
 mod mem;
-// use std::io::Write;
-// use mem::UnwrapUnsafe;
+use mem::UnwrapUnsafe;
 
 // TODO: stream impl
-// TODO: flate2 breaks malloc?
+// use std::io::Write;
 
 #[no_mangle]
 pub unsafe extern "C" fn compress(ptr: mem::buf, size: usize, level: u8) -> mem::buf {
-  return mem::store(miniz_oxide::deflate::compress_to_vec_zlib(&mem::load(ptr, size), level));
+  if 0 == level { return mem::store(miniz_oxide::deflate::compress_to_vec_zlib(&mem::load(ptr, size), 0)); };
 
-  // let mut buf = vec![];
+  let mut c = libdeflater::Compressor::new(libdeflater::CompressionLvl::new(level as i32).unwrap_unsafe());
 
-  // {
-  //   let level = flate2::Compression::new(level);
-  //   let mut w = flate2::write::ZlibEncoder::new(&mut buf, level);
-  //   w.write_all(&mem::load(ptr, size)).unwrap_unsafe(); w.flush().unwrap_unsafe();
-  // };
+  let ptr = mem::load(ptr, size);
+  let mut buf = vec![0; c.zlib_compress_bound(ptr.len())];
+  let size = c.zlib_compress(&ptr, &mut buf).unwrap_unsafe();
 
-  // return mem::store(buf);
+  buf.resize(size, 0);
+  return mem::store(buf);
 }
 
 #[no_mangle]
 pub unsafe extern "C" fn compress_raw(ptr: mem::buf, size: usize, level: u8) -> mem::buf {
-  return mem::store(miniz_oxide::deflate::compress_to_vec(&mem::load(ptr, size), level));
+  if 0 == level { return mem::store(miniz_oxide::deflate::compress_to_vec(&mem::load(ptr, size), 0)); };
+  let mut c = libdeflater::Compressor::new(libdeflater::CompressionLvl::new(level as i32).unwrap_unsafe());
 
-  // let mut buf = vec![];
+  let ptr = mem::load(ptr, size);
+  let mut buf = vec![0; c.deflate_compress_bound(ptr.len())];
+  let size = c.deflate_compress(&ptr, &mut buf).unwrap_unsafe();
 
-  // {
-  //   let level = flate2::Compression::new(level);
-  //   let mut w = flate2::write::DeflateEncoder::new(&mut buf, level);
-  //   w.write_all(&mem::load(ptr, size)).unwrap_unsafe(); w.flush().unwrap_unsafe();
-  // };
-
-  // return mem::store(buf);
+  buf.resize(size, 0);
+  return mem::store(buf);
 }
 
 
