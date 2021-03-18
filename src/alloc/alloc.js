@@ -11,7 +11,16 @@ export default class Allocator {
 
   get memory() { return this.#wasm.memory; }
   alloc(size) { return this.#wasm.walloc(size); }
-  free(ptr, size) { return this.#wasm.wfree(ptr, size); }
-  get size() { return this.#wasm.memory.buffer.byteLength - this.#base; }
+  free(ptr) { return this.#wasm.wfree(ptr, this.size(ptr)); }
+  size(ptr) { return new Uint32Array(this.#wasm.memory.buffer)[ptr / 4 - 1]; }
   u8(ptr, size) { return new Uint8Array(this.#wasm.memory.buffer, ptr, size); }
+
+  get stats() {
+    const buffer = this.#wasm.memory.buffer;
+
+    return {
+      total: buffer.byteLength,
+      heap: buffer.byteLength - this.#base,
+    };
+  }
 }
