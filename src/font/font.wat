@@ -13227,7 +13227,7 @@
                           end
                           local.get $l37
                           local.get $l42
-                          call $f124
+                          call $f122
                           local.tee $l37
                           i32.eqz
                           br_if $B318
@@ -13263,7 +13263,7 @@
                           end
                           local.get $l45
                           local.get $l35
-                          call $f124
+                          call $f122
                           local.tee $l45
                           i32.eqz
                           br_if $B323
@@ -41166,7 +41166,7 @@
                 local.get $l15
                 if $I6
                   local.get $l15
-                  call $f111
+                  call $f110
                   br $B5
                 end
                 local.get $l4
@@ -42537,7 +42537,7 @@
               br $B48
             end
             local.get $l13
-            call $f111
+            call $f110
             local.tee $l12
             i32.eqz
             br_if $B1
@@ -42659,38 +42659,40 @@
     local.tee $l4
     global.set $g0
     block $B0 (result i32)
-      local.get $p0
-      i32.const 56
-      i32.add
-      i32.load
-      local.tee $l5
-      if $I1
+      block $B1
         local.get $p0
-        f32.load offset=88
-        local.get $p0
-        i32.load offset=48
-        local.get $l5
-        i32.const 20
-        i32.mul
+        i32.const 56
         i32.add
-        i32.const 12
-        i32.sub
-        f32.load
-        f32.add
-        local.set $l39
-      end
-      block $B2
-        local.get $l39
+        i32.load
+        local.tee $l5
+        if $I2 (result f32)
+          local.get $p0
+          f32.load offset=88
+          local.get $p0
+          i32.load offset=48
+          local.get $l5
+          i32.const 20
+          i32.mul
+          i32.add
+          i32.const 12
+          i32.sub
+          f32.load
+          f32.add
+        else
+          f32.const 0x0p+0 (;=0;)
+        end
+        f32.ceil
+        local.tee $l39
         f32.const 0x0p+0 (;=0;)
         f32.ge
         i32.const 1
         i32.xor
-        br_if $B2
+        br_if $B1
         local.get $l39
         f32.const 0x1.fffffep+31 (;=4.29497e+09;)
         f32.le
         i32.eqz
-        br_if $B2
+        br_if $B1
         local.get $l39
         i32.trunc_f32_u
         br $B0
@@ -42808,7 +42810,7 @@
                       br $B14
                     end
                     local.get $l15
-                    call $f111
+                    call $f110
                     local.tee $l24
                     i32.eqz
                     br_if $B13
@@ -43314,7 +43316,7 @@
                                                 br $B38
                                               end
                                               local.get $l17
-                                              call $f111
+                                              call $f110
                                               local.tee $p3
                                               i32.eqz
                                               br_if $B28
@@ -76042,7 +76044,7 @@
             end
             local.get $p0
             local.get $p1
-            call $f124
+            call $f122
           end
           local.tee $p0
           i32.eqz
@@ -76414,7 +76416,7 @@
         end
         local.get $l5
         local.get $p1
-        call $f124
+        call $f122
       end
       local.tee $p3
       i32.eqz
@@ -76838,7 +76840,7 @@
               end
               local.get $l3
               local.get $p1
-              call $f124
+              call $f122
             end
             local.tee $p2
             br_if $B1
@@ -77630,40 +77632,7 @@
     end
     local.get $p0
     call $f19)
-  (func $walloc (type $t2) (param $p0 i32) (result i32)
-    (local $l1 i32)
-    block $B0
-      local.get $p0
-      i32.const -1
-      i32.gt_s
-      if $I1
-        local.get $p0
-        i32.eqz
-        if $I2
-          i32.const 1
-          return
-        end
-        local.get $p0
-        call $f6
-        local.tee $l1
-        i32.eqz
-        br_if $B0
-        local.get $l1
-        return
-      end
-      unreachable
-    end
-    local.get $p0
-    i32.const 1
-    i32.const 1103948
-    i32.load
-    local.tee $p0
-    i32.const 12
-    local.get $p0
-    select
-    call_indirect (type $t0) $T0
-    unreachable)
-  (func $f111 (type $t2) (param $p0 i32) (result i32)
+  (func $f110 (type $t2) (param $p0 i32) (result i32)
     (local $l1 i32)
     block $B0
       local.get $p0
@@ -77685,7 +77654,7 @@
       memory.fill
     end
     local.get $l1)
-  (func $f112 (type $t3) (param $p0 i32) (param $p1 f32) (param $p2 f32)
+  (func $f111 (type $t3) (param $p0 i32) (param $p1 f32) (param $p2 f32)
     (local $l3 i32)
     local.get $p0
     local.get $p0
@@ -77742,7 +77711,7 @@
     end
     local.get $p0
     call $f19)
-  (func $f115 (type $t3) (param $p0 i32) (param $p1 f32) (param $p2 f32)
+  (func $f114 (type $t3) (param $p0 i32) (param $p1 f32) (param $p2 f32)
     local.get $p0
     local.get $p1
     f32.store offset=48
@@ -77787,13 +77756,7 @@
     i32.store
     local.get $p0
     i32.load offset=8)
-  (func $wfree (type $t0) (param $p0 i32) (param $p1 i32)
-    local.get $p1
-    if $I0
-      local.get $p0
-      call $f19
-    end)
-  (func $f120 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
+  (func $f118 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
     local.get $p0
     i32.load
     drop
@@ -77801,7 +77764,7 @@
     i32.load offset=4
     drop
     unreachable)
-  (func $f121 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
+  (func $f119 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
     local.get $p0
     i32.load
     drop
@@ -77809,14 +77772,14 @@
       br $L0
     end
     unreachable)
-  (func $f122 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
+  (func $f120 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
     unreachable)
   (func $layout_lines (type $t2) (param $p0 i32) (result i32)
     local.get $p0
     i32.const 56
     i32.add
     i32.load)
-  (func $f124 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
+  (func $f122 (type $t6) (param $p0 i32) (param $p1 i32) (result i32)
     local.get $p0
     local.get $p1
     call $f31)
@@ -77827,6 +77790,12 @@
   (func $wlen (type $t15) (result i32)
     i32.const 1103472
     i32.load)
+  (func $walloc (type $t2) (param $p0 i32) (result i32)
+    local.get $p0
+    call $f6)
+  (func $wfree (type $t0) (param $p0 i32) (param $p1 i32)
+    local.get $p0
+    call $f19)
   (func $layout_clear (type $t1) (param $p0 i32)
     local.get $p0
     call $f78)
@@ -77851,8 +77820,8 @@
   (global $__heap_base i32 (i32.const 1103976))
   (export "memory" (memory 0))
   (export "wlen" (func $wlen))
-  (export "wfree" (func $wfree))
   (export "walloc" (func $walloc))
+  (export "wfree" (func $wfree))
   (export "font_free" (func $font_free))
   (export "layout_lines" (func $layout_lines))
   (export "layout_clear" (func $layout_clear))
@@ -77876,7 +77845,7 @@
   (export "font_rasterize_buffer" (func $font_metrics_buffer))
   (export "__data_end" (global 1))
   (export "__heap_base" (global 2))
-  (elem $e0 (i32.const 1) $f122 $f122 $f122 $f121 $f122 $f122 $f122 $f122 $f122 $f122 $f122 $f132 $f122 $f122 $f122 $f122 $f122 $f122 $f122 $f133 $f122 $f131 $f122 $f122 $f122 $f105 $f115 $f112 $f51 $f41 $f97 $f122 $f122 $f122 $f120 $f133 $f130 $f131 $f122 $f122 $f131 $f122 $f122 $f131 $f122 $f122)
+  (elem $e0 (i32.const 1) $f120 $f120 $f120 $f119 $f120 $f120 $f120 $f120 $f120 $f120 $f120 $f132 $f120 $f120 $f120 $f120 $f120 $f120 $f120 $f133 $f120 $f131 $f120 $f120 $f120 $f105 $f114 $f111 $f51 $f41 $f97 $f120 $f120 $f120 $f118 $f133 $f130 $f131 $f120 $f120 $f131 $f120 $f120 $f131 $f120 $f120)
   (data $d0 (i32.const 1048576) "alserueullinternal error: entered unreachable code/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_json-1.0.62/src/de.rs\00\00\002\00\10\00W\00\00\006\04\00\00&\00\00\002\00\10\00W\00\00\00@\04\00\00\22\00\00\00\14\00\00\00\00\00\00\00\01\00\00\00\15\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_json-1.0.62/src/ser.rs\bc\00\10\00X\00\00\009\06\00\00\12\00\00\00\bc\00\10\00X\00\00\001\08\00\00;\00\00\00\bc\00\10\00X\00\00\00;\08\00\007\00\00\00\5ct\5cr\5cn\5cf\5cb\5c\5c\5c\22/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/ttf-parser-0.8.3/src/lib.rs\00\00\00R\01\10\00W\00\00\00\0e\02\00\00\0a\00\00\00/Users/evan/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/src/rust/library/alloc/src/collections/btree/map.rs\00\00\bc\01\10\00z\00\00\00\8e\05\00\00/\00\00\00\14\00\00\00\04\00\00\00\04\00\00\00\16\00\00\00\17\00\00\00\18\00\00\00\14\00\00\00\00\00\00\00\01\00\00\00\19\00\00\00/Users/evan/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/src/rust/library/alloc/src/collections/btree/map/entry.rsp\02\10\00\80\00\00\00\22\01\00\00.\00\00\00assertion failed: edge.height == self.height - 1/Users/evan/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/src/rust/library/alloc/src/collections/btree/node.rs\000\03\10\00{\00\00\00\9c\02\00\00\09\00\00\00assertion failed: idx < CAPACITY0\03\10\00{\00\00\00\a0\02\00\00\09\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/image-0.23.13/./src/buffer.rs\00\00\00\ec\03\10\00Y\00\00\00l\03\00\00F\00\00\00Image index  out of bounds \00X\04\10\00\0c\00\00\00d\04\10\00\0f\00\00\00\ec\03\10\00Y\00\00\00k\03\00\00\15\00\00\00\ec\03\10\00Y\00\00\00\d5\02\00\00>\00\00\00\ec\03\10\00Y\00\00\00\d4\02\00\00\15\00\00\00Buffer length in `ImageBuffer::new` overflows usize\00\ec\03\10\00Y\00\00\00\84\04\00\00\0e\00\00\00invalid length \00\f8\04\10\00\0f\00\00\00>\d0\10\00\0b\00\00\00duplicate field `\00\00\00\18\05\10\00\11\00\00\00{\c1\10\00\01\00\00\00\10!\10\00U\00\00\00\f4\00\00\00\1e\00\00\00\1a\00\00\00@\00\00\00\04\00\00\00\1b\00\00\00\1c\00\00\00\1d\00\00\00\1e\00\00\00\1f\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/fontdue-0.4.0/src/layout.rs\00l\05\10\00W\00\00\00\bb\01\00\00!\00\00\00\14\00\00\00\00\00\00\00\01\00\00\00 \00\00\00\14\00\00\00\00\00\00\00\01\00\00\00!\00\00\00\14\00\00\00\00\00\00\00\01\00\00\00\22\00\00\00/Users/evan/.cargo/registry/src/github.com-1ecc6299db9ec823/hashbrown-0.8.2/src/raw/mod.rs\00\00\04\06\10\00Z\00\00\00O\00\00\00(\00\00\00widthheightadvance_widthadvance_heightboundsletterleftrightcentertopevanmiddlebottomxymax_widthmax_heightwrap_stylevertical_alignwrap_hard_breakshorizontal_alignstruct optionsstruct options with 8 elements\00\00\00\1f\07\10\00\1e\00\00\00\14\00\00\00\08\00\00\00\04\00\00\00#")
   (data $d1 (i32.const 1050463) "?\00\00\80?capacity overflow\00\00\00\88\07\10\00\1c\00\00\00\19\02\00\00\05\00\00\00library/alloc/src/raw_vec.rs\00\00\00\00\dfE\1a=\03\cf\1a\e6\c1\fb\cc\fe\00\00\00\00\ca\c6\9a\c7\17\fep\ab\dc\fb\d4\fe\00\00\00\00O\dc\bc\be\fc\b1w\ff\f6\fb\dc\fe\00\00\00\00\0c\d6kA\ef\91V\be\11\fc\e4\fe\00\00\00\00<\fc\7f\90\ad\1f\d0\8d,\fc\ec\fe\00\00\00\00\83\9aU1(\5cQ\d3F\fc\f4\fe\00\00\00\00\b5\c9\a6\ad\8f\acq\9da\fc\fc\fe\00\00\00\00\cb\8b\ee#w\22\9c\ea{\fc\04\ff\00\00\00\00mSx@\91I\cc\ae\96\fc\0c\ff\00\00\00\00W\ce\b6]y\12<\82\b1\fc\14\ff\00\00\00\007V\fbM6\94\10\c2\cb\fc\1c\ff\00\00\00\00O\98H8o\ea\96\90\e6\fc$\ff\00\00\00\00\c7:\82%\cb\85t\d7\00\fd,\ff\00\00\00\00\f4\97\bf\97\cd\cf\86\a0\1b\fd4\ff\00\00\00\00\e5\ac*\17\98\0a4\ef5\fd<\ff\00\00\00\00\8e\b25*\fbg8\b2P\fdD\ff\00\00\00\00;?\c6\d2\df\d4\c8\84k\fdL\ff\00\00\00\00\ba\cd\d3\1a'D\dd\c5\85\fdT\ff\00\00\00\00\96\c9%\bb\ce\9fk\93\a0\fd\5c\ff\00\00\00\00\84\a5b}$l\ac\db\ba\fdd\ff\00\00\00\00\f6\da_\0dXf\ab\a3\d5\fdl\ff\00\00\00\00&\f1\c3\de\93\f8\e2\f3\ef\fdt\ff\00\00\00\00\b8\80\ff\aa\a8\ad\b5\b5\0a\fe|\ff\00\00\00\00\8bJ|l\05_b\87%\fe\84\ff\00\00\00\00S0\c14`\ff\bc\c9?\fe\8c\ff\00\00\00\00U&\ba\91\8c\85N\96Z\fe\94\ff\00\00\00\00\bd~)p$w\f9\dft\fe\9c\ff\00\00\00\00\8f\b8\e5\b8\9f\bd\df\a6\8f\fe\a4\ff\00\00\00\00\94}t\88\cf_\a9\f8\a9\fe\ac\ff\00\00\00\00\cf\9b\a8\8f\93pD\b9\c4\fe\b4\ff\00\00\00\00k\15\0f\bf\f8\f0\08\8a\df\fe\bc\ff\00\00\00\00\b611eU%\b0\cd\f9\fe\c4\ff\00\00\00\00\ac\7f{\d0\c6\e2?\99\14\ff\cc\ff\00\00\00\00\06;+*\c4\10\5c\e4.\ff\d4\ff\00\00\00\00\d3\92si\99$$\aaI\ff\dc\ff\00\00\00\00\0e\ca\00\83\f2\b5\87\fdc\ff\e4\ff\00\00\00\00\eb\1a\11\92d\08\e5\bc~\ff\ec\ff\00\00\00\00\cc\88Po\09\cc\bc\8c\99\ff\f4\ff\00\00\00\00,e\19\e2X\17\b7\d1\b3\ff\fc\ff")
   (data $d2 (i32.const 1051166) "@\9c\ce\ff\04")

@@ -2,6 +2,7 @@ import * as lz4 from './target/lz4/deno.js';
 import * as nacl from './target/nacl/deno.js';
 import * as zstd from './target/zstd/deno.js';
 import * as zlib from './target/zlib/deno.js';
+import Allocator from './target/alloc/deno.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
 import * as ed25519 from './target/ed25519/deno.js';
@@ -86,6 +87,20 @@ Deno.test('snappy', () => {
   assert.equal(snappy.decompress_raw(snappy.compress_raw(random1024)), random1024);
   snappy.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
   snappy.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('alloc', () => {
+  const a = new Allocator();
+  assert.equal(a.stats.heap, 0);
+  assert.equal(a.stats.total, 64 * 1024);
+
+  const ptr = a.alloc(5);
+  assert.equal(ptr, 8 + 64 * 1024);
+  assert.equal(a.stats.heap, 64 * 1024);
+  assert.equal(a.stats.total, 128 * 1024);
+
+  a.free(ptr);
+  assert.equal(a.alloc(5), ptr);
 });
 
 Deno.test('snappy-stream', async () => {

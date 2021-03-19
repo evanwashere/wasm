@@ -2,6 +2,7 @@
   (type $t0 (func (param i32) (result i32)))
   (type $t1 (func (param i32)))
   (type $t2 (func (param i32 i32)))
+  (type $t3 (func (result i32)))
   (func $f0 (type $t0) (param $p0 i32) (result i32)
     (local $l1 i32) (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 i32) (local $l9 i32) (local $l10 i64)
     block $B0
@@ -3471,17 +3472,20 @@
       end
       i32.store
     end)
-  (func $alloc (type $t0) (param $p0 i32) (result i32)
+  (func $walloc (type $t0) (param $p0 i32) (result i32)
     local.get $p0
     call $f0)
-  (func $free (type $t2) (param $p0 i32) (param $p1 i32)
+  (func $wfree (type $t2) (param $p0 i32) (param $p1 i32)
     local.get $p0
     call $f1)
+  (func $wlen (type $t3) (result i32)
+    i32.const 0)
   (memory $memory 1)
   (global $__data_end i32 (i32.const 468))
   (global $__heap_base i32 (i32.const 468))
   (export "memory" (memory 0))
-  (export "alloc" (func $alloc))
-  (export "free" (func $free))
+  (export "wlen" (func $wlen))
+  (export "walloc" (func $walloc))
+  (export "wfree" (func $wfree))
   (export "__data_end" (global 0))
   (export "__heap_base" (global 1)))
