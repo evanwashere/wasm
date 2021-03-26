@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "version": "0.0.52",
+  "version": "0.0.53",
   "name": "@evan/wasm",
   "description": "set of wasm modules",
   "author": "evanwashere <evan@tsu.sh>",
@@ -8,6 +8,6 @@
   "dependencies": { "node-fetch": "3.0.0-beta.9" },
   "homepage": "https://github.com/evanwashere/wasm#readme",
   "bugs": { "url": "https://github.com/evanwashere/wasm/issues" },
-  "keywords": ["wasm", "lz4", "zstd", "zlib", "brotli", "snappy", "webassembly"],
-  "repository": { "type": "git", "url": "git+https://github.com/evanwashere/wasm.git" }
+  "repository": { "type": "git", "url": "git+https://github.com/evanwashere/wasm.git" },
+  "keywords": ["wasm", "lz4", "zstd", "zlib", "alloc", "brotli", "snappy", "ed25519", "webassembly"]
 }
