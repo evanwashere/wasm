@@ -7,6 +7,7 @@ targets:
 - node.mjs
 - fetch.mjs (node)
 - fetch.js (web/deno)
+- simd.(m)js (experimental support for simd) ⚠️ *`not all modules have this target`* ⚠️
 - asm.js (for enviroments that don't have wasm or only [mvp wasm engine](https://webassembly.org/roadmap/)) ⚠️ *`not all modules have this target`* ⚠️
 
 ```js

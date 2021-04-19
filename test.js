@@ -3,12 +3,15 @@ import * as nacl from './target/nacl/deno.js';
 import * as zstd from './target/zstd/deno.js';
 import * as zlib from './target/zlib/deno.js';
 import Allocator from './target/alloc/deno.js';
+import * as simd_lz4 from './target/lz4/simd.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
 import * as ed25519 from './target/ed25519/deno.js';
 import { Font, Layout } from './target/font/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
+import * as simd_brotli from './target/brotli/simd.js';
 import * as simd_snappy from './target/snappy/simd.js';
+import * as simd_ed25519 from './target/ed25519/simd.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 
 const zero1024 = new Uint8Array(1024);
@@ -36,6 +39,14 @@ Deno.test('ed25519', () => {
   assert.not.ok(ed25519.verify(new Uint8Array(32), new Uint8Array(64), new Uint8Array(10)));
 });
 
+Deno.test('simd-ed25519', () => {
+  const key = new Uint8Array([56, 155, 90, 103, 192, 55, 211, 122, 72, 107, 211, 103, 197, 154, 43, 143, 38, 230, 6, 116, 222, 198, 122, 70, 26, 86, 132, 162, 136, 24, 16, 137]);
+  const sig = new Uint8Array([103, 91, 116, 115, 148, 34, 215, 74, 150, 53, 172, 79, 81, 142, 35, 160, 241, 162, 70, 193, 225, 166, 99, 109, 148, 251, 67, 223, 93, 29, 82, 180, 30, 207, 102, 111, 10, 111, 182, 16, 72, 97, 178, 255, 64, 21, 44, 19, 167, 239, 163, 205, 194, 58, 87, 180, 144, 220, 45, 72, 55, 112, 96, 3]);
+
+  assert.ok(simd_ed25519.verify(key, sig, new Uint8Array(10)));
+  assert.not.ok(simd_ed25519.verify(new Uint8Array(32), new Uint8Array(64), new Uint8Array(10)));
+});
+
 Deno.test('zstd', () => {
   const zero_compressed = zstd.compress(zero1024);
   const random_compressed = zstd.compress(random1024);
@@ -56,6 +67,16 @@ Deno.test('brotli', () => {
   brotli.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
 });
 
+Deno.test('simd-brotli', () => {
+  const zero_compressed = simd_brotli.compress(zero1024);
+  const random_compressed = simd_brotli.compress(random1024);
+  assert.equal(simd_brotli.decompress(zero_compressed), zero1024);
+  assert.equal(simd_brotli.decompress(random_compressed), random1024);
+  assert.throws(() => simd_brotli.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  simd_brotli.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  simd_brotli.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
 Deno.test('lz4', () => {
   const zero_compressed = lz4.compress_raw(zero1024);
   const random_compressed = lz4.compress_raw(random1024);
@@ -64,6 +85,16 @@ Deno.test('lz4', () => {
   assert.equal(lz4.decompress_raw(random1024.length, random_compressed), random1024);
   lz4.decompress_raw_with(zero1024.length, zero_compressed, slice => assert.is(slice.length, zero1024.length));
   lz4.decompress_raw_with(random1024.length, random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('simd-lz4', () => {
+  const zero_compressed = simd_lz4.compress_raw(zero1024);
+  const random_compressed = simd_lz4.compress_raw(random1024);
+  assert.throws(() => simd_lz4.decompress_raw(5, new Uint8Array([1, 2, 3, 4, 5])));
+  assert.equal(simd_lz4.decompress_raw(zero1024.length, zero_compressed), zero1024);
+  assert.equal(simd_lz4.decompress_raw(random1024.length, random_compressed), random1024);
+  simd_lz4.decompress_raw_with(zero1024.length, zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  simd_lz4.decompress_raw_with(random1024.length, random_compressed, slice => assert.is(slice.length, random1024.length));
 });
 
 Deno.test('zlib', () => {
@@ -166,6 +197,37 @@ Deno.test('brotli-stream', async () => {
     const r = readable.pipeThrough(new brotli.DecompressionStream());
 
     w.write(brotli.compress(zero1024));
+
+    w.close();
+    const chunks = [];
+    for await (const chunk of r) chunks.push(chunk);
+    assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
+  }
+});
+
+
+Deno.test('simd-brotli-stream', async () => {
+  compression: {
+    const { writable, readable } = new TransformStream();
+
+    const w = writable.getWriter();
+    const r = readable.pipeThrough(new simd_brotli.CompressionStream());
+
+    w.write(zero1024);
+
+    w.close();
+    const chunks = [];
+    for await (const chunk of r) chunks.push(chunk);
+    assert.equal(simd_brotli.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
+  }
+
+  decompression: {
+    const { writable, readable } = new TransformStream();
+
+    const w = writable.getWriter();
+    const r = readable.pipeThrough(new simd_brotli.DecompressionStream());
+
+    w.write(simd_brotli.compress(zero1024));
 
     w.close();
     const chunks = [];
