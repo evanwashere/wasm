@@ -8,6 +8,7 @@ import * as brotli from './target/brotli/deno.js';
 import * as ed25519 from './target/ed25519/deno.js';
 import { Font, Layout } from './target/font/deno.js';
 import * as fasteval from './target/fasteval/deno.js';
+import * as simd_snappy from './target/snappy/simd.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 
 const zero1024 = new Uint8Array(1024);
@@ -89,6 +90,18 @@ Deno.test('snappy', () => {
   snappy.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
 });
 
+Deno.test('simd-snappy', () => {
+  const zero_compressed = simd_snappy.compress(zero1024);
+  const random_compressed = simd_snappy.compress(random1024);
+  assert.equal(simd_snappy.decompress(zero_compressed), zero1024);
+  assert.equal(simd_snappy.decompress(random_compressed), random1024);
+  assert.throws(() => simd_snappy.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  assert.equal(simd_snappy.decompress_raw(simd_snappy.compress_raw(zero1024)), zero1024);
+  assert.equal(simd_snappy.decompress_raw(simd_snappy.compress_raw(random1024)), random1024);
+  simd_snappy.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  simd_snappy.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+});
+
 Deno.test('alloc', () => {
   const a = new Allocator();
   assert.equal(a.stats.heap, 0);
@@ -115,6 +128,20 @@ Deno.test('snappy-stream', async () => {
   const chunks = [];
   for await (const chunk of r) chunks.push(chunk);
   assert.equal(snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
+});
+
+Deno.test('simd-snappy-stream', async () => {
+  const { writable, readable } = new TransformStream();
+
+  const w = writable.getWriter();
+  const r = readable.pipeThrough(new simd_snappy.CompressionStream()).getIterator();
+
+  w.write(zero1024);
+
+  w.close();
+  const chunks = [];
+  for await (const chunk of r) chunks.push(chunk);
+  assert.equal(simd_snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
 });
 
 Deno.test('brotli-stream', async () => {
