@@ -279,21 +279,3 @@ Deno.test('font', async () => {
   assert.not.ok(layout.ptr);
   assert.is(layout.refs.length, 0);
 });
-
-
-// to be rewritten
-// search: {
-//   if (skip.search) break search;
-
-//   console.log('testing search');
-//   const index = new search.Index('en');
-
-//   index.add(1, 'hello');
-//   index.add(2, 'hellop');
-//   index.bulk([{ id: 3, title: 'hell' }]);
-
-//   console.log(...index.search('hell'));
-
-//   index.drop();
-//   try { [...index.search('hello')] } catch { console.log('index is dropped') }
-// }
