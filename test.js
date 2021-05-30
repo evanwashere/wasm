@@ -17,12 +17,6 @@ import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 const zero1024 = new Uint8Array(1024);
 const random1024 = crypto.getRandomValues(new Uint8Array(1024));
 
-Deno.test('fasteval', () => {
-  assert.is(fasteval.evaluate('2 + 3'), '5');
-  assert.is(fasteval.evaluate('yep'), 'Undefined("yep")');
-  assert.is(fasteval.evaluate('syntax error'), 'UnparsedTokensRemaining("error")');
-});
-
 Deno.test('nacl', () => {
   const key = random1024.subarray(0, nacl.secretbox.key_length);
   const nonce = random1024.subarray(0, nacl.secretbox.nonce_length);
