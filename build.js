@@ -12,7 +12,6 @@ for await (const dir of Deno.readDir('./src')) {
   const js = Deno.core.decode(await Deno.readFile(`./src/${dir.name}/${dir.name}.js`));
 
   await Deno.mkdir(`./target/${dir.name}`).catch(() => { });
-  try { Deno.writeFile(`./target/${dir.name}/asm.js`, await Deno.readFile(`./src/${dir.name}/asm.js`)) } catch { };
   Deno.writeFile(`./target/${dir.name}/deno.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `Uint8Array.from(atob('${wasm}'), char => char.codePointAt(0))`)));
   if (simd) Deno.writeFile(`./target/${dir.name}/simd.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `Uint8Array.from(atob('${simd}'), char => char.codePointAt(0))`)));
   Deno.writeFile(`./target/${dir.name}/fetch.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `await (await fetch('https://unpkg.com/@evan/wasm@${version}/src/${dir.name}/${dir.name}.wasm')).arrayBuffer()`)));
