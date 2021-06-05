@@ -8,7 +8,6 @@ import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
 import * as ed25519 from './target/ed25519/deno.js';
 import { Font, Layout } from './target/font/deno.js';
-import * as fasteval from './target/fasteval/deno.js';
 import * as simd_brotli from './target/brotli/simd.js';
 import * as simd_snappy from './target/snappy/simd.js';
 import * as simd_ed25519 from './target/ed25519/simd.js';
