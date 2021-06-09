@@ -7,63 +7,53 @@ let wasm;
   wasm = instance.exports;
 }
 
-let u8array_ref = new Uint8Array(wasm.memory.buffer);
+class mem {
+  static length() { return wasm.wlen(); }
+  static alloc(size) { return wasm.walloc(size); }
+  static free(ptr, size) { return wasm.wfree(ptr, size); }
+  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
+  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+  static store(buffer) { const ptr = wasm.walloc(buffer.length); this.u8(ptr, buffer.length).set(buffer); return ptr; }
 
-function u8array() {
-  return u8array_ref.buffer === wasm.memory.buffer ? u8array_ref : (u8array_ref = new Uint8Array(wasm.memory.buffer));
-}
-
-function ptr_to_u8array(ptr, len) {
-  return u8array().subarray(ptr, ptr + len);
-}
-
-function u8array_to_ptr(buffer) {
-  const ptr = wasm.malloc(buffer.length);
-  return (u8array().set(buffer, ptr), ptr);
+  static copy_and_free(ptr, size) {
+    let slice = mem.u8(ptr, size).slice();
+    return (wasm.wfree(ptr, size), slice);
+  }
 }
 
 function sign_verify(key, sig, buffer) {
-  const sptr = u8array_to_ptr(sig);
-  const kptr = u8array_to_ptr(key);
-  const ptr = u8array_to_ptr(buffer);
+  const sptr = mem.store(sig);
+  const kptr = mem.store(key);
+  const ptr = mem.store(buffer);
   return !!wasm.sign_verify(ptr, buffer.length, sptr, kptr);
 }
 
 function sign_sign(key, buffer, noise) {
-  let p;
-  const kptr = u8array_to_ptr(key);
-  const ptr = u8array_to_ptr(buffer);
-  if (!noise) p = wasm.sign_sign(ptr, buffer.length, kptr, 0);
-  else p = wasm.sign_sign(ptr, buffer.length, kptr, u8array_to_ptr(noise));
+  const kptr = mem.store(key);
+  const ptr = mem.store(buffer);
+  const p = wasm.sign_sign(ptr, buffer.length, kptr, !noise ? 0 : mem.store(noise));
 
   if (1 === p) throw new Error('nacl: failed to sign buffer');
-  const slice = ptr_to_u8array(p, sign.signature_length).slice();
 
-  return (wasm.free(p, sign.signature_length), slice);
+  return mem.copy_and_free(p, sign.signature_length);
 }
 
 function sbox_open(key, nonce, buffer) {
-  const kptr = u8array_to_ptr(key);
-  const nptr = u8array_to_ptr(nonce);
-  const ptr = u8array_to_ptr(buffer);
+  const kptr = mem.store(key);
+  const nptr = mem.store(nonce);
+  const ptr = mem.store(buffer);
   const p = wasm.secretbox_open(ptr, buffer.length, kptr, nptr);
 
-  const len = wasm.array_len();
-  const slice = ptr_to_u8array(p, len).slice();
-
-  return (wasm.free(p, len), slice);
+  return mem.copy_and_free(p, mem.length());
 }
 
 function sbox_seal(key, nonce, buffer) {
-  const kptr = u8array_to_ptr(key);
-  const nptr = u8array_to_ptr(nonce);
-  const ptr = u8array_to_ptr(buffer);
+  const kptr = mem.store(key);
+  const nptr = mem.store(nonce);
+  const ptr = mem.store(buffer);
   const p = wasm.secretbox_seal(ptr, buffer.length, kptr, nptr);
 
-  const len = wasm.array_len();
-  const slice = ptr_to_u8array(p, len).slice();
-
-  return (wasm.free(p, len), slice);
+  return mem.copy_and_free(p, mem.length());
 }
 
 export class secretbox {

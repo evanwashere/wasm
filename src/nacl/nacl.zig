@@ -4,10 +4,9 @@ const ed25519 = std.crypto.sign.Ed25519;
 const allocator = std.heap.page_allocator;
 
 var buffer_len: u32 = 0;
-export fn array_len() u32 { return buffer_len; }
-export fn free(ptr: u32, len: usize) void { allocator.free(@intToPtr([*]u8, ptr)[0..len]); }
-export fn malloc(len: usize) u32 { return @ptrToInt((allocator.alloc(u8, len) catch return 0).ptr); }
-
+export fn wlen() u32 { return buffer_len; }
+export fn wfree(ptr: u32, len: usize) void { allocator.free(@intToPtr([*]u8, ptr)[0..len]); }
+export fn walloc(len: usize) u32 { return @ptrToInt((allocator.alloc(u8, len) catch return 0).ptr); }
 
 export fn sign_verify(ptr: u32, len: usize, sptr: u32, kptr: u32) u8 {
   const in = @intToPtr([*]u8, ptr)[0..len];
