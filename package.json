@@ -9,5 +9,5 @@
   "homepage": "https://github.com/evanwashere/wasm#readme",
   "bugs": { "url": "https://github.com/evanwashere/wasm/issues" },
   "repository": { "type": "git", "url": "git+https://github.com/evanwashere/wasm.git" },
-  "keywords": ["wasm", "lz4", "simd", "zstd", "zlib", "alloc", "brotli", "snappy", "ed25519", "webassembly"]
+  "keywords": ["wasm", "nacl", "lz4", "simd", "zstd", "zlib", "alloc", "brotli", "snappy", "ed25519", "webassembly"]
 }

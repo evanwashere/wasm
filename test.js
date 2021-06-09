@@ -6,6 +6,7 @@ import Allocator from './target/alloc/deno.js';
 import * as simd_lz4 from './target/lz4/simd.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
+import * as simd_nacl from './target/nacl/simd.js';
 import * as ed25519 from './target/ed25519/deno.js';
 import { Font, Layout } from './target/font/deno.js';
 import * as simd_brotli from './target/brotli/simd.js';
@@ -22,6 +23,14 @@ Deno.test('nacl', () => {
 
   const sealed = nacl.secretbox.seal(random1024, key, nonce);
   assert.equal(nacl.secretbox.open(sealed, key, nonce), random1024);
+});
+
+Deno.test('simd-nacl', () => {
+  const key = random1024.subarray(0, simd_nacl.secretbox.key_length);
+  const nonce = random1024.subarray(0, simd_nacl.secretbox.nonce_length);
+
+  const sealed = simd_nacl.secretbox.seal(random1024, key, nonce);
+  assert.equal(simd_nacl.secretbox.open(sealed, key, nonce), random1024);
 });
 
 Deno.test('ed25519', () => {
