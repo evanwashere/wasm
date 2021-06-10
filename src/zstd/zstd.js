@@ -3,49 +3,75 @@ let wasm;
 {
   const module = new WebAssembly.Module(WASM_BYTES);
   const instance = new WebAssembly.Instance(module, {
-    wasi_snapshot_preview1: { proc_exit() {} },
     env: { emscripten_notify_memory_growth() {} },
   });
 
   wasm = instance.exports;
 }
 
-class mem {
-  static length() { return wasm.wlen(); }
-  static alloc(size) { return wasm.walloc(size); }
-  static free(ptr, size) { return wasm.wfree(ptr, size); }
-  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
-  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+function load_static_string(ptr, wasm) {
+  const u8 = new Uint8Array(wasm.memory.buffer, ptr);
 
-  static copy_and_free(ptr, size) {
-    let slice = mem.u8(ptr, size).slice();
-    return (wasm.wfree(ptr, size), slice);
+  let s = '';
+  const l = u8.length | 0;
+
+  for (let o = 0 | 0; o < l; o++) {
+    const x = u8[o];
+    if (0 === x) break;
+    s += String.fromCharCode(x);
   }
+
+  return s;
 }
 
 export function compress(buffer, level = 3) {
-  const ptr = mem.alloc(buffer.length);
-  mem.u8(ptr, buffer.length).set(buffer);
-  return mem.copy_and_free(wasm.compress(ptr, buffer.length, level), mem.length());
+  const b = wasm.malloc(buffer.length);
+  let size = wasm.ZSTD_compressBound(buffer.length);
+  new Uint8Array(wasm.memory.buffer).set(buffer, b);
+
+  const c = wasm.malloc(size);
+  size = wasm.ZSTD_compress(c, size, b, buffer.length, level);
+  if (wasm.ZSTD_isError(size)) throw (wasm.free(b), wasm.free(c), new Error(`zstd: ${load_static_string(wasm.ZSTD_getErrorName(size), wasm)}`));
+  
+  const slice = new Uint8Array(wasm.memory.buffer, c, size).slice();
+
+  return (wasm.free(b), wasm.free(c), slice);
 }
 
-export function decompress(buffer) {
-  const ptr = mem.alloc(buffer.length);
-  mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(ptr, buffer.length);
-  if (0 === x) throw new Error('zstd: failed to decompress');
+export function decompress(buffer, size) {
+  const b = wasm.malloc(buffer.length);
+  new Uint8Array(wasm.memory.buffer).set(buffer, b);
 
-  return mem.copy_and_free(x, mem.length());
+  if (null == size) {
+    size = Number(wasm.ZSTD_findDecompressedSize(b, buffer.length));
+    if (-2 === size) throw (wasm.free(b), new Error('zstd: not zstd'));
+    if (-1 === size) throw (wasm.free(b), new Error('zstd: failed to find decompressed size'));
+  }
+
+  const d = wasm.malloc(size);
+  size = wasm.ZSTD_decompress(d, size, b, buffer.length);
+  if (wasm.ZSTD_isError(size)) throw (wasm.free(b), wasm.free(d), new Error(`zstd: ${load_static_string(wasm.ZSTD_getErrorName(size), wasm)}`));
+
+  const slice = new Uint8Array(wasm.memory.buffer, d, size).slice();
+
+  return (wasm.free(b), wasm.free(d), slice);
 }
 
-export function decompress_with(buffer, transform) {
-  const ptr = mem.alloc(buffer.length);
-  mem.u8(ptr, buffer.length).set(buffer);
-  const x = wasm.decompress(ptr, buffer.length);
-  if (0 === x) throw new Error('zstd: failed to decompress');
+export function decompress_with(buffer, size, transform) {
+  const b = wasm.malloc(buffer.length);
+  new Uint8Array(wasm.memory.buffer).set(buffer, b);
 
-  const u8 = mem.u8(x, mem.length());
+  if (null == size) {
+    size = Number(wasm.ZSTD_findDecompressedSize(b, buffer.length));
+    if (-2 === size) throw (wasm.free(b), new Error('zstd: not zstd'));
+    if (-1 === size) throw (wasm.free(b), new Error('zstd: failed to find decompressed size'));
+  }
 
-  const value = transform(u8);
-  return (mem.free(x, u8.length), value);
+  const d = wasm.malloc(size);
+  size = wasm.ZSTD_decompress(d, size, b, buffer.length);
+  if (wasm.ZSTD_isError(size)) throw (wasm.free(b), wasm.free(d), new Error(`zstd: ${load_static_string(wasm.ZSTD_getErrorName(size), wasm)}`));
+
+  const value = transform(new Uint8Array(wasm.memory.buffer, d, size));
+
+  return (wasm.free(b), wasm.free(d), value);
 }

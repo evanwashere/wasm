@@ -6,6 +6,7 @@ import Allocator from './target/alloc/deno.js';
 import * as simd_lz4 from './target/lz4/simd.js';
 import * as snappy from './target/snappy/deno.js';
 import * as brotli from './target/brotli/deno.js';
+import * as simd_zstd from './target/zstd/simd.js';
 import * as simd_nacl from './target/nacl/simd.js';
 import * as ed25519 from './target/ed25519/deno.js';
 import { Font, Layout } from './target/font/deno.js';
@@ -55,8 +56,18 @@ Deno.test('zstd', () => {
   assert.equal(zstd.decompress(zero_compressed), zero1024);
   assert.equal(zstd.decompress(random_compressed), random1024);
   assert.throws(() => zstd.decompress(new Uint8Array([1, 2, 3, 4, 5])));
-  zstd.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
-  zstd.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
+  zstd.decompress_with(zero_compressed, null, slice => assert.is(slice.length, zero1024.length));
+  zstd.decompress_with(random_compressed, null, slice => assert.is(slice.length, random1024.length));
+});
+
+Deno.test('simd-zstd', () => {
+  const zero_compressed = simd_zstd.compress(zero1024);
+  const random_compressed = simd_zstd.compress(random1024);
+  assert.equal(simd_zstd.decompress(zero_compressed), zero1024);
+  assert.equal(simd_zstd.decompress(random_compressed), random1024);
+  assert.throws(() => simd_zstd.decompress(new Uint8Array([1, 2, 3, 4, 5])));
+  simd_zstd.decompress_with(zero_compressed, null, slice => assert.is(slice.length, zero1024.length));
+  simd_zstd.decompress_with(random_compressed, null, slice => assert.is(slice.length, random1024.length));
 });
 
 Deno.test('brotli', () => {
