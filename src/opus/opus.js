@@ -162,7 +162,7 @@ const convert = {
 }
 
 const pptr = wasm.malloc(2 ** 13);
-const bptr = wasm.malloc(2 ** 14);
+const bptr = wasm.malloc(2 ** 15);
 
 export class Encoder {
   #ptr = 0;
@@ -176,7 +176,7 @@ export class Encoder {
     try { err(wasm.opus_encoder_init(this.#ptr, sample_rate || 48000, this.channels, application)); } catch (e) { throw (this.drop(), e); }
   }
 
-  drop() { if (this.#ptr) (this.#ptr = 0, wasm.free(this.#ptr)); }
+  drop() { if (this.#ptr) (wasm.free(this.#ptr), this.#ptr = 0); }
   ctl(cmd, arg) { if (arg == null) return wasm.opus_encoder_ctl_get(this.#ptr, cmd); else return err(wasm.opus_encoder_ctl_set(this.#ptr, cmd, arg)); }
 
   encode(size, buffer) {
@@ -196,7 +196,7 @@ export class Encoder {
     let t16 = new Int16Array(r / 2);
     const t8 = new Uint8Array(t16.buffer);
 
-    function *consume(buf) {
+    function* consume(buf) {
       let offset = 0;
 
       while (offset < buf.length) {
