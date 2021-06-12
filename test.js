@@ -10,7 +10,6 @@ import * as brotli from './target/brotli/deno.js';
 import * as simd_zstd from './target/zstd/simd.js';
 import * as simd_nacl from './target/nacl/simd.js';
 import * as ed25519 from './target/ed25519/deno.js';
-import { Font, Layout } from './target/font/deno.js';
 import * as simd_brotli from './target/brotli/simd.js';
 import * as simd_snappy from './target/snappy/simd.js';
 import * as simd_ed25519 from './target/ed25519/simd.js';
@@ -262,54 +261,4 @@ Deno.test('simd-brotli-stream', async () => {
     for await (const chunk of r) chunks.push(chunk);
     assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
   }
-});
-
-Deno.test('font', async () => {
-  const font_bytes = new Uint8Array(await (await fetch('https://blob.evan.lol/wasm/68037125150347264/comic_sans.ttf')).arrayBuffer());
-
-  const layout = new Layout();
-  const font = new Font(64, font_bytes);
-  assert.throws(() => new Font(64, random1024));
-
-  assert.ok(font.ptr);
-  assert.is(font.has('a'), 68);
-  assert.type(font.metrics('a'), 'object');
-  assert.type(font.rasterize('a'), 'object');
-
-  assert.ok(layout.ptr);
-  assert.is(layout.lines(), 1);
-  assert.is(layout.refs.length, 0);
-
-  layout.reset({
-    max_width: 500,
-    max_height: 500,
-    wrap_style: 'word',
-    vertical_align: 'top',
-    wrap_hard_breaks: true,
-    horizontal_align: 'left',
-  });
-
-  layout.append(font, 'goodbye ');
-  layout.append(font, 'world!', { r: 255, g: 0, b: 0 });
-
-  assert.is(layout.refs.length, 2);
-  layout.append(font, ' :(', { scale: 200 });
-
-  assert.is(layout.refs.length, 3);
-  const framebuffer = layout.rasterize(0, 0, 0);
-
-  assert.type(framebuffer, 'object');
-  assert.is(framebuffer.buffer[0], 0);
-  assert.is(framebuffer.buffer[1], 0);
-  assert.is(framebuffer.buffer[2], 0);
-  assert.is(framebuffer.buffer[3], 0);
-  assert.type(framebuffer.width, 'number');
-  assert.type(framebuffer.height, 'number');
-
-  font.free();
-  layout.free();
-
-  assert.not.ok(font.ptr);
-  assert.not.ok(layout.ptr);
-  assert.is(layout.refs.length, 0);
 });
