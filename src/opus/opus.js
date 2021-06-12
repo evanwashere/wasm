@@ -31,7 +31,6 @@ function load_static_string(u8, ptr) {
 }
 
 // todo decoder
-// todo pcm stream impl
 
 export const ctl = {
   auto: -1000,
@@ -177,19 +176,55 @@ export class Encoder {
     try { err(wasm.opus_encoder_init(this.#ptr, sample_rate || 48000, this.channels, application)); } catch (e) { throw (this.drop(), e); }
   }
 
-  drop() { return (wasm.free(this.#ptr)); }
+  drop() { if (this.#ptr) (this.#ptr = 0, wasm.free(this.#ptr)); }
   ctl(cmd, arg) { if (arg == null) return wasm.opus_encoder_ctl_get(this.#ptr, cmd); else return err(wasm.opus_encoder_ctl_set(this.#ptr, cmd, arg)); }
 
   encode(size, buffer) {
-    if (2 === this.channels) {
-      const l = buffer.length | 0;
-      for (let o = 0 | 0; o < l; o++) buffer[o] = buffer[1 + 2 * o] << 8 | buffer[2 * o];
-    }
+    if (buffer.byteLength !== 2 * size * this.channels) throw new Error('opus: invalid buffer size');
 
     i16.set(buffer, bptr / 2);
     const l = err(wasm.opus_encode(this.#ptr, bptr, size, pptr, this.max_opus_size));
 
     return u8.slice(pptr, l + pptr);
+  }
+
+  async *encode_pcm_stream(size, iter) {
+    let needle = 0;
+    const self = this;
+    const r = 2 * size * this.channels;
+
+    let t16 = new Int16Array(r / 2);
+    const t8 = new Uint8Array(t16.buffer);
+
+    function *consume(buf) {
+      let offset = 0;
+
+      while (offset < buf.length) {
+        const s = buf.subarray(offset, offset += r);
+        if (r === s.length) yield self.encode(size, new Int16Array(s.buffer, s.byteOffset, s.byteLength / 2));
+        else {
+          t8.set(s, needle);
+          needle += s.length;
+
+          break;
+        };
+      }
+    };
+
+    for await (const buffer of iter) {
+      const b8 = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
+
+      if (0 === needle) for (const x of consume(b8)) yield x;
+      else {
+        const rr = r - needle;
+        if (rr > b8.length) (t8.set(b8, needle), needle += b8.length);
+        else {
+          t8.set(b8.subarray(0, rr), needle);
+          yield (needle = 0, self.encode(size, t16));
+          for (const x of consume(b8.subarray(rr))) yield x;
+        }
+      }
+    }
   }
 
   // https://www.opus-codec.org/docs/opus_api-1.3.1/group__opus__genericctls.html
