@@ -174,6 +174,20 @@ Deno.test('opus', () => {
   assert.is(encoder.sample_rate, 48000);
 });
 
+Deno.test('zstd-stream', async () => {
+  compression: {
+    function *gen() {
+      yield zero1024;
+    }
+
+    const chunks = [];
+    const stream = zstd.compress_stream(gen(), { size: zero1024.length });
+
+    for await (const chunk of stream) chunks.push(chunk);
+    assert.equal(zstd.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
+  }
+});
+
 Deno.test('snappy-stream', async () => {
   const { writable, readable } = new TransformStream();
 
