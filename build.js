@@ -1,4 +1,4 @@
-import * as fflate from 'https://esm.sh/fflate@0.7.0';
+import * as fflate from 'https://esm.sh/fflate@0.7.1';
 import { encode } from "https://deno.land/std@0.97.0/encoding/base64.ts";
 const { version } = JSON.parse(Deno.core.decode(await Deno.readFile('./package.json')));
 
