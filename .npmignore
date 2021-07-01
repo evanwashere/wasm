@@ -1,5 +1,6 @@
 test*.*
 build.js
+src/*/*/**
 src/**/*.js
 src/**/*.rs
 src/**/*.md
