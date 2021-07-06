@@ -1,5 +1,6 @@
 import * as fflate from 'https://esm.sh/fflate@0.7.1';
-import { encode } from "https://deno.land/std@0.97.0/encoding/base64.ts";
+import * as esbuild from 'https://deno.land/x/esbuild@v0.12.15/mod.js';
+import { encode } from "https://deno.land/std@0.100.0/encoding/base64.ts";
 const { version } = JSON.parse(Deno.core.decode(await Deno.readFile('./package.json')));
 
 const key = 'WASM_BYTES';
@@ -17,13 +18,18 @@ for await (const dir of Deno.readDir('./src')) {
   try { simd = encode(fflate.zlibSync(os = await Deno.readFile(`./src/${dir.name}/simd.wasm`), { level: 9 })); } catch { };
 
   await Deno.mkdir(path).catch(() => { });
+  const cjs = (await esbuild.transform(replacer(js, 'node'), { format: 'cjs', minify: false, target: 'node14' })).code;
+  Deno.writeFile(`${path}/node.cjs`, Deno.core.encode(cjs.replace(key, `require('fs').readFileSync(require('path').join(__dirname, '../../src/${dir.name}/${dir.name}.wasm'))`)));
   Deno.writeFile(`${path}/deno.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `${inflate(ow.length, `Uint8Array.from(atob('${wasm}'), char => char.codePointAt(0))`)}`)));
+  if (simd) Deno.writeFile(`${path}/simd.cjs`, Deno.core.encode(cjs.replace(key, `require('fs').readFileSync(require('path').join(__dirname, '../../src/${dir.name}/simd.wasm'))`)));
   if (simd) Deno.writeFile(`${path}/simd.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `${inflate(os.length, `Uint8Array.from(atob('${simd}'), char => char.codePointAt(0))`)}`)));
   Deno.writeFile(`${path}/fetch.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `await (await fetch('https://unpkg.com/@evan/wasm@${version}/src/${dir.name}/${dir.name}.wasm')).arrayBuffer()`)));
   Deno.writeFile(`${path}/node.mjs`, Deno.core.encode(replacer(js, 'node').replace(key, `await import('fs/promises').then(fs => fs.readFile(new URL('../../src/${dir.name}/${dir.name}.wasm', import.meta.url)))`)));
   if (simd) Deno.writeFile(`${path}/simd.mjs`, Deno.core.encode(replacer(js, 'node').replace(key, `await import('fs/promises').then(fs => fs.readFile(new URL('../../src/${dir.name}/simd.wasm', import.meta.url)))`)));
   Deno.writeFile(`${path}/fetch.mjs`, Deno.core.encode(replacer(js, 'node').replace(key, `await (await (await import('node-fetch').then(x => x.default))('https://unpkg.com/@evan/wasm@${version}/src/${dir.name}/${dir.name}.wasm')).arrayBuffer()`)));
 }
+
+esbuild.stop();
 
 function replacer(code, runtime) {
   return code
