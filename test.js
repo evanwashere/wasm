@@ -1,4 +1,5 @@
 import * as lz4 from './target/lz4/deno.js';
+import * as html from './target/html/deno.js';
 import * as nacl from './target/nacl/deno.js';
 import * as zstd from './target/zstd/deno.js';
 import * as zlib from './target/zlib/deno.js';
@@ -14,6 +15,7 @@ import * as simd_brotli from './target/brotli/simd.js';
 import * as simd_snappy from './target/snappy/simd.js';
 import * as simd_ed25519 from './target/ed25519/simd.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
+
 
 const zero1024 = new Uint8Array(1024);
 const random1024 = crypto.getRandomValues(new Uint8Array(1024));
@@ -176,7 +178,7 @@ Deno.test('opus', () => {
 
 Deno.test('zstd-stream', async () => {
   compression: {
-    function *gen() {
+    function* gen() {
       yield zero1024;
     }
 
@@ -275,4 +277,27 @@ Deno.test('simd-brotli-stream', async () => {
     for await (const chunk of r) chunks.push(chunk);
     assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
   }
+});
+
+Deno.test('html', () => {
+  const r = new html.Rewriter(null);
+
+  r.on('div', {
+    element(el) {
+      assert.is(el.tagName, 'div');
+    },
+  });
+
+  r.on('a', {
+    element(el) {
+      el.remove();
+      assert.ok(el.removed);
+    },
+  });
+
+  r.write('<div>Hey. How are you?</div>');
+  r.write('<a href=http://apple.com>');
+  r.write('</a>');
+
+  r.end();
 });

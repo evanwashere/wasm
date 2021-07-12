@@ -1,0 +1,1 @@
+interface based on https://developers.cloudflare.com/workers/runtime-apis/html-rewriter
