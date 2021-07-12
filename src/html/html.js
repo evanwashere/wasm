@@ -3,7 +3,6 @@ const rewriters = new Map;
 const __c__ = Symbol('lhc');
 const handlers = new WeakMap;
 const callbacks = new WeakMap;
-const ta = async x => { throw x; };
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
@@ -496,7 +495,7 @@ class Element {
 
   setAttribute(name, value) {
     this.#guard();
-    const v = encode_utf8(name);
+    const v = encode_utf8(value);
     const key = encode_utf8(name);
 
     const vptr = mem.alloc(v.length);

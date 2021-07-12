@@ -285,6 +285,11 @@ Deno.test('html', () => {
   r.on('div', {
     element(el) {
       assert.is(el.tagName, 'div');
+      assert.equal([...el.attributes], []);
+
+      el.setAttribute('name', 'test');
+      assert.is(el.getAttribute('name'), 'test');
+      assert.is(el.namespaceURI, 'http://www.w3.org/1999/xhtml');
     },
 
     text(text) {
