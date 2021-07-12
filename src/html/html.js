@@ -14,7 +14,7 @@ const callbacks = new WeakMap;
       element(id, kind, index, ptr) {
         const r = rewriters.get(id);
         const h = handlers.get(r).on[index];
-        if (0 === kind) { const text = new Text(ptr, wasm); (h.end(text), text[__c__]()); }
+        if (0 === kind) { const text = new Text(ptr, wasm); (h.text(text), text[__c__]()); }
         else if (1 === kind) { const element = new Element(ptr, wasm); (h.element(element), element[__c__]()); }
         else if (2 === kind) { const comment = new Comment(ptr, wasm); (h.comments(comment), comment[__c__]()); }
       },
@@ -288,6 +288,8 @@ class Text {
   get text() {
     this.#guard();
     const ptr = this.#wasm.text_text_get(this.#ptr);
+
+    if (0 === ptr) return '';
     const str = decode_utf8(mem.u8(ptr, mem.length()));
 
     return (mem.free(ptr, mem.length()), str);

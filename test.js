@@ -286,6 +286,10 @@ Deno.test('html', () => {
     element(el) {
       assert.is(el.tagName, 'div');
     },
+
+    text(text) {
+      if (text.text) assert.is(text.text, 'Hey. How are you?');
+    }
   });
 
   r.on('a', {

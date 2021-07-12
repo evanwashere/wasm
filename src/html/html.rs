@@ -51,7 +51,7 @@ impl OutputSink for ffi::io::fd {
 #[no_mangle] unsafe extern "C" fn text_remove(ptr: *mut html_content::TextChunk) { (*ptr).remove(); }
 #[no_mangle] unsafe extern "C" fn text_removed(ptr: *mut html_content::TextChunk) -> u8 { if (*ptr).removed() { 1 } else { 0 } }
 #[no_mangle] unsafe extern "C" fn text_last_in_text_node(ptr: *mut html_content::TextChunk) -> u8 { if (*ptr).last_in_text_node() { 1 } else { 0 } }
-#[no_mangle] unsafe extern "C" fn text_text_get(ptr: *mut html_content::TextChunk) -> ffi::mem::buf { return ffi::io::store((*ptr).as_str().as_bytes().to_owned()); }
+#[no_mangle] unsafe extern "C" fn text_text_get(ptr: *mut html_content::TextChunk) -> ffi::mem::buf { let str = (*ptr).as_str(); return if str.is_empty() { ffi::ptr::err(0) } else { ffi::io::store(str.as_bytes().to_vec()) }; }
 #[no_mangle] unsafe extern "C" fn text_after(ptr: *mut html_content::TextChunk, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).after(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn text_before(ptr: *mut html_content::TextChunk, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).before(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn text_replace(ptr: *mut html_content::TextChunk, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).replace(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
@@ -143,7 +143,7 @@ impl OutputSink for ffi::io::fd {
     }
   }).collect();
 
-  let document_handlers = json.element_handlers.iter().map(|x| {
+  let document_handlers = json.document_handlers.iter().map(|x| {
     let kind = x.kind;
     let index = x.index;
 
