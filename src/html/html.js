@@ -3,6 +3,7 @@ const rewriters = new Map;
 const __c__ = Symbol('lhc');
 const handlers = new WeakMap;
 const callbacks = new WeakMap;
+const ta = async x => { throw x; };
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
@@ -14,18 +15,28 @@ const callbacks = new WeakMap;
       element(id, kind, index, ptr) {
         const r = rewriters.get(id);
         const h = handlers.get(r).on[index];
-        if (0 === kind) { const text = new Text(ptr, wasm); (h.text(text), text[__c__]()); }
-        else if (1 === kind) { const element = new Element(ptr, wasm); (h.element(element), element[__c__]()); }
-        else if (2 === kind) { const comment = new Comment(ptr, wasm); (h.comments(comment), comment[__c__]()); }
+
+        try {
+          if (0 === kind) { const text = new Text(ptr, wasm); (h.text(text), text[__c__]()); }
+          else if (1 === kind) { const element = new Element(ptr, wasm); (h.element(element), element[__c__]()); }
+          else if (2 === kind) { const comment = new Comment(ptr, wasm); (h.comments(comment), comment[__c__]()); }
+        } catch (err) { return (rewriters.get(id).error = err, 0); }
+
+        return 1;
       },
 
       document(id, kind, index, ptr) {
         const r = rewriters.get(id);
         const h = handlers.get(r).document[index];
-        if (0 === kind) { const end = new End(ptr, wasm); (h.end(end), end[__c__]()); }
-        else if (2 === kind) { const text = new Text(ptr, wasm); (h.text(text), text[__c__]()); }
-        else if (1 === kind) { const doctype = new Doctype(ptr, wasm); (h.doctype(doctype), doctype[__c__]()); }
-        else if (3 === kind) { const comment = new Comment(ptr, wasm); (h.comments(comment), comment[__c__]()); }
+
+        try {
+          if (0 === kind) { const end = new End(ptr, wasm); (h.end(end), end[__c__]()); }
+          else if (2 === kind) { const text = new Text(ptr, wasm); (h.text(text), text[__c__]()); }
+          else if (1 === kind) { const doctype = new Doctype(ptr, wasm); (h.doctype(doctype), doctype[__c__]()); }
+          else if (3 === kind) { const comment = new Comment(ptr, wasm); (h.comments(comment), comment[__c__]()); }
+        } catch (err) { return (rewriters.get(id).error = err, 0); }
+
+        return 1;
       },
     },
   });
@@ -73,8 +84,10 @@ export class Rewriter {
 
     this.#ptr = null;
     if (registry) registry.unregister(this);
-    if (1 === c) throw new Error('html: memory limit has been exceeded');
-    if (2 === c) throw new Error('html: parser has encountered a text content tag in the context where it is ambiguous whether this tag should be ignored or not');
+
+    if (3 === c) throw this.error;
+    if (2 === c) throw new Error('html: memory limit has been exceeded');
+    if (1 === c) throw new Error('html: parser has encountered a text content tag in the context where it is ambiguous whether this tag should be ignored or not');
   }
 
   write(chunk) {
@@ -87,8 +100,9 @@ export class Rewriter {
     mem.u8(ptr, chunk.length).set(chunk);
     const c = wasm.write(this.#ptr, ptr, chunk.length);
 
-    if (1 === c) throw (this.drop(), new Error('html: memory limit has been exceeded'));
-    if (2 === c) throw (this.drop(), new Error('html: parser has encountered a text content tag in the context where it is ambiguous whether this tag should be ignored or not'));
+    if (3 === c) throw (this.drop(), this.error);
+    if (2 === c) throw (this.drop(), new Error('html: memory limit has been exceeded'));
+    if (1 === c) throw (this.drop(), new Error('html: parser has encountered a text content tag in the context where it is ambiguous whether this tag should be ignored or not'));
   }
 
   on(selector, handler) {

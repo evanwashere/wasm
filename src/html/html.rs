@@ -16,8 +16,8 @@ mod js {
 
   extern "C" {
     pub fn chunk(id: u64, ptr: mem::buf);
-    pub fn element(id: u64, kind: u8, index: usize, ptr: *mut ffi::void);
-    pub fn document(id: u64, kind: u8, index: usize, ptr: *mut ffi::void);
+    pub fn element(id: u64, kind: u8, index: usize, ptr: *mut ffi::void) -> u8;
+    pub fn document(id: u64, kind: u8, index: usize, ptr: *mut ffi::void) -> u8;
   }
 }
 
@@ -86,9 +86,9 @@ impl OutputSink for ffi::io::fd {
   return match ffi::ptr::unpack(ptr).inner.end() {
     Ok(_) => 0,
     Err(err) => match err {
-      errors::RewritingError::ParsingAmbiguity(_) => 2,
-      errors::RewritingError::MemoryLimitExceeded(_) => 1,
-      errors::RewritingError::ContentHandlerError(_) => ffi::zzz::unreachable(),
+      errors::RewritingError::ParsingAmbiguity(_) => 1,
+      errors::RewritingError::MemoryLimitExceeded(_) => 2,
+      errors::RewritingError::ContentHandlerError(_) => 3,
     },
   };
 }
@@ -97,9 +97,9 @@ impl OutputSink for ffi::io::fd {
   return match (*ptr).inner.write(&ffi::io::load(bptr, blen)) {
     Ok(_) => 0,
     Err(err) => match err {
-      errors::RewritingError::ParsingAmbiguity(_) => 2,
-      errors::RewritingError::MemoryLimitExceeded(_) => 1,
-      errors::RewritingError::ContentHandlerError(_) => ffi::zzz::unreachable(),
+      errors::RewritingError::ParsingAmbiguity(_) => 1,
+      errors::RewritingError::MemoryLimitExceeded(_) => 2,
+      errors::RewritingError::ContentHandlerError(_) => 3,
     },
   };
 }
@@ -135,9 +135,9 @@ impl OutputSink for ffi::io::fd {
     let index = x.index;
 
     match x.kind {
-      0 => text!(x.name.to_owned(), move |c| { js::element(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
-      1 => element!(x.name.to_owned(), move |c| { js::element(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
-      2 => comments!(x.name.to_owned(), move |c| { js::element(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
+      0 => text!(x.name.to_owned(), move |c| { let x = js::element(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
+      1 => element!(x.name.to_owned(), move |c| { let x = js::element(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
+      2 => comments!(x.name.to_owned(), move |c| { let x = js::element(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
 
       _ => ffi::zzz::unreachable(),
     }
@@ -148,10 +148,10 @@ impl OutputSink for ffi::io::fd {
     let index = x.index;
 
     match x.kind {
-      0 => end!(move |c| { js::document(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
-      1 => doctype!(move |c| { js::document(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
-      2 => doc_text!(move |c| { js::document(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
-      3 => doc_comments!(move |c| { js::document(id, kind, index, c as *mut _ as *mut ffi::void); return Ok(()); }),
+      0 => end!(move |c| { let x = js::document(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
+      1 => doctype!(move |c| { let x = js::document(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
+      2 => doc_text!(move |c| { let x = js::document(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
+      3 => doc_comments!(move |c| { let x = js::document(id, kind, index, c as *mut _ as *mut ffi::void); return if x == 1 { Ok(()) } else { Err(std::io::Error::new(std::io::ErrorKind::Other, "js").into()) }; }),
 
       _ => ffi::zzz::unreachable(),
     }
