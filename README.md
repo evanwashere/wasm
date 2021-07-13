@@ -18,3 +18,7 @@ import * as snappy from 'https://unpkg.com/@evan/wasm@0.0.44/target/snappy/deno.
 
 snappy.compress(new Uint8Array(100));
 ```
+
+## License
+
+MIT © [Evan](https://github.com/evanwashere)
