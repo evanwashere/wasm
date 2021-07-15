@@ -280,10 +280,12 @@ Deno.test('simd-brotli-stream', async () => {
 });
 
 Deno.test('html', () => {
+  let tel = null;
   const r = new html.Rewriter(null);
 
   r.on('div', {
     element(el) {
+      tel = el;
       assert.is(el.tagName, 'div');
       assert.equal([...el.attributes], []);
 
@@ -305,8 +307,14 @@ Deno.test('html', () => {
   });
 
   r.write('<div>Hey. How are you?</div>');
+
+  assert.throws(() => tel.tagName);
   r.write('<a href=http://apple.com>');
+  assert.throws(() => r.on('div', { text() {} }));
+
   r.write('</a>');
 
   r.end();
+
+  assert.throws(() => r.write('test'));
 });
