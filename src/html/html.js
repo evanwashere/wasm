@@ -400,9 +400,10 @@ class Element {
     const ptr = this.#wasm.element_get_attribute(this.#ptr, bptr, buffer.length);
 
     if (!ptr) return null;
-    const str = decode_utf8(mem.u8(ptr, mem.length()));
+    const len = mem.length();
+    const str = decode_utf8(mem.u8(ptr, len));
 
-    return (mem.free(ptr, mem.length()), str);
+    return (mem.free(ptr, len), str);
   }
 
   after(content, options = {}) {

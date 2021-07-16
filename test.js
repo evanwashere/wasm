@@ -16,7 +16,6 @@ import * as simd_snappy from './target/snappy/simd.js';
 import * as simd_ed25519 from './target/ed25519/simd.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
 
-
 const zero1024 = new Uint8Array(1024);
 const random1024 = crypto.getRandomValues(new Uint8Array(1024));
 
@@ -279,42 +278,78 @@ Deno.test('simd-brotli-stream', async () => {
   }
 });
 
-Deno.test('html', () => {
-  let tel = null;
-  const r = new html.Rewriter(null);
+Deno.test('html', async () => {
+  logic: {
+    let tel = null;
+    const r = new html.Rewriter(null);
 
-  r.on('div', {
-    element(el) {
-      tel = el;
-      assert.is(el.tagName, 'div');
-      assert.equal([...el.attributes], []);
+    r.on('div', {
+      element(el) {
+        tel = el;
+        assert.is(el.tagName, 'div');
+        assert.equal([...el.attributes], []);
 
-      el.setAttribute('name', 'test');
-      assert.is(el.getAttribute('name'), 'test');
-      assert.is(el.namespaceURI, 'http://www.w3.org/1999/xhtml');
-    },
+        el.setAttribute('name', 'test');
+        assert.is(el.getAttribute('name'), 'test');
+        assert.is(el.namespaceURI, 'http://www.w3.org/1999/xhtml');
+      },
 
-    text(text) {
-      if (text.text) assert.is(text.text, 'Hey. How are you?');
+      text(text) {
+        if (text.text) assert.is(text.text, 'Hey. How are you?');
+      }
+    });
+
+    r.on('a', {
+      element(el) {
+        el.remove();
+        assert.ok(el.removed);
+      },
+    });
+
+    r.write('<div>Hey. How are you?</div>');
+
+    assert.throws(() => tel.tagName);
+    r.write('<a href=http://apple.com>');
+    assert.throws(() => r.on('div', { text() { } }));
+
+    r.write('</a>');
+
+    r.end();
+
+    assert.throws(() => r.write('test'));
+  }
+
+  real: {
+    const req = await fetch('https://html.duckduckgo.com/html/?q=3 O\'clock');
+
+    let result;
+    const results = [];
+    const r = new html.Rewriter();
+
+    r.on('a[class="result__a"]', {
+      element(element) {
+        results.push(result = { title: '', summary: '', url: new URLSearchParams(/(\?.*)/.exec(element.getAttribute('href'))[1]).get('uddg') });
+      },
+
+      text(element) {
+        result.title += element.text;
+      },
+    });
+
+    r.on('a[class="result__snippet"]', {
+      text(element) {
+        result.summary += element.text;
+      }
+    });
+
+    for await (const chunk of req.body) r.write(chunk);
+
+    r.end();
+
+    for (const link of results) {
+      assert.ok(link.title);
+      assert.ok(link.summary);
+      assert.not.throws(() => new URL(link.url));
     }
-  });
-
-  r.on('a', {
-    element(el) {
-      el.remove();
-      assert.ok(el.removed);
-    },
-  });
-
-  r.write('<div>Hey. How are you?</div>');
-
-  assert.throws(() => tel.tagName);
-  r.write('<a href=http://apple.com>');
-  assert.throws(() => r.on('div', { text() {} }));
-
-  r.write('</a>');
-
-  r.end();
-
-  assert.throws(() => r.write('test'));
+  }
 });
