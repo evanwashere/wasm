@@ -161,7 +161,6 @@ class End {
   append(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.end_append(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -236,10 +235,9 @@ class Comment {
     return (mem.free(ptr, mem.length()), str);
   }
 
-  set text(text) {
+  set text(content) {
     this.#guard();
-    const buffer = encode_utf8(text);
-
+    const buffer = encode_utf8(content);
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     const c = this.#wasm.comment_text_set(this.#ptr, ptr, buffer.length);
@@ -251,7 +249,6 @@ class Comment {
   after(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.comment_after(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -262,7 +259,6 @@ class Comment {
   before(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.comment_before(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -273,7 +269,6 @@ class Comment {
   replace(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.comment_replace(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -311,7 +306,6 @@ class Text {
   after(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.text_after(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -322,7 +316,6 @@ class Text {
   before(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.text_before(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -333,7 +326,6 @@ class Text {
   replace(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.text_replace(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -416,7 +408,6 @@ class Element {
   after(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.element_after(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -427,7 +418,6 @@ class Element {
   append(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.element_append(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -438,7 +428,6 @@ class Element {
   before(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.element_before(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -449,7 +438,6 @@ class Element {
   prepend(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.element_prepend(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -460,7 +448,6 @@ class Element {
   replace(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.element_replace(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -471,7 +458,6 @@ class Element {
   setInnerContent(content, options = {}) {
     this.#guard();
     const buffer = encode_utf8(content);
-
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     this.#wasm.element_set_inner_content(this.#ptr, ptr, buffer.length, options.html ? 1 : 0);
@@ -479,10 +465,9 @@ class Element {
     return this;
   }
 
-  set tagName(name) {
+  set tagName(content) {
     this.#guard();
-    const buffer = encode_utf8(name);
-
+    const buffer = encode_utf8(content);
     const ptr = mem.alloc(buffer.length);
     mem.u8(ptr, buffer.length).set(buffer);
     const c = this.#wasm.element_set_tag_name(this.#ptr, ptr, buffer.length);
@@ -497,7 +482,6 @@ class Element {
     this.#guard();
     const v = encode_utf8(value);
     const key = encode_utf8(name);
-
     const vptr = mem.alloc(v.length);
     const kptr = mem.alloc(key.length);
 
