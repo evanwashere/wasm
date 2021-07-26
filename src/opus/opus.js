@@ -182,9 +182,10 @@ export class Encoder {
   ctl(cmd, arg) { if (arg == null) return wasm.opus_encoder_ctl_get(this.#ptr, cmd); else return err(wasm.opus_encoder_ctl_set(this.#ptr, cmd, arg)); }
 
   encode(size, buffer) {
-    if (buffer.byteLength !== 2 * size * this.channels) throw new Error('opus: invalid buffer size');
+    const r16 = new Int16Array(buffer.buffer, buffer.byteOffset, buffer.byteLength / 2);
+    if (r16.length !== size * this.channels) throw new Error('opus: invalid buffer size');
 
-    i16.set(buffer, bptr / 2);
+    i16.set(r16, bptr / 2);
     const l = err(wasm.opus_encode(this.#ptr, bptr, size, pptr, this.max_opus_size));
 
     return u8.slice(pptr, l + pptr);
