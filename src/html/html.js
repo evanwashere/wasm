@@ -112,7 +112,7 @@ export class Rewriter {
 
     mem.u8(ptr, buf.length).set(buf);
     const c = wasm.validate_selector(ptr, buf.length);
-    if (0 !== c) throw new SyntaxError(decode_utf8(mem.u8(c, mem.length())));
+    if (0 !== c) throw new SyntaxError(`html: ${decode_utf8(mem.u8(c, mem.length()))}`);
     
     const h = handlers.get(this).on;
 
