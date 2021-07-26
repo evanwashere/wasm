@@ -282,6 +282,7 @@ Deno.test('html', async () => {
   logic: {
     let tel = null;
     const r = new html.Rewriter(null);
+    assert.throws(() => r.on('div[', {}));
 
     r.on('div', {
       element(el) {

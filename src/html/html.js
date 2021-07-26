@@ -50,6 +50,7 @@ class mem {
   static free(ptr, size) { return wasm.wfree(ptr, size); }
   static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
   static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+  static gc(f) { return !('FinalizationRegistry' in globalThis) ? { delete(_) { }, add(_, __) { } } : { r: new FinalizationRegistry(f), delete(k) { this.r.unregister(k); }, add(k, v) { this.r.register(k, v, k); } }; }
 
   static copy_and_free(ptr, size) {
     let slice = mem.u8(ptr, size).slice();
@@ -57,7 +58,7 @@ class mem {
   }
 }
 
-const registry = 'FinalizationRegistry' in globalThis ? new FinalizationRegistry(ptr => wasm.free(ptr)) : null;
+const gc = mem.gc(ptr => wasm.free(ptr));
 const encode_utf8 = 'Deno' in globalThis ? Deno.core.encode : (() => { const e = new TextEncoder(); return s => e.encode(s); })();
 const decode_utf8 = 'Deno' in globalThis ? Deno.core.decode : (() => { const d = new TextDecoder(); return b => d.decode(b); })();
 
@@ -71,8 +72,8 @@ export class Rewriter {
   }
 
   drop() {
+    gc.delete(this);
     this.#ptr = wasm.free(this.#ptr);
-    if (registry) registry.unregister(this);
   }
 
   end() {
@@ -81,9 +82,8 @@ export class Rewriter {
 
     const c = wasm.end(this.#ptr);
 
+    gc.delete(this);
     this.#ptr = null;
-    if (registry) registry.unregister(this);
-
     if (3 === c) throw this.error;
     if (2 === c) throw new Error('html: memory limit has been exceeded');
     if (1 === c) throw new Error('html: parser has encountered a text content tag in the context where it is ambiguous whether this tag should be ignored or not');
@@ -107,6 +107,13 @@ export class Rewriter {
   on(selector, handler) {
     if (0 !== this.#ptr) throw new Error('html: cannot add handler after writing');
 
+    const buf = encode_utf8(selector);
+    const ptr = mem.alloc(buf.length);
+
+    mem.u8(ptr, buf.length).set(buf);
+    const c = wasm.validate_selector(ptr, buf.length);
+    if (0 !== c) throw new SyntaxError(decode_utf8(mem.u8(c, mem.length())));
+    
     const h = handlers.get(this).on;
 
     h.push(handler);
@@ -132,7 +139,6 @@ export class Rewriter {
   #init() {
     const h = handlers.get(this);
     rewriters.set(this.#t = mem.token(), this);
-    if (registry) registry.register(this, this.#ptr, this);
 
     const json = encode_utf8(JSON.stringify({
       strict: true,
@@ -142,7 +148,7 @@ export class Rewriter {
 
     const ptr = mem.alloc(json.length);
     mem.u8(ptr, json.length).set(json);
-    this.#ptr = wasm.new(this.#t, callbacks.get(this) ? 1 : 0, ptr, json.length);
+    gc.add(this, this.#ptr = wasm.new(this.#t, callbacks.get(this) ? 1 : 0, ptr, json.length));
   }
 }
 

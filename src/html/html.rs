@@ -36,14 +36,14 @@ impl OutputSink for ffi::io::fd {
 }
 
 #[no_mangle] unsafe extern "C" fn free(ptr: *mut rewriter) { ffi::ptr::drop(ptr); }
-#[no_mangle] unsafe extern "C" fn doctype_name(ptr: *mut html_content::Doctype) -> ffi::mem::buf { return (*ptr).name().map_or(ffi::ptr::err(0), |x| ffi::io::store(x.as_bytes().to_owned())); }
-#[no_mangle] unsafe extern "C" fn doctype_system_id(ptr: *mut html_content::Doctype) -> ffi::mem::buf { return (*ptr).system_id().map_or(ffi::ptr::err(0), |x| ffi::io::store(x.as_bytes().to_owned())); }
-#[no_mangle] unsafe extern "C" fn doctype_public_id(ptr: *mut html_content::Doctype) -> ffi::mem::buf { return (*ptr).public_id().map_or(ffi::ptr::err(0), |x| ffi::io::store(x.as_bytes().to_owned())); }
+#[no_mangle] unsafe extern "C" fn doctype_name(ptr: *mut html_content::Doctype) -> ffi::mem::buf { return (*ptr).name().map_or(ffi::ptr::err(0), |x| ffi::io::store(x.into_bytes())); }
+#[no_mangle] unsafe extern "C" fn doctype_system_id(ptr: *mut html_content::Doctype) -> ffi::mem::buf { return (*ptr).system_id().map_or(ffi::ptr::err(0), |x| ffi::io::store(x.into_bytes())); }
+#[no_mangle] unsafe extern "C" fn doctype_public_id(ptr: *mut html_content::Doctype) -> ffi::mem::buf { return (*ptr).public_id().map_or(ffi::ptr::err(0), |x| ffi::io::store(x.into_bytes())); }
 #[no_mangle] unsafe extern "C" fn end_append(ptr: *mut html_content::DocumentEnd, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).append(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 
 #[no_mangle] unsafe extern "C" fn comment_remove(ptr: *mut html_content::Comment) { (*ptr).remove(); }
 #[no_mangle] unsafe extern "C" fn comment_removed(ptr: *mut html_content::Comment) -> u8 { if (*ptr).removed() { 1 } else { 0 } }
-#[no_mangle] unsafe extern "C" fn comment_text_get(ptr: *mut html_content::Comment) -> ffi::mem::buf { return ffi::io::store((*ptr).text().as_bytes().to_owned()); }
+#[no_mangle] unsafe extern "C" fn comment_text_get(ptr: *mut html_content::Comment) -> ffi::mem::buf { return ffi::io::store((*ptr).text().into_bytes()); }
 #[no_mangle] unsafe extern "C" fn comment_after(ptr: *mut html_content::Comment, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).after(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn comment_before(ptr: *mut html_content::Comment, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).before(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn comment_replace(ptr: *mut html_content::Comment, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).replace(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
@@ -59,18 +59,25 @@ impl OutputSink for ffi::io::fd {
 #[no_mangle] unsafe extern "C" fn element_remove(ptr: *mut html_content::Element) { (*ptr).remove(); }
 #[no_mangle] unsafe extern "C" fn element_removed(ptr: *mut html_content::Element) -> u8 { if (*ptr).removed() { 1 } else { 0 } }
 #[no_mangle] unsafe extern "C" fn element_remove_and_keep_content(ptr: *mut html_content::Element) { (*ptr).remove_and_keep_content(); }
-#[no_mangle] unsafe extern "C" fn element_tag_name(ptr: *mut html_content::Element) -> ffi::mem::buf { return ffi::io::store((*ptr).tag_name().as_bytes().to_owned()); }
-#[no_mangle] unsafe extern "C" fn element_namespace_uri(ptr: *mut html_content::Element) -> ffi::mem::buf { return ffi::io::store((*ptr).namespace_uri().as_bytes().to_owned()); }
+#[no_mangle] unsafe extern "C" fn element_tag_name(ptr: *mut html_content::Element) -> ffi::mem::buf { return ffi::io::store((*ptr).tag_name().into_bytes()); }
+#[no_mangle] unsafe extern "C" fn element_namespace_uri(ptr: *mut html_content::Element) -> ffi::mem::buf { return ffi::io::store((*ptr).namespace_uri().as_bytes().to_vec()); }
 #[no_mangle] unsafe extern "C" fn element_remove_attribute(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize) { (*ptr).remove_attribute(&ffi::io::string(bptr, blen)); }
 #[no_mangle] unsafe extern "C" fn element_has_attribute(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize) -> u8 { if (*ptr).has_attribute(&ffi::io::string(bptr, blen)) { 1 } else { 0 } }
 #[no_mangle] unsafe extern "C" fn element_attributes(ptr: *mut html_content::Element) -> ffi::mem::buf { return ffi::io::store(serde_json::to_vec(&attributes((*ptr).attributes().iter().map(|x| (x.name(), x.value())).collect())).unwrap_unchecked()); }
+#[no_mangle] unsafe extern "C" fn element_get_attribute(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize) -> ffi::mem::buf { (*ptr).get_attribute(&ffi::io::string(bptr, blen)).map_or(ffi::ptr::err(0), |x| ffi::io::store(x.into_bytes())) }
 #[no_mangle] unsafe extern "C" fn element_after(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).after(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
-#[no_mangle] unsafe extern "C" fn element_get_attribute(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize) -> ffi::mem::buf { (*ptr).get_attribute(&ffi::io::string(bptr, blen)).map_or(ffi::ptr::err(0), |x| ffi::io::store(x.as_bytes().to_owned())) }
 #[no_mangle] unsafe extern "C" fn element_append(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).append(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn element_before(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).before(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn element_replace(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).replace(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn element_prepend(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).prepend(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
 #[no_mangle] unsafe extern "C" fn element_set_inner_content(ptr: *mut html_content::Element, bptr: ffi::mem::buf, blen: usize, html: u8) { (*ptr).set_inner_content(&ffi::io::string(bptr, blen), if 0 == html { html_content::ContentType::Text } else { html_content::ContentType::Html }); }
+
+#[no_mangle] unsafe extern "C" fn validate_selector(ptr: ffi::mem::buf, len: usize) -> ffi::mem::buf {
+  return match ffi::io::string(ptr, len).parse::<lol_html::Selector>().err() {
+    None => ffi::ptr::err(0),
+    Some(x) => ffi::io::store(x.to_string().into_bytes()),
+  };
+}
 
 #[no_mangle] unsafe extern "C" fn comment_text_set(ptr: *mut html_content::Comment, bptr: ffi::mem::buf, blen: usize) -> u8 {
   return match (*ptr).set_text(&ffi::io::string(bptr, blen)) {
