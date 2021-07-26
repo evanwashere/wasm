@@ -16,6 +16,7 @@ let wasm;
 
 function clamp(min, int, max) { const t = int < min ? min : int; return t > max ? max : t; }
 function err(code) { if (0 > code) throw new Error(`opus: ${load_static_string(u8, wasm.opus_strerror(code))}`); else return code; }
+function cgc(f) { return !('FinalizationRegistry' in globalThis) ? { delete(_) { }, add(_, __) { } } : { r: new FinalizationRegistry(f), delete(k) { this.r.unregister(k); }, add(k, v) { this.r.register(k, v, k); } }; }
 
 function load_static_string(u8, ptr) {
   let s = '';
@@ -163,6 +164,7 @@ const convert = {
 
 const pptr = wasm.malloc(2 ** 13);
 const bptr = wasm.malloc(2 ** 15);
+const gc = cgc(ptr => wasm.free(ptr));
 
 export class Encoder {
   #ptr = 0;
@@ -172,11 +174,11 @@ export class Encoder {
     this.channels = channels || 2;
     application = ctl.application[application || 'audio'];
     this.max_opus_size = max_opus_size || this.max_opus_size;
-    this.#ptr = wasm.malloc(wasm.opus_encoder_get_size(this.channels));
+    gc.add(this, this.#ptr = wasm.malloc(wasm.opus_encoder_get_size(this.channels)));
     try { err(wasm.opus_encoder_init(this.#ptr, sample_rate || 48000, this.channels, application)); } catch (e) { throw (this.drop(), e); }
   }
 
-  drop() { if (this.#ptr) (wasm.free(this.#ptr), this.#ptr = 0); }
+  drop() { if (this.#ptr) (gc.delete(this), wasm.free(this.#ptr), this.#ptr = 0); }
   ctl(cmd, arg) { if (arg == null) return wasm.opus_encoder_ctl_get(this.#ptr, cmd); else return err(wasm.opus_encoder_ctl_set(this.#ptr, cmd, arg)); }
 
   encode(size, buffer) {
