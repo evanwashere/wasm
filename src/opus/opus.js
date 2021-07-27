@@ -165,6 +165,7 @@ const convert = {
 const pptr = wasm.malloc(2 ** 13);
 const bptr = wasm.malloc(2 ** 15);
 const gc = cgc(ptr => wasm.free(ptr));
+const bptrs = u8.subarray(bptr, bptr + 2 ** 15);
 
 export class Encoder {
   #ptr = 0;
@@ -181,12 +182,9 @@ export class Encoder {
   drop() { if (this.#ptr) (gc.delete(this), wasm.free(this.#ptr), this.#ptr = 0); }
   ctl(cmd, arg) { if (arg == null) return wasm.opus_encoder_ctl_get(this.#ptr, cmd); else return err(wasm.opus_encoder_ctl_set(this.#ptr, cmd, arg)); }
 
-  encode(size, buffer) {
-    const r16 = new Int16Array(buffer.buffer, buffer.byteOffset, buffer.byteLength / 2);
-    if (r16.length !== size * this.channels) throw new Error('opus: invalid buffer size');
-
-    i16.set(r16, bptr / 2);
-    const l = err(wasm.opus_encode(this.#ptr, bptr, size, pptr, this.max_opus_size));
+  encode(buffer) {
+    bptrs.set(buffer = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength));
+    const l = err(wasm.opus_encode(this.#ptr, bptr, buffer.length / 2 / this.channels, pptr, this.max_opus_size));
 
     return u8.slice(pptr, l + pptr);
   }
@@ -196,15 +194,15 @@ export class Encoder {
     const self = this;
     const r = 2 * size * this.channels;
 
-    let t16 = new Int16Array(r / 2);
-    const t8 = new Uint8Array(t16.buffer);
+    const t8 = new Uint8Array(r);
 
     function* consume(buf) {
       let offset = 0;
 
       while (offset < buf.length) {
         const s = buf.subarray(offset, offset += r);
-        if (r === s.length) yield self.encode(size, new Int16Array(s.buffer, s.byteOffset, s.byteLength / 2));
+
+        if (r === s.length) yield self.encode(s);
         else {
           t8.set(s, needle);
           needle += s.length;
@@ -223,7 +221,7 @@ export class Encoder {
         if (rr > b8.length) (t8.set(b8, needle), needle += b8.length);
         else {
           t8.set(b8.subarray(0, rr), needle);
-          yield (needle = 0, self.encode(size, t16));
+          yield (needle = 0, self.encode(t8));
           for (const x of consume(b8.subarray(rr))) yield x;
         }
       }
