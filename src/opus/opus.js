@@ -1,15 +1,30 @@
 let u8;
 let wasm;
+let pptr;
+let bptr;
+let pptrs;
+let bptrs;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
   const instance = new WebAssembly.Instance(module, {
     wasi_snapshot_preview1: { fd_seek() { }, fd_write() { }, fd_close() { }, proc_exit() { } },
-    env: { emscripten_notify_memory_growth() { u8 = new Uint8Array(wasm.memory.buffer); i16 = new Int16Array(wasm.memory.buffer); } },
+
+    env: {
+      emscripten_notify_memory_growth() {
+        u8 = new Uint8Array(wasm.memory.buffer);
+        pptrs = u8.subarray(pptr, pptr + 2 ** 13);
+        bptrs = u8.subarray(bptr, bptr + 2 ** 15);
+      },
+    },
   });
 
   wasm = instance.exports;
+  pptr = wasm.malloc(2 ** 13);
+  bptr = wasm.malloc(2 ** 15);
   u8 = new Uint8Array(wasm.memory.buffer);
+  pptrs = u8.subarray(pptr, pptr + 2 ** 13);
+  bptrs = u8.subarray(bptr, bptr + 2 ** 15);
 }
 
 function clamp(min, int, max) { const t = int < min ? min : int; return t > max ? max : t; }
@@ -28,8 +43,6 @@ function load_static_string(u8, ptr) {
 
   return s;
 }
-
-// todo decoder
 
 export const ctl = {
   auto: -1000,
@@ -160,20 +173,31 @@ const convert = {
   },
 }
 
-const pptr = wasm.malloc(2 ** 13);
-const bptr = wasm.malloc(2 ** 15);
+const pptrl = 2 ** 13;
 const gc = cgc(ptr => wasm.free(ptr));
-const bptrs = u8.subarray(bptr, bptr + 2 ** 15);
 
-export class Encoder {
+class RawDecoder {
   #ptr = 0;
-  max_opus_size = 2 ** 13;
+  constructor({ channels, sample_rate }) {
+    gc.add(this, this.#ptr = wasm.malloc(wasm.opus_decoder_get_size(this.channels = channels || 2)));
+    try { err(wasm.opus_decoder_init(this.#ptr, sample_rate || 48000, this.channels)); } catch (e) { throw (this.drop(), e); }
+  }
 
-  constructor({ channels, application, sample_rate, max_opus_size }) {
+  drop() { if (this.#ptr) (gc.delete(this), wasm.free(this.#ptr), this.#ptr = 0); }
+  ctl(cmd, arg) { if (arg == null) return wasm.opus_decoder_ctl_get(this.#ptr, cmd); else return err(wasm.opus_decoder_ctl_set(this.#ptr, cmd, arg)); }
+
+  decode(buffer) {
+    pptrs.set(buffer = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength));
+    return bptrs.slice(0, 2 * this.channels * err(wasm.opus_decode(this.#ptr, pptr, buffer.length, bptr, 5760, 0)));
+  }
+}
+
+class RawEncoder {
+  #ptr = 0;
+  constructor({ channels, application, sample_rate }) {
     this.channels = channels || 2;
-    application = ctl.application[application || 'audio'];
-    this.max_opus_size = max_opus_size || this.max_opus_size;
     gc.add(this, this.#ptr = wasm.malloc(wasm.opus_encoder_get_size(this.channels)));
+    application = ({ voip: 2048, audio: 2049, restricted_lowdelay: 2051 })[application || 'audio'];
     try { err(wasm.opus_encoder_init(this.#ptr, sample_rate || 48000, this.channels, application)); } catch (e) { throw (this.drop(), e); }
   }
 
@@ -182,9 +206,37 @@ export class Encoder {
 
   encode(buffer) {
     bptrs.set(buffer = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength));
-    const l = err(wasm.opus_encode(this.#ptr, bptr, buffer.length / 2 / this.channels, pptr, this.max_opus_size));
+    return pptrs.slice(0, err(wasm.opus_encode(this.#ptr, bptr, buffer.length / 2 / this.channels, pptr, pptrl)));
+  }
+}
 
-    return u8.slice(pptr, l + pptr);
+export class Decoder extends RawDecoder {
+  constructor({ channels = 2, sample_rate = 48000 } = {}) {
+    super({ channels, sample_rate });
+
+    this.channels = channels;
+  }
+
+  // https://www.opus-codec.org/docs/opus_api-1.3.1/group__opus__decoderctls.html
+  get gain() { return this.ctl(ctl.get.gain); }
+  set gain(int) { this.ctl(ctl.set.gain, clamp(-32768, int, 32767)); }
+  get pitch() { const x = this.ctl(ctl.get.pitch); return 0 === x ? null : x }
+  get last_packet_duration() { return this.ctl(ctl.get.last_packet_duration); }
+
+  // https://www.opus-codec.org/docs/opus_api-1.3.1/group__opus__genericctls.html
+  reset() { this.ctl(ctl.reset_state); }
+  get in_dtx() { return !!this.ctl(ctl.get.in_dtx); }
+  get sample_rate() { return this.ctl(ctl.get.sample_rate); }
+  get bandwidth() { return convert.b[this.ctl(ctl.get.bandwidth)]; }
+  get phase_inversion_disabled() { return !!this.ctl(ctl.get.phase_inversion_disabled); }
+  set phase_inversion_disabled(bool) { this.ctl(ctl.set.phase_inversion_disabled, bool ? 1 : 0); }
+}
+
+export class Encoder extends RawEncoder {
+  constructor({ channels = 2, application, sample_rate = 48000 } = {}) {
+    super({ channels, sample_rate, application: application || 'audio' });
+
+    this.channels = channels;
   }
 
   async *encode_pcm_stream(size, iter) {
