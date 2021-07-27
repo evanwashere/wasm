@@ -1,5 +1,4 @@
 let u8;
-let i16;
 let wasm;
 
 {
@@ -11,7 +10,6 @@ let wasm;
 
   wasm = instance.exports;
   u8 = new Uint8Array(wasm.memory.buffer);
-  i16 = new Int16Array(wasm.memory.buffer);
 }
 
 function clamp(min, int, max) { const t = int < min ? min : int; return t > max ? max : t; }
