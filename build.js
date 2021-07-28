@@ -1,6 +1,6 @@
 import * as fflate from 'https://esm.sh/fflate@0.7.1';
-import * as esbuild from 'https://deno.land/x/esbuild@v0.12.15/mod.js';
-import { encode } from "https://deno.land/std@0.100.0/encoding/base64.ts";
+import * as esbuild from 'https://deno.land/x/esbuild@v0.12.16/mod.js';
+import { encode } from "https://deno.land/std@0.102.0/encoding/base64.ts";
 const { version } = JSON.parse(Deno.core.decode(await Deno.readFile('./package.json')));
 
 const key = 'WASM_BYTES';

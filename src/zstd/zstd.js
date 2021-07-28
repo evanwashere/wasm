@@ -1,5 +1,6 @@
 let u8;
 let wasm;
+console.log('zstd module is deprecated');
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
