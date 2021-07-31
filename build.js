@@ -1,6 +1,6 @@
-import * as fflate from 'https://esm.sh/fflate@0.7.1';
 import * as esbuild from 'https://deno.land/x/esbuild@v0.12.16/mod.js';
 import { encode } from "https://deno.land/std@0.102.0/encoding/base64.ts";
+import { compress } from 'https://esm.sh/@evan/wasm@0.0.76/target/zlib/deno.js';
 const { version } = JSON.parse(Deno.core.decode(await Deno.readFile('./package.json')));
 
 const key = 'WASM_BYTES';
@@ -14,8 +14,8 @@ for await (const dir of Deno.readDir('./src')) {
   console.log(`building ${dir.name}`);
   const path = `./target/${dir.name}`;
   const js = Deno.core.decode(await Deno.readFile(`./src/${dir.name}/${dir.name}.js`));
-  const wasm = encode(fflate.zlibSync(ow = await Deno.readFile(`./src/${dir.name}/${dir.name}.wasm`), { level: 9 }));
-  try { simd = encode(fflate.zlibSync(os = await Deno.readFile(`./src/${dir.name}/simd.wasm`), { level: 9 })); } catch { };
+  const wasm = encode(compress(ow = await Deno.readFile(`./src/${dir.name}/${dir.name}.wasm`), 12));
+  try { simd = encode(compress(os = await Deno.readFile(`./src/${dir.name}/simd.wasm`), 12)); } catch { };
 
   await Deno.mkdir(path).catch(() => { });
   const cjs = (await esbuild.transform(replacer(js, 'node'), { format: 'cjs', minify: false, target: 'node14' })).code;

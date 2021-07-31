@@ -1,5 +1,7 @@
 import { Pool } from 'https://jspm.dev/structurae@3.3.0'; // !deno
 
+console.log('brotli module is deprecated');
+
 let wasm;
 const streams = new Map; // !deno
 const pool = new Pool(256 * 1024); // !deno
