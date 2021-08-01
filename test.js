@@ -51,46 +51,6 @@ Deno.test('simd-ed25519', () => {
   assert.not.ok(simd_ed25519.verify(new Uint8Array(32), new Uint8Array(64), new Uint8Array(10)));
 });
 
-Deno.test('zstd', () => {
-  const zero_compressed = zstd.compress(zero1024);
-  const random_compressed = zstd.compress(random1024);
-  assert.equal(zstd.decompress(zero_compressed), zero1024);
-  assert.equal(zstd.decompress(random_compressed), random1024);
-  assert.throws(() => zstd.decompress(new Uint8Array([1, 2, 3, 4, 5])));
-  zstd.decompress_with(zero_compressed, null, slice => assert.is(slice.length, zero1024.length));
-  zstd.decompress_with(random_compressed, null, slice => assert.is(slice.length, random1024.length));
-});
-
-Deno.test('simd-zstd', () => {
-  const zero_compressed = simd_zstd.compress(zero1024);
-  const random_compressed = simd_zstd.compress(random1024);
-  assert.equal(simd_zstd.decompress(zero_compressed), zero1024);
-  assert.equal(simd_zstd.decompress(random_compressed), random1024);
-  assert.throws(() => simd_zstd.decompress(new Uint8Array([1, 2, 3, 4, 5])));
-  simd_zstd.decompress_with(zero_compressed, null, slice => assert.is(slice.length, zero1024.length));
-  simd_zstd.decompress_with(random_compressed, null, slice => assert.is(slice.length, random1024.length));
-});
-
-Deno.test('brotli', () => {
-  const zero_compressed = brotli.compress(zero1024);
-  const random_compressed = brotli.compress(random1024);
-  assert.equal(brotli.decompress(zero_compressed), zero1024);
-  assert.equal(brotli.decompress(random_compressed), random1024);
-  assert.throws(() => brotli.decompress(new Uint8Array([1, 2, 3, 4, 5])));
-  brotli.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
-  brotli.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
-});
-
-Deno.test('simd-brotli', () => {
-  const zero_compressed = simd_brotli.compress(zero1024);
-  const random_compressed = simd_brotli.compress(random1024);
-  assert.equal(simd_brotli.decompress(zero_compressed), zero1024);
-  assert.equal(simd_brotli.decompress(random_compressed), random1024);
-  assert.throws(() => simd_brotli.decompress(new Uint8Array([1, 2, 3, 4, 5])));
-  simd_brotli.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
-  simd_brotli.decompress_with(random_compressed, slice => assert.is(slice.length, random1024.length));
-});
-
 Deno.test('lz4', () => {
   const zero_compressed = lz4.compress(zero1024);
   const random_compressed = lz4.compress_raw(random1024);
@@ -176,20 +136,6 @@ Deno.test('opus', () => {
   assert.is(encoder.sample_rate, 48000);
 });
 
-Deno.test('zstd-stream', async () => {
-  compression: {
-    function* gen() {
-      yield zero1024;
-    }
-
-    const chunks = [];
-    const stream = zstd.compress_stream(gen(), { size: zero1024.length });
-
-    for await (const chunk of stream) chunks.push(chunk);
-    assert.equal(zstd.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
-  }
-});
-
 Deno.test('snappy-stream', async () => {
   const { writable, readable } = new TransformStream();
 
@@ -216,67 +162,6 @@ Deno.test('simd-snappy-stream', async () => {
   const chunks = [];
   for await (const chunk of r) chunks.push(chunk);
   assert.equal(simd_snappy.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
-});
-
-Deno.test('brotli-stream', async () => {
-  compression: {
-    const { writable, readable } = new TransformStream();
-
-    const w = writable.getWriter();
-    const r = readable.pipeThrough(new brotli.CompressionStream());
-
-    w.write(zero1024);
-
-    w.close();
-    const chunks = [];
-    for await (const chunk of r) chunks.push(chunk);
-    assert.equal(brotli.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
-  }
-
-  decompression: {
-    const { writable, readable } = new TransformStream();
-
-    const w = writable.getWriter();
-    const r = readable.pipeThrough(new brotli.DecompressionStream());
-
-    w.write(brotli.compress(zero1024));
-
-    w.close();
-    const chunks = [];
-    for await (const chunk of r) chunks.push(chunk);
-    assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
-  }
-});
-
-
-Deno.test('simd-brotli-stream', async () => {
-  compression: {
-    const { writable, readable } = new TransformStream();
-
-    const w = writable.getWriter();
-    const r = readable.pipeThrough(new simd_brotli.CompressionStream());
-
-    w.write(zero1024);
-
-    w.close();
-    const chunks = [];
-    for await (const chunk of r) chunks.push(chunk);
-    assert.equal(simd_brotli.decompress(new Uint8Array(await new Blob(chunks).arrayBuffer())), zero1024);
-  }
-
-  decompression: {
-    const { writable, readable } = new TransformStream();
-
-    const w = writable.getWriter();
-    const r = readable.pipeThrough(new simd_brotli.DecompressionStream());
-
-    w.write(simd_brotli.compress(zero1024));
-
-    w.close();
-    const chunks = [];
-    for await (const chunk of r) chunks.push(chunk);
-    assert.equal(new Uint8Array(await new Blob(chunks).arrayBuffer()), zero1024);
-  }
 });
 
 Deno.test('html', async () => {
