@@ -302,11 +302,13 @@ class Text {
   get text() {
     this.#guard();
     const ptr = this.#wasm.text_text_get(this.#ptr);
+    return 0 === ptr ? '' : decode_utf8(mem.u8(ptr, mem.length()));
+  }
 
-    if (0 === ptr) return '';
-    const str = decode_utf8(mem.u8(ptr, mem.length()));
-
-    return (mem.free(ptr, mem.length()), str);
+  get buffer() {
+    this.#guard();
+    const ptr = this.#wasm.text_text_get(this.#ptr);
+    return 0 === ptr ? new Uint8Array(0) : mem.u8(ptr, mem.length());
   }
 
   after(content, options = {}) {
@@ -355,18 +357,11 @@ class Element {
   remove() { this.#guard(); this.#wasm.element_remove(this.#ptr); return this; }
   get removed() { this.#guard(); return !!this.#wasm.element_removed(this.#ptr); }
   removeAndKeepContent() { this.#guard(); this.#wasm.element_remove_and_keep_content(this.#ptr); return this; }
+  get namespaceURI() { this.#guard(); return decode_utf8(mem.u8(this.#wasm.element_namespace_uri(this.#ptr), mem.length())); }
 
   get tagName() {
     this.#guard();
     const ptr = this.#wasm.element_tag_name(this.#ptr);
-    const str = decode_utf8(mem.u8(ptr, mem.length()));
-
-    return (mem.free(ptr, mem.length()), str);
-  }
-
-  get namespaceURI() {
-    this.#guard();
-    const ptr = this.#wasm.element_namespace_uri(this.#ptr);
     const str = decode_utf8(mem.u8(ptr, mem.length()));
 
     return (mem.free(ptr, mem.length()), str);

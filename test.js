@@ -182,7 +182,13 @@ Deno.test('html', async () => {
       },
 
       text(text) {
-        if (text.text) assert.is(text.text, 'Hey. How are you?');
+        if (text.text) {
+          assert.is(text.text, 'Hey. How are you?');
+          assert.equal(text.buffer, Deno.core.encode('Hey. How are you?'));
+
+          text.buffer[0] = 'h'.charCodeAt(0);
+          assert.is(text.text, 'hey. How are you?');
+        }
       }
     });
 
