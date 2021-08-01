@@ -1,17 +1,13 @@
 import * as lz4 from './target/lz4/deno.js';
 import * as html from './target/html/deno.js';
 import * as nacl from './target/nacl/deno.js';
-import * as zstd from './target/zstd/deno.js';
 import * as zlib from './target/zlib/deno.js';
 import * as opus from './target/opus/deno.js';
 import Allocator from './target/alloc/deno.js';
 import * as simd_lz4 from './target/lz4/simd.js';
 import * as snappy from './target/snappy/deno.js';
-import * as brotli from './target/brotli/deno.js';
-import * as simd_zstd from './target/zstd/simd.js';
 import * as simd_nacl from './target/nacl/simd.js';
 import * as ed25519 from './target/ed25519/deno.js';
-import * as simd_brotli from './target/brotli/simd.js';
 import * as simd_snappy from './target/snappy/simd.js';
 import * as simd_ed25519 from './target/ed25519/simd.js';
 import * as assert from 'https://esm.sh/uvu@0.5.1/assert';

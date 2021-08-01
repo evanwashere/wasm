@@ -1,6 +1,3 @@
 [submodule "src/opus/opus"]
 	path = src/opus/opus
 	url = https://github.com/xiph/opus.git
-[submodule "src/zstd/zstd"]
-	path = src/zstd/zstd
-	url = https://github.com/facebook/zstd.git
