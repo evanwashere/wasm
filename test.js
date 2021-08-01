@@ -92,12 +92,13 @@ Deno.test('simd-brotli', () => {
 });
 
 Deno.test('lz4', () => {
-  const zero_compressed = lz4.compress_raw(zero1024);
+  const zero_compressed = lz4.compress(zero1024);
   const random_compressed = lz4.compress_raw(random1024);
+  assert.equal(lz4.decompress(zero_compressed), zero1024);
+  assert.throws(() => lz4.decompress(new Uint8Array([1, 2, 3, 4, 5])));
   assert.throws(() => lz4.decompress_raw(5, new Uint8Array([1, 2, 3, 4, 5])));
-  assert.equal(lz4.decompress_raw(zero1024.length, zero_compressed), zero1024);
   assert.equal(lz4.decompress_raw(random1024.length, random_compressed), random1024);
-  lz4.decompress_raw_with(zero1024.length, zero_compressed, slice => assert.is(slice.length, zero1024.length));
+  lz4.decompress_with(zero_compressed, slice => assert.is(slice.length, zero1024.length));
   lz4.decompress_raw_with(random1024.length, random_compressed, slice => assert.is(slice.length, random1024.length));
 });
 
