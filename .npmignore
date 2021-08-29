@@ -1,8 +1,11 @@
+lib/
 test*.*
 build.js
 src/*/*/**
+.gitmodules
 src/**/*.js
 src/**/*.rs
 src/**/*.md
 src/**/*.wat
 src/**/*.zig
+.gitattributes
