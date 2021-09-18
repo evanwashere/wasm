@@ -25,7 +25,6 @@ export function verify(key, sig, buffer) {
   const sptr = mem.alloc(64);
   const bptr = mem.alloc(buffer.length);
 
-
   mem.u8(kptr, 32).set(key);
   mem.u8(sptr, 64).set(sig);
   mem.u8(bptr, buffer.length).set(buffer);

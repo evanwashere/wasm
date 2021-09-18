@@ -59,8 +59,11 @@ class mem {
 }
 
 const gc = mem.gc(ptr => wasm.free(ptr));
-const encode_utf8 = 'Deno' in globalThis ? Deno.core.encode : (() => { const e = new TextEncoder(); return s => e.encode(s); })();
-const decode_utf8 = 'Deno' in globalThis ? Deno.core.decode : (() => { const d = new TextDecoder(); return b => d.decode(b); })();
+const decode_utf16 = Function.prototype.apply.bind(String.fromCharCode, null);
+const decode_utf8 = globalThis.Deno?.core?.decode ?? TextDecoder.prototype.decode.bind(new TextDecoder);
+const encode_ascii = x => { const l = x.length; const u8 = new Uint8Array(l); for (let o = 0; o < l; o++) u8[o] = x.charCodeAt(o); return u8; };
+const encode_utf16 = x => { const l = x.length; const u16 = new Uint16Array(l); for (let o = 0; o < l; o++) u16[o] = x.charCodeAt(o); return u16; };
+const encode_utf8 = globalThis.Deno?.core?.encode ?? globalThis.Buffer?.from.bind(globalThis.Buffer) ?? TextEncoder.prototype.encode.bind(new TextEncoder);
 
 export class Rewriter {
   #ptr = 0;
