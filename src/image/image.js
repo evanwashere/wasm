@@ -1,0 +1,70 @@
+let wasm;
+
+{
+  const module = new WebAssembly.Module(WASM_BYTES);
+  const instance = new WebAssembly.Instance(module);
+
+  wasm = instance.exports;
+}
+
+class mem {
+  static length() { return wasm.wlen(); }
+  static token() { return wasm.wtoken(); }
+  static alloc(size) { return wasm.walloc(size); }
+  static free(ptr, size) { return wasm.wfree(ptr, size); }
+  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
+  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+  static load(ptr) { return new Uint8Array(wasm.memory.buffer, ptr, wasm.wlen()); }
+  static gc(f) { return !('FinalizationRegistry' in globalThis) ? { delete(_) { }, add(_, __) { } } : { r: new FinalizationRegistry(f), delete(k) { this.r.unregister(k); }, add(k, v) { this.r.register(k, v, k); } }; }
+
+  static copy_and_free(ptr, size) {
+    let slice = mem.u8(ptr, size).slice();
+    return (wasm.wfree(ptr, size), slice);
+  }
+}
+
+const gc = mem.gc(ptr => wasm.free(ptr));
+
+export const filters = {
+  nearest: 0,
+  triangle: 1,
+  lanczos3: 2,
+  gaussian: 3,
+  catmullrom: 4,
+};
+
+export class framebuffer {
+  constructor(ptr) { gc.add(this, this.ptr = ptr); }
+  static new(width, height) { return new this(wasm.new(width, height)); }
+  static from(width, height, buffer) { const fb = new Image(width, height); return (fb.buffer.set(buffer), fb); }
+
+  get width() { return wasm.width(this.ptr) };
+  get height() { return wasm.height(this.ptr) };
+  get buffer() { return mem.load(wasm.buffer(this.ptr)); }
+
+  invert() { wasm.invert(this.ptr); }
+  tile(fb) { wasm.tile(this.ptr, fb.ptr); }
+  flip_vertical() { wasm.flip_vertical_in_place(this.ptr); }
+  huerotate(fb, deg) { wasm.huerotate_in_place(fb.ptr, deg); }
+  drop() { gc.delete((this.ptr = wasm.free(this.ptr), this)); }
+  flip_horizontal() { wasm.flip_horizontal_in_place(this.ptr); }
+  overlay(fb, x = 0, y = 0) { wasm.overlay(this.ptr, fb.ptr, x, y); }
+  replace(fb, x = 0, y = 0) { wasm.replace(this.ptr, fb.ptr, x, y); }
+  contrast(fb, contrast) { wasm.contrast_in_place(fb.ptr, contrast); }
+  brighten(fb, brightness) { wasm.brighten_in_place(fb.ptr, brightness); }
+  vertical_gradient(top, bottom) { wasm.vertical_gradient(this.ptr, ...top, ...bottom); }
+  horizontal_gradient(left, right) { wasm.horizontal_gradient(this.ptr, ...left, ...right); }
+}
+
+export function grayscale(fb) { return new framebuffer(wasm.grayscale(fb.ptr)); }
+export function blur(fb, sigma) { return new framebuffer(wasm.blur(fb.ptr, sigma)); }
+export function flip_vertical(fb) { return new framebuffer(wasm.flip_vertical(fb.ptr)); }
+export function huerotate(fb, deg) { return new framebuffer(wasm.huerotate(fb.ptr, deg)); }
+export function flip_horizontal(fb) { return new framebuffer(wasm.flip_horizontal(fb.ptr)); }
+export function contrast(fb, contrast) { return new framebuffer(wasm.contrast(fb.ptr, contrast)); }
+export function filter3x3(fb, kernel) { return new framebuffer(wasm.filter3x3(fb.ptr, ...kernel)); }
+export function brighten(fb, brightness) { return new framebuffer(wasm.brighten(fb.ptr, brightness)); }
+export function thumbnail(fb, width, height) { return new framebuffer(wasm.blur(fb.ptr, width, height)); }
+export function clone(fb) { const x = new Image(fb.width, fb.height); return (x.buffer.set(fb.buffer), x); }
+export function unsharpen(fb, sigma, threshold) { return new framebuffer(wasm.unsharpen(fb.ptr, sigma, threshold)); }
+export function resize(fb, width, height, filter = filters.nearest) { return new framebuffer(wasm.resize(fb.ptr, filter, width, height)); }

@@ -5,7 +5,11 @@
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 
-pub type void = std::ffi::c_void;
+pub type any = *mut ();
+
+pub mod zzz {
+  #[inline(always)] pub const unsafe fn unreachable() -> ! { std::hint::unreachable_unchecked(); }
+}
 
 pub mod ptr {
   #[inline] pub fn drop<T>(ptr: *mut T) { unpack(ptr); }
@@ -15,18 +19,10 @@ pub mod ptr {
 }
 
 pub mod mem {
-  pub type buf = *mut u8;
   pub static mut len: usize = 0;
   #[inline(always)] pub fn length() -> usize { unsafe { return len; } }
-  #[inline] pub fn alloc(size: usize) -> buf { unsafe { return std::alloc::alloc(std::alloc::Layout::from_size_align_unchecked(size, 1)); } }
-  #[inline] pub fn free(ptr: buf, size: usize) { unsafe { std::alloc::dealloc(ptr, std::alloc::Layout::from_size_align_unchecked(size, 1)); } }
-}
-
-pub mod zzz {
-  pub trait unwrap<T> { unsafe fn unwrap_unchecked(self) -> T; }
-  #[inline(always)] pub unsafe fn unreachable() -> ! { std::hint::unreachable_unchecked(); }
-  impl<T> unwrap<T> for Option<T> { #[inline(always)] unsafe fn unwrap_unchecked(self) -> T { if let Some(x) = self { x } else { unreachable() } } }
-  impl<T, E> unwrap<T> for Result<T, E> { #[inline(always)] unsafe fn unwrap_unchecked(self) -> T { if let Ok(x) = self { x } else { unreachable() } } }
+  #[inline] pub fn alloc(size: usize) -> *mut u8 { unsafe { return std::alloc::alloc(std::alloc::Layout::from_size_align_unchecked(size, 1)); } }
+  #[inline] pub fn free(ptr: *mut u8, size: usize) { unsafe { std::alloc::dealloc(ptr, std::alloc::Layout::from_size_align_unchecked(size, 1)); } }
 }
 
 mod ffi {
@@ -36,24 +32,24 @@ mod ffi {
   #[link(wasm_import_module = "io")]
   extern "C" {
     pub fn drop(id: u64);
-    pub fn write(id: u64, ptr: mem::buf);
-    pub fn read(id: u64, ptr: mem::buf) -> usize;
+    pub fn write(id: u64, ptr: *mut u8);
+    pub fn read(id: u64, ptr: *mut u8) -> usize;
   }
 
   #[no_mangle] unsafe extern "C" fn wlen() -> usize { return mem::length(); }
   #[no_mangle] unsafe extern "C" fn wtoken() -> u64 { token += 1; return token - 1; }
-  #[no_mangle] unsafe extern "C" fn wfree(ptr: mem::buf, size: usize) { mem::free(ptr, size); }
-  #[no_mangle] unsafe extern "C" fn walloc(size: usize) -> mem::buf { return mem::alloc(size); }
+  #[no_mangle] unsafe extern "C" fn wfree(ptr: *mut u8, size: usize) { mem::free(ptr, size); }
+  #[no_mangle] unsafe extern "C" fn walloc(size: usize) -> *mut u8 { return mem::alloc(size); }
 }
 
 pub mod io {
   use std::io;
   use super::{mem, ffi};
   pub struct fd { pub id: u64 }
-  #[inline] pub fn load(ptr: mem::buf, size: usize) -> Vec<u8> { unsafe { return Vec::from_raw_parts(ptr, size, size); } }
-  #[inline] pub fn peek(buffer: &[u8]) -> mem::buf { unsafe { mem::len = buffer.len(); } return buffer.as_ptr() as mem::buf; }
-  #[inline] pub fn string(ptr: mem::buf, size: usize) -> String { unsafe { return String::from_utf8_unchecked(load(ptr, size)); } }
-  #[inline] pub fn store(mut buf: Vec<u8>) -> mem::buf { buf.shrink_to_fit(); unsafe { mem::len = buf.len(); } let ptr = buf.as_mut_ptr(); std::mem::forget(buf); return ptr; }
+  #[inline] pub fn load(ptr: *mut u8, size: usize) -> Vec<u8> { unsafe { return Vec::from_raw_parts(ptr, size, size); } }
+  #[inline] pub fn peek(buffer: &[u8]) -> *mut u8 { unsafe { mem::len = buffer.len(); } return buffer.as_ptr() as *mut u8; }
+  #[inline] pub fn string(ptr: *mut u8, size: usize) -> String { unsafe { return String::from_utf8_unchecked(load(ptr, size)); } }
+  #[inline] pub fn store(mut buf: Vec<u8>) -> *mut u8 { buf.shrink_to_fit(); unsafe { mem::len = buf.len(); } let ptr = buf.as_mut_ptr(); std::mem::forget(buf); return ptr; }
 
   impl fd {
     pub fn new(id: u64) -> Self { fd { id } }
