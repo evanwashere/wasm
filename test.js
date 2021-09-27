@@ -4,6 +4,7 @@ import * as nacl from './target/nacl/deno.js';
 import * as zlib from './target/zlib/deno.js';
 import * as opus from './target/opus/deno.js';
 import Allocator from './target/alloc/deno.js';
+import * as image from './target/image/deno.js';
 import * as simd_lz4 from './target/lz4/simd.js';
 import * as snappy from './target/snappy/deno.js';
 import * as simd_nacl from './target/nacl/simd.js';
@@ -116,6 +117,19 @@ Deno.test('alloc', () => {
 
   a.free(ptr);
   assert.equal(a.alloc(5), ptr);
+});
+
+Deno.test('image', () => {
+  const large = image.framebuffer.new(1024, 1024);
+
+  assert.is(large.width, 1024);
+  assert.is(large.height, 1024);
+  assert.is(large.buffer.length, 4 * 1024 * 1024);
+  const tiny = image.resize(large, 5, 5, 'gaussian');
+
+  assert.is(tiny.width, 5);
+  assert.is(tiny.width, 5);
+  assert.is(tiny.buffer.length, 4 * 5 * 5);
 });
 
 Deno.test('opus', () => {

@@ -25,7 +25,13 @@ class mem {
 
 const gc = mem.gc(ptr => wasm.free(ptr));
 
-export const filters = {
+const ri = {
+  nearest: 0,
+  bicubic: 1,
+  bilinear: 2,
+};
+
+const rf = {
   nearest: 0,
   triangle: 1,
   lanczos3: 2,
@@ -36,10 +42,10 @@ export const filters = {
 export class framebuffer {
   constructor(ptr) { gc.add(this, this.ptr = ptr); }
   static new(width, height) { return new this(wasm.new(width, height)); }
-  static from(width, height, buffer) { const fb = new Image(width, height); return (fb.buffer.set(buffer), fb); }
+  static from(width, height, buffer) { const fb = new this(wasm.new(width, height)); return (fb.buffer.set(buffer), fb); }
 
-  get width() { return wasm.width(this.ptr) };
-  get height() { return wasm.height(this.ptr) };
+  get width() { return wasm.width(this.ptr); }
+  get height() { return wasm.height(this.ptr); }
   get buffer() { return mem.load(wasm.buffer(this.ptr)); }
 
   invert() { wasm.invert(this.ptr); }
@@ -56,6 +62,9 @@ export class framebuffer {
   horizontal_gradient(left, right) { wasm.horizontal_gradient(this.ptr, ...left, ...right); }
 }
 
+export function rotate90(fb) { return new framebuffer(wasm.rotate90(fb.ptr)); }
+export function rotate180(fb) { return new framebuffer(wasm.rotate180(fb.ptr)); }
+export function rotate270(fb) { return new framebuffer(wasm.rotate270(fb.ptr)); }
 export function grayscale(fb) { return new framebuffer(wasm.grayscale(fb.ptr)); }
 export function blur(fb, sigma) { return new framebuffer(wasm.blur(fb.ptr, sigma)); }
 export function flip_vertical(fb) { return new framebuffer(wasm.flip_vertical(fb.ptr)); }
@@ -65,6 +74,7 @@ export function contrast(fb, contrast) { return new framebuffer(wasm.contrast(fb
 export function filter3x3(fb, kernel) { return new framebuffer(wasm.filter3x3(fb.ptr, ...kernel)); }
 export function brighten(fb, brightness) { return new framebuffer(wasm.brighten(fb.ptr, brightness)); }
 export function thumbnail(fb, width, height) { return new framebuffer(wasm.blur(fb.ptr, width, height)); }
-export function clone(fb) { const x = new Image(fb.width, fb.height); return (x.buffer.set(fb.buffer), x); }
+export function clone(fb) { const x = framebuffer.new(fb.width, fb.height); return (x.buffer.set(fb.buffer), x); }
 export function unsharpen(fb, sigma, threshold) { return new framebuffer(wasm.unsharpen(fb.ptr, sigma, threshold)); }
-export function resize(fb, width, height, filter = filters.nearest) { return new framebuffer(wasm.resize(fb.ptr, filter, width, height)); }
+export function resize(fb, width, height, filter = 'nearest') { return new framebuffer(wasm.resize(fb.ptr, rf[filter] || 0, width, height)); }
+export function rotate(fb, theta, background, interpolation = 'nearest') { return new framebuffer(wasm.rotate(fb.ptr, ...(background || [0, 0, 0, 0]), theta, ri[interpolation])); }
