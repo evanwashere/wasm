@@ -60,6 +60,16 @@ export class framebuffer {
   brighten(fb, brightness) { wasm.brighten_in_place(fb.ptr, brightness); }
   vertical_gradient(top, bottom) { wasm.vertical_gradient(this.ptr, ...top, ...bottom); }
   horizontal_gradient(left, right) { wasm.horizontal_gradient(this.ptr, ...left, ...right); }
+  draw_filled_circle(x, y, radius, color = [0, 0, 0, 255]) { wasm.draw_filled_circle_mut(this.ptr, ...color, x, y, radius); }
+  draw_hollow_circle(x, y, radius, color = [0, 0, 0, 255]) { wasm.draw_hollow_circle_mut(this.ptr, ...color, x, y, radius); }
+  draw_line_segment(sx, sy, ex, ey, color = [0, 0, 0, 255]) { wasm.draw_line_segment_mut(this.ptr, ...color, sx, sy, ex, ey); }
+  draw_filled_rect(x, y, width, height, color = [0, 0, 0, 255]) { wasm.draw_filled_rect_mut(this.ptr, ...color, x, y, width, height); }
+  draw_hollow_rect(x, y, width, height, color = [0, 0, 0, 255]) { wasm.draw_hollow_rect_mut(this.ptr, ...color, x, y, width, height); }
+  draw_filled_ellipse(x, y, width, height, color = [0, 0, 0, 255]) { wasm.draw_filled_ellipse_mut(this.ptr, ...color, x, y, width, height); }
+  draw_hollow_ellipse(x, y, width, height, color = [0, 0, 0, 255]) { wasm.draw_hollow_ellipse_mut(this.ptr, ...color, x, y, width, height); }
+  draw_antialiased_line_segment(sx, sy, ex, ey, color = [0, 0, 0, 255]) { wasm.draw_antialiased_line_segment_mut(this.ptr, ...color, sx, sy, ex, ey); }
+  draw_polygon(points, color = [0, 0, 0, 255]) { wasm.draw_polygon_mut(this.ptr, ...color, mem.store(new Uint8Array(new Int32Array(points).buffer)), 4 * points.length); }
+  draw_cubic_bezier_curve(sx, sy, ex, ey, control = [1, 1, 1, 1], color = [0, 0, 0, 255]) { wasm.draw_cubic_bezier_curve_mut(this.ptr, ...color, sx, sy, ex, ey, ...control); }
 }
 
 export function rotate90(fb) { return new framebuffer(wasm.rotate90(fb.ptr)); }
