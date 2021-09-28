@@ -26,7 +26,6 @@ for await (const dir of Deno.readDir('./src')) {
   Deno.writeFile(`${path}/fetch.js`, Deno.core.encode(replacer(js, 'deno').replace(key, `await (await fetch('https://unpkg.com/@evan/wasm@${version}/src/${dir.name}/${dir.name}.wasm')).arrayBuffer()`)));
   Deno.writeFile(`${path}/node.mjs`, Deno.core.encode(replacer(js, 'node').replace(key, `await import('fs/promises').then(fs => fs.readFile(new URL('../../src/${dir.name}/${dir.name}.wasm', import.meta.url)))`)));
   if (simd) Deno.writeFile(`${path}/simd.mjs`, Deno.core.encode(replacer(js, 'node').replace(key, `await import('fs/promises').then(fs => fs.readFile(new URL('../../src/${dir.name}/simd.wasm', import.meta.url)))`)));
-  Deno.writeFile(`${path}/fetch.mjs`, Deno.core.encode(replacer(js, 'node').replace(key, `await (await (await import('node-fetch').then(x => x.default))('https://unpkg.com/@evan/wasm@${version}/src/${dir.name}/${dir.name}.wasm')).arrayBuffer()`)));
 }
 
 esbuild.stop();

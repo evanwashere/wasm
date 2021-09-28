@@ -1,11 +1,10 @@
 {
   "license": "MIT",
-  "version": "0.0.86",
+  "version": "0.0.87",
   "name": "@evan/wasm",
   "description": "set of wasm modules",
   "author": "evanwashere <evan@tsu.sh>",
 
-  "dependencies": { "node-fetch": "3.0.0" },
   "homepage": "https://github.com/evanwashere/wasm#readme",
   "bugs": { "url": "https://github.com/evanwashere/wasm/issues" },
   "repository": { "type": "git", "url": "git+https://github.com/evanwashere/wasm.git" },

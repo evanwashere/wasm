@@ -13,7 +13,6 @@ targets:
   - node.cjs
   - node.mjs
   - simd.mjs
-  - fetch.mjs
 
 ```js
 import * as mod from '@evan/wasm/target/<mod>/<target>';
