@@ -2,6 +2,8 @@ all other wasm modules were slow or/and leaked memory, so I made my own :)
 
 `yarn add @evan/wasm`
 
+you can find examples in [**`examples/`**](https://github.com/evanwashere/wasm/tree/master/examples)
+
 targets:
 - deno
   - deno.js

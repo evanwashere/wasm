@@ -1,6 +1,7 @@
 lib/
 test*.*
 build.js
+examples/
 src/*/*/**
 .gitmodules
 src/**/*.js

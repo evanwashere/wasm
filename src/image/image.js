@@ -15,6 +15,7 @@ class mem {
   static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
   static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
   static load(ptr) { return new Uint8Array(wasm.memory.buffer, ptr, wasm.wlen()); }
+  static store(u8) { const ptr = wasm.walloc(u8.length); return (new Uint8Array(wasm.memory.buffer, ptr, u8.length).set(u8), ptr); }
   static gc(f) { return !('FinalizationRegistry' in globalThis) ? { delete(_) { }, add(_, __) { } } : { r: new FinalizationRegistry(f), delete(k) { this.r.unregister(k); }, add(k, v) { this.r.register(k, v, k); } }; }
 
   static copy_and_free(ptr, size) {
@@ -87,4 +88,4 @@ export function thumbnail(fb, width, height) { return new framebuffer(wasm.blur(
 export function clone(fb) { const x = framebuffer.new(fb.width, fb.height); return (x.buffer.set(fb.buffer), x); }
 export function unsharpen(fb, sigma, threshold) { return new framebuffer(wasm.unsharpen(fb.ptr, sigma, threshold)); }
 export function resize(fb, width, height, filter = 'nearest') { return new framebuffer(wasm.resize(fb.ptr, rf[filter] || 0, width, height)); }
-export function rotate(fb, theta, background, interpolation = 'nearest') { return new framebuffer(wasm.rotate(fb.ptr, ...(background || [0, 0, 0, 0]), theta, ri[interpolation])); }
+export function rotate(fb, theta, background, interpolation = 'nearest') { return new framebuffer(wasm.rotate(fb.ptr, ...(background || [0, 0, 0, 0]), theta, ri[interpolation] || 0)); }

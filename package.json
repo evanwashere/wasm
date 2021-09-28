@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "version": "0.0.85",
+  "version": "0.0.86",
   "name": "@evan/wasm",
   "description": "set of wasm modules",
   "author": "evanwashere <evan@tsu.sh>",
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/evanwashere/wasm#readme",
   "bugs": { "url": "https://github.com/evanwashere/wasm/issues" },
   "repository": { "type": "git", "url": "git+https://github.com/evanwashere/wasm.git" },
-  "keywords": ["wasm", "nacl", "lz4", "simd", "zlib", "opus", "alloc", "snappy", "ed25519", "lol-html", "webassembly"]
+  "keywords": ["lz4", "wasm", "nacl", "simd", "zlib", "opus", "image", "alloc", "snappy", "ed25519", "lol-html", "webassembly"]
 }
