@@ -1,15 +1,13 @@
-import { Pool } from 'https://jspm.dev/structurae@3.3.0'; // !deno
-
 let wasm;
-const streams = new Map; // !deno
-const pool = new Pool(256 * 1024); // !deno
+let pool = 0;
+const streams = new Map;
 
 {
   const module = new WebAssembly.Module(WASM_BYTES);
   const instance = new WebAssembly.Instance(module, {
     env: {
       push_to_stream(id, ptr) {
-        streams.get(id).cb(mem.u8(ptr, mem.length()).slice()); // !deno
+        streams.get(id).cb(mem.u8(ptr, mem.length()).slice());
       },
     },
   });
@@ -85,7 +83,7 @@ export function decompress_raw_with(buffer, transform) {
 }
 
 
-// !
+
 export class CompressionStream {
   constructor() {
     const t = new TransformStream();
@@ -105,8 +103,8 @@ export class CompressionStream {
 
 export class Compressor {
   constructor(callback) {
+    this.id = pool++;
     this.cb = callback;
-    this.id = pool.get();
     streams.set(this.id, this);
     this.ptr = wasm.compressor_new(this.id);
   }
@@ -116,8 +114,7 @@ export class Compressor {
   }
 
   free() {
-    wasm.compressor_free(this.ptr);
-    pool.free(this.id); streams.delete(this.id);
+    wasm.compressor_free(this.ptr); streams.delete(this.id);
   }
 
   write(buffer) {
@@ -126,4 +123,3 @@ export class Compressor {
     wasm.compressor_write(this.ptr, ptr, buffer.length);
   }
 }
-// !deno

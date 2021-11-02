@@ -9,12 +9,17 @@ import * as simd_lz4 from './target/lz4/simd.js';
 import * as snappy from './target/snappy/deno.js';
 import * as simd_nacl from './target/nacl/simd.js';
 import * as ed25519 from './target/ed25519/deno.js';
+import * as seahash from './target/seahash/deno.js';
 import * as simd_snappy from './target/snappy/simd.js';
 import * as simd_ed25519 from './target/ed25519/simd.js';
-import * as assert from 'https://esm.sh/uvu@0.5.1/assert';
+import * as assert from 'https://jspm.dev/uvu@0.5.1/assert';
 
 const zero1024 = new Uint8Array(1024);
 const random1024 = crypto.getRandomValues(new Uint8Array(1024));
+
+Deno.test('seahash', () => {
+  assert.equal(seahash.hash(zero1024), 17557560887402649874n);
+});
 
 Deno.test('nacl', () => {
   const key = random1024.subarray(0, nacl.secretbox.key_length);

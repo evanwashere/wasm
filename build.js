@@ -1,6 +1,6 @@
-import * as esbuild from 'https://deno.land/x/esbuild@v0.12.16/mod.js';
+import * as esbuild from 'https://deno.land/x/esbuild@v0.13.12/mod.js';
 import { encode } from "https://deno.land/std@0.102.0/encoding/base64.ts";
-import { compress } from 'https://esm.sh/@evan/wasm@0.0.82/target/zlib/deno.js';
+import { compress } from 'https://unpkg.com/@evan/wasm@0.0.88/target/zlib/deno.js';
 const { version } = JSON.parse(Deno.core.decode(await Deno.readFile('./package.json')));
 
 const key = 'WASM_BYTES';
