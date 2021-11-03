@@ -43,4 +43,6 @@ const rt = {
   neareast: 0,
 };
 
+export function overlay(fb, fg, x, y) { wasm.overlay(fb.ptr, fg.ptr, x, y); }
+export function replace(fb, fg, x, y) { wasm.replace(fb.ptr, fg.ptr, x, y); }
 export function resize(fb, type, width, height) { return new framebuffer(wasm.resize(fb.ptr, rt[type], width, height)); }
