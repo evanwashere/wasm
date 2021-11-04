@@ -7,26 +7,30 @@ let wasm;
   wasm = instance.exports;
 }
 
-class mem {
-  static length() { return wasm.wlen(); }
-  static alloc(size) { return wasm.walloc(size); }
-  static free(ptr, size) { return wasm.wfree(ptr, size); }
-  static u8(ptr, size) { return new Uint8Array(wasm.memory.buffer, ptr, size); }
-  static u32(ptr, size) { return new Uint32Array(wasm.memory.buffer, ptr, size); }
+const u16_max = 2 ** 16;
+const { memory, verify: v } = wasm;
 
-  static copy_and_free(ptr, size) {
-    let slice = mem.u8(ptr, size).slice();
-    return (wasm.wfree(ptr, size), slice);
-  }
-}
+let len = memory.buffer.byteLength;
+let u8 = new Uint8Array(memory.buffer);
+let k8 = new Uint8Array(memory.buffer, 16384, 32);
+let s8 = new Uint8Array(memory.buffer, 32 + 16384, 64);
+const encode_utf8 = globalThis.Deno?.core?.encode ?? globalThis.Buffer?.from.bind(globalThis.Buffer) ?? TextEncoder.prototype.encode.bind(new TextEncoder);
 
-export function verify(key, sig, buffer) {
-  const kptr = mem.alloc(32);
-  const sptr = mem.alloc(64);
-  const bptr = mem.alloc(buffer.length);
+function resize(size) {
+  memory.grow(Math.ceil((size - len) / u16_max));
 
-  mem.u8(kptr, 32).set(key);
-  mem.u8(sptr, 64).set(sig);
-  mem.u8(bptr, buffer.length).set(buffer);
-  return !!wasm.verify(bptr, buffer.length, kptr, sptr);
-}
+  len = memory.buffer.byteLength;
+  u8 = new Uint8Array(memory.buffer);
+  k8 = new Uint8Array(memory.buffer, 16384, 32);
+  s8 = new Uint8Array(memory.buffer, 32 + 16384, 64);
+};
+
+export function verify(key, sig, buf) {
+  if ('string' === typeof buf) buf = encode_utf8(buf);
+  if (len < (16480 + buf.length)) resize(16480 + buf.length);
+
+  k8.set(key);
+  s8.set(sig);
+  u8.set(buf, 16480);
+  return !!v(buf.length, 2 ** 14);
+};

@@ -43,6 +43,9 @@ const rt = {
   neareast: 0,
 };
 
+export function flip_vertical(fb) { wasm.flip_vertical(fb.ptr); }
+export function flip_horizontal(fb) { wasm.flip_horizontal(fb.ptr); }
 export function overlay(fb, fg, x, y) { wasm.overlay(fb.ptr, fg.ptr, x, y); }
 export function replace(fb, fg, x, y) { wasm.replace(fb.ptr, fg.ptr, x, y); }
+export function fill_color(fb, r, g, b, a) { wasm.fill_color(fb.ptr, r, g, b, a); }
 export function resize(fb, type, width, height) { return new framebuffer(wasm.resize(fb.ptr, rt[type], width, height)); }
