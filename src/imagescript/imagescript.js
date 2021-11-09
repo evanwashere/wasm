@@ -43,6 +43,7 @@ const rt = {
   neareast: 0,
 };
 
+export function blur(fb, sigma) { wasm.blur(fb.ptr, sigma); }
 export function flip_vertical(fb) { wasm.flip_vertical(fb.ptr); }
 export function flip_horizontal(fb) { wasm.flip_horizontal(fb.ptr); }
 export function overlay(fb, fg, x, y) { wasm.overlay(fb.ptr, fg.ptr, x, y); }
