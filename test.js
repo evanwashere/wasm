@@ -27,6 +27,11 @@ Deno.test('nacl', () => {
 
   const sealed = nacl.secretbox.seal(random1024, key, nonce);
   assert.equal(nacl.secretbox.open(sealed, key, nonce), random1024);
+
+  const pair = nacl.sign.pair();
+  const sig = nacl.sign.sign(pair.secret, random1024, random1024.subarray(0, nacl.sign.noise_length));
+
+  assert.ok(nacl.sign.verify(pair.public, sig, random1024));
 });
 
 Deno.test('simd-nacl', () => {
@@ -35,6 +40,11 @@ Deno.test('simd-nacl', () => {
 
   const sealed = simd_nacl.secretbox.seal(random1024, key, nonce);
   assert.equal(simd_nacl.secretbox.open(sealed, key, nonce), random1024);
+
+  const pair = simd_nacl.sign.pair();
+  const sig = simd_nacl.sign.sign(pair.secret, random1024, random1024.subarray(0, simd_nacl.sign.noise_length));
+
+  assert.ok(simd_nacl.sign.verify(pair.public, sig, random1024));
 });
 
 Deno.test('ed25519', () => {

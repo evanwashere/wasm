@@ -4328,7 +4328,7 @@
       end
     end)
   (func $blur (type $t7) (param $p0 i32) (param $p1 f32)
-    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 f32) (local $l8 f32) (local $l9 f32) (local $l10 f32) (local $l11 f32) (local $l12 f32) (local $l13 f32)
+    (local $l2 i32) (local $l3 i32) (local $l4 i32) (local $l5 i32) (local $l6 i32) (local $l7 i32) (local $l8 f32) (local $l9 f32) (local $l10 f32) (local $l11 f32) (local $l12 f32) (local $l13 f32) (local $l14 f32)
     global.get $g0
     i32.const 32
     i32.sub
@@ -4338,20 +4338,36 @@
     i32.load
     local.set $l5
     local.get $p0
-    i32.load offset=4
-    local.tee $l4
+    i32.const 4
+    i32.add
+    i32.load
+    local.tee $l3
     local.get $p0
-    i32.load offset=8
+    i32.const 8
+    i32.add
+    i32.load
     local.tee $p0
     i32.mul
     i32.const 2
     i32.shl
-    local.tee $l3
+    local.tee $l7
     call $f5
-    local.tee $l6
-    local.get $l5
+    local.set $l4
     local.get $l3
+    local.get $p0
+    local.get $p0
+    local.get $l3
+    i32.lt_u
+    select
+    i32.const 4
+    i32.shl
+    call $f5
+    local.set $l6
+    local.get $l4
+    local.get $l5
+    local.get $l7
     memory.copy
+    local.get $l2
     f32.const 0x1.b1a824p+0 (;=1.69397;)
     local.get $p1
     f32.div
@@ -4359,43 +4375,31 @@
     f32.const -0x1p+1 (;=-2;)
     f32.mul
     call $f20
-    local.set $l7
-    local.get $l4
-    local.get $p0
-    local.get $p0
-    local.get $l4
-    i32.lt_u
-    select
-    i32.const 4
-    i32.shl
-    call $f5
-    local.set $l3
-    local.get $l2
-    local.get $l7
+    local.tee $l9
     f32.neg
-    local.tee $l13
+    local.tee $l14
     f32.store offset=20
     local.get $l2
     local.get $p1
     f32.neg
     call $f20
-    local.tee $l9
-    local.get $l9
+    local.tee $l10
+    local.get $l10
     f32.add
-    local.tee $l11
+    local.tee $l12
     f32.store offset=16
     local.get $l2
     f32.const 0x1p+0 (;=1;)
-    local.get $l9
+    local.get $l10
     f32.sub
     local.tee $l8
     local.get $l8
     f32.mul
     f32.const 0x1p+0 (;=1;)
-    local.get $l7
+    local.get $l9
     f32.sub
     local.get $p1
-    local.get $l9
+    local.get $l10
     f32.mul
     local.tee $l8
     local.get $l8
@@ -4405,76 +4409,76 @@
     local.tee $l8
     f32.store
     local.get $l2
-    local.get $l7
+    local.get $l9
     local.get $l8
     f32.neg
     f32.mul
-    local.tee $l12
+    local.tee $l13
     f32.store offset=12
     local.get $l2
     local.get $p1
     f32.const 0x1p+0 (;=1;)
     f32.add
-    local.get $l9
+    local.get $l10
     local.get $l8
     f32.mul
-    local.tee $l10
+    local.tee $l11
     f32.mul
-    local.tee $l9
+    local.tee $l10
     f32.store offset=8
     local.get $l2
     local.get $p1
     f32.const -0x1p+0 (;=-1;)
     f32.add
-    local.get $l10
+    local.get $l11
     f32.mul
     local.tee $p1
     f32.store offset=4
     local.get $l2
-    local.get $l12
-    local.get $l9
+    local.get $l13
+    local.get $l10
     f32.add
-    local.get $l7
-    local.get $l11
+    local.get $l9
+    local.get $l12
     f32.sub
     f32.const 0x1p+0 (;=1;)
     f32.add
-    local.tee $l7
+    local.tee $l9
     f32.div
-    local.tee $l10
+    local.tee $l11
     f32.store offset=28
     local.get $l2
     local.get $l8
     local.get $p1
     f32.add
-    local.get $l7
+    local.get $l9
     f32.div
-    local.tee $l7
+    local.tee $l9
     f32.store offset=24
-    local.get $l6
-    local.get $l5
-    local.get $l3
     local.get $l4
+    local.get $l5
+    local.get $l6
+    local.get $l3
     local.get $p0
     local.get $l2
     call $f6
     local.get $l2
-    local.get $l10
+    local.get $l11
     f32.store offset=28
     local.get $l2
-    local.get $l7
+    local.get $l9
     f32.store offset=24
     local.get $l2
-    local.get $l13
+    local.get $l14
     f32.store offset=20
     local.get $l2
-    local.get $l11
+    local.get $l12
     f32.store offset=16
     local.get $l2
-    local.get $l12
+    local.get $l13
     f32.store offset=12
     local.get $l2
-    local.get $l9
+    local.get $l10
     f32.store offset=8
     local.get $l2
     local.get $p1
@@ -4483,15 +4487,15 @@
     local.get $l8
     f32.store
     local.get $l5
-    local.get $l6
-    local.get $l3
-    local.get $p0
     local.get $l4
+    local.get $l6
+    local.get $p0
+    local.get $l3
     local.get $l2
     call $f6
-    local.get $l6
+    local.get $l4
     call $f3
-    local.get $l3
+    local.get $l6
     call $f3
     local.get $l2
     i32.const 32
