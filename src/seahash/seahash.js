@@ -9,7 +9,7 @@ let wasm;
 
 const u16_max = 2 ** 16;
 const u64_max = 2n ** 64n;
-const { sea, memory } = wasm;
+const { memory, hash: sea } = wasm;
 
 let len = memory.buffer.byteLength;
 let u8 = new Uint8Array(memory.buffer);
@@ -23,10 +23,9 @@ function resize(size) {
 };
 
 export function hash(buf, a = 0n, b = 0n, c = 0n, d = 0n) {
-  if ('string' === typeof buf) buf = encode_utf8(buf);
-  if (len < (64 + buf.length)) resize(64 + buf.length);
+  if (len < (('string' !== typeof buf ? buf : encode_utf8(buf)).length)) resize(buf.length);
 
-  u8.set(buf, 64);
-  const hash = sea(a, b, c, d, buf.length);
+  u8.set(buf, 0);
+  const hash = sea(0, buf.length, a, b, c, d);
   return 0n <= hash ? hash : (hash + u64_max);
 };

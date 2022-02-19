@@ -1,7 +1,3 @@
 [submodule "src/opus/opus"]
 	path = src/opus/opus
 	url = https://github.com/xiph/opus.git
-
-[submodule "src/imagescript/imagescript"]
-	path = src/imagescript/imagescript
-	url = https://github.com/matmen/imagescript

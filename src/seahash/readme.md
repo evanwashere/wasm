@@ -1,23 +1,66 @@
 # benchmarks
 
 ```js
-// tested with 1mb buffer on Apple M1
-// new Uint8Array(2 ** 20).map((_, i) => i % 256)
-┌────────────────────────────────────────────────────────────────────────────────┐
-│ seahash(@evan/wasm)        │   138,897 ns/iter      (137,583..295,292 ns/iter) │
-├────────────────────────────────────────────────────────────────────────────────┤
-│ md5(hash-wasm)             │ 2,049,141 ns/iter  (2,033,251..9,694,917 ns/iter) │
-│ sha1(hash-wasm)            │ 1,397,225 ns/iter (1,368,542..16,847,626 ns/iter) │
-│ sha3(hash-wasm)            │ 3,260,707 ns/iter (3,172,335..16,046,376 ns/iter) │
-│ crc32(hash-wasm)           │   535,397 ns/iter    (530,376..1,181,292 ns/iter) │
-│ crc32(@node-rs/crc32)      │   189,427 ns/iter      (140,460..595,834 ns/iter) │
-│ adler32(hash-wasm)         │   691,259 ns/iter    (685,666..1,309,084 ns/iter) │
-│ xxhash32(hash-wasm)        │   168,356 ns/iter      (166,541..370,126 ns/iter) │
-│ xxhash64(hash-wasm)        │    96,282 ns/iter       (94,959..763,001 ns/iter) │
-│ xxhash128(hash-wasm)       │   118,839 ns/iter      (116,458..801,459 ns/iter) │
-│ whirlpool(hash-wasm)       │ 6,375,692 ns/iter (6,311,168..10,153,084 ns/iter) │
-│ xxhash32(@node-rs/xxhash)  │   269,307 ns/iter      (222,583..609,584 ns/iter) │
-│ xxhash64(@node-rs/xxhash)  │   133,457 ns/iter       (89,750..456,792 ns/iter) │
-│ xxhash128(@node-rs/xxhash) │   110,346 ns/iter       (66,750..470,293 ns/iter) │
-└────────────────────────────────────────────────────────────────────────────────┘
+// tested on Apple M1
+// new Uint8Array(2 ** n).map((_, i) => i % 256)
+
+ 0.000244140625 mb
+┌───────────────────────────────────────────────────────────────┐
+│ seahash(@evan/wasm)  │   311 ns/iter    (166..46,501 ns/iter) │
+├───────────────────────────────────────────────────────────────┤
+│ md5(hasm-wasm)       │ 1,462 ns/iter (1,126..103,459 ns/iter) │
+│ sha1(hasm-wasm)      │ 1,452 ns/iter (1,208..124,083 ns/iter) │
+│ sha3(hasm-wasm)      │ 2,222 ns/iter  (1,959..62,376 ns/iter) │
+│ crc32(hasm-wasm)     │   651 ns/iter    (541..55,543 ns/iter) │
+│ adler32(hasm-wasm)   │   793 ns/iter    (583..72,542 ns/iter) │
+│ xxhash32(hasm-wasm)  │   647 ns/iter   (458..105,292 ns/iter) │
+│ xxhash64(hasm-wasm)  │ 1,153 ns/iter   (750..124,167 ns/iter) │
+│ xxHash128(hasm-wasm) │ 1,322 ns/iter   (834..178,875 ns/iter) │
+│ whirlpool(hasm-wasm) │ 3,530 ns/iter  (3,333..77,958 ns/iter) │
+└───────────────────────────────────────────────────────────────┘
+
+ 0.00390625 mb
+┌─────────────────────────────────────────────────────────────────┐
+│ seahash(@evan/wasm)  │    845 ns/iter     (626..59,751 ns/iter) │
+├─────────────────────────────────────────────────────────────────┤
+│ md5(hasm-wasm)       │  8,806 ns/iter  (8,458..112,209 ns/iter) │
+│ sha1(hasm-wasm)      │  6,438 ns/iter   (6,084..79,709 ns/iter) │
+│ sha3(hasm-wasm)      │ 13,944 ns/iter (13,541..106,709 ns/iter) │
+│ crc32(hasm-wasm)     │  2,605 ns/iter   (2,458..79,459 ns/iter) │
+│ adler32(hasm-wasm)   │  3,231 ns/iter  (3,000..111,084 ns/iter) │
+│ xxhash32(hasm-wasm)  │  1,198 ns/iter  (1,000..174,751 ns/iter) │
+│ xxhash64(hasm-wasm)  │  1,419 ns/iter  (1,000..122,792 ns/iter) │
+│ xxHash128(hasm-wasm) │  1,723 ns/iter  (1,292..146,916 ns/iter) │
+│ whirlpool(hasm-wasm) │ 32,561 ns/iter (32,083..126,959 ns/iter) │
+└─────────────────────────────────────────────────────────────────┘
+
+ 0.0625 mb
+┌─────────────────────────────────────────────────────────────────────┐
+│ seahash(@evan/wasm)  │   9,207 ns/iter      (8,792..44,333 ns/iter) │
+├─────────────────────────────────────────────────────────────────────┤
+│ md5(hasm-wasm)       │ 129,314 ns/iter   (127,750..318,791 ns/iter) │
+│ sha1(hasm-wasm)      │  87,146 ns/iter    (86,250..192,334 ns/iter) │
+│ sha3(hasm-wasm)      │ 205,400 ns/iter   (202,209..346,584 ns/iter) │
+│ crc32(hasm-wasm)     │  35,513 ns/iter  (34,209..1,152,666 ns/iter) │
+│ adler32(hasm-wasm)   │  43,752 ns/iter    (43,208..189,585 ns/iter) │
+│ xxhash32(hasm-wasm)  │  11,170 ns/iter    (10,834..101,376 ns/iter) │
+│ xxhash64(hasm-wasm)  │   6,798 ns/iter     (6,500..105,959 ns/iter) │
+│ xxHash128(hasm-wasm) │   9,881 ns/iter      (9,584..96,710 ns/iter) │
+│ whirlpool(hasm-wasm) │ 496,467 ns/iter   (493,334..680,126 ns/iter) │
+└─────────────────────────────────────────────────────────────────────┘
+
+ 1 mb
+┌──────────────────────────────────────────────────────────────────────────┐
+│ seahash(@evan/wasm)  │   142,710 ns/iter      (140,543..237,333 ns/iter) │
+├──────────────────────────────────────────────────────────────────────────┤
+│ md5(hasm-wasm)       │ 2,055,255 ns/iter  (2,039,958..2,358,625 ns/iter) │
+│ sha1(hasm-wasm)      │ 1,391,243 ns/iter (1,374,126..11,261,376 ns/iter) │
+│ sha3(hasm-wasm)      │ 3,259,049 ns/iter  (3,222,751..6,737,833 ns/iter) │
+│ crc32(hasm-wasm)     │   554,799 ns/iter    (547,083..5,548,585 ns/iter) │
+│ adler32(hasm-wasm)   │   697,893 ns/iter    (691,375..1,903,626 ns/iter) │
+│ xxhash32(hasm-wasm)  │   175,291 ns/iter      (173,333..238,668 ns/iter) │
+│ xxhash64(hasm-wasm)  │   102,326 ns/iter      (101,084..162,375 ns/iter) │
+│ xxHash128(hasm-wasm) │   151,152 ns/iter      (147,126..222,541 ns/iter) │
+│ whirlpool(hasm-wasm) │ 7,954,468 ns/iter  (7,889,791..9,904,292 ns/iter) │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
