@@ -62,8 +62,8 @@ pub fn seahash(buf: []const u8, aa: u64, bb: u64, cc: u64, dd: u64) u64 {
   return diffuse(a);  
 }
 
-export fn hash(ptr: [*]u8, len: usize, a: u64, b: u64, c: u64, d: u64) u64 {
-  return seahash(ptr[0..len], a, b, c, d);
+export fn hash(ptr: [*]u8, len: usize, a: u64, b: u64, c: u64, d: u64) void {
+  std.mem.writeIntNative(u64, ptr[0..8], seahash(ptr[0..len], a, b, c, d));
 }
 
 test "hash" {
