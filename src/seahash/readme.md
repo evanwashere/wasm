@@ -1,66 +1,232 @@
 # benchmarks
 
 ```js
-// tested on Apple M1
-// new Uint8Array(2 ** n).map((_, i) => i % 256)
+cpu: Apple M1
+runtime: node v18.3.0 (arm64-darwin)
 
- 0.000244140625 mb
-┌───────────────────────────────────────────────────────────────┐
-│ seahash(@evan/wasm)  │   311 ns/iter    (166..46,501 ns/iter) │
-├───────────────────────────────────────────────────────────────┤
-│ md5(hasm-wasm)       │ 1,462 ns/iter (1,126..103,459 ns/iter) │
-│ sha1(hasm-wasm)      │ 1,452 ns/iter (1,208..124,083 ns/iter) │
-│ sha3(hasm-wasm)      │ 2,222 ns/iter  (1,959..62,376 ns/iter) │
-│ crc32(hasm-wasm)     │   651 ns/iter    (541..55,543 ns/iter) │
-│ adler32(hasm-wasm)   │   793 ns/iter    (583..72,542 ns/iter) │
-│ xxhash32(hasm-wasm)  │   647 ns/iter   (458..105,292 ns/iter) │
-│ xxhash64(hasm-wasm)  │ 1,153 ns/iter   (750..124,167 ns/iter) │
-│ xxHash128(hasm-wasm) │ 1,322 ns/iter   (834..178,875 ns/iter) │
-│ whirlpool(hasm-wasm) │ 3,530 ns/iter  (3,333..77,958 ns/iter) │
-└───────────────────────────────────────────────────────────────┘
+benchmark            time (avg)             (min … max)
+-------------------------------------------------------
+wyhash 4b         28.45 ns/iter  (27.02 ns … 630.58 ns)
+wyhash 8b         45.38 ns/iter    (44.52 ns … 56.6 ns)
+wyhash 16b        46.39 ns/iter   (45.57 ns … 298.7 ns)
+wyhash 32b        50.26 ns/iter    (49.6 ns … 57.14 ns)
+wyhash 64b        55.16 ns/iter   (54.32 ns … 67.83 ns)
+wyhash 128b       74.22 ns/iter   (73.42 ns … 80.38 ns)
+wyhash 256b      114.48 ns/iter (113.57 ns … 124.37 ns)
+wyhash 512b      196.35 ns/iter (194.97 ns … 215.15 ns)
+wyhash 1kb       359.65 ns/iter  (357.3 ns … 395.71 ns)
+wyhash 2kb       684.21 ns/iter (681.73 ns … 698.85 ns)
+wyhash 4kb         1.37 µs/iter     (1.36 µs … 1.39 µs)
+wyhash 8kb         2.67 µs/iter      (2.66 µs … 2.7 µs)
+wyhash 16kb        5.28 µs/iter      (5.28 µs … 5.3 µs)
+wyhash 32kb       10.53 µs/iter  (10.38 µs … 160.83 µs)
+wyhash 64kb       21.44 µs/iter   (21.13 µs … 35.13 µs)
+wyhash 128kb      43.79 µs/iter   (42.96 µs … 55.54 µs)
+wyhash 256kb      85.17 µs/iter  (84.54 µs … 101.46 µs)
+wyhash 512kb     169.37 µs/iter (168.04 µs … 199.79 µs)
+wyhash 1mb        339.9 µs/iter (337.33 µs … 364.17 µs)
+wyhash 2mb       681.92 µs/iter (674.29 µs … 723.33 µs)
+wyhash 4mb         1.35 ms/iter     (1.35 ms … 1.38 ms)
+wyhash 8mb         2.71 ms/iter      (2.7 ms … 2.94 ms)
+wyhash 16mb        5.48 ms/iter     (5.46 ms … 5.54 ms)
 
- 0.00390625 mb
-┌─────────────────────────────────────────────────────────────────┐
-│ seahash(@evan/wasm)  │    845 ns/iter     (626..59,751 ns/iter) │
-├─────────────────────────────────────────────────────────────────┤
-│ md5(hasm-wasm)       │  8,806 ns/iter  (8,458..112,209 ns/iter) │
-│ sha1(hasm-wasm)      │  6,438 ns/iter   (6,084..79,709 ns/iter) │
-│ sha3(hasm-wasm)      │ 13,944 ns/iter (13,541..106,709 ns/iter) │
-│ crc32(hasm-wasm)     │  2,605 ns/iter   (2,458..79,459 ns/iter) │
-│ adler32(hasm-wasm)   │  3,231 ns/iter  (3,000..111,084 ns/iter) │
-│ xxhash32(hasm-wasm)  │  1,198 ns/iter  (1,000..174,751 ns/iter) │
-│ xxhash64(hasm-wasm)  │  1,419 ns/iter  (1,000..122,792 ns/iter) │
-│ xxHash128(hasm-wasm) │  1,723 ns/iter  (1,292..146,916 ns/iter) │
-│ whirlpool(hasm-wasm) │ 32,561 ns/iter (32,083..126,959 ns/iter) │
-└─────────────────────────────────────────────────────────────────┘
+-------------------------------------------------------
+md5 4b           538.43 ns/iter (529.59 ns … 602.05 ns)
+md5 8b           532.16 ns/iter (524.95 ns … 599.03 ns)
+md5 16b          537.87 ns/iter (529.75 ns … 681.58 ns)
+md5 32b          524.96 ns/iter (518.05 ns … 542.17 ns)
+md5 64b          638.48 ns/iter   (633.1 ns … 652.7 ns)
+md5 128b         762.17 ns/iter (756.44 ns … 781.86 ns)
+md5 256b           1.01 µs/iter         (1 µs … 1.1 µs)
+md5 512b           1.57 µs/iter     (1.53 µs … 1.76 µs)
+md5 1kb            2.53 µs/iter     (2.52 µs … 2.55 µs)
+md5 2kb            4.51 µs/iter      (4.5 µs … 4.55 µs)
+md5 4kb            8.48 µs/iter     (8.46 µs … 8.53 µs)
+md5 8kb           16.45 µs/iter  (16.25 µs … 120.21 µs)
+md5 16kb           32.5 µs/iter  (32.13 µs … 144.29 µs)
+md5 32kb          64.42 µs/iter  (63.88 µs … 220.79 µs)
+md5 64kb         128.13 µs/iter (127.38 µs … 287.54 µs)
+md5 128kb        256.03 µs/iter (254.79 µs … 428.79 µs)
+md5 256kb        511.19 µs/iter (509.21 µs … 566.75 µs)
+md5 512kb          1.02 ms/iter     (1.02 ms … 1.17 ms)
+md5 1mb            2.05 ms/iter     (2.04 ms … 2.19 ms)
+md5 2mb             4.1 ms/iter     (4.08 ms … 4.22 ms)
+md5 4mb            8.19 ms/iter     (8.15 ms … 8.39 ms)
+md5 8mb           16.38 ms/iter   (16.29 ms … 16.62 ms)
+md5 16mb          32.76 ms/iter    (32.7 ms … 32.94 ms)
 
- 0.0625 mb
-┌─────────────────────────────────────────────────────────────────────┐
-│ seahash(@evan/wasm)  │   9,207 ns/iter      (8,792..44,333 ns/iter) │
-├─────────────────────────────────────────────────────────────────────┤
-│ md5(hasm-wasm)       │ 129,314 ns/iter   (127,750..318,791 ns/iter) │
-│ sha1(hasm-wasm)      │  87,146 ns/iter    (86,250..192,334 ns/iter) │
-│ sha3(hasm-wasm)      │ 205,400 ns/iter   (202,209..346,584 ns/iter) │
-│ crc32(hasm-wasm)     │  35,513 ns/iter  (34,209..1,152,666 ns/iter) │
-│ adler32(hasm-wasm)   │  43,752 ns/iter    (43,208..189,585 ns/iter) │
-│ xxhash32(hasm-wasm)  │  11,170 ns/iter    (10,834..101,376 ns/iter) │
-│ xxhash64(hasm-wasm)  │   6,798 ns/iter     (6,500..105,959 ns/iter) │
-│ xxHash128(hasm-wasm) │   9,881 ns/iter      (9,584..96,710 ns/iter) │
-│ whirlpool(hasm-wasm) │ 496,467 ns/iter   (493,334..680,126 ns/iter) │
-└─────────────────────────────────────────────────────────────────────┘
+-------------------------------------------------------
+seahash 4b        58.68 ns/iter    (58.11 ns … 67.9 ns)
+seahash 8b        56.99 ns/iter   (56.32 ns … 65.44 ns)
+seahash 16b       60.26 ns/iter    (59.6 ns … 71.86 ns)
+seahash 32b       60.52 ns/iter   (59.86 ns … 68.99 ns)
+seahash 64b       59.99 ns/iter   (58.39 ns … 70.45 ns)
+seahash 128b      64.29 ns/iter   (63.33 ns … 73.15 ns)
+seahash 256b      78.27 ns/iter   (77.14 ns … 87.88 ns)
+seahash 512b     111.23 ns/iter (110.13 ns … 121.13 ns)
+seahash 1kb      176.67 ns/iter (175.23 ns … 187.59 ns)
+seahash 2kb      306.65 ns/iter (304.97 ns … 317.27 ns)
+seahash 4kb      581.03 ns/iter (579.05 ns … 597.25 ns)
+seahash 8kb        1.11 µs/iter     (1.11 µs … 1.14 µs)
+seahash 16kb       2.17 µs/iter      (2.17 µs … 2.2 µs)
+seahash 32kb       4.29 µs/iter     (4.29 µs … 4.33 µs)
+seahash 64kb       8.64 µs/iter     (8.63 µs … 8.68 µs)
+seahash 128kb      18.3 µs/iter    (17.5 µs … 52.79 µs)
+seahash 256kb     35.17 µs/iter   (34.88 µs … 53.67 µs)
+seahash 512kb     69.13 µs/iter   (68.63 µs … 89.92 µs)
+seahash 1mb      139.79 µs/iter    (138 µs … 160.04 µs)
+seahash 2mb       282.7 µs/iter (277.38 µs … 320.38 µs)
+seahash 4mb      558.89 µs/iter (553.67 µs … 614.38 µs)
+seahash 8mb        1.12 ms/iter     (1.12 ms … 1.32 ms)
+seahash 16mb       2.31 ms/iter     (2.28 ms … 2.61 ms)
 
- 1 mb
-┌──────────────────────────────────────────────────────────────────────────┐
-│ seahash(@evan/wasm)  │   142,710 ns/iter      (140,543..237,333 ns/iter) │
-├──────────────────────────────────────────────────────────────────────────┤
-│ md5(hasm-wasm)       │ 2,055,255 ns/iter  (2,039,958..2,358,625 ns/iter) │
-│ sha1(hasm-wasm)      │ 1,391,243 ns/iter (1,374,126..11,261,376 ns/iter) │
-│ sha3(hasm-wasm)      │ 3,259,049 ns/iter  (3,222,751..6,737,833 ns/iter) │
-│ crc32(hasm-wasm)     │   554,799 ns/iter    (547,083..5,548,585 ns/iter) │
-│ adler32(hasm-wasm)   │   697,893 ns/iter    (691,375..1,903,626 ns/iter) │
-│ xxhash32(hasm-wasm)  │   175,291 ns/iter      (173,333..238,668 ns/iter) │
-│ xxhash64(hasm-wasm)  │   102,326 ns/iter      (101,084..162,375 ns/iter) │
-│ xxHash128(hasm-wasm) │   151,152 ns/iter      (147,126..222,541 ns/iter) │
-│ whirlpool(hasm-wasm) │ 7,954,468 ns/iter  (7,889,791..9,904,292 ns/iter) │
-└──────────────────────────────────────────────────────────────────────────┘
+-------------------------------------------------------
+crc32 4b         267.29 ns/iter (258.32 ns … 301.72 ns)
+crc32 8b         267.54 ns/iter (261.66 ns … 281.61 ns)
+crc32 16b         268.2 ns/iter  (264.4 ns … 277.24 ns)
+crc32 32b        279.85 ns/iter (275.15 ns … 289.69 ns)
+crc32 64b        287.73 ns/iter (284.35 ns … 294.48 ns)
+crc32 128b       314.19 ns/iter    (306 ns … 330.92 ns)
+crc32 256b       373.28 ns/iter (369.57 ns … 384.02 ns)
+crc32 512b       502.54 ns/iter (497.38 ns … 532.22 ns)
+crc32 1kb        760.51 ns/iter  (755.42 ns … 778.8 ns)
+crc32 2kb          1.29 µs/iter      (1.29 µs … 1.3 µs)
+crc32 4kb          2.32 µs/iter     (2.31 µs … 2.35 µs)
+crc32 8kb          4.35 µs/iter     (4.34 µs … 4.38 µs)
+crc32 16kb         8.55 µs/iter     (8.53 µs … 8.68 µs)
+crc32 32kb        16.82 µs/iter  (16.63 µs … 135.58 µs)
+crc32 64kb        33.51 µs/iter  (33.17 µs … 472.08 µs)
+crc32 128kb        67.1 µs/iter   (66.5 µs … 264.58 µs)
+crc32 256kb      133.96 µs/iter (132.79 µs … 287.71 µs)
+crc32 512kb      267.21 µs/iter  (265.5 µs … 432.17 µs)
+crc32 1mb        534.95 µs/iter (531.42 µs … 664.38 µs)
+crc32 2mb          1.07 ms/iter      (1.06 ms … 1.2 ms)
+crc32 4mb          2.13 ms/iter     (2.13 ms … 2.27 ms)
+crc32 8mb          4.26 ms/iter     (4.25 ms … 4.33 ms)
+crc32 16mb         8.53 ms/iter      (8.5 ms … 8.74 ms)
+
+-------------------------------------------------------
+blake3 4b        678.76 ns/iter (669.65 ns … 687.73 ns)
+blake3 8b         664.7 ns/iter (659.86 ns … 687.62 ns)
+blake3 16b       673.28 ns/iter (665.59 ns … 723.49 ns)
+blake3 32b        686.2 ns/iter (667.05 ns … 845.61 ns)
+blake3 64b       694.99 ns/iter  (690.61 ns … 711.1 ns)
+blake3 128b      766.74 ns/iter    (762 ns … 785.42 ns)
+blake3 256b      915.65 ns/iter (909.65 ns … 927.89 ns)
+blake3 512b        1.19 µs/iter     (1.18 µs … 1.22 µs)
+blake3 1kb         1.78 µs/iter      (1.77 µs … 1.8 µs)
+blake3 2kb         2.98 µs/iter        (2.97 µs … 3 µs)
+blake3 4kb         5.41 µs/iter      (5.4 µs … 5.46 µs)
+blake3 8kb        10.31 µs/iter     (10 µs … 185.08 µs)
+blake3 16kb       20.15 µs/iter  (19.67 µs … 157.71 µs)
+blake3 32kb       40.02 µs/iter  (39.04 µs … 271.88 µs)
+blake3 64kb       79.49 µs/iter  (78.13 µs … 105.46 µs)
+blake3 128kb     158.78 µs/iter (156.29 µs … 393.75 µs)
+blake3 256kb     317.18 µs/iter (312.33 µs … 333.67 µs)
+blake3 512kb     634.47 µs/iter (626.04 µs … 787.17 µs)
+blake3 1mb         1.27 ms/iter     (1.26 ms … 1.32 ms)
+blake3 2mb         2.54 ms/iter     (2.52 ms … 2.72 ms)
+blake3 4mb         5.08 ms/iter     (5.05 ms … 5.28 ms)
+blake3 8mb        10.15 ms/iter   (10.11 ms … 10.32 ms)
+blake3 16mb       20.32 ms/iter   (20.23 ms … 20.63 ms)
+
+-------------------------------------------------------
+xxhash64 4b      473.83 ns/iter (464.23 ns … 490.91 ns)
+xxhash64 8b      469.33 ns/iter (465.82 ns … 485.71 ns)
+xxhash64 16b     479.53 ns/iter (475.25 ns … 495.29 ns)
+xxhash64 32b     478.37 ns/iter (473.35 ns … 498.68 ns)
+xxhash64 64b     473.78 ns/iter  (469.45 ns … 491.3 ns)
+xxhash64 128b    484.33 ns/iter (480.48 ns … 503.56 ns)
+xxhash64 256b    493.03 ns/iter  (483.63 ns … 509.6 ns)
+xxhash64 512b    507.25 ns/iter (500.22 ns … 527.92 ns)
+xxhash64 1kb     545.63 ns/iter (541.63 ns … 563.54 ns)
+xxhash64 2kb      624.4 ns/iter (620.25 ns … 648.89 ns)
+xxhash64 4kb     797.19 ns/iter (792.42 ns … 818.91 ns)
+xxhash64 8kb       1.13 µs/iter     (1.12 µs … 1.15 µs)
+xxhash64 16kb      1.82 µs/iter      (1.8 µs … 1.85 µs)
+xxhash64 32kb      3.25 µs/iter     (3.25 µs … 3.27 µs)
+xxhash64 64kb      6.19 µs/iter     (6.17 µs … 6.21 µs)
+xxhash64 128kb     12.5 µs/iter  (12.29 µs … 130.71 µs)
+xxhash64 256kb    24.61 µs/iter  (24.33 µs … 170.79 µs)
+xxhash64 512kb    48.75 µs/iter  (48.25 µs … 161.88 µs)
+xxhash64 1mb      97.87 µs/iter  (96.58 µs … 278.17 µs)
+xxhash64 2mb     196.77 µs/iter (194.38 µs … 353.25 µs)
+xxhash64 4mb     389.87 µs/iter  (386.5 µs … 530.79 µs)
+xxhash64 8mb     774.94 µs/iter  (770.5 µs … 891.71 µs)
+xxhash64 16mb      1.55 ms/iter     (1.54 ms … 1.66 ms)
+
+-------------------------------------------------------
+xxhash128 4b     563.29 ns/iter  (553.9 ns … 578.23 ns)
+xxhash128 8b     556.78 ns/iter (552.84 ns … 571.31 ns)
+xxhash128 16b    560.55 ns/iter (555.56 ns … 582.58 ns)
+xxhash128 32b    559.43 ns/iter (555.24 ns … 577.71 ns)
+xxhash128 64b    566.92 ns/iter (562.59 ns … 590.42 ns)
+xxhash128 128b   585.79 ns/iter  (580.5 ns … 617.15 ns)
+xxhash128 256b   609.51 ns/iter (603.52 ns … 623.96 ns)
+xxhash128 512b   635.95 ns/iter  (629.7 ns … 676.95 ns)
+xxhash128 1kb    685.61 ns/iter (679.19 ns … 705.43 ns)
+xxhash128 2kb    787.28 ns/iter (781.85 ns … 807.86 ns)
+xxhash128 4kb    998.26 ns/iter   (991.25 ns … 1.03 µs)
+xxhash128 8kb      1.41 µs/iter      (1.4 µs … 1.43 µs)
+xxhash128 16kb     2.25 µs/iter     (2.23 µs … 2.27 µs)
+xxhash128 32kb     4.02 µs/iter     (3.98 µs … 4.08 µs)
+xxhash128 64kb     7.62 µs/iter      (7.54 µs … 7.7 µs)
+xxhash128 128kb   15.06 µs/iter  (14.75 µs … 143.25 µs)
+xxhash128 256kb   29.98 µs/iter  (29.67 µs … 170.46 µs)
+xxhash128 512kb   58.83 µs/iter  (57.67 µs … 186.79 µs)
+xxhash128 1mb    116.27 µs/iter (115.08 µs … 249.46 µs)
+xxhash128 2mb    236.29 µs/iter  (231.08 µs … 363.5 µs)
+xxhash128 4mb     473.1 µs/iter (469.58 µs … 581.42 µs)
+xxhash128 8mb     930.4 µs/iter   (917.54 µs … 1.05 ms)
+xxhash128 16mb     1.84 ms/iter     (1.83 ms … 1.97 ms)
+
+-------------------------------------------------------
+sha3-256 4b      854.87 ns/iter   (847.5 ns … 873.9 ns)
+sha3-256 8b      853.86 ns/iter (847.17 ns … 879.77 ns)
+sha3-256 16b      855.1 ns/iter (849.62 ns … 869.04 ns)
+sha3-256 32b     850.92 ns/iter (844.03 ns … 871.43 ns)
+sha3-256 64b     849.25 ns/iter  (840.78 ns … 877.4 ns)
+sha3-256 128b    858.36 ns/iter (851.17 ns … 881.84 ns)
+sha3-256 256b      1.08 µs/iter     (1.07 µs … 1.11 µs)
+sha3-256 512b      1.55 µs/iter     (1.54 µs … 1.57 µs)
+sha3-256 1kb       2.44 µs/iter      (2.4 µs … 2.46 µs)
+sha3-256 2kb       4.21 µs/iter     (4.19 µs … 4.22 µs)
+sha3-256 4kb       7.41 µs/iter     (7.36 µs … 7.52 µs)
+sha3-256 8kb      13.95 µs/iter  (13.63 µs … 758.83 µs)
+sha3-256 16kb        27 µs/iter  (26.63 µs … 287.54 µs)
+sha3-256 32kb     53.25 µs/iter  (52.63 µs … 320.38 µs)
+sha3-256 64kb    105.76 µs/iter    (105 µs … 123.46 µs)
+sha3-256 128kb   211.38 µs/iter    (210 µs … 396.63 µs)
+sha3-256 256kb   421.52 µs/iter  (419.5 µs … 447.33 µs)
+sha3-256 512kb   842.57 µs/iter (838.29 µs … 929.54 µs)
+sha3-256 1mb       1.69 ms/iter     (1.68 ms … 1.74 ms)
+sha3-256 2mb       3.37 ms/iter     (3.36 ms … 3.56 ms)
+sha3-256 4mb       6.75 ms/iter     (6.71 ms … 6.99 ms)
+sha3-256 8mb      13.48 ms/iter   (13.42 ms … 13.66 ms)
+sha3-256 16mb     26.96 ms/iter    (26.87 ms … 27.2 ms)
+
+-------------------------------------------------------
+sha3-512 4b        1.22 µs/iter     (1.21 µs … 1.25 µs)
+sha3-512 8b        1.21 µs/iter      (1.2 µs … 1.24 µs)
+sha3-512 16b       1.24 µs/iter     (1.23 µs … 1.25 µs)
+sha3-512 32b       1.23 µs/iter     (1.23 µs … 1.25 µs)
+sha3-512 64b       1.22 µs/iter     (1.21 µs … 1.25 µs)
+sha3-512 128b      1.43 µs/iter     (1.41 µs … 1.46 µs)
+sha3-512 256b      1.91 µs/iter     (1.88 µs … 1.94 µs)
+sha3-512 512b      2.75 µs/iter     (2.73 µs … 2.77 µs)
+sha3-512 1kb       4.25 µs/iter     (4.24 µs … 4.27 µs)
+sha3-512 2kb       7.24 µs/iter     (7.22 µs … 7.26 µs)
+sha3-512 4kb       13.4 µs/iter     (13 µs … 292.79 µs)
+sha3-512 8kb      25.84 µs/iter  (25.17 µs … 291.46 µs)
+sha3-512 16kb     49.97 µs/iter   (49.5 µs … 339.17 µs)
+sha3-512 32kb    100.65 µs/iter  (98.17 µs … 404.96 µs)
+sha3-512 64kb     197.9 µs/iter (195.33 µs … 255.83 µs)
+sha3-512 128kb   392.27 µs/iter (390.29 µs … 436.92 µs)
+sha3-512 256kb   783.53 µs/iter (779.42 µs … 876.79 µs)
+sha3-512 512kb     1.56 ms/iter     (1.56 ms … 1.65 ms)
+sha3-512 1mb       3.19 ms/iter      (3.12 ms … 3.4 ms)
+sha3-512 2mb       6.34 ms/iter     (6.25 ms … 6.51 ms)
+sha3-512 4mb      12.54 ms/iter   (12.51 ms … 12.72 ms)
+sha3-512 8mb      25.56 ms/iter   (25.51 ms … 25.74 ms)
+sha3-512 16mb     51.11 ms/iter   (51.02 ms … 51.31 ms)
 ```

@@ -30,13 +30,13 @@ pub fn seahash(buf: []const u8, aa: u64, bb: u64, cc: u64, dd: u64) u64 {
   {
     var offset: usize = 0;
 
-    while (offset < aligned) {
-      a ^= std.mem.readIntSliceLittle(u64, buf[offset..]);
-      b ^= std.mem.readIntSliceLittle(u64, buf[8 + offset..]);
-      c ^= std.mem.readIntSliceLittle(u64, buf[16 + offset..]);
-      d ^= std.mem.readIntSliceLittle(u64, buf[24 + offset..]);
+    while (offset < aligned) : (offset += 32) {
+      const bf = buf[offset..][0..32];
+      a ^= std.mem.readIntSliceLittle(u64, bf[0..8]);
+      b ^= std.mem.readIntSliceLittle(u64, bf[8..16]);
+      c ^= std.mem.readIntSliceLittle(u64, bf[16..24]);
+      d ^= std.mem.readIntSliceLittle(u64, bf[24..32]);
 
-      offset += 32;
       a = diffuse(a);
       b = diffuse(b);
       c = diffuse(c);
@@ -45,13 +45,14 @@ pub fn seahash(buf: []const u8, aa: u64, bb: u64, cc: u64, dd: u64) u64 {
   }
 
   {
+    const bf = buf[aligned..];
     const l = buf.len - aligned;
 
     if (l != 0) {
-      a = diffuse(a ^ read_varint(buf[aligned..]));
-      if (l > 8) b = diffuse(b ^ read_varint(buf[8 + aligned..]));
-      if (l > 16) c = diffuse(c ^ read_varint(buf[16 + aligned..]));
-      if (l > 24) d = diffuse(d ^ read_varint(buf[24 + aligned..]));
+      a = diffuse(a ^ read_varint(bf[0..]));
+      if (l > 8) b = diffuse(b ^ read_varint(bf[8..]));
+      if (l > 16) c = diffuse(c ^ read_varint(bf[16..]));
+      if (l > 24) d = diffuse(d ^ read_varint(bf[24..]));
     }
   }
 
@@ -59,7 +60,7 @@ pub fn seahash(buf: []const u8, aa: u64, bb: u64, cc: u64, dd: u64) u64 {
   c ^= d;
   a ^= c;
   a ^= buf.len;
-  return diffuse(a);  
+  return diffuse(a);
 }
 
 export fn hash(ptr: [*]u8, len: usize, a: u64, b: u64, c: u64, d: u64) void {
